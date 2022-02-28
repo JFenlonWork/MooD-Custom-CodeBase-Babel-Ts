@@ -2,16 +2,6 @@
 
 ## Table of contents
 
-### Variables
+### Classes
 
-- [lolol](../wiki/Vector2#lolol)
-
-## Variables
-
-### lolol
-
-• `Const` **lolol**: ``1``
-
-#### Defined in
-
-Vector2.ts:12
+- [Vector2](../wiki/Vector2.Vector2)
