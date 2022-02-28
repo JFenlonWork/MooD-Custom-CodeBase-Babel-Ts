@@ -8,6 +8,7 @@
     "build": "babel Code/src --extensions '.ts' -d Code/js",
     "compile": "babel Code/src --extensions '.ts' -d Code/combined.js",
     "document": "typedoc && copyfiles -u 1 Wiki_Resources/* MooD-Custom-CodeBase-Babel-Ts.wiki/",
+    "clearWiki": "rimraf MooD-Custom-CodeBase-Babel-Ts.wiki/* ",
     "check-types": "tsc"
   },
   "keywords": [],
@@ -20,6 +21,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2",
     "typedoc": "^0.22.12",
     "typedoc-github-wiki-theme": "^1.0.0",
     "typedoc-plugin-markdown": "^3.11.14",
