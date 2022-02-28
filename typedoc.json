@@ -4,6 +4,6 @@
     "entryPointStrategy": "expand",
     "darkHighlightTheme": "dark-plus",
     "theme": "github-wiki",
-    "out": "MooD-Custom-CodeBase-Babel-Ts.wiki/",
+    "out": "Wiki_Resources",
     "name": "Custom MooD Codebase"
 }

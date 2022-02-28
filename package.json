@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel Code/src --extensions '.ts' -d Code/js",
     "compile": "babel Code/src --extensions '.ts' -d Code/combined.js",
-    "document": "typedoc",
+    "document": "typedoc && copyfiles -u 1 Wiki_Resources/* MooD-Custom-CodeBase-Babel-Ts.wiki/",
     "check-types": "tsc"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
     "@babel/preset-typescript": "^7.16.7",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "copyfiles": "^2.4.1",
     "typedoc": "^0.22.12",
     "typedoc-github-wiki-theme": "^1.0.0",
     "typedoc-plugin-markdown": "^3.11.14",
