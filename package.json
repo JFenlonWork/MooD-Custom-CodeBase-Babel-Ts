@@ -1,0 +1,27 @@
+{
+  "name": "MooD-Custom-CodeBase-Babel",
+  "version": "1.0.0",
+  "description": "Babel version of custom codebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel Code/src --extensions '.ts' -d Code/js",
+    "compile": "babel Code/src --extensions '.ts' -d Code/combined.js",
+    "document": "typedoc",
+    "check-types": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
+    "@babel/preset-typescript": "^7.16.7",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "typedoc": "^0.22.12",
+    "typedoc-github-wiki-theme": "^1.0.0",
+    "typedoc-plugin-markdown": "^3.11.14",
+    "typescript": "^4.5.5"
+  }
+}
