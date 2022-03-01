@@ -1,5 +1,4 @@
 /** Class representing a Vector2 which hold two floats.
- * @typedef {Vector2} vector2
  */
 export class Vector2 {
 
@@ -12,7 +11,9 @@ export class Vector2 {
 	 * @param  {number} y - The y value to set
 	 */
 	constructor(x: number, y: number) {
+		if (x == null) { console.error("Error trying to set a Vector's x value using a NaN"); x = NaN }	
 		this.x = x;
+		if (y == null) { console.error("Error trying to set a Vector's y value using a NaN"); y = NaN }
 		this.y = y;
 	}
 
@@ -68,8 +69,7 @@ export class Vector2 {
 	setVector2(_vector: Vector2): Vector2 | null {
 		if (_vector == null) { console.error("Error trying to set a Vector2's values using a null Vector2"); _vector = new Vector2(NaN,NaN); }	
 
-		this.x = _vector.x;
-		this.y = _vector.y;
+		this.set(_vector.x, _vector.y);
 		return this;
 	}
 
@@ -98,8 +98,7 @@ export class Vector2 {
 	 */
 	Add(_vector: Vector2): Vector2 {
 		if (_vector == null) { console.error("Error trying to add from a vector using a null Vector2"); return new Vector2(NaN,NaN); }	
-		this.x += _vector.x;
-		this.y += _vector.y;
+		this.set(this.x + _vector.x, this.y + _vector.y);
 
 		return this;
 	}
