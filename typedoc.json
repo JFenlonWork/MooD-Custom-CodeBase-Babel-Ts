@@ -5,5 +5,6 @@
     "darkHighlightTheme": "dark-plus",
     "theme": "github-wiki",
     "out": "Wiki_Resources",
-    "name": "Custom MooD Codebase"
+    "name": "Custom MooD Codebase",
+    "plugin": ["typedoc-plugin-merge-modules", "typedoc-github-wiki-theme", "typedoc-plugin-markdown"]
 }
