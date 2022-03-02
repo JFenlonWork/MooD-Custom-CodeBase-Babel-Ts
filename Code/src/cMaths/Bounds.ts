@@ -255,9 +255,26 @@ import { Vector4 } from "./Vector4";
     /**
 	 * Create a bounds from a set of HTML DOMs
 	 * @param  {object} _objects - An array of DOMs to use to create a Bounds
-	 * @param  {boolean} _objects - An array of DOMs to use to create a Bounds
-	 * @param  {object[]} _objects - An array of DOMs to use to create a Bounds
+	 * @param  {object} _relative - Determines if the Bounds should be created in relation to another object
+	 * @param  {string[]} _includeChildren - An array of strings that are used to include children DOMs of the _objects
 	 * @returns {Bounds | null}
 	 */
+	fromObject(_object: object[], _relative: object = document, _includeChildren?: string[]): Bounds {
+		if (_object == null) {console.error("Error trying to generate bounds fromObject with invalid object: ", _object); return new Bounds(NaN,NaN,NaN,NaN)}
+
+		let _objectBound: object = {
+			left: NaN,
+			top: NaN,
+			right: NaN,
+			bottom: NaN
+		}
+
+		let _objectJQuery = $(_object);
+
+		if (_objectJQuery.attr("type") !== "hidden" && _objectJQuery.attr("display") !== "hidden") {
+			let position 
+		}
+
+	}
 
  }
