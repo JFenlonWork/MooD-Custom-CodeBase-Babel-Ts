@@ -16,6 +16,7 @@
 		"esModuleInterop": true
 	},
 	"include": [
-		"Code/src"
+		"Code/src",
+		"Definitions/"
 	]
 }

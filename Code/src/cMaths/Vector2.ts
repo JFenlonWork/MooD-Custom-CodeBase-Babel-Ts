@@ -17,6 +17,30 @@ export class Vector2 {
 	}
 
 	/**
+	 * Create a Vector2 filled with NaN
+	 * @returns {Vector2}
+	 */
+	static NaN(): Vector2 {
+		return new Vector2(NaN, NaN);
+	}
+
+	/**
+	 * Create a Vector2 filled with 0
+	 * @returns {Vector2}
+	 */
+	static Zero(): Vector2 {
+		return new Vector2(0, 0);
+	}
+
+	/**
+	 * Create a Vector2 filled with 1
+	 * @returns {Vector2}
+	 */
+	static One(): Vector2 {
+		return new Vector2(1, 1);
+	}
+
+	/**
 	 * Returns if an object is the same as this Vector2
 	 * @param  {object} o
 	 * @returns {boolean}
@@ -24,6 +48,42 @@ export class Vector2 {
 	equals(o: object): boolean {
 		if (!(o instanceof Vector2)) return false;
 		return (this.x == o.x && this.y == o.y);
+	}
+
+	/**
+	 * Returns if this Vector2 is all NaN
+	 * @returns {boolean}
+	 */
+	isNaN(): boolean {
+		return (this.x == NaN && this.y == NaN);
+	}
+
+	/**
+	 * Returns if this Vector2 has a NaN value
+	 * @returns {boolean}
+	 */
+    hasNaN(): boolean {
+		return (this.x == NaN || this.y ==  NaN);
+	}
+
+	/**
+	 * Returns if a Vector2 is all NaN
+	 * @param  {object} o
+	 * @returns {boolean}
+	 */
+	static isNaN(o: object): boolean {
+		if (!(o instanceof Vector2)) return false;
+		return (o.x == NaN && o.y == NaN);
+	}
+
+	/**
+	 * Returns if a Vector2 has a NaN value
+	 * @param  {object} o
+	 * @returns {boolean}
+	 */
+     static hasNaN(o: object): boolean {
+		if (!(o instanceof Vector2)) return false;
+		return (o.x == NaN || o.y ==  NaN);
 	}
 
 	/**
@@ -44,7 +104,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	setX(x: number): Vector2 {
-		if (typeof(x) != "number" || isNaN(x)) { console.error("Error trying to set a Vector2's x value using an invalid input: ", {x}); x = NaN }	
+		if (typeof(x) != "number") { console.error("Error trying to set a Vector2's x value using an invalid input: ", x); x = NaN }	
 		this.x = x;
 		return this;
 	}
@@ -55,7 +115,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	setY(y: number): Vector2 {
-		if (typeof(y) != "number" || isNaN(y)) { console.error("Error trying to set a Vector2's y value using an invalid input: ", {y}); y = NaN }	
+		if (typeof(y) != "number") { console.error("Error trying to set a Vector2's y value using an invalid input: ", y); y = NaN }	
 		this.y = y;
 		return this;
 	}
@@ -66,7 +126,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	setVector2(_vector: Vector2): Vector2 | null {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to set a Vector2's values using an invalid Vector2: ", {_vector}); _vector = new Vector2(NaN,NaN); }	
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to set a Vector2's values using an invalid Vector2: ", _vector); _vector = new Vector2(NaN,NaN); }	
 
 		this.set(_vector.x, _vector.y);
 		return this;
@@ -86,7 +146,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	add(_vector: Vector2): Vector2 {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to add from a vector using an invalid Vector2: ", {_vector}); return new Vector2(NaN,NaN); }	
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to add from a vector using an invalid Vector2: ", _vector); return new Vector2(NaN,NaN); }	
 		return new Vector2(this.x + _vector.x, this.y + _vector.y);	
 	}
 
@@ -96,7 +156,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	Add(_vector: Vector2): Vector2 {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to add from a vector using an invalid Vector2: ", {_vector}); return new Vector2(NaN,NaN); }	
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to add from a vector using an invalid Vector2: ", _vector); return new Vector2(NaN,NaN); }	
 		this.set(this.x + _vector.x, this.y + _vector.y);
 
 		return this;
@@ -108,7 +168,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	subtract(_vector: Vector2): Vector2 {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to subtract from a vector using an invalid Vector2: ", {_vector}); return new Vector2(NaN,NaN); }	
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to subtract from a vector using an invalid Vector2: ", _vector); return new Vector2(NaN,NaN); }	
 		return new Vector2(this.x - _vector.x, this.y - _vector.y);	
 	}
 
@@ -118,7 +178,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	Subtract(_vector: Vector2): Vector2 {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to subtract from a vector using an invalid Vector2: ", {_vector}); return new Vector2(NaN,NaN); }	
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to subtract from a vector using an invalid Vector2: ", _vector); return new Vector2(NaN,NaN); }	
 		this.x -= _vector.x;
 		this.y -= _vector.y;
 
@@ -131,7 +191,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	scale(_scalar: number): Vector2 {
-		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate scaled vector using an invalid scaler: ", {_scalar}); _scalar = NaN }	
+		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate scaled vector using an invalid scaler: ", _scalar); _scalar = NaN }	
 		return new Vector2(this.x * _scalar, this.y * _scalar);
 	}
 
@@ -141,7 +201,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	Scale(_scalar: number): Vector2 {
-		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate scaled vector using an invalid scaler: ", {_scalar}); _scalar = NaN }	
+		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate scaled vector using an invalid scaler: ", _scalar); _scalar = NaN }	
 		this.x *= _scalar;
 		this.y *= _scalar;
 
@@ -154,7 +214,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	dot(_vector: Vector2): Vector2 {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate dot product using an invalid Vector2: ", {_vector}); return new Vector2(NaN,NaN); }	
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate dot product using an invalid Vector2: ", _vector); return new Vector2(NaN,NaN); }	
 		return new Vector2(this.x * _vector.x, this.y * _vector.y);
 	}
 
@@ -164,7 +224,7 @@ export class Vector2 {
 	 * @returns {Vector2}
 	 */
 	Dot(_vector: Vector2): Vector2 {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate dot product using an invalid Vector2: ", {_vector}); _vector = new Vector2(NaN,NaN); }	
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate dot product using an invalid Vector2: ", _vector); _vector = new Vector2(NaN,NaN); }	
 		this.x *= _vector.x;
 		this.y *= _vector.y;
 
@@ -177,7 +237,7 @@ export class Vector2 {
 	 * @returns {number}
 	 */
 	distance(_vector: Vector2): number {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate distance using an invalid Vector2: ", {_vector}); return NaN; }	
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate distance using an invalid Vector2: ", _vector); return NaN; }	
 		return Math.sqrt(this.distanceSqr(_vector));
 	}
 
@@ -187,7 +247,7 @@ export class Vector2 {
 	 * @returns {number}
 	 */
 	distanceSqr(_vector: Vector2): number {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate distance squared using an invalid Vector2: ", {_vector}); return NaN; }		
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate distance squared using an invalid Vector2: ", _vector); return NaN; }		
 		return Math.pow(this.x - _vector.x, 2) + Math.pow(this.y - _vector.y, 2);
 	}
 }
