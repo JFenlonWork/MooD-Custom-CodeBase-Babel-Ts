@@ -56,7 +56,7 @@ export class Vector3 extends Vector2 {
 	 * Returns if this Vector3 is all NaN
 	 * @returns {boolean}
 	 */
-	isNaN(): boolean {
+	IsNaN(): boolean {
 		return (this.x == NaN && this.y == NaN && this.z == NaN);
 	}
 
@@ -64,7 +64,7 @@ export class Vector3 extends Vector2 {
 	 * Returns if this Vector3 has a NaN value
 	 * @returns {boolean}
 	 */
-    hasNaN(): boolean {
+    HasNaN(): boolean {
 		return (this.x == NaN || this.y ==  NaN || this.z ==  NaN);
 	}
 

@@ -97,7 +97,7 @@ import { Vector4 } from "./Vector4";
 	 * Returns if this Bounds is all NaN
 	 * @returns {boolean}
 	 */
-	isNaN(): boolean {
+	IsNaN(): boolean {
 		return (this.x1 == NaN && this.y1 == NaN && this.x2 == NaN && this.y2 == NaN);
 	}
 
@@ -105,7 +105,7 @@ import { Vector4 } from "./Vector4";
 	 * Returns if this Bounds has a NaN value
 	 * @returns {boolean}
 	 */
-    hasNaN(): boolean {
+    HasNaN(): boolean {
 		return (this.x1 == NaN || this.y1 ==  NaN || this.x2 ==  NaN || this.y2 ==  NaN);
 	}
 

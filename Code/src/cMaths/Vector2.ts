@@ -54,7 +54,7 @@ export class Vector2 {
 	 * Returns if this Vector2 is all NaN
 	 * @returns {boolean}
 	 */
-	isNaN(): boolean {
+	IsNaN(): boolean {
 		return (this.x == NaN && this.y == NaN);
 	}
 
@@ -62,7 +62,7 @@ export class Vector2 {
 	 * Returns if this Vector2 has a NaN value
 	 * @returns {boolean}
 	 */
-    hasNaN(): boolean {
+    HasNaN(): boolean {
 		return (this.x == NaN || this.y ==  NaN);
 	}
 

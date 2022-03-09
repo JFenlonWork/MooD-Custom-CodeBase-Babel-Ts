@@ -39,4 +39,4 @@ Class representing all generic based functions needed for math calculations.
 
 #### Defined in
 
-Generic.ts:5
+[Generic.ts:5](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Generic.ts#L5)

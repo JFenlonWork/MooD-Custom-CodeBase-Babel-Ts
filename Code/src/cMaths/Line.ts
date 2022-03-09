@@ -57,7 +57,7 @@ import { Vector4 } from "./Vector4";
 	 * Returns if this Line is all NaN
 	 * @returns {boolean}
 	 */
-     isNaN(): boolean {
+    IsNaN(): boolean {
 		return (this.x1 == NaN && this.y1 == NaN && this.x2 == NaN && this.y2 == NaN);
 	}
 
@@ -65,7 +65,7 @@ import { Vector4 } from "./Vector4";
 	 * Returns if this Line has a NaN value
 	 * @returns {boolean}
 	 */
-    hasNaN(): boolean {
+    HasNaN(): boolean {
 		return (this.x1 == NaN || this.y1 ==  NaN || this.x2 ==  NaN || this.y2 ==  NaN);
 	}
 
@@ -221,7 +221,7 @@ import { Vector4 } from "./Vector4";
             (_line1.y1 - _line1.y2) * (_line2.x1 * _line2.y2 - _line2.y1 * _line2.x2));
         lineIntersect.y /= div;
 
-        if (lineIntersect.hasNaN()) return new Vector2(NaN, NaN);
+        if (lineIntersect.HasNaN()) return new Vector2(NaN, NaN);
         return lineIntersect;
     }
     
@@ -234,7 +234,7 @@ import { Vector4 } from "./Vector4";
     static lineIntersectionWithin(_line1: Line, _line2: Line): Vector2 {
         let intersection = this.lineIntersection(_line1, _line2);
 
-        if (intersection.hasNaN()) return new Vector2(NaN, NaN);
+        if (intersection.HasNaN()) return new Vector2(NaN, NaN);
 
         //check if line interception is within line 1 x
         if (_line1.x1 >= _line1.x2) {
