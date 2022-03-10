@@ -20,6 +20,56 @@ var TestExport;
 
   /******/
 
+  /* webpack/runtime/define property getters */
+
+  /******/
+
+  !function () {
+    /******/
+    // define getter functions for harmony exports
+
+    /******/
+    __webpack_require__.d = function (exports, definition) {
+      /******/
+      for (var key in definition) {
+        /******/
+        if (__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+          /******/
+          Object.defineProperty(exports, key, {
+            enumerable: true,
+            get: definition[key]
+          });
+          /******/
+        }
+        /******/
+
+      }
+      /******/
+
+    };
+    /******/
+
+  }();
+  /******/
+
+  /******/
+
+  /* webpack/runtime/hasOwnProperty shorthand */
+
+  /******/
+
+  !function () {
+    /******/
+    __webpack_require__.o = function (obj, prop) {
+      return Object.prototype.hasOwnProperty.call(obj, prop);
+    };
+    /******/
+
+  }();
+  /******/
+
+  /******/
+
   /* webpack/runtime/make namespace object */
 
   /******/
@@ -55,7 +105,53 @@ var TestExport;
 
   var __webpack_exports__ = {}; // ESM COMPAT FLAG
 
-  __webpack_require__.r(__webpack_exports__);
+  __webpack_require__.r(__webpack_exports__); // EXPORTS
+
+
+  __webpack_require__.d(__webpack_exports__, {
+    "Bounds": function Bounds() {
+      return (
+        /* reexport */
+        _Bounds
+      );
+    },
+    "Collision": function Collision() {
+      return (
+        /* reexport */
+        _Collision
+      );
+    },
+    "Line": function Line() {
+      return (
+        /* reexport */
+        _Line
+      );
+    },
+    "Positioning": function Positioning() {
+      return (
+        /* reexport */
+        _Positioning
+      );
+    },
+    "Vector2": function Vector2() {
+      return (
+        /* reexport */
+        _Vector2
+      );
+    },
+    "Vector3": function Vector3() {
+      return (
+        /* reexport */
+        _Vector3
+      );
+    },
+    "Vector4": function Vector4() {
+      return (
+        /* reexport */
+        _Vector4
+      );
+    }
+  });
 
   ; // CONCATENATED MODULE: ./Code/src/cMaths/Vector2.ts
 
@@ -102,7 +198,7 @@ var TestExport;
    */
 
 
-  var Vector2 = /*#__PURE__*/function () {
+  var _Vector2 = /*#__PURE__*/function () {
     /**
      * Create a Vector2
      * @param  {number} x - The x value to set
@@ -642,7 +738,7 @@ var TestExport;
    */
 
 
-  var Vector3 = /*#__PURE__*/function (_Vector) {
+  var _Vector3 = /*#__PURE__*/function (_Vector) {
     _inherits(Vector3, _Vector);
 
     var _super = _createSuper(Vector3);
@@ -718,7 +814,7 @@ var TestExport;
        * @returns {Vector2}
        */
       function vector2() {
-        return new Vector2(this.x, this.y);
+        return new _Vector2(this.x, this.y);
       }
       /**
        * Set this Vector3's x,y and z value to be the parameter's value and apply the values to this Vector3
@@ -1009,7 +1105,7 @@ var TestExport;
       }
     }]);
     return Vector3;
-  }(Vector2);
+  }(_Vector2);
 
   ; // CONCATENATED MODULE: ./Code/src/cMaths/Vector4.ts
 
@@ -1177,7 +1273,7 @@ var TestExport;
    */
 
 
-  var Vector4 = /*#__PURE__*/function (_Vector) {
+  var _Vector4 = /*#__PURE__*/function (_Vector) {
     Vector4_inherits(Vector4, _Vector);
 
     var _super = Vector4_createSuper(Vector4);
@@ -1254,7 +1350,7 @@ var TestExport;
        * @returns {Vector3}
        */
       function vector3() {
-        return new Vector3(this.x, this.y, this.z);
+        return new _Vector3(this.x, this.y, this.z);
       }
       /**
        * Set this Vector4's x value to be the parameter's value and apply the values to this Vector4
@@ -1298,7 +1394,7 @@ var TestExport;
     }, {
       key: "setVector4",
       value: function setVector4(_vector) {
-        if (!(_vector instanceof Vector3)) {
+        if (!(_vector instanceof _Vector3)) {
           console.error("Error trying to set a Vector4's values using an invalid Vector4: ", _vector);
           _vector = new Vector4(NaN, NaN, NaN, NaN);
         }
@@ -1325,7 +1421,7 @@ var TestExport;
     }, {
       key: "add",
       value: function add(_vector) {
-        if (!(_vector instanceof Vector3)) {
+        if (!(_vector instanceof _Vector3)) {
           console.error("Error trying to add to a vector using an invalid Vector4: ", _vector);
           return new Vector4(NaN, NaN, NaN, NaN);
         }
@@ -1341,7 +1437,7 @@ var TestExport;
     }, {
       key: "Add",
       value: function Add(_vector) {
-        if (!(_vector instanceof Vector3)) {
+        if (!(_vector instanceof _Vector3)) {
           console.error("Error trying to add to a vector using an invalid Vector4: ", _vector);
           return new Vector4(NaN, NaN, NaN, NaN);
         }
@@ -1358,7 +1454,7 @@ var TestExport;
     }, {
       key: "subtract",
       value: function subtract(_vector) {
-        if (!(_vector instanceof Vector3)) {
+        if (!(_vector instanceof _Vector3)) {
           console.error("Error trying to subtract from a vector using an invalid Vector4: ", _vector);
           return new Vector4(NaN, NaN, NaN, NaN);
         }
@@ -1374,7 +1470,7 @@ var TestExport;
     }, {
       key: "Subtract",
       value: function Subtract(_vector) {
-        if (!(_vector instanceof Vector3)) {
+        if (!(_vector instanceof _Vector3)) {
           console.error("Error trying to subtract from a vector using an invalid Vector3: ", _vector);
           return new Vector4(NaN, NaN, NaN, NaN);
         }
@@ -1424,7 +1520,7 @@ var TestExport;
     }, {
       key: "dot",
       value: function dot(_vector) {
-        if (!(_vector instanceof Vector3)) {
+        if (!(_vector instanceof _Vector3)) {
           console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector);
           return new Vector4(NaN, NaN, NaN, NaN);
         }
@@ -1440,7 +1536,7 @@ var TestExport;
     }, {
       key: "Dot",
       value: function Dot(_vector) {
-        if (!(_vector instanceof Vector3)) {
+        if (!(_vector instanceof _Vector3)) {
           console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector);
           _vector = new Vector4(NaN, NaN, NaN, NaN);
         }
@@ -1513,7 +1609,7 @@ var TestExport;
       }
     }]);
     return Vector4;
-  }(Vector3);
+  }(_Vector3);
 
   ; // CONCATENATED MODULE: ./Code/src/cMaths/Positioning.ts
 
@@ -1545,7 +1641,7 @@ var TestExport;
    */
 
 
-  var Positioning = /*#__PURE__*/function () {
+  var _Positioning = /*#__PURE__*/function () {
     function Positioning() {
       Positioning_classCallCheck(this, Positioning);
     }
@@ -1560,7 +1656,7 @@ var TestExport;
       function getPageViewportOffsetFromPage() {
         var body = document.body;
         var docEl = document.documentElement;
-        return new Vector2((window.pageXOffset || docEl.scrollLeft || body.scrollLeft) - (docEl.clientLeft || body.clientLeft || 0), (window.pageYOffset || docEl.scrollTop || body.scrollTop) - (docEl.clientTop || body.clientTop || 0));
+        return new _Vector2((window.pageXOffset || docEl.scrollLeft || body.scrollLeft) - (docEl.clientLeft || body.clientLeft || 0), (window.pageYOffset || docEl.scrollTop || body.scrollTop) - (docEl.clientTop || body.clientTop || 0));
       }
       /**
       * Apply viewport offset to a vector
@@ -1587,10 +1683,10 @@ var TestExport;
 
         if (_object == null) {
           console.error("Error trying to calculate coordinates with invalid object: ", _object);
-          return new Vector2(NaN, NaN);
+          return new _Vector2(NaN, NaN);
         }
 
-        var ret = new Vector2(NaN, NaN);
+        var ret = new _Vector2(NaN, NaN);
 
         if (_relativeTo == null) {
           var box = _object.getBoundingClientRect();
@@ -1718,7 +1814,7 @@ var TestExport;
    */
 
 
-  var Bounds = /*#__PURE__*/function () {
+  var _Bounds = /*#__PURE__*/function () {
     //** The minimum x and y point*/
     //** The maximum x and y point*/
     //** The maximum x and minimum y point*/
@@ -1747,11 +1843,11 @@ var TestExport;
       this.y1 = NaN;
       this.x2 = NaN;
       this.y2 = NaN;
-      this.topLeft = new Vector2(0, 0);
-      this.topRight = new Vector2(0, 0);
-      this.bottomRight = new Vector2(0, 0);
-      this.bottomLeft = new Vector2(0, 0);
-      this.size = new Vector2(0, 0);
+      this.topLeft = new _Vector2(0, 0);
+      this.topRight = new _Vector2(0, 0);
+      this.bottomRight = new _Vector2(0, 0);
+      this.bottomLeft = new _Vector2(0, 0);
+      this.size = new _Vector2(0, 0);
       this.set(x1, y1, x2, y2);
     }
     /**
@@ -2126,14 +2222,14 @@ var TestExport;
     }, {
       key: "fromVector2s",
       value: function fromVector2s(_pos1, _pos2) {
-        if (!(_pos1 instanceof Vector2)) {
+        if (!(_pos1 instanceof _Vector2)) {
           console.error("Error trying to generate bounds with invalid first Vector2: ", _pos1);
-          _pos1 = new Vector2(NaN, NaN);
+          _pos1 = new _Vector2(NaN, NaN);
         }
 
-        if (!(_pos2 instanceof Vector2)) {
+        if (!(_pos2 instanceof _Vector2)) {
           console.error("Error trying to generate bounds with invalid second Vector2: ", _pos2);
-          _pos2 = new Vector2(NaN, NaN);
+          _pos2 = new _Vector2(NaN, NaN);
         }
 
         return new Bounds(_pos1.x, _pos1.y, _pos2.x, _pos2.y);
@@ -2147,9 +2243,9 @@ var TestExport;
     }, {
       key: "fromVector4",
       value: function fromVector4(_vector) {
-        if (!(_vector instanceof Vector4)) {
+        if (!(_vector instanceof _Vector4)) {
           console.error("Error trying to generate bounds with invalid Vector4: ", _vector);
-          _vector = new Vector4(NaN, NaN, NaN, NaN);
+          _vector = new _Vector4(NaN, NaN, NaN, NaN);
         }
 
         return new Bounds(_vector.x, _vector.y, _vector.z, _vector.w);
@@ -2187,20 +2283,20 @@ var TestExport;
         if (_objectJQuery.attr("type") !== "hidden" && _objectJQuery.attr("display") !== "hidden") {
           var dom = _objectJQuery[0];
 
-          var _position = Positioning.getCoords(dom, _relative);
+          var _position = _Positioning.getCoords(dom, _relative);
 
           var _computedStyle = window.getComputedStyle(dom);
 
           var height = dom.clientHeight;
-          height += Positioning.translateCssSizes(dom, "marginTop", _computedStyle);
-          height += Positioning.translateCssSizes(dom, "marginBottom", _computedStyle);
-          height += Positioning.translateCssSizes(dom, "borderTopWidth", _computedStyle);
-          height += Positioning.translateCssSizes(dom, "borderBottomWidth", _computedStyle);
+          height += _Positioning.translateCssSizes(dom, "marginTop", _computedStyle);
+          height += _Positioning.translateCssSizes(dom, "marginBottom", _computedStyle);
+          height += _Positioning.translateCssSizes(dom, "borderTopWidth", _computedStyle);
+          height += _Positioning.translateCssSizes(dom, "borderBottomWidth", _computedStyle);
           var width = _objectJQuery[0].clientWidth;
-          width += Positioning.translateCssSizes(dom, "marginLeft", _computedStyle);
-          width += Positioning.translateCssSizes(dom, "marginRight", _computedStyle);
-          width += Positioning.translateCssSizes(dom, "borderLeftWidth", _computedStyle);
-          width += Positioning.translateCssSizes(dom, "borderRightWidth", _computedStyle);
+          width += _Positioning.translateCssSizes(dom, "marginLeft", _computedStyle);
+          width += _Positioning.translateCssSizes(dom, "marginRight", _computedStyle);
+          width += _Positioning.translateCssSizes(dom, "borderLeftWidth", _computedStyle);
+          width += _Positioning.translateCssSizes(dom, "borderRightWidth", _computedStyle);
           _objectBounds.left = _position.x;
           _objectBounds.top = _position.y;
           _objectBounds.right = _objectBounds.left + width;
@@ -2340,7 +2436,7 @@ var TestExport;
    */
 
 
-  var Line = /*#__PURE__*/function () {
+  var _Line = /*#__PURE__*/function () {
     /**
     * Create a Bounds
     * @param  {number} x1 - The first point x value to set
@@ -2590,14 +2686,14 @@ var TestExport;
     }, {
       key: "fromVector2s",
       value: function fromVector2s(_pos1, _pos2) {
-        if (!(_pos1 instanceof Vector2)) {
+        if (!(_pos1 instanceof _Vector2)) {
           console.error("Error trying to generate Line with invalid first Vector2: ", _pos1);
-          _pos1 = new Vector2(NaN, NaN);
+          _pos1 = new _Vector2(NaN, NaN);
         }
 
-        if (!(_pos2 instanceof Vector2)) {
+        if (!(_pos2 instanceof _Vector2)) {
           console.error("Error trying to generate Line with invalid second Vector2: ", _pos2);
-          _pos2 = new Vector2(NaN, NaN);
+          _pos2 = new _Vector2(NaN, NaN);
         }
 
         return new Line(_pos1.x, _pos1.y, _pos2.x, _pos2.y);
@@ -2611,9 +2707,9 @@ var TestExport;
     }, {
       key: "fromVector4",
       value: function fromVector4(_vector) {
-        if (!(_vector instanceof Vector4)) {
+        if (!(_vector instanceof _Vector4)) {
           console.error("Error trying to generate Line with invalid Vector4: ", _vector);
-          _vector = new Vector4(NaN, NaN, NaN, NaN);
+          _vector = new _Vector4(NaN, NaN, NaN, NaN);
         }
 
         return new Line(_vector.x, _vector.y, _vector.z, _vector.w);
@@ -2625,21 +2721,21 @@ var TestExport;
         //en.wikipedia.org/wiki/Line%E2%80%93line_intersection#Mathematics
         if (!(_line1 instanceof Line)) {
           console.error("Error trying to calculate line intersection with invalid Line1: ", _line1);
-          return new Vector2(NaN, NaN);
+          return new _Vector2(NaN, NaN);
         }
 
         if (!(_line2 instanceof Line)) {
           console.error("Error trying to calculate line intersection with invalid Line2: ", _line2);
-          return new Vector2(NaN, NaN);
+          return new _Vector2(NaN, NaN);
         }
 
-        var lineIntersect = new Vector2(NaN, NaN);
+        var lineIntersect = new _Vector2(NaN, NaN);
         var div = (_line1.x1 - _line1.x2) * (_line2.y1 - _line2.y2) - (_line1.y1 - _line1.y2) * (_line2.x1 - _line2.x2);
         lineIntersect.x = (_line1.x1 * _line1.y2 - _line1.y1 * _line1.x2) * (_line2.x1 - _line2.x2) - (_line1.x1 - _line1.x2) * (_line2.x1 * _line2.y2 - _line2.y1 * _line2.x2);
         lineIntersect.x /= div;
         lineIntersect.y = (_line1.x1 * _line1.y2 - _line1.y1 * _line1.x2) * (_line2.y1 - _line2.y2) - (_line1.y1 - _line1.y2) * (_line2.x1 * _line2.y2 - _line2.y1 * _line2.x2);
         lineIntersect.y /= div;
-        if (lineIntersect.HasNaN()) return new Vector2(NaN, NaN);
+        if (lineIntersect.HasNaN()) return new _Vector2(NaN, NaN);
         return lineIntersect;
       }
       /**
@@ -2653,33 +2749,33 @@ var TestExport;
       key: "lineIntersectionWithin",
       value: function lineIntersectionWithin(_line1, _line2) {
         var intersection = this.lineIntersection(_line1, _line2);
-        if (intersection.HasNaN()) return new Vector2(NaN, NaN); //check if line interception is within line 1 x
+        if (intersection.HasNaN()) return new _Vector2(NaN, NaN); //check if line interception is within line 1 x
 
         if (_line1.x1 >= _line1.x2) {
-          if (Generic.between(_line1.x2, intersection.x, _line1.x1)) return Vector2[NaN]();
+          if (Generic.between(_line1.x2, intersection.x, _line1.x1)) return _Vector2[NaN]();
         } else {
-          if (Generic.between(_line1.x1, intersection.x, _line1.x2)) return Vector2[NaN]();
+          if (Generic.between(_line1.x1, intersection.x, _line1.x2)) return _Vector2[NaN]();
         } //check if line interception is within line 1 y
 
 
         if (_line1.y1 >= _line1.y2) {
-          if (Generic.between(_line1.y2, intersection.y, _line1.y1)) return Vector2[NaN]();
+          if (Generic.between(_line1.y2, intersection.y, _line1.y1)) return _Vector2[NaN]();
         } else {
-          if (Generic.between(_line1.y1, intersection.y, _line1.y2)) return Vector2[NaN]();
+          if (Generic.between(_line1.y1, intersection.y, _line1.y2)) return _Vector2[NaN]();
         } //check if line interception is within line 2 x
 
 
         if (_line2.x1 >= _line2.x2) {
-          if (Generic.between(_line2.x2, intersection.x, _line2.x1)) return Vector2[NaN]();
+          if (Generic.between(_line2.x2, intersection.x, _line2.x1)) return _Vector2[NaN]();
         } else {
-          if (Generic.between(_line2.x1, intersection.x, _line2.x2)) return Vector2[NaN]();
+          if (Generic.between(_line2.x1, intersection.x, _line2.x2)) return _Vector2[NaN]();
         } //check if line interception is within line 2 y
 
 
         if (_line2.y1 >= _line2.y2) {
-          if (Generic.between(_line2.y2, intersection.y, _line2.y1)) return Vector2[NaN]();
+          if (Generic.between(_line2.y2, intersection.y, _line2.y1)) return _Vector2[NaN]();
         } else {
-          if (Generic.between(_line2.y1, intersection.y, _line2.y2)) return Vector2[NaN]();
+          if (Generic.between(_line2.y1, intersection.y, _line2.y2)) return _Vector2[NaN]();
         }
 
         return intersection;
@@ -2718,7 +2814,7 @@ var TestExport;
    */
 
 
-  var Collision = /*#__PURE__*/function () {
+  var _Collision = /*#__PURE__*/function () {
     function Collision() {
       Collision_classCallCheck(this, Collision);
     }
@@ -2733,12 +2829,12 @@ var TestExport;
       * @returns {boolean}
       */
       function checkPointWithinArea(areaBounds, point) {
-        if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) {
+        if (!(areaBounds instanceof _Bounds) || areaBounds.HasNaN()) {
           console.error("Error trying to calculate if a point is within bounds with invalid area bounds: ", areaBounds);
           return false;
         }
 
-        if (!(point instanceof Vector2) || point.HasNaN()) {
+        if (!(point instanceof _Vector2) || point.HasNaN()) {
           console.error("Error trying to calculate if a point is within bounds with invalid point: ", point);
           return false;
         }
@@ -2755,12 +2851,12 @@ var TestExport;
     }, {
       key: "checkAreaWithinArea",
       value: function checkAreaWithinArea(areaBounds, otherBounds) {
-        if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) {
+        if (!(areaBounds instanceof _Bounds) || areaBounds.HasNaN()) {
           console.error("Error trying to calculate if an area is within bounds with invalid area bounds: ", areaBounds);
           return false;
         }
 
-        if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) {
+        if (!(otherBounds instanceof _Bounds) || otherBounds.HasNaN()) {
           console.error("Error trying to calculate if an area is within bounds with invalid other bounds: ", otherBounds);
           return false;
         }
@@ -2777,12 +2873,12 @@ var TestExport;
     }, {
       key: "checkAreaIntersectsArea",
       value: function checkAreaIntersectsArea(areaBounds, otherBounds) {
-        if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) {
+        if (!(areaBounds instanceof _Bounds) || areaBounds.HasNaN()) {
           console.error("Error trying to calculate if an area is intersecting bounds with invalid area bounds: ", areaBounds);
           return false;
         }
 
-        if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) {
+        if (!(otherBounds instanceof _Bounds) || otherBounds.HasNaN()) {
           console.error("Error trying to calculate if an area is intersecting bounds with invalid other bounds: ", otherBounds);
           return false;
         }
@@ -2791,12 +2887,12 @@ var TestExport;
           return true;
         }
 
-        var linesToCheck = [Line.fromVector2s(otherBounds.topLeft, otherBounds.topRight), Line.fromVector2s(otherBounds.topRight, otherBounds.bottomRight), Line.fromVector2s(otherBounds.bottomRight, otherBounds.bottomLeft), Line.fromVector2s(otherBounds.bottomLeft, otherBounds.topLeft)];
-        var linesToCheckAgainst = [Line.fromVector2s(areaBounds.topLeft, areaBounds.topRight), Line.fromVector2s(areaBounds.topRight, areaBounds.bottomRight), Line.fromVector2s(areaBounds.bottomRight, areaBounds.bottomLeft), Line.fromVector2s(areaBounds.bottomLeft, areaBounds.topLeft)]; //do line intersect tests between every line
+        var linesToCheck = [_Line.fromVector2s(otherBounds.topLeft, otherBounds.topRight), _Line.fromVector2s(otherBounds.topRight, otherBounds.bottomRight), _Line.fromVector2s(otherBounds.bottomRight, otherBounds.bottomLeft), _Line.fromVector2s(otherBounds.bottomLeft, otherBounds.topLeft)];
+        var linesToCheckAgainst = [_Line.fromVector2s(areaBounds.topLeft, areaBounds.topRight), _Line.fromVector2s(areaBounds.topRight, areaBounds.bottomRight), _Line.fromVector2s(areaBounds.bottomRight, areaBounds.bottomLeft), _Line.fromVector2s(areaBounds.bottomLeft, areaBounds.topLeft)]; //do line intersect tests between every line
 
         linesToCheck.forEach(function (line1) {
           linesToCheckAgainst.forEach(function (line2) {
-            if (Line.lineIntersectionWithin(line1, line2)) return true;
+            if (_Line.lineIntersectionWithin(line1, line2)) return true;
           });
         });
         return false;
@@ -2813,7 +2909,7 @@ var TestExport;
       value: function returnObjectsWithinArea(areaBounds, objects) {
         var _this = this;
 
-        if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) {
+        if (!(areaBounds instanceof _Bounds) || areaBounds.HasNaN()) {
           console.error("Error trying to calculate if objects are within bounds with invalid area bounds: ", areaBounds);
           return [];
         }
@@ -2826,7 +2922,7 @@ var TestExport;
         var ret = [];
         var objectsArray = objects instanceof HTMLElement ? [objects] : objects;
         objectsArray.forEach(function (dom) {
-          var otherBounds = Bounds.fromObject(dom);
+          var otherBounds = _Bounds.fromObject(dom);
 
           if (_this.checkAreaWithinArea(areaBounds, otherBounds)) {
             ret.push({
@@ -2849,7 +2945,7 @@ var TestExport;
       value: function returnObjectsIntersectArea(areaBounds, objects) {
         var _this2 = this;
 
-        if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) {
+        if (!(areaBounds instanceof _Bounds) || areaBounds.HasNaN()) {
           console.error("Error trying to calculate if objects are within bounds with invalid area bounds: ", areaBounds);
           return [];
         }
@@ -2862,7 +2958,7 @@ var TestExport;
         var ret = [];
         var objectsArray = objects instanceof HTMLElement ? [objects] : objects;
         objectsArray.forEach(function (dom) {
-          var otherBounds = Bounds.fromObject(dom);
+          var otherBounds = _Bounds.fromObject(dom);
 
           if (_this2.checkAreaIntersectsArea(areaBounds, otherBounds)) {
             ret.push({
@@ -2879,13 +2975,6 @@ var TestExport;
 
   ; // CONCATENATED MODULE: ./Definitions/WebpackAll.ts
 
-  Vector2;
-  Vector3;
-  Vector4;
-  Bounds;
-  Line;
-  Positioning;
-  Collision;
   TestExport = __webpack_exports__;
   /******/
 })();

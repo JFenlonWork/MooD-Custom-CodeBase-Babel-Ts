@@ -5,6 +5,23 @@ var TestExport;
 /******/ 	var __webpack_require__ = {};
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	!function() {
 /******/ 		// define __esModule on exports
@@ -20,6 +37,17 @@ var TestExport;
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "Bounds": function() { return /* reexport */ Bounds; },
+  "Collision": function() { return /* reexport */ Collision; },
+  "Line": function() { return /* reexport */ Line; },
+  "Positioning": function() { return /* reexport */ Positioning; },
+  "Vector2": function() { return /* reexport */ Vector2; },
+  "Vector3": function() { return /* reexport */ Vector3; },
+  "Vector4": function() { return /* reexport */ Vector4; }
+});
 
 ;// CONCATENATED MODULE: ./Code/src/cMaths/Vector2.ts
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2448,13 +2476,7 @@ var Collision = /*#__PURE__*/function () {
 
 
 
-Vector2;
-Vector3;
-Vector4;
-Bounds;
-Line;
-Positioning;
-Collision;
+
 TestExport = __webpack_exports__;
 /******/ })()
 ;
