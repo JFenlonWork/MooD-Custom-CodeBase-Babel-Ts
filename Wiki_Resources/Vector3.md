@@ -73,7 +73,7 @@ Create a Vector3
 
 #### Defined in
 
-[Vector3.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L15)
+[Vector3.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L15)
 
 ## Properties
 
@@ -87,7 +87,7 @@ Create a Vector3
 
 #### Defined in
 
-[Vector2.ts:5](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector2.ts#L5)
+[Vector2.ts:5](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector2.ts#L5)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[Vector2.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector2.ts#L6)
+[Vector2.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector2.ts#L6)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[Vector3.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L7)
+[Vector3.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L7)
 
 ## Methods
 
@@ -137,7 +137,7 @@ Add two Vector3's values and apply the values to this Vector3
 
 #### Defined in
 
-[Vector3.ts:158](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L158)
+[Vector3.ts:158](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L158)
 
 ___
 
@@ -163,7 +163,7 @@ Calcualte the dot product of two Vector3's and apply the values to this Vector3
 
 #### Defined in
 
-[Vector3.ts:224](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L224)
+[Vector3.ts:224](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L224)
 
 ___
 
@@ -183,7 +183,7 @@ Returns if this Vector3 has a NaN value
 
 #### Defined in
 
-[Vector3.ts:67](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L67)
+[Vector3.ts:67](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L67)
 
 ___
 
@@ -203,7 +203,7 @@ Returns if this Vector3 is all NaN
 
 #### Defined in
 
-[Vector3.ts:59](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L59)
+[Vector3.ts:59](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L59)
 
 ___
 
@@ -229,7 +229,7 @@ Calcualte the scaled value of a Vector3 and apply the values to this Vector3
 
 #### Defined in
 
-[Vector3.ts:202](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L202)
+[Vector3.ts:202](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L202)
 
 ___
 
@@ -255,7 +255,7 @@ Subract two Vector3's values and apply the values to this Vector3
 
 #### Defined in
 
-[Vector3.ts:180](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L180)
+[Vector3.ts:180](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L180)
 
 ___
 
@@ -281,7 +281,7 @@ Add two Vector3's values and return the result in a new Vector3
 
 #### Defined in
 
-[Vector3.ts:148](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L148)
+[Vector3.ts:148](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L148)
 
 ___
 
@@ -301,7 +301,7 @@ Returns a new Vector3 with the same values as this Vector3
 
 #### Defined in
 
-[Vector3.ts:139](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L139)
+[Vector3.ts:139](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L139)
 
 ___
 
@@ -327,7 +327,7 @@ Calculate the distance between two Vector3's
 
 #### Defined in
 
-[Vector3.ts:236](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L236)
+[Vector3.ts:236](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L236)
 
 ___
 
@@ -353,7 +353,7 @@ Calculate the squared distance between two Vector3's
 
 #### Defined in
 
-[Vector3.ts:246](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L246)
+[Vector3.ts:246](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L246)
 
 ___
 
@@ -379,7 +379,7 @@ Calcualte the dot product of two Vector3's and return the result in a new Vector
 
 #### Defined in
 
-[Vector3.ts:214](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L214)
+[Vector3.ts:214](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L214)
 
 ___
 
@@ -405,7 +405,7 @@ Returns if an object is the same as this Vector3
 
 #### Defined in
 
-[Vector3.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L50)
+[Vector3.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L50)
 
 ___
 
@@ -431,7 +431,7 @@ Calcualte the scaled value of a Vector3 and return the result in a new Vector3
 
 #### Defined in
 
-[Vector3.ts:192](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L192)
+[Vector3.ts:192](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L192)
 
 ___
 
@@ -459,7 +459,7 @@ Set this Vector3's x,y and z value to be the parameter's value and apply the val
 
 #### Defined in
 
-[Vector3.ts:106](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L106)
+[Vector3.ts:106](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L106)
 
 ___
 
@@ -485,7 +485,7 @@ Set this Vector2's values to be the parameter's values and apply the values to t
 
 #### Defined in
 
-[Vector2.ts:128](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector2.ts#L128)
+[Vector2.ts:128](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector2.ts#L128)
 
 ___
 
@@ -507,7 +507,7 @@ Set this Vector3's values to be the parameter's values and apply the values to t
 
 #### Defined in
 
-[Vector3.ts:128](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L128)
+[Vector3.ts:128](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L128)
 
 ___
 
@@ -533,7 +533,7 @@ Set this Vector2's x value to be the parameter's value and apply the values to t
 
 #### Defined in
 
-[Vector2.ts:106](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector2.ts#L106)
+[Vector2.ts:106](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector2.ts#L106)
 
 ___
 
@@ -559,7 +559,7 @@ Set this Vector2's y value to be the parameter's value and apply the values to t
 
 #### Defined in
 
-[Vector2.ts:117](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector2.ts#L117)
+[Vector2.ts:117](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector2.ts#L117)
 
 ___
 
@@ -581,7 +581,7 @@ Set this Vector3's z value to be the parameter's value and apply the values to t
 
 #### Defined in
 
-[Vector3.ts:117](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L117)
+[Vector3.ts:117](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L117)
 
 ___
 
@@ -607,7 +607,7 @@ Subract two Vector3's values and return the result in a new Vector3
 
 #### Defined in
 
-[Vector3.ts:170](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L170)
+[Vector3.ts:170](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L170)
 
 ___
 
@@ -623,7 +623,7 @@ Returns a Vector2 version of this Vector3
 
 #### Defined in
 
-[Vector3.ts:95](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L95)
+[Vector3.ts:95](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L95)
 
 ___
 
@@ -643,7 +643,7 @@ Create a Vector3 filled with NaN
 
 #### Defined in
 
-[Vector3.ts:25](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L25)
+[Vector3.ts:25](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L25)
 
 ___
 
@@ -663,7 +663,7 @@ Create a Vector3 filled with 1
 
 #### Defined in
 
-[Vector3.ts:41](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L41)
+[Vector3.ts:41](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L41)
 
 ___
 
@@ -683,7 +683,7 @@ Create a Vector3 filled with 0
 
 #### Defined in
 
-[Vector3.ts:33](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L33)
+[Vector3.ts:33](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L33)
 
 ___
 
@@ -709,7 +709,7 @@ Returns if a Vector3 has a NaN value
 
 #### Defined in
 
-[Vector3.ts:86](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L86)
+[Vector3.ts:86](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L86)
 
 ___
 
@@ -735,4 +735,4 @@ Returns if a Vector3 is all NaN
 
 #### Defined in
 
-[Vector3.ts:76](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Vector3.ts#L76)
+[Vector3.ts:76](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Vector3.ts#L76)

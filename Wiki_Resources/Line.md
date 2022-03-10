@@ -56,7 +56,7 @@ Create a Bounds
 
 #### Defined in
 
-[Line.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L21)
+[Line.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L21)
 
 ## Properties
 
@@ -66,7 +66,7 @@ Create a Bounds
 
 #### Defined in
 
-[Line.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L9)
+[Line.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L9)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[Line.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L11)
+[Line.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L11)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[Line.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L10)
+[Line.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L10)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[Line.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L12)
+[Line.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L12)
 
 ## Methods
 
@@ -112,7 +112,7 @@ Returns if this Line has a NaN value
 
 #### Defined in
 
-[Line.ts:68](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L68)
+[Line.ts:68](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L68)
 
 ___
 
@@ -128,7 +128,7 @@ Returns if this Line is all NaN
 
 #### Defined in
 
-[Line.ts:60](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L60)
+[Line.ts:60](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L60)
 
 ___
 
@@ -144,7 +144,7 @@ Returns a new Line with the same values as this Line
 
 #### Defined in
 
-[Line.ts:156](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L156)
+[Line.ts:156](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L156)
 
 ___
 
@@ -160,7 +160,7 @@ Calculate the distance the Line's two points
 
 #### Defined in
 
-[Line.ts:186](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L186)
+[Line.ts:186](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L186)
 
 ___
 
@@ -176,7 +176,7 @@ Calculate the squared distance the Line's two points
 
 #### Defined in
 
-[Line.ts:194](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L194)
+[Line.ts:194](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L194)
 
 ___
 
@@ -198,7 +198,7 @@ Returns if an object is the same as this line
 
 #### Defined in
 
-[Line.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L51)
+[Line.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L51)
 
 ___
 
@@ -223,7 +223,7 @@ Set this Line's values to be the parameter's values and apply the values to this
 
 #### Defined in
 
-[Line.ts:100](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L100)
+[Line.ts:100](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L100)
 
 ___
 
@@ -245,7 +245,7 @@ Set this Line's x1 value to be the parameter's value and apply the values to thi
 
 #### Defined in
 
-[Line.ts:113](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L113)
+[Line.ts:113](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L113)
 
 ___
 
@@ -267,7 +267,7 @@ Set this Line's x2 value to be the parameter's value and apply the values to thi
 
 #### Defined in
 
-[Line.ts:135](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L135)
+[Line.ts:135](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L135)
 
 ___
 
@@ -289,7 +289,7 @@ Set this Bounds's y1 value to be the parameter's value and apply the values to t
 
 #### Defined in
 
-[Line.ts:124](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L124)
+[Line.ts:124](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L124)
 
 ___
 
@@ -311,7 +311,7 @@ Set this Bounds's y2 value to be the parameter's value and apply the values to t
 
 #### Defined in
 
-[Line.ts:146](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L146)
+[Line.ts:146](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L146)
 
 ___
 
@@ -327,7 +327,7 @@ Create a Line filled with NaN
 
 #### Defined in
 
-[Line.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L34)
+[Line.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L34)
 
 ___
 
@@ -343,7 +343,7 @@ Create a Line filled with 0
 
 #### Defined in
 
-[Line.ts:42](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L42)
+[Line.ts:42](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L42)
 
 ___
 
@@ -366,7 +366,7 @@ Create a Line from two Vector2s
 
 #### Defined in
 
-[Line.ts:166](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L166)
+[Line.ts:166](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L166)
 
 ___
 
@@ -388,7 +388,7 @@ Create a Line from a Vector4
 
 #### Defined in
 
-[Line.ts:177](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L177)
+[Line.ts:177](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L177)
 
 ___
 
@@ -410,7 +410,7 @@ Returns if a line has a NaN value
 
 #### Defined in
 
-[Line.ts:87](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L87)
+[Line.ts:87](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L87)
 
 ___
 
@@ -432,7 +432,7 @@ Returns if a line is all NaN
 
 #### Defined in
 
-[Line.ts:77](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L77)
+[Line.ts:77](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L77)
 
 ___
 
@@ -455,7 +455,7 @@ Calculate the intersection point of two Lines
 
 #### Defined in
 
-[Line.ts:204](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L204)
+[Line.ts:204](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L204)
 
 ___
 
@@ -478,4 +478,4 @@ Calculate the intersection point of two Lines if it is within the line
 
 #### Defined in
 
-[Line.ts:234](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/41daecf/Code/src/cMaths/Line.ts#L234)
+[Line.ts:234](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L234)
