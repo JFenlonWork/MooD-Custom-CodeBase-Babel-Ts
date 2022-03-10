@@ -58,7 +58,7 @@ export class Vector4 extends Vector3 {
 	 * @returns {boolean}
 	 */
 	IsNaN(): boolean {
-		return (this.x == NaN && this.y == NaN && this.z == NaN && this.w == NaN);
+		return (isNaN(this.x) && isNaN(this.y) && isNaN(this.z) && isNaN(this.w));
 	}
 
 	/**
@@ -66,7 +66,7 @@ export class Vector4 extends Vector3 {
 	 * @returns {boolean}
 	 */
     HasNaN(): boolean {
-		return (this.x == NaN || this.y ==  NaN || this.z ==  NaN || this.w ==  NaN);
+		return (isNaN(this.x) || isNaN(this.y) || isNaN(this.z) || isNaN(this.w));
 	}
 
 	/**
@@ -76,7 +76,7 @@ export class Vector4 extends Vector3 {
 	 */
 	static isNaN(o: object): boolean {
 		if (!(o instanceof Vector4)) return false;
-		return (o.x == NaN && o.y == NaN && o.z == NaN && o.w == NaN);
+		return (isNaN(o.x) && isNaN(o.y) && isNaN(o.z) && isNaN(o.w));
 	}
 
 	/**
@@ -86,7 +86,7 @@ export class Vector4 extends Vector3 {
 	 */
     static hasNaN(o: object): boolean {
 		if (!(o instanceof Vector4)) return false;
-		return (o.x == NaN || o.y ==  NaN || o.z ==  NaN || o.w ==  NaN);
+		return (isNaN(o.x) || isNaN(o.y) || isNaN(o.z) || isNaN(o.w));
 	}
 
 	/**

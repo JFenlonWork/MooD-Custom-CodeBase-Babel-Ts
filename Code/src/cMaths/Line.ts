@@ -58,7 +58,7 @@ import { Vector4 } from "./Vector4";
 	 * @returns {boolean}
 	 */
     IsNaN(): boolean {
-		return (this.x1 == NaN && this.y1 == NaN && this.x2 == NaN && this.y2 == NaN);
+		return (isNaN(this.x1) && isNaN(this.y1) && isNaN(this.x2) && isNaN(this.y2));
 	}
 
 	/**
@@ -66,7 +66,7 @@ import { Vector4 } from "./Vector4";
 	 * @returns {boolean}
 	 */
     HasNaN(): boolean {
-		return (this.x1 == NaN || this.y1 ==  NaN || this.x2 ==  NaN || this.y2 ==  NaN);
+		return (isNaN(this.x1) || isNaN(this.y1) || isNaN(this.x2) || isNaN(this.y2));
 	}
 
 	/**
@@ -76,7 +76,7 @@ import { Vector4 } from "./Vector4";
 	 */
 	static isNaN(o: object): boolean {
 		if (!(o instanceof Line)) return false;
-		return (o.x1 == NaN && o.y1 ==  NaN && o.x2 ==  NaN && o.y2 ==  NaN);
+		return (isNaN(o.x1) && isNaN(o.y1) && isNaN(o.x2) && isNaN(o.y2));
 	}
 
 	/**
@@ -86,7 +86,7 @@ import { Vector4 } from "./Vector4";
 	 */
     static hasNaN(o: object): boolean {
 		if (!(o instanceof Line)) return false;
-		return (o.x1 == NaN || o.y1 ==  NaN || o.x2 ==  NaN || o.y2 ==  NaN);
+		return (isNaN(o.x1) || isNaN(o.y1) || isNaN(o.x2) || isNaN(o.y2));
 	}
 
     /**

@@ -57,7 +57,7 @@ export class Vector3 extends Vector2 {
 	 * @returns {boolean}
 	 */
 	IsNaN(): boolean {
-		return (this.x == NaN && this.y == NaN && this.z == NaN);
+		return (isNaN(this.x) && isNaN(this.y) && isNaN(this.z));
 	}
 
 	/**
@@ -65,7 +65,7 @@ export class Vector3 extends Vector2 {
 	 * @returns {boolean}
 	 */
     HasNaN(): boolean {
-		return (this.x == NaN || this.y ==  NaN || this.z ==  NaN);
+		return (isNaN(this.x) || isNaN(this.y) || isNaN(this.z));
 	}
 
 	/**
@@ -75,7 +75,7 @@ export class Vector3 extends Vector2 {
 	 */
 	static isNaN(o: object): boolean {
 		if (!(o instanceof Vector3)) return false;
-		return (o.x == NaN && o.y == NaN && o.z == NaN);
+		return (isNaN(o.x) && isNaN(o.y) && isNaN(o.z));
 	}
 
 	/**
@@ -85,7 +85,7 @@ export class Vector3 extends Vector2 {
 	 */
      static hasNaN(o: object): boolean {
 		if (!(o instanceof Vector3)) return false;
-		return (o.x == NaN || o.y ==  NaN || o.z ==  NaN);
+		return (isNaN(o.x) || isNaN(o.y) || isNaN(o.z));
 	}
 
 	/**

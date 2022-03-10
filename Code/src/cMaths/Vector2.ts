@@ -55,7 +55,7 @@ export class Vector2 {
 	 * @returns {boolean}
 	 */
 	IsNaN(): boolean {
-		return (this.x == NaN && this.y == NaN);
+		return (isNaN(this.x) && isNaN(this.y));
 	}
 
 	/**
@@ -63,7 +63,7 @@ export class Vector2 {
 	 * @returns {boolean}
 	 */
     HasNaN(): boolean {
-		return (this.x == NaN || this.y ==  NaN);
+		return (isNaN(this.x) || isNaN(this.y));
 	}
 
 	/**
@@ -73,7 +73,7 @@ export class Vector2 {
 	 */
 	static isNaN(o: object): boolean {
 		if (!(o instanceof Vector2)) return false;
-		return (o.x == NaN && o.y == NaN);
+		return (isNaN(o.x) && isNaN(o.y));
 	}
 
 	/**
@@ -83,7 +83,7 @@ export class Vector2 {
 	 */
      static hasNaN(o: object): boolean {
 		if (!(o instanceof Vector2)) return false;
-		return (o.x == NaN || o.y ==  NaN);
+		return (isNaN(o.x) || isNaN(o.y));
 	}
 
 	/**

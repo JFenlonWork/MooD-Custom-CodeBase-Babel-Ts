@@ -1,12 +1,20 @@
+import "./Vector2"
+import "./Vector3"
+import "./Vector4"
+import "./Bounds"
+import "./Line"
+import "./Positioning"
+import "./Collision"
 
 /** Class that holds all information and functions for any custom maths needed.
  */
-export {}
+   //  Vector2.Zero();
+   //  Vector3.Zero();
+   //  Vector4.Zero();
+   //  Bounds.Zero();
+   //  Line.NaN();
+   //  Positioning.getPageViewportOffsetFromPage();
+   //  Collision.checkAreaIntersectsArea(Bounds.Zero(), Bounds.Zero());
 
-import { Vector2 } from "./Vector2"
-import { Vector3 } from "./Vector3"
-import { Vector4 } from "./Vector4"
-import { Bounds } from "./Bounds"
-import { Line } from "./Line"
-import { Positioning } from "./Positioning"
-import { Collision } from "./Collision"
+// const test: number = 0;
+// console.log(test);
