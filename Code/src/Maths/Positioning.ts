@@ -8,7 +8,7 @@ export class Positioning {
 	 * Calculate viewport offset from document origin
 	 * @returns {Vector2}
 	 */
-    static getPageViewportOffsetFromPage(): Vector2 {
+    public static getPageViewportOffsetFromPage(): Vector2 {
         let body: HTMLElement = document.body;
         let docEl: HTMLElement = document.documentElement;
 
@@ -21,7 +21,7 @@ export class Positioning {
 	 * @param  {Vector2} _vector
 	 * @returns {Vector2}
 	 */
-    static applyPageViewportOffsetFromPage(_vector: Vector2) {
+    public static applyPageViewportOffsetFromPage(_vector: Vector2) {
         _vector.Add(Positioning.getPageViewportOffsetFromPage());
     }
 
@@ -31,7 +31,7 @@ export class Positioning {
 	 * @param  {HTMLElement | string} _relative - The object or "screen" to calculate the coordinates relative to
 	 * @returns {Vector2}
 	 */
-    static getCoords(_object: HTMLElement, _relativeTo: Document | HTMLElement = document): Vector2 {
+    public static getCoords(_object: HTMLElement, _relativeTo: Document | HTMLElement = document): Vector2 {
 		if (_object == null) { console.error("Error trying to calculate coordinates with invalid object: ", _object); return new Vector2(NaN,NaN) }
 
         let ret = new Vector2(NaN,NaN);
@@ -73,7 +73,7 @@ export class Positioning {
 	 * @param  {string} _css - The CSS attribute 
 	 * @returns {number}
 	 */
-    static translateCssSizes(_object: HTMLElement, _css: string, _computedStyle?: CSSStyleDeclaration): number {
+    public static translateCssSizes(_object: HTMLElement, _css: string, _computedStyle?: CSSStyleDeclaration): number {
         if (_object == null) { console.error("Error trying to calculate CSS sizing with invalid object: ", _object); return 0; }
         if (_css == null) { console.error("Error trying to calculate CSS sizing with invalid CSS string: ", _css); return 0; }
 

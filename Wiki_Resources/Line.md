@@ -10,6 +10,13 @@ Class representing a Line which hold two points.
 
 ### Properties
 
+- [\_x1](../wiki/Line#_x1)
+- [\_x2](../wiki/Line#_x2)
+- [\_y1](../wiki/Line#_y1)
+- [\_y2](../wiki/Line#_y2)
+
+### Accessors
+
 - [x1](../wiki/Line#x1)
 - [x2](../wiki/Line#x2)
 - [y1](../wiki/Line#y1)
@@ -24,10 +31,6 @@ Class representing a Line which hold two points.
 - [distanceSqr](../wiki/Line#distancesqr)
 - [equals](../wiki/Line#equals)
 - [set](../wiki/Line#set)
-- [setX1](../wiki/Line#setx1)
-- [setX2](../wiki/Line#setx2)
-- [setY1](../wiki/Line#sety1)
-- [setY2](../wiki/Line#sety2)
 - [NaN](../wiki/Line#nan)
 - [Zero](../wiki/Line#zero)
 - [fromVector2s](../wiki/Line#fromvector2s)
@@ -56,47 +59,167 @@ Create a Bounds
 
 #### Defined in
 
-[Line.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L21)
+Maths/Line.ts:56
 
 ## Properties
 
-### x1
+### \_x1
 
-• **x1**: `number`
+• `Private` **\_x1**: `number` = `0`
 
 #### Defined in
 
-[Line.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L9)
+Maths/Line.ts:9
+
+___
+
+### \_x2
+
+• `Private` **\_x2**: `number` = `0`
+
+#### Defined in
+
+Maths/Line.ts:29
+
+___
+
+### \_y1
+
+• `Private` **\_y1**: `number` = `0`
+
+#### Defined in
+
+Maths/Line.ts:19
+
+___
+
+### \_y2
+
+• `Private` **\_y2**: `number` = `0`
+
+#### Defined in
+
+Maths/Line.ts:39
+
+## Accessors
+
+### x1
+
+• `get` **x1**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+Maths/Line.ts:10
+
+• `set` **x1**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Line.ts:14
 
 ___
 
 ### x2
 
-• **x2**: `number`
+• `get` **x2**(): `number`
+
+#### Returns
+
+`number`
 
 #### Defined in
 
-[Line.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L11)
+Maths/Line.ts:30
+
+• `set` **x2**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Line.ts:34
 
 ___
 
 ### y1
 
-• **y1**: `number`
+• `get` **y1**(): `number`
+
+#### Returns
+
+`number`
 
 #### Defined in
 
-[Line.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L10)
+Maths/Line.ts:20
+
+• `set` **y1**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Line.ts:24
 
 ___
 
 ### y2
 
-• **y2**: `number`
+• `get` **y2**(): `number`
+
+#### Returns
+
+`number`
 
 #### Defined in
 
-[Line.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L12)
+Maths/Line.ts:40
+
+• `set` **y2**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Line.ts:44
 
 ## Methods
 
@@ -112,7 +235,7 @@ Returns if this Line has a NaN value
 
 #### Defined in
 
-[Line.ts:68](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L68)
+Maths/Line.ts:117
 
 ___
 
@@ -128,7 +251,7 @@ Returns if this Line is all NaN
 
 #### Defined in
 
-[Line.ts:60](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L60)
+Maths/Line.ts:109
 
 ___
 
@@ -144,7 +267,7 @@ Returns a new Line with the same values as this Line
 
 #### Defined in
 
-[Line.ts:156](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L156)
+Maths/Line.ts:145
 
 ___
 
@@ -160,7 +283,7 @@ Calculate the distance the Line's two points
 
 #### Defined in
 
-[Line.ts:186](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L186)
+Maths/Line.ts:175
 
 ___
 
@@ -176,7 +299,7 @@ Calculate the squared distance the Line's two points
 
 #### Defined in
 
-[Line.ts:194](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L194)
+Maths/Line.ts:183
 
 ___
 
@@ -198,7 +321,7 @@ Returns if an object is the same as this line
 
 #### Defined in
 
-[Line.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L51)
+Maths/Line.ts:100
 
 ___
 
@@ -223,95 +346,7 @@ Set this Line's values to be the parameter's values and apply the values to this
 
 #### Defined in
 
-[Line.ts:100](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L100)
-
-___
-
-### setX1
-
-▸ **setX1**(`x1`): [`Line`](../wiki/Line)
-
-Set this Line's x1 value to be the parameter's value and apply the values to this Line
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `x1` | `number` |
-
-#### Returns
-
-[`Line`](../wiki/Line)
-
-#### Defined in
-
-[Line.ts:113](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L113)
-
-___
-
-### setX2
-
-▸ **setX2**(`x2`): [`Line`](../wiki/Line)
-
-Set this Line's x2 value to be the parameter's value and apply the values to this Line
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `x2` | `number` |
-
-#### Returns
-
-[`Line`](../wiki/Line)
-
-#### Defined in
-
-[Line.ts:135](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L135)
-
-___
-
-### setY1
-
-▸ **setY1**(`y1`): [`Line`](../wiki/Line)
-
-Set this Bounds's y1 value to be the parameter's value and apply the values to this Line
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `y1` | `number` |
-
-#### Returns
-
-[`Line`](../wiki/Line)
-
-#### Defined in
-
-[Line.ts:124](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L124)
-
-___
-
-### setY2
-
-▸ **setY2**(`y2`): [`Line`](../wiki/Line)
-
-Set this Bounds's y2 value to be the parameter's value and apply the values to this Line
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `y2` | `number` |
-
-#### Returns
-
-[`Line`](../wiki/Line)
-
-#### Defined in
-
-[Line.ts:146](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L146)
+Maths/Line.ts:71
 
 ___
 
@@ -327,7 +362,7 @@ Create a Line filled with NaN
 
 #### Defined in
 
-[Line.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L34)
+Maths/Line.ts:83
 
 ___
 
@@ -343,7 +378,7 @@ Create a Line filled with 0
 
 #### Defined in
 
-[Line.ts:42](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L42)
+Maths/Line.ts:91
 
 ___
 
@@ -366,7 +401,7 @@ Create a Line from two Vector2s
 
 #### Defined in
 
-[Line.ts:166](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L166)
+Maths/Line.ts:155
 
 ___
 
@@ -388,7 +423,7 @@ Create a Line from a Vector4
 
 #### Defined in
 
-[Line.ts:177](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L177)
+Maths/Line.ts:166
 
 ___
 
@@ -410,7 +445,7 @@ Returns if a line has a NaN value
 
 #### Defined in
 
-[Line.ts:87](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L87)
+Maths/Line.ts:136
 
 ___
 
@@ -432,7 +467,7 @@ Returns if a line is all NaN
 
 #### Defined in
 
-[Line.ts:77](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L77)
+Maths/Line.ts:126
 
 ___
 
@@ -455,7 +490,7 @@ Calculate the intersection point of two Lines
 
 #### Defined in
 
-[Line.ts:204](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L204)
+Maths/Line.ts:193
 
 ___
 
@@ -478,4 +513,4 @@ Calculate the intersection point of two Lines if it is within the line
 
 #### Defined in
 
-[Line.ts:234](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Line.ts#L234)
+Maths/Line.ts:223

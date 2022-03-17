@@ -43,7 +43,7 @@ Calculate if otherBounds is intersects areaBounds
 
 #### Defined in
 
-[Collision.ts:47](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Collision.ts#L47)
+Maths/Collision.ts:47
 
 ___
 
@@ -66,7 +66,7 @@ Calculate if otherBounds is within areaBounds
 
 #### Defined in
 
-[Collision.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Collision.ts#L31)
+Maths/Collision.ts:31
 
 ___
 
@@ -89,7 +89,7 @@ Calculate if a point is within an area bounds
 
 #### Defined in
 
-[Collision.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Collision.ts#L15)
+Maths/Collision.ts:15
 
 ___
 
@@ -112,7 +112,7 @@ Calculate if objects are intersecting areaBounds
 
 #### Defined in
 
-[Collision.ts:116](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Collision.ts#L116)
+Maths/Collision.ts:116
 
 ___
 
@@ -135,4 +135,4 @@ Calculate if objects are within areaBounds
 
 #### Defined in
 
-[Collision.ts:90](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Collision.ts#L90)
+Maths/Collision.ts:90

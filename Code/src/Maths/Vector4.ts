@@ -4,7 +4,15 @@ import { Vector3 } from "./Vector3";
  */
 export class Vector4 extends Vector3 {
 
-	w: number;
+	private _w: number = NaN;
+	public get w(): number {
+		return this._w;
+	}
+
+	public set w(value: number) {
+		if (typeof(value) != "number") { console.error("Error trying to set a Vector's w value using an invalid input: ", value); value = NaN }	
+		this._w = value;
+	}
 
 	/**
 	 * Create a Vector3
@@ -13,17 +21,16 @@ export class Vector4 extends Vector3 {
 	 * @param  {number} z - The z value to set
 	 * @param  {number} w - The w value to set
 	 */
-	constructor(x: number, y: number, z: number, w: number) {
+	public constructor(x: number, y: number, z: number, w: number) {
 		super(x, y, z);
-		this.w = NaN;
-		this.setW(w);
+		this.w = w;
 	}
 
 	/**
 	 * Create a Vector4 filled with NaN
 	 * @returns {Vector4}
 	 */
-	static NaN(): Vector4 {
+	public static NaN(): Vector4 {
 		return new Vector4(NaN, NaN, NaN, NaN);
 	}
 
@@ -31,7 +38,7 @@ export class Vector4 extends Vector3 {
 	 * Create a Vector4 filled with 0
 	 * @returns {Vector4}
 	 */
-	static Zero(): Vector4 {
+	public static Zero(): Vector4 {
 		return new Vector4(0, 0, 0, 0);
 	}
 
@@ -39,7 +46,7 @@ export class Vector4 extends Vector3 {
 	 * Create a Vector4 filled with 1
 	 * @returns {Vector4}
 	 */
-	static One(): Vector4 {
+	public static One(): Vector4 {
 		return new Vector4(1, 1, 1, 1);
 	}
 
@@ -48,7 +55,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {object} o
 	 * @returns {boolean}
 	 */
-	equals(o: object): boolean {
+	public equals(o: object): boolean {
 		if (!(o instanceof Vector4)) return false;
 		return (this.x == o.x && this.y == o.y && this.z == o.z && this.w == o.w);
 	}
@@ -57,7 +64,7 @@ export class Vector4 extends Vector3 {
 	 * Returns if this Vector4 is all NaN
 	 * @returns {boolean}
 	 */
-	IsNaN(): boolean {
+	public IsNaN(): boolean {
 		return (isNaN(this.x) && isNaN(this.y) && isNaN(this.z) && isNaN(this.w));
 	}
 
@@ -65,7 +72,7 @@ export class Vector4 extends Vector3 {
 	 * Returns if this Vector4 has a NaN value
 	 * @returns {boolean}
 	 */
-    HasNaN(): boolean {
+    public HasNaN(): boolean {
 		return (isNaN(this.x) || isNaN(this.y) || isNaN(this.z) || isNaN(this.w));
 	}
 
@@ -74,7 +81,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {object} o
 	 * @returns {boolean}
 	 */
-	static isNaN(o: object): boolean {
+	public static isNaN(o: object): boolean {
 		if (!(o instanceof Vector4)) return false;
 		return (isNaN(o.x) && isNaN(o.y) && isNaN(o.z) && isNaN(o.w));
 	}
@@ -84,7 +91,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {object} o
 	 * @returns {boolean}
 	 */
-    static hasNaN(o: object): boolean {
+    public static hasNaN(o: object): boolean {
 		if (!(o instanceof Vector4)) return false;
 		return (isNaN(o.x) || isNaN(o.y) || isNaN(o.z) || isNaN(o.w));
 	}
@@ -93,7 +100,7 @@ export class Vector4 extends Vector3 {
 	 * Returns a Vector3 version of this Vector4
 	 * @returns {Vector3}
 	 */
-	vector3(): Vector3 {
+	public vector3(): Vector3 {
 		return new Vector3(this.x, this.y, this.z);
 	}
 
@@ -105,20 +112,9 @@ export class Vector4 extends Vector3 {
 	 * @param  {number} w - The w value to set
 	 * @returns {Vector4}
 	 */
-	set(x: number, y: number, z: number, w?: number): Vector4 {
+	public set(x: number, y: number, z: number = NaN, w: number = NaN): Vector4 {
 		super.set(x, y, z);
-		this.setW(w == undefined ? NaN : w);
-		return this;
-	}
-
-	/**
-	 * Set this Vector4's w value to be the parameter's value and apply the values to this Vector4
-	 * @param  {number} w
-	 * @returns {Vector4}
-	 */
-	setW(w: number): Vector3 {
-		if (typeof(w) != "number") { console.error("Error trying to set a Vector4's w value using an invalid input: ", w); w = NaN }	
-		this.w = w;
+		this.w = w
 		return this;
 	}
 
@@ -127,7 +123,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {Vector4} _vector
 	 * @returns {Vector4}
 	 */
-	setVector4(_vector: Vector4): Vector4 | null {
+	public setVector4(_vector: Vector4): Vector4 | null {
 		if (!(_vector instanceof Vector3)) { console.error("Error trying to set a Vector4's values using an invalid Vector4: ", _vector); _vector = new Vector4(NaN,NaN,NaN,NaN); }	
 
 		this.set(_vector.x, _vector.y, _vector.z, _vector.w);
@@ -138,7 +134,7 @@ export class Vector4 extends Vector3 {
 	 * Returns a new Vector4 with the same values as this Vector4
 	 * @returns {Vector4}
 	 */
-	clone(): Vector4 {
+	public clone(): Vector4 {
 		return new Vector4(this.x, this.y, this.z, this.w);
 	}
 
@@ -147,7 +143,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {Vector4} _vector
 	 * @returns {Vector4}
 	 */
-	add(_vector: Vector4): Vector4 {
+	public add(_vector: Vector4): Vector4 {
 		if (!(_vector instanceof Vector3)) { console.error("Error trying to add to a vector using an invalid Vector4: ", _vector); return new Vector4(NaN,NaN,NaN,NaN); }	
 		return new Vector4(this.x + _vector.x, this.y + _vector.y, this.z + _vector.z, this.w + _vector.w);	
 	}
@@ -157,7 +153,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {Vector4} _vector
 	 * @returns {Vector4}
 	 */
-	Add(_vector: Vector4): Vector4 {
+	public Add(_vector: Vector4): Vector4 {
 		if (!(_vector instanceof Vector3)) { console.error("Error trying to add to a vector using an invalid Vector4: ", _vector); return new Vector4(NaN,NaN,NaN,NaN); }	
 		this.set(this.x + _vector.x, this.y + _vector.y, this.z + _vector.z, this.w + _vector.w);
 
@@ -169,7 +165,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {Vector4} _vector
 	 * @returns {Vector4}
 	 */
-	subtract(_vector: Vector4): Vector4 {
+	public subtract(_vector: Vector4): Vector4 {
 		if (!(_vector instanceof Vector3)) { console.error("Error trying to subtract from a vector using an invalid Vector4: ", _vector); return new Vector4(NaN,NaN,NaN,NaN); }	
 		return new Vector4(this.x - _vector.x, this.y - _vector.y, this.z - _vector.z, this.w - _vector.w);	
 	}
@@ -179,7 +175,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {Vector4} _vector
 	 * @returns {Vector4}
 	 */
-	Subtract(_vector: Vector4): Vector4 {
+	public Subtract(_vector: Vector4): Vector4 {
 		if (!(_vector instanceof Vector3)) { console.error("Error trying to subtract from a vector using an invalid Vector3: ", _vector); return new Vector4(NaN,NaN,NaN,NaN); }	
 		this.set(this.x - _vector.x, this.y - _vector.y, this.z - _vector.z, this.w - _vector.w);
 
@@ -191,7 +187,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {number} _scalar
 	 * @returns {Vector4}
 	 */
-	scale(_scalar: number): Vector4 {
+	public scale(_scalar: number): Vector4 {
 		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate scaled vector using an invalid scaler: ", _scalar); _scalar = NaN }	
 		return new Vector4(this.x * _scalar, this.y * _scalar, this.z * _scalar, this.w * _scalar);
 	}
@@ -201,7 +197,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {number} _scalar
 	 * @returns {Vector4}
 	 */
-	Scale(_scalar: number): Vector4 {
+	public Scale(_scalar: number): Vector4 {
 		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate scaled vector using an invalid scaler: ", _scalar); _scalar = NaN }	
 		this.set(this.x * _scalar, this.y * _scalar, this.z * _scalar, this.w * _scalar);
 
@@ -213,7 +209,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {Vector4} _vector
 	 * @returns {Vector4}
 	 */
-	dot(_vector: Vector4): Vector4 {
+	public dot(_vector: Vector4): Vector4 {
 		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector); return new Vector4(NaN,NaN,NaN,NaN); }	
 		return new Vector4(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z, this.w * _vector.w);
 	}
@@ -223,7 +219,7 @@ export class Vector4 extends Vector3 {
 	 * @param  {Vector4} _vector
 	 * @returns {Vector4}
 	 */
-	Dot(_vector: Vector4): Vector4 {
+	public Dot(_vector: Vector4): Vector4 {
 		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector); _vector = new Vector4(NaN,NaN,NaN,NaN); }	
 		this.set(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z, this.w * _vector.w);
 

@@ -2,6 +2,10 @@
 
 ## Table of contents
 
+### Enumerations
+
+- [TimerSkipOffsetType](../wiki/TimerSkipOffsetType)
+
 ### Classes
 
 - [Bounds](../wiki/Bounds)
@@ -9,6 +13,8 @@
 - [Generic](../wiki/Generic)
 - [Line](../wiki/Line)
 - [Positioning](../wiki/Positioning)
+- [Timer](../wiki/Timer)
+- [TimerUtil](../wiki/TimerUtil)
 - [Vector2](../wiki/Vector2)
 - [Vector3](../wiki/Vector3)
 - [Vector4](../wiki/Vector4)

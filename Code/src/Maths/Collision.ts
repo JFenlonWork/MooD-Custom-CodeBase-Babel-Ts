@@ -12,7 +12,7 @@ import { Vector2 } from "./Vector2";
 	 * @param  {Vector2} point
 	 * @returns {boolean}
 	 */
-    static checkPointWithinArea(areaBounds: Bounds, point: Vector2): boolean {
+    public static checkPointWithinArea(areaBounds: Bounds, point: Vector2): boolean {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if a point is within bounds with invalid area bounds: ", areaBounds); return false; }	
         if (!(point instanceof Vector2) || point.HasNaN()) { console.error("Error trying to calculate if a point is within bounds with invalid point: ", point); return false; }	
 
@@ -28,7 +28,7 @@ import { Vector2 } from "./Vector2";
 	 * @param  {Bounds} otherBounds
 	 * @returns {boolean}
 	 */
-    static checkAreaWithinArea(areaBounds: Bounds, otherBounds: Bounds): boolean {
+    public static checkAreaWithinArea(areaBounds: Bounds, otherBounds: Bounds): boolean {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if an area is within bounds with invalid area bounds: ", areaBounds); return false; }
         if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) { console.error("Error trying to calculate if an area is within bounds with invalid other bounds: ", otherBounds); return false; }	
 
@@ -44,7 +44,7 @@ import { Vector2 } from "./Vector2";
 	 * @param  {Bounds} otherBounds
 	 * @returns {boolean}
 	 */    
-    static checkAreaIntersectsArea(areaBounds: Bounds, otherBounds: Bounds): boolean {
+    public static checkAreaIntersectsArea(areaBounds: Bounds, otherBounds: Bounds): boolean {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if an area is intersecting bounds with invalid area bounds: ", areaBounds); return false; }
         if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) { console.error("Error trying to calculate if an area is intersecting bounds with invalid other bounds: ", otherBounds); return false; }	
 
@@ -87,7 +87,7 @@ import { Vector2 } from "./Vector2";
 	 * @param  {HTMLElement | HTMLElement[]} objects
 	 * @returns {object[]}
 	 */
-    static returnObjectsWithinArea(areaBounds: Bounds, objects: HTMLElement | HTMLElement[]): object[] {
+    public static returnObjectsWithinArea(areaBounds: Bounds, objects: HTMLElement | HTMLElement[]): object[] {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if objects are within bounds with invalid area bounds: ", areaBounds); return []; }
         if (!(objects instanceof HTMLElement || Array.isArray(objects))) { console.error("Error trying to calculate if objects are within bounds with invalid objects: ", objects); return []; }	
         let ret: object[] = [];
@@ -113,7 +113,7 @@ import { Vector2 } from "./Vector2";
 	 * @param  {HTMLElement | HTMLElement[]} objects
 	 * @returns {object[]}
 	 */
-     static returnObjectsIntersectArea(areaBounds: Bounds, objects: HTMLElement | HTMLElement[]): object[] {
+    public static returnObjectsIntersectArea(areaBounds: Bounds, objects: HTMLElement | HTMLElement[]): object[] {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if objects are within bounds with invalid area bounds: ", areaBounds); return []; }
         if (!(objects instanceof HTMLElement || Array.isArray(objects))) { console.error("Error trying to calculate if objects are within bounds with invalid objects: ", objects); return []; }	
         let ret: object[] = [];

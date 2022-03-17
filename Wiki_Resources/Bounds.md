@@ -10,6 +10,18 @@ Class representing a Bounds which hold two points and any extra variables from t
 
 ### Properties
 
+- [\_bottomLeft](../wiki/Bounds#_bottomleft)
+- [\_bottomRight](../wiki/Bounds#_bottomright)
+- [\_size](../wiki/Bounds#_size)
+- [\_topLeft](../wiki/Bounds#_topleft)
+- [\_topRight](../wiki/Bounds#_topright)
+- [\_x1](../wiki/Bounds#_x1)
+- [\_x2](../wiki/Bounds#_x2)
+- [\_y1](../wiki/Bounds#_y1)
+- [\_y2](../wiki/Bounds#_y2)
+
+### Accessors
+
 - [bottomLeft](../wiki/Bounds#bottomleft)
 - [bottomRight](../wiki/Bounds#bottomright)
 - [size](../wiki/Bounds#size)
@@ -34,12 +46,7 @@ Class representing a Bounds which hold two points and any extra variables from t
 - [equals](../wiki/Bounds#equals)
 - [scale](../wiki/Bounds#scale)
 - [set](../wiki/Bounds#set)
-- [setX1](../wiki/Bounds#setx1)
-- [setX2](../wiki/Bounds#setx2)
-- [setY1](../wiki/Bounds#sety1)
-- [setY2](../wiki/Bounds#sety2)
 - [subtract](../wiki/Bounds#subtract)
-- [updateExtras](../wiki/Bounds#updateextras)
 - [NaN](../wiki/Bounds#nan)
 - [Zero](../wiki/Bounds#zero)
 - [fromObject](../wiki/Bounds#fromobject)
@@ -67,97 +74,367 @@ Create a Bounds
 
 #### Defined in
 
-[Bounds.ts:36](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L36)
+Maths/Bounds.ts:158
 
 ## Properties
 
-### bottomLeft
+### \_bottomLeft
 
-• **bottomLeft**: [`Vector2`](../wiki/Vector2)
+• **\_bottomLeft**: [`Vector2`](../wiki/Vector2)
 
 #### Defined in
 
-[Bounds.ts:24](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L24)
+Maths/Bounds.ts:132
+
+___
+
+### \_bottomRight
+
+• **\_bottomRight**: [`Vector2`](../wiki/Vector2)
+
+#### Defined in
+
+Maths/Bounds.ts:122
+
+___
+
+### \_size
+
+• **\_size**: [`Vector2`](../wiki/Vector2)
+
+#### Defined in
+
+Maths/Bounds.ts:142
+
+___
+
+### \_topLeft
+
+• `Private` **\_topLeft**: [`Vector2`](../wiki/Vector2)
+
+#### Defined in
+
+Maths/Bounds.ts:102
+
+___
+
+### \_topRight
+
+• **\_topRight**: [`Vector2`](../wiki/Vector2)
+
+#### Defined in
+
+Maths/Bounds.ts:112
+
+___
+
+### \_x1
+
+• `Private` **\_x1**: `number` = `NaN`
+
+#### Defined in
+
+Maths/Bounds.ts:9
+
+___
+
+### \_x2
+
+• `Private` **\_x2**: `number` = `NaN`
+
+#### Defined in
+
+Maths/Bounds.ts:55
+
+___
+
+### \_y1
+
+• `Private` **\_y1**: `number` = `NaN`
+
+#### Defined in
+
+Maths/Bounds.ts:32
+
+___
+
+### \_y2
+
+• `Private` **\_y2**: `number` = `NaN`
+
+#### Defined in
+
+Maths/Bounds.ts:78
+
+## Accessors
+
+### bottomLeft
+
+• `get` **bottomLeft**(): [`Vector2`](../wiki/Vector2)
+
+#### Returns
+
+[`Vector2`](../wiki/Vector2)
+
+#### Defined in
+
+Maths/Bounds.ts:133
+
+• `set` **bottomLeft**(`vector`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vector` | [`Vector2`](../wiki/Vector2) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Bounds.ts:137
 
 ___
 
 ### bottomRight
 
-• **bottomRight**: [`Vector2`](../wiki/Vector2)
+• `get` **bottomRight**(): [`Vector2`](../wiki/Vector2)
+
+#### Returns
+
+[`Vector2`](../wiki/Vector2)
 
 #### Defined in
 
-[Bounds.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L21)
+Maths/Bounds.ts:123
+
+• `set` **bottomRight**(`vector`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vector` | [`Vector2`](../wiki/Vector2) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Bounds.ts:127
 
 ___
 
 ### size
 
-• **size**: [`Vector2`](../wiki/Vector2)
+• `get` **size**(): [`Vector2`](../wiki/Vector2)
+
+#### Returns
+
+[`Vector2`](../wiki/Vector2)
 
 #### Defined in
 
-[Bounds.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L27)
+Maths/Bounds.ts:143
+
+• `set` **size**(`vector`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vector` | [`Vector2`](../wiki/Vector2) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Bounds.ts:147
 
 ___
 
 ### topLeft
 
-• **topLeft**: [`Vector2`](../wiki/Vector2)
+• `get` **topLeft**(): [`Vector2`](../wiki/Vector2)
+
+#### Returns
+
+[`Vector2`](../wiki/Vector2)
 
 #### Defined in
 
-[Bounds.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L15)
+Maths/Bounds.ts:103
+
+• `set` **topLeft**(`vector`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vector` | [`Vector2`](../wiki/Vector2) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Bounds.ts:107
 
 ___
 
 ### topRight
 
-• **topRight**: [`Vector2`](../wiki/Vector2)
+• `get` **topRight**(): [`Vector2`](../wiki/Vector2)
+
+#### Returns
+
+[`Vector2`](../wiki/Vector2)
 
 #### Defined in
 
-[Bounds.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L18)
+Maths/Bounds.ts:113
+
+• `set` **topRight**(`vector`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vector` | [`Vector2`](../wiki/Vector2) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Bounds.ts:117
 
 ___
 
 ### x1
 
-• **x1**: `number`
+• `get` **x1**(): `number`
+
+#### Returns
+
+`number`
 
 #### Defined in
 
-[Bounds.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L9)
+Maths/Bounds.ts:10
+
+• `set` **x1**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Bounds.ts:14
 
 ___
 
 ### x2
 
-• **x2**: `number`
+• `get` **x2**(): `number`
+
+#### Returns
+
+`number`
 
 #### Defined in
 
-[Bounds.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L11)
+Maths/Bounds.ts:56
+
+• `set` **x2**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Bounds.ts:60
 
 ___
 
 ### y1
 
-• **y1**: `number`
+• `get` **y1**(): `number`
+
+#### Returns
+
+`number`
 
 #### Defined in
 
-[Bounds.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L10)
+Maths/Bounds.ts:33
+
+• `set` **y1**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Bounds.ts:37
 
 ___
 
 ### y2
 
-• **y2**: `number`
+• `get` **y2**(): `number`
+
+#### Returns
+
+`number`
 
 #### Defined in
 
-[Bounds.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L12)
+Maths/Bounds.ts:79
+
+• `set` **y2**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Maths/Bounds.ts:83
 
 ## Methods
 
@@ -179,7 +456,7 @@ Add two Bounds's values and apply the values to this Bounds
 
 #### Defined in
 
-[Bounds.ts:219](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L219)
+Maths/Bounds.ts:266
 
 ___
 
@@ -201,7 +478,7 @@ Calcualte the dot product of two Bounds's and apply the values to this Bounds
 
 #### Defined in
 
-[Bounds.ts:289](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L289)
+Maths/Bounds.ts:330
 
 ___
 
@@ -217,7 +494,7 @@ Returns if this Bounds has a NaN value
 
 #### Defined in
 
-[Bounds.ts:108](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L108)
+Maths/Bounds.ts:219
 
 ___
 
@@ -233,7 +510,7 @@ Returns if this Bounds is all NaN
 
 #### Defined in
 
-[Bounds.ts:100](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L100)
+Maths/Bounds.ts:211
 
 ___
 
@@ -255,7 +532,7 @@ Calcualte the scaled value of a Bounds and apply the values to this Bounds
 
 #### Defined in
 
-[Bounds.ts:267](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L267)
+Maths/Bounds.ts:308
 
 ___
 
@@ -277,7 +554,7 @@ Subtract two Bounds's values and apply the values to this Bounds
 
 #### Defined in
 
-[Bounds.ts:243](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L243)
+Maths/Bounds.ts:287
 
 ___
 
@@ -299,7 +576,7 @@ Add two Bounds's values and return the result in a new Bounds
 
 #### Defined in
 
-[Bounds.ts:209](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L209)
+Maths/Bounds.ts:256
 
 ___
 
@@ -315,7 +592,7 @@ Returns a new Bounds with the same values as this Bounds
 
 #### Defined in
 
-[Bounds.ts:200](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L200)
+Maths/Bounds.ts:247
 
 ___
 
@@ -337,7 +614,7 @@ Calcualte the dot product of two Bounds's and return the result in a new Bounds
 
 #### Defined in
 
-[Bounds.ts:279](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L279)
+Maths/Bounds.ts:320
 
 ___
 
@@ -359,7 +636,7 @@ Returns if an object is the same as this Bound
 
 #### Defined in
 
-[Bounds.ts:91](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L91)
+Maths/Bounds.ts:202
 
 ___
 
@@ -381,7 +658,7 @@ Calcualte the scaled value of a Bounds and return the result in a new Bounds
 
 #### Defined in
 
-[Bounds.ts:257](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L257)
+Maths/Bounds.ts:298
 
 ___
 
@@ -406,99 +683,7 @@ Set this Bounds's values to be the parameter's values and apply the values to th
 
 #### Defined in
 
-[Bounds.ts:140](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L140)
-
-___
-
-### setX1
-
-▸ **setX1**(`x1`, `updateExtras?`): [`Bounds`](../wiki/Bounds)
-
-Set this Bounds's x1 value to be the parameter's value and apply the values to this Bounds
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `x1` | `number` |
-| `updateExtras?` | `boolean` |
-
-#### Returns
-
-[`Bounds`](../wiki/Bounds)
-
-#### Defined in
-
-[Bounds.ts:153](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L153)
-
-___
-
-### setX2
-
-▸ **setX2**(`x2`, `updateExtras?`): [`Bounds`](../wiki/Bounds)
-
-Set this Bounds's x2 value to be the parameter's value and apply the values to this Bounds
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `x2` | `number` |
-| `updateExtras?` | `boolean` |
-
-#### Returns
-
-[`Bounds`](../wiki/Bounds)
-
-#### Defined in
-
-[Bounds.ts:177](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L177)
-
-___
-
-### setY1
-
-▸ **setY1**(`y1`, `updateExtras?`): [`Bounds`](../wiki/Bounds)
-
-Set this Bounds's y1 value to be the parameter's value and apply the values to this Bounds
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `y1` | `number` |
-| `updateExtras?` | `boolean` |
-
-#### Returns
-
-[`Bounds`](../wiki/Bounds)
-
-#### Defined in
-
-[Bounds.ts:165](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L165)
-
-___
-
-### setY2
-
-▸ **setY2**(`y2`, `updateExtras?`): [`Bounds`](../wiki/Bounds)
-
-Set this Bounds's y1 value to be the parameter's value and apply the values to this Bounds
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `y2` | `number` |
-| `updateExtras?` | `boolean` |
-
-#### Returns
-
-[`Bounds`](../wiki/Bounds)
-
-#### Defined in
-
-[Bounds.ts:189](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L189)
+Maths/Bounds.ts:173
 
 ___
 
@@ -520,23 +705,7 @@ Subtract two Bounds's values and return the result in a new Bounds
 
 #### Defined in
 
-[Bounds.ts:233](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L233)
-
-___
-
-### updateExtras
-
-▸ **updateExtras**(): `void`
-
-Updates any extra variables that are calculated from x1/y1/x2/y2
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[Bounds.ts:70](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L70)
+Maths/Bounds.ts:277
 
 ___
 
@@ -552,7 +721,7 @@ Create a Bounds filled with NaN
 
 #### Defined in
 
-[Bounds.ts:55](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L55)
+Maths/Bounds.ts:185
 
 ___
 
@@ -568,7 +737,7 @@ Create a Bounds filled with 0
 
 #### Defined in
 
-[Bounds.ts:63](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L63)
+Maths/Bounds.ts:193
 
 ___
 
@@ -592,7 +761,7 @@ Create a bounds from a set of HTML DOMs
 
 #### Defined in
 
-[Bounds.ts:325](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L325)
+Maths/Bounds.ts:366
 
 ___
 
@@ -615,7 +784,7 @@ Create a bounds from two Vector2s
 
 #### Defined in
 
-[Bounds.ts:302](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L302)
+Maths/Bounds.ts:343
 
 ___
 
@@ -637,7 +806,7 @@ Create a bounds from a Vector4
 
 #### Defined in
 
-[Bounds.ts:313](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L313)
+Maths/Bounds.ts:354
 
 ___
 
@@ -659,7 +828,7 @@ Returns if a bounds has a NaN value
 
 #### Defined in
 
-[Bounds.ts:127](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L127)
+Maths/Bounds.ts:238
 
 ___
 
@@ -681,4 +850,4 @@ Returns if a bounds is all NaN
 
 #### Defined in
 
-[Bounds.ts:117](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/06f4940/Code/src/cMaths/Bounds.ts#L117)
+Maths/Bounds.ts:228

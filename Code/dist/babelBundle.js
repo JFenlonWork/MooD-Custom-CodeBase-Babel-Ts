@@ -109,51 +109,44 @@ var TestExport;
 
 
   __webpack_require__.d(__webpack_exports__, {
-    "Bounds": function Bounds() {
+    "Maths": function Maths() {
       return (
         /* reexport */
-        _Bounds
+        Maths_namespaceObject
       );
+    }
+  }); // NAMESPACE OBJECT: ./Definitions/Modules/Maths.ts
+
+
+  var Maths_namespaceObject = {};
+
+  __webpack_require__.r(Maths_namespaceObject);
+
+  __webpack_require__.d(Maths_namespaceObject, {
+    "Bounds": function Bounds() {
+      return _Bounds;
     },
     "Collision": function Collision() {
-      return (
-        /* reexport */
-        _Collision
-      );
+      return _Collision;
     },
     "Line": function Line() {
-      return (
-        /* reexport */
-        _Line
-      );
+      return _Line;
     },
     "Positioning": function Positioning() {
-      return (
-        /* reexport */
-        _Positioning
-      );
+      return _Positioning;
     },
     "Vector2": function Vector2() {
-      return (
-        /* reexport */
-        _Vector2
-      );
+      return _Vector2;
     },
     "Vector3": function Vector3() {
-      return (
-        /* reexport */
-        _Vector3
-      );
+      return _Vector3;
     },
     "Vector4": function Vector4() {
-      return (
-        /* reexport */
-        _Vector4
-      );
+      return _Vector4;
     }
   });
 
-  ; // CONCATENATED MODULE: ./Code/src/cMaths/Vector2.ts
+  ; // CONCATENATED MODULE: ./Code/src/Maths/Vector2.ts
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -207,21 +200,60 @@ var TestExport;
     function Vector2(x, y) {
       _classCallCheck(this, Vector2);
 
-      _defineProperty(this, "x", void 0);
+      _defineProperty(this, "_x", NaN);
 
-      _defineProperty(this, "y", void 0);
+      _defineProperty(this, "_y", NaN);
 
-      this.x = NaN;
-      this.y = NaN;
-      this.set(x, y);
+      this.x = x;
+      this.y = y;
     }
     /**
-     * Create a Vector2 filled with NaN
+     * Set this Vector2's x and y value to be the parameter's value and apply the values to this Vector2
+     * @param  {number} x - The x value to set
+     * @param  {number} y - The y value to set
      * @returns {Vector2}
      */
 
 
     _createClass(Vector2, [{
+      key: "x",
+      get: function get() {
+        return this._x;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Vector's x value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._x = value;
+      }
+    }, {
+      key: "y",
+      get: function get() {
+        return this._y;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Vector's y value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._y = value;
+      }
+    }, {
+      key: "set",
+      value: function set(x, y) {
+        this.x = x;
+        this.y = y;
+        return this;
+      }
+      /**
+       * Create a Vector2 filled with NaN
+       * @returns {Vector2}
+       */
+
+    }, {
       key: "equals",
       value:
       /**
@@ -260,62 +292,14 @@ var TestExport;
        */
 
     }, {
-      key: "set",
+      key: "setVector2",
       value:
-      /**
-       * Set this Vector2's x and y value to be the parameter's value and apply the values to this Vector2
-       * @param  {number} x - The x value to set
-       * @param  {number} y - The y value to set
-       * @returns {Vector2}
-       */
-      function set(x, y) {
-        this.setX(x);
-        this.setY(y);
-        return this;
-      }
-      /**
-       * Set this Vector2's x value to be the parameter's value and apply the values to this Vector2
-       * @param  {number} x
-       * @returns {Vector2}
-       */
-
-    }, {
-      key: "setX",
-      value: function setX(x) {
-        if (typeof x != "number") {
-          console.error("Error trying to set a Vector2's x value using an invalid input: ", x);
-          x = NaN;
-        }
-
-        this.x = x;
-        return this;
-      }
-      /**
-       * Set this Vector2's y value to be the parameter's value and apply the values to this Vector2
-       * @param  {number} y
-       * @returns {Vector2}
-       */
-
-    }, {
-      key: "setY",
-      value: function setY(y) {
-        if (typeof y != "number") {
-          console.error("Error trying to set a Vector2's y value using an invalid input: ", y);
-          y = NaN;
-        }
-
-        this.y = y;
-        return this;
-      }
       /**
        * Set this Vector2's values to be the parameter's values and apply the values to this Vector2
        * @param  {Vector2} _vector
        * @returns {Vector2}
        */
-
-    }, {
-      key: "setVector2",
-      value: function setVector2(_vector) {
+      function setVector2(_vector) {
         if (!(_vector instanceof Vector2)) {
           console.error("Error trying to set a Vector2's values using an invalid Vector2: ", _vector);
           _vector = new Vector2(NaN, NaN);
@@ -397,8 +381,7 @@ var TestExport;
           return new Vector2(NaN, NaN);
         }
 
-        this.x -= _vector.x;
-        this.y -= _vector.y;
+        this.set(this.x - _vector.x, this.y - _vector.y);
         return this;
       }
       /**
@@ -431,8 +414,7 @@ var TestExport;
           _scalar = NaN;
         }
 
-        this.x *= _scalar;
-        this.y *= _scalar;
+        this.set(this.x * _scalar, this.y * _scalar);
         return this;
       }
       /**
@@ -465,8 +447,7 @@ var TestExport;
           _vector = new Vector2(NaN, NaN);
         }
 
-        this.x *= _vector.x;
-        this.y *= _vector.y;
+        this.set(this.x * _vector.x, this.y * _vector.y);
         return this;
       }
       /**
@@ -569,7 +550,7 @@ var TestExport;
     return Vector2;
   }();
 
-  ; // CONCATENATED MODULE: ./Code/src/cMaths/Vector3.ts
+  ; // CONCATENATED MODULE: ./Code/src/Maths/Vector3.ts
 
   function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -755,20 +736,48 @@ var TestExport;
 
       Vector3_classCallCheck(this, Vector3);
       _this = _super.call(this, x, y);
-      Vector3_defineProperty(_assertThisInitialized(_this), "z", void 0);
-      _this.z = NaN;
-
-      _this.setZ(z);
-
+      Vector3_defineProperty(_assertThisInitialized(_this), "_z", NaN);
+      _this.z = z;
       return _this;
     }
     /**
-     * Create a Vector3 filled with NaN
+     * Set this Vector3's x,y and z value to be the parameter's value and apply the values to this Vector3
+     * @param  {number} x - The x value to set
+     * @param  {number} y - The y value to set
+     * @param  {number} z - The z value to set
      * @returns {Vector3}
      */
 
 
     Vector3_createClass(Vector3, [{
+      key: "z",
+      get: function get() {
+        return this._z;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Vector's z value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._z = value;
+      }
+    }, {
+      key: "set",
+      value: function set(x, y) {
+        var z = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
+        _get(_getPrototypeOf(Vector3.prototype), "set", this).call(this, x, y);
+
+        this.z = z;
+        return this;
+      }
+      /**
+       * Create a Vector3 filled with NaN
+       * @returns {Vector3}
+       */
+
+    }, {
       key: "equals",
       value:
       /**
@@ -815,39 +824,6 @@ var TestExport;
        */
       function vector2() {
         return new _Vector2(this.x, this.y);
-      }
-      /**
-       * Set this Vector3's x,y and z value to be the parameter's value and apply the values to this Vector3
-       * @param  {number} x - The x value to set
-       * @param  {number} y - The y value to set
-       * @param  {number} z - The z value to set
-       * @returns {Vector3}
-       */
-
-    }, {
-      key: "set",
-      value: function set(x, y, z) {
-        _get(_getPrototypeOf(Vector3.prototype), "set", this).call(this, x, y);
-
-        this.setZ(z == undefined ? NaN : z);
-        return this;
-      }
-      /**
-       * Set this Vector3's z value to be the parameter's value and apply the values to this Vector3
-       * @param  {number} z
-       * @returns {Vector3}
-       */
-
-    }, {
-      key: "setZ",
-      value: function setZ(z) {
-        if (typeof z != "number") {
-          console.error("Error trying to set a Vector2's x value using an invalid input: ", z);
-          z = NaN;
-        }
-
-        this.z = z;
-        return this;
       }
       /**
        * Set this Vector3's values to be the parameter's values and apply the values to this Vector3
@@ -1107,7 +1083,7 @@ var TestExport;
     return Vector3;
   }(_Vector2);
 
-  ; // CONCATENATED MODULE: ./Code/src/cMaths/Vector4.ts
+  ; // CONCATENATED MODULE: ./Code/src/Maths/Vector4.ts
 
   function Vector4_typeof(obj) {
     "@babel/helpers - typeof";
@@ -1291,11 +1267,8 @@ var TestExport;
 
       Vector4_classCallCheck(this, Vector4);
       _this = _super.call(this, x, y, z);
-      Vector4_defineProperty(Vector4_assertThisInitialized(_this), "w", void 0);
-      _this.w = NaN;
-
-      _this.setW(w);
-
+      Vector4_defineProperty(Vector4_assertThisInitialized(_this), "_w", NaN);
+      _this.w = w;
       return _this;
     }
     /**
@@ -1305,6 +1278,19 @@ var TestExport;
 
 
     Vector4_createClass(Vector4, [{
+      key: "w",
+      get: function get() {
+        return this._w;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Vector's w value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._w = value;
+      }
+    }, {
       key: "equals",
       value:
       /**
@@ -1363,25 +1349,10 @@ var TestExport;
 
     }, {
       key: "set",
-      value: function set(x, y, z, w) {
+      value: function set(x, y) {
+        var z = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : NaN;
+        var w = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : NaN;
         Vector4_get(Vector4_getPrototypeOf(Vector4.prototype), "set", this).call(this, x, y, z);
-        this.setW(w == undefined ? NaN : w);
-        return this;
-      }
-      /**
-       * Set this Vector4's w value to be the parameter's value and apply the values to this Vector4
-       * @param  {number} w
-       * @returns {Vector4}
-       */
-
-    }, {
-      key: "setW",
-      value: function setW(w) {
-        if (typeof w != "number") {
-          console.error("Error trying to set a Vector4's w value using an invalid input: ", w);
-          w = NaN;
-        }
-
         this.w = w;
         return this;
       }
@@ -1611,7 +1582,7 @@ var TestExport;
     return Vector4;
   }(_Vector3);
 
-  ; // CONCATENATED MODULE: ./Code/src/cMaths/Positioning.ts
+  ; // CONCATENATED MODULE: ./Code/src/Maths/Positioning.ts
 
   function Positioning_classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -1769,7 +1740,7 @@ var TestExport;
     return Positioning;
   }();
 
-  ; // CONCATENATED MODULE: ./Code/src/cMaths/Bounds.ts
+  ; // CONCATENATED MODULE: ./Code/src/Maths/Bounds.ts
 
   function Bounds_classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -1815,12 +1786,6 @@ var TestExport;
 
 
   var _Bounds = /*#__PURE__*/function () {
-    //** The minimum x and y point*/
-    //** The maximum x and y point*/
-    //** The maximum x and minimum y point*/
-    //** The minimum x and y point*/
-    //** The total size of this Bound*/
-
     /**
     * Create a Bounds
     * @param  {number} x1 - The first point x value to set
@@ -1830,54 +1795,210 @@ var TestExport;
     */
     function Bounds(x1, y1, x2, y2) {
       Bounds_classCallCheck(this, Bounds);
-      Bounds_defineProperty(this, "x1", void 0);
-      Bounds_defineProperty(this, "y1", void 0);
-      Bounds_defineProperty(this, "x2", void 0);
-      Bounds_defineProperty(this, "y2", void 0);
-      Bounds_defineProperty(this, "topLeft", void 0);
-      Bounds_defineProperty(this, "topRight", void 0);
-      Bounds_defineProperty(this, "bottomRight", void 0);
-      Bounds_defineProperty(this, "bottomLeft", void 0);
-      Bounds_defineProperty(this, "size", void 0);
-      this.x1 = NaN;
-      this.y1 = NaN;
-      this.x2 = NaN;
-      this.y2 = NaN;
-      this.topLeft = new _Vector2(0, 0);
-      this.topRight = new _Vector2(0, 0);
-      this.bottomRight = new _Vector2(0, 0);
-      this.bottomLeft = new _Vector2(0, 0);
-      this.size = new _Vector2(0, 0);
-      this.set(x1, y1, x2, y2);
+      Bounds_defineProperty(this, "_x1", NaN);
+      Bounds_defineProperty(this, "_y1", NaN);
+      Bounds_defineProperty(this, "_x2", NaN);
+      Bounds_defineProperty(this, "_y2", NaN);
+      Bounds_defineProperty(this, "_topLeft", _Vector2[NaN]());
+      Bounds_defineProperty(this, "_topRight", _Vector2[NaN]());
+      Bounds_defineProperty(this, "_bottomRight", _Vector2[NaN]());
+      Bounds_defineProperty(this, "_bottomLeft", _Vector2[NaN]());
+      Bounds_defineProperty(this, "_size", _Vector2[NaN]());
+      this.x1 = x1;
+      this.y1 = y1;
+      this.x2 = x2;
+      this.y2 = y2;
     }
     /**
-     * Create a Bounds filled with NaN
+     * Set this Bounds's values to be the parameter's values and apply the values to this Bounds
+     * @param  {number} x1 - The x1 value to set
+     * @param  {number} y1 - The y1 value to set
+     * @param  {number} y2 - The x2 value to set
+     * @param  {number} y2 - The y2 value to set
      * @returns {Bounds}
      */
 
 
     Bounds_createClass(Bounds, [{
-      key: "updateExtras",
-      value:
-      /**
-       * Updates any extra variables that are calculated from x1/y1/x2/y2
-       */
-      function updateExtras() {
-        this.bottomRight.set(this.x1 < this.x2 ? this.x1 : this.x2, this.y1 < this.y2 ? this.y1 : this.y2);
-        this.bottomLeft.set(this.x1 > this.x2 ? this.x1 : this.x2, this.y1 < this.y2 ? this.y1 : this.y2);
-        this.topRight.set(this.x1 > this.x2 ? this.x1 : this.x2, this.y1 > this.y2 ? this.y1 : this.y2);
-        this.topLeft.set(this.x1 < this.x2 ? this.x1 : this.x2, this.y1 > this.y2 ? this.y1 : this.y2);
-        this.size.set(this.topRight.x - this.topLeft.x, this.topRight.y - this.bottomRight.y);
+      key: "x1",
+      get: function get() {
+        return this._x1;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Bounds's x1 value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._x1 = value;
+
+        if (value > this.x2) {
+          this.topRight.x = value;
+          this.bottomRight.x = value;
+          this.topLeft.x = this.x2;
+          this.bottomLeft.x = this.x2;
+        } else {
+          this.topRight.x = this.x2;
+          this.bottomRight.x = this.x2;
+          this.topLeft.x = value;
+          this.bottomLeft.x = value;
+        }
+
+        this.size.x = this.topRight.x - this.topLeft.x;
+        this.size.y = this.topRight.y - this.bottomRight.y;
       }
+    }, {
+      key: "y1",
+      get: function get() {
+        return this._y1;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Bounds's y1 value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._y1 = value;
+
+        if (value > this.y2) {
+          this.topLeft.y = value;
+          this.topRight.y = value;
+          this.bottomLeft.y = this.y2;
+          this.bottomRight.y = this.y2;
+        } else {
+          this.topLeft.y = this.y2;
+          this.topRight.y = this.y2;
+          this.bottomLeft.y = value;
+          this.bottomRight.y = value;
+        }
+
+        this.size.x = this.topRight.x - this.topLeft.x;
+        this.size.y = this.topRight.y - this.bottomRight.y;
+      }
+    }, {
+      key: "x2",
+      get: function get() {
+        return this._x2;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Bounds's x2 value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._x2 = value;
+
+        if (value > this.x1) {
+          this.topRight.x = value;
+          this.bottomRight.x = value;
+          this.topLeft.x = this.x1;
+          this.bottomLeft.x = this.x1;
+        } else {
+          this.topRight.x = this.x1;
+          this.bottomRight.x = this.x1;
+          this.topLeft.x = value;
+          this.bottomLeft.x = value;
+        }
+
+        this.size.x = this.topRight.x - this.topLeft.x;
+        this.size.y = this.topRight.y - this.bottomRight.y;
+      }
+    }, {
+      key: "y2",
+      get: function get() {
+        return this._y2;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Bounds's y2 value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._y2 = value;
+
+        if (value > this.y1) {
+          this.topLeft.y = value;
+          this.topRight.y = value;
+          this.bottomLeft.y = this.y1;
+          this.bottomRight.y = this.y1;
+        } else {
+          this.topLeft.y = this.y1;
+          this.topRight.y = this.y1;
+          this.bottomLeft.y = value;
+          this.bottomRight.y = value;
+        }
+
+        this.size.x = this.topRight.x - this.topLeft.x;
+        this.size.y = this.topRight.y - this.bottomRight.y;
+      } //** The minimum x and y point*/
+
+    }, {
+      key: "topLeft",
+      get: function get() {
+        return this._topLeft;
+      },
+      set: function set(vector) {
+        this._topLeft = vector;
+      } //** The maximum x and y point*/
+
+    }, {
+      key: "topRight",
+      get: function get() {
+        return this._topRight;
+      },
+      set: function set(vector) {
+        this._topRight = vector;
+      } //** The maximum x and minimum y point*/
+
+    }, {
+      key: "bottomRight",
+      get: function get() {
+        return this._bottomRight;
+      },
+      set: function set(vector) {
+        this._bottomRight = vector;
+      } //** The minimum x and y point*/
+
+    }, {
+      key: "bottomLeft",
+      get: function get() {
+        return this._bottomLeft;
+      },
+      set: function set(vector) {
+        this._bottomLeft = vector;
+      } //** The total size of this Bound*/
+
+    }, {
+      key: "size",
+      get: function get() {
+        return this._size;
+      },
+      set: function set(vector) {
+        this._size = vector;
+      }
+    }, {
+      key: "set",
+      value: function set(x1, y1, x2, y2) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+        return this;
+      }
+      /**
+       * Create a Bounds filled with NaN
+       * @returns {Bounds}
+       */
+
+    }, {
+      key: "equals",
+      value:
       /**
       * Returns if an object is the same as this Bound
       * @param  {object} o
       * @returns {boolean}
       */
-
-    }, {
-      key: "equals",
-      value: function equals(o) {
+      function equals(o) {
         if (!(o instanceof Bounds)) return false;
         return this.x1 == o.x1 && this.y1 == o.y1 && this.x2 == o.x2 && this.y2 == o.y2;
       }
@@ -1908,103 +2029,13 @@ var TestExport;
        */
 
     }, {
-      key: "set",
+      key: "clone",
       value:
-      /**
-      * Set this Bounds's values to be the parameter's values and apply the values to this Bounds
-      * @param  {number} x1 - The x1 value to set
-      * @param  {number} y1 - The y1 value to set
-      * @param  {number} y2 - The x2 value to set
-      * @param  {number} y2 - The y2 value to set
-      * @returns {Bounds}
-      */
-      function set(x1, y1, x2, y2) {
-        this.setX1(x1, false);
-        this.setY1(y1, false);
-        this.setX2(x2, false);
-        this.setY2(y2);
-        return this;
-      }
-      /**
-      * Set this Bounds's x1 value to be the parameter's value and apply the values to this Bounds
-      * @param  {number} x1
-      * @returns {Bounds}
-      */
-
-    }, {
-      key: "setX1",
-      value: function setX1(x1, updateExtras) {
-        if (typeof x1 != "number") {
-          console.error("Error trying to set a Bounds's x1 value using an invalid input: ", x1);
-          x1 = NaN;
-        }
-
-        this.x1 = x1;
-        if (updateExtras == null || updateExtras == true) this.updateExtras();
-        return this;
-      }
-      /**
-      * Set this Bounds's y1 value to be the parameter's value and apply the values to this Bounds
-      * @param  {number} y1
-      * @returns {Bounds}
-      */
-
-    }, {
-      key: "setY1",
-      value: function setY1(y1, updateExtras) {
-        if (typeof y1 != "number") {
-          console.error("Error trying to set a Bounds's y1 value using an invalid input: ", y1);
-          y1 = NaN;
-        }
-
-        this.y1 = y1;
-        if (updateExtras == null || updateExtras == true) this.updateExtras();
-        return this;
-      }
-      /**
-      * Set this Bounds's x2 value to be the parameter's value and apply the values to this Bounds
-      * @param  {number} x2
-      * @returns {Bounds}
-      */
-
-    }, {
-      key: "setX2",
-      value: function setX2(x2, updateExtras) {
-        if (typeof x2 != "number") {
-          console.error("Error trying to set a Bounds's x2 value using an invalid input: ", x2);
-          x2 = NaN;
-        }
-
-        this.x2 = x2;
-        if (updateExtras == null || updateExtras == true) this.updateExtras();
-        return this;
-      }
-      /**
-      * Set this Bounds's y1 value to be the parameter's value and apply the values to this Bounds
-      * @param  {number} y2
-      * @returns {Bounds}
-      */
-
-    }, {
-      key: "setY2",
-      value: function setY2(y2, updateExtras) {
-        if (typeof y2 != "number") {
-          console.error("Error trying to set a Bounds's y2 value using an invalid input: ", y2);
-          y2 = NaN;
-        }
-
-        this.y2 = y2;
-        if (updateExtras == null || updateExtras == true) this.updateExtras();
-        return this;
-      }
       /**
       * Returns a new Bounds with the same values as this Bounds
       * @returns {Bounds}
       */
-
-    }, {
-      key: "clone",
-      value: function clone() {
+      function clone() {
         return new Bounds(this.x1, this.y1, this.x2, this.y2);
       }
       /**
@@ -2039,10 +2070,7 @@ var TestExport;
           _bounds = new Bounds(NaN, NaN, NaN, NaN);
         }
 
-        this.setX1(this.x1 + _bounds.x1);
-        this.setY1(this.y1 + _bounds.y1);
-        this.setX2(this.x2 + _bounds.x2);
-        this.setY2(this.y2 + _bounds.y2);
+        this.set(this.x1 + _bounds.x1, this.y1 + _bounds.y1, this.x2 + _bounds.x2, this.y2 + _bounds.y2);
         return this;
       }
       /**
@@ -2079,10 +2107,7 @@ var TestExport;
           _bounds = new Bounds(NaN, NaN, NaN, NaN);
         }
 
-        this.setX1(this.x1 - _bounds.x1, false);
-        this.setY1(this.y1 - _bounds.y1, false);
-        this.setX2(this.x2 - _bounds.x2, false);
-        this.setY2(this.y2 - _bounds.y2);
+        this.set(this.x1 - _bounds.x1, this.y1 - _bounds.y1, this.x2 - _bounds.x2, this.y2 - _bounds.y2);
         return this;
       }
       /**
@@ -2330,7 +2355,7 @@ var TestExport;
     return Bounds;
   }();
 
-  ; // CONCATENATED MODULE: ./Code/src/cMaths/Generic.ts
+  ; // CONCATENATED MODULE: ./Code/src/Maths/Generic.ts
 
   function Generic_classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -2391,7 +2416,7 @@ var TestExport;
     return Generic;
   }();
 
-  ; // CONCATENATED MODULE: ./Code/src/cMaths/Line.ts
+  ; // CONCATENATED MODULE: ./Code/src/Maths/Line.ts
 
   function Line_classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -2446,23 +2471,92 @@ var TestExport;
     */
     function Line(x1, y1, x2, y2) {
       Line_classCallCheck(this, Line);
-      Line_defineProperty(this, "x1", void 0);
-      Line_defineProperty(this, "y1", void 0);
-      Line_defineProperty(this, "x2", void 0);
-      Line_defineProperty(this, "y2", void 0);
-      this.x1 = NaN;
-      this.y1 = NaN;
-      this.x2 = NaN;
-      this.y2 = NaN;
-      this.set(x1, y1, x2, y2);
+      Line_defineProperty(this, "_x1", 0);
+      Line_defineProperty(this, "_y1", 0);
+      Line_defineProperty(this, "_x2", 0);
+      Line_defineProperty(this, "_y2", 0);
+      this.x1 = x1;
+      this.y1 = y1;
+      this.x2 = x2;
+      this.y2 = y2;
     }
     /**
-     * Create a Line filled with NaN
-     * @returns {Line}
-     */
+    * Set this Line's values to be the parameter's values and apply the values to this Line
+    * @param  {number} x1 - The x1 value to set
+    * @param  {number} y1 - The y1 value to set
+    * @param  {number} y2 - The x2 value to set
+    * @param  {number} y2 - The y2 value to set
+    * @returns {Line}
+    */
 
 
     Line_createClass(Line, [{
+      key: "x1",
+      get: function get() {
+        return this._x1;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Lines's x1 value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._x1 = value;
+      }
+    }, {
+      key: "y1",
+      get: function get() {
+        return this._y1;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Lines's y1 value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._y1 = value;
+      }
+    }, {
+      key: "x2",
+      get: function get() {
+        return this._x2;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Lines's x2 value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._x2 = value;
+      }
+    }, {
+      key: "y2",
+      get: function get() {
+        return this._y2;
+      },
+      set: function set(value) {
+        if (typeof value != "number") {
+          console.error("Error trying to set a Lines's y2 value using an invalid input: ", value);
+          value = NaN;
+        }
+
+        this._y2 = value;
+      }
+    }, {
+      key: "set",
+      value: function set(x1, y1, x2, y2) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+        return this;
+      }
+      /**
+       * Create a Line filled with NaN
+       * @returns {Line}
+       */
+
+    }, {
       key: "equals",
       value:
       /**
@@ -2501,99 +2595,13 @@ var TestExport;
        */
 
     }, {
-      key: "set",
+      key: "clone",
       value:
-      /**
-      * Set this Line's values to be the parameter's values and apply the values to this Line
-      * @param  {number} x1 - The x1 value to set
-      * @param  {number} y1 - The y1 value to set
-      * @param  {number} y2 - The x2 value to set
-      * @param  {number} y2 - The y2 value to set
-      * @returns {Line}
-      */
-      function set(x1, y1, x2, y2) {
-        this.setX1(x1);
-        this.setY1(y1);
-        this.setX2(x2);
-        this.setY2(y2);
-        return this;
-      }
-      /**
-      * Set this Line's x1 value to be the parameter's value and apply the values to this Line
-      * @param  {number} x1
-      * @returns {Line}
-      */
-
-    }, {
-      key: "setX1",
-      value: function setX1(x1) {
-        if (typeof x1 != "number") {
-          console.error("Error trying to set a Line's x1 value using an invalid input: ", x1);
-          x1 = NaN;
-        }
-
-        this.x1 = x1;
-        return this;
-      }
-      /**
-      * Set this Bounds's y1 value to be the parameter's value and apply the values to this Line
-      * @param  {number} y1
-      * @returns {Line}
-      */
-
-    }, {
-      key: "setY1",
-      value: function setY1(y1) {
-        if (typeof y1 != "number") {
-          console.error("Error trying to set a Line's y1 value using an invalid input: ", y1);
-          y1 = NaN;
-        }
-
-        this.y1 = y1;
-        return this;
-      }
-      /**
-      * Set this Line's x2 value to be the parameter's value and apply the values to this Line
-      * @param  {number} x2
-      * @returns {Line}
-      */
-
-    }, {
-      key: "setX2",
-      value: function setX2(x2) {
-        if (typeof x2 != "number") {
-          console.error("Error trying to set a Line's x2 value using an invalid input: ", x2);
-          x2 = NaN;
-        }
-
-        this.x2 = x2;
-        return this;
-      }
-      /**
-      * Set this Bounds's y2 value to be the parameter's value and apply the values to this Line
-      * @param  {number} y2
-      * @returns {Line}
-      */
-
-    }, {
-      key: "setY2",
-      value: function setY2(y2) {
-        if (typeof y2 != "number") {
-          console.error("Error trying to set a Line's y2 value using an invalid input: ", y2);
-          y2 = NaN;
-        }
-
-        this.y2 = y2;
-        return this;
-      }
       /**
       * Returns a new Line with the same values as this Line
       * @returns {Line}
       */
-
-    }, {
-      key: "clone",
-      value: function clone() {
+      function clone() {
         return new Line(this.x1, this.y1, this.x2, this.y2);
       }
       /**
@@ -2784,7 +2792,7 @@ var TestExport;
     return Line;
   }();
 
-  ; // CONCATENATED MODULE: ./Code/src/cMaths/Collision.ts
+  ; // CONCATENATED MODULE: ./Code/src/Maths/Collision.ts
 
   function Collision_classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -2972,6 +2980,8 @@ var TestExport;
     }]);
     return Collision;
   }();
+
+  ; // CONCATENATED MODULE: ./Definitions/Modules/Maths.ts
 
   ; // CONCATENATED MODULE: ./Definitions/WebpackAll.ts
 
