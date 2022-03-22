@@ -2549,6 +2549,9 @@ var PubSub = /*#__PURE__*/function () {
     value:
     /**
     * Handle subscribing to events
+    * @param  {string} event - The event to subscribe to
+    * @param  {Function} callback - The callback to add to this event
+    * @param  {any[]} args - Any extra arguments that will be sent to EventSubscribed event
     */
     function subscribe(event, callback) {
       if (typeof event != "string") {
@@ -2572,10 +2575,19 @@ var PubSub = /*#__PURE__*/function () {
       }
 
       eventCallbacks.add(callback);
+
+      for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+        args[_key - 2] = arguments[_key];
+      }
+
+      this.publish.apply(this, ["EventSubscribed", event, callback].concat(args));
       return true;
     }
     /**
     * Handle unsubscribing from events
+    * @param  {string} event - The event to unsubscribe from
+    * @param  {Function} callback - The callback to remove to this event
+    * @param  {any[]} args - Any extra arguments that will be sent to EventUnsubscribed event
     */
 
   }, {
@@ -2595,6 +2607,12 @@ var PubSub = /*#__PURE__*/function () {
 
       if (eventCallbacks == undefined) return true;
       eventCallbacks.remove(callback);
+
+      for (var _len2 = arguments.length, args = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      this.publish.apply(this, ["EventUnsubscribed", event, callback].concat(args));
       return true;
     }
     /**
@@ -2611,11 +2629,41 @@ var PubSub = /*#__PURE__*/function () {
 
       var eventCallbacks = this._events.get(event);
 
-      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        args[_key - 1] = arguments[_key];
+      for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+        args[_key3 - 1] = arguments[_key3];
       }
 
       if (eventCallbacks != undefined) eventCallbacks.fire.apply(eventCallbacks, args);
+      return true;
+    }
+    /**
+    * Handle clearing events
+    * @param  {string} event - The event to clear all subscribers from
+     * This will need improving to handle event unsubscribing when clearing
+    */
+
+  }, {
+    key: "clearEvent",
+    value: function clearEvent(event) {
+      if (typeof event != "string") {
+        console.error("Trying to clear to a Timer's event with an invalid input: ", event);
+        return false;
+      }
+
+      var jqueryCallback = jQuery.Callbacks("unique");
+
+      this._events.set(event, jqueryCallback);
+
+      return true;
+    }
+    /**
+    * Handle clearing all events
+    */
+
+  }, {
+    key: "clear",
+    value: function clear() {
+      this._events = new Map();
       return true;
     }
   }]);
@@ -2896,7 +2944,7 @@ var TimerController = /*#__PURE__*/function () {
   }, {
     key: "getTimer",
     value: function getTimer(name) {
-      if (typeof name != "number") {
+      if (typeof name != "string") {
         console.error("Trying to get a Timer with an invalid input: ", name);
         return;
       }
@@ -3061,9 +3109,15 @@ var Timer = /*#__PURE__*/function () {
     this.enableOffset = enableOffset;
     this.startDate = TimerController.Time();
     this.skipOffset = skipOffset;
-    callbacks.forEach(function (element) {
-      _this2.events.subscribe("loopCompletion", element);
-    });
+
+    if (Array.isArray(callbacks)) {
+      callbacks.forEach(function (element) {
+        _this2.events.subscribe("loopCompletion", element);
+      });
+    } else {
+      this.events.subscribe("loopCompletion", callbacks);
+    }
+
     TimerController.addTimer(this);
 
     if (startOnCreation) {
@@ -3172,7 +3226,7 @@ var Timer = /*#__PURE__*/function () {
         return;
       }
 
-      this._timingInterval = interval;
+      this._currentTimingInterval = interval;
     } //** The last time this timer has completed a loop*/
 
   }, {
@@ -3206,7 +3260,7 @@ var Timer = /*#__PURE__*/function () {
   }, {
     key: "ticksElapsed",
     get: function get() {
-      return this._ticksRemaining;
+      return this._ticksElapsed;
     },
     set: function set(ticksElapsed) {
       if (typeof ticksElapsed != "number") {
@@ -3298,7 +3352,7 @@ var Timer = /*#__PURE__*/function () {
         return;
       }
 
-      this.skipOffsetCalculation = skipOffsetCalculation;
+      this._skipOffsetCalculation = skipOffsetCalculation;
     } //** Handles any custom events required by this Timer*/
 
   }, {
@@ -3461,6 +3515,8 @@ var Timer = /*#__PURE__*/function () {
     key: "destroy",
     value: function destroy() {
       this.stop();
+      this.events.publish("TimerDestroyed", this);
+      this.events.clear();
       TimerController.removeTimer(this);
     }
   }]);
