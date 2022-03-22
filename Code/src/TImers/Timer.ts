@@ -82,7 +82,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
 
     private set currentTimingInterval(interval: number) {
         if (typeof(interval) != "number") { console.error("Trying to set a Timer's current timing interval with an invalid input: ", interval); return; }
-        this._timingInterval = interval;
+        this._currentTimingInterval = interval;
     }
 
     //** The last time this timer has completed a loop*/
@@ -110,7 +110,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
     //** The miliseconds that this timer has been running*/ 
     protected _ticksElapsed: number = -1;
     public get ticksElapsed(): number {
-        return this._ticksRemaining;
+        return this._ticksElapsed;
     }
 
     private set ticksElapsed(ticksElapsed: number) {
@@ -183,7 +183,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
 
     private set skipOffsetCalculation(skipOffsetCalculation: boolean) {
         if (typeof(skipOffsetCalculation) != "boolean") { console.error("Trying to set a Timer's skip loop value with an invalid input: ", skipOffsetCalculation); return; }
-        this.skipOffsetCalculation = skipOffsetCalculation;
+        this._skipOffsetCalculation = skipOffsetCalculation;
     }
 
     //** Handles any custom events required by this Timer*/
@@ -216,9 +216,13 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
         this.startDate = TimerController.Time();
         this.skipOffset = skipOffset;
 
-        callbacks.forEach(element => {
-            this.events.subscribe("loopCompletion", element);
-        });
+        if (Array.isArray(callbacks)) {
+            callbacks.forEach(element => {
+                this.events.subscribe("loopCompletion", element);
+            });
+        } else {
+            this.events.subscribe("loopCompletion", callbacks);
+        }
 
         TimerController.addTimer(this);
 
@@ -359,8 +363,10 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
     /**
 	 * Handle the destruction of this timer
 	 */
-    protected destroy() {
+    public destroy() {
         this.stop();
+        this.events.publish("TimerDestroyed", this);
+        this.events.clear();
         TimerController.removeTimer(this);
     }
 
