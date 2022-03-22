@@ -58,7 +58,7 @@ import { Timer } from "./Timer";
 	 * @param  {string} name - The Timer to return
 	 */
     public static getTimer(name: string): Timer | undefined {
-        if (typeof(name) != "number") { console.error("Trying to get a Timer with an invalid input: ", name); return; }
+        if (typeof(name) != "string") { console.error("Trying to get a Timer with an invalid input: ", name); return; }
         return this.Instance.timers.getValue(name);
     }
 
