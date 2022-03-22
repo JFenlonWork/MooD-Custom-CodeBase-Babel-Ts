@@ -40,7 +40,10 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "Maths": function() { return /* reexport */ Maths_namespaceObject; }
+  "Events": function() { return /* reexport */ Events_namespaceObject; },
+  "Maths": function() { return /* reexport */ Maths_namespaceObject; },
+  "Timers": function() { return /* reexport */ Timers_namespaceObject; },
+  "Utilities": function() { return /* reexport */ Utilities_namespaceObject; }
 });
 
 // NAMESPACE OBJECT: ./Definitions/Modules/Maths.ts
@@ -54,6 +57,29 @@ __webpack_require__.d(Maths_namespaceObject, {
   "Vector2": function() { return Vector2; },
   "Vector3": function() { return Vector3; },
   "Vector4": function() { return Vector4; }
+});
+
+// NAMESPACE OBJECT: ./Definitions/Modules/Timers.ts
+var Timers_namespaceObject = {};
+__webpack_require__.r(Timers_namespaceObject);
+__webpack_require__.d(Timers_namespaceObject, {
+  "Timer": function() { return Timer; },
+  "TimerController": function() { return TimerController; },
+  "TimerSkipOffsetType": function() { return TimerSkipOffsetType; }
+});
+
+// NAMESPACE OBJECT: ./Definitions/Modules/Events.ts
+var Events_namespaceObject = {};
+__webpack_require__.r(Events_namespaceObject);
+__webpack_require__.d(Events_namespaceObject, {
+  "PubSub": function() { return PubSub; }
+});
+
+// NAMESPACE OBJECT: ./Definitions/Modules/Utilities.ts
+var Utilities_namespaceObject = {};
+__webpack_require__.r(Utilities_namespaceObject);
+__webpack_require__.d(Utilities_namespaceObject, {
+  "MultiKeyMap": function() { return MultiKeyMap; }
 });
 
 ;// CONCATENATED MODULE: ./Code/src/Maths/Vector2.ts
@@ -2500,7 +2526,962 @@ var Collision = /*#__PURE__*/function () {
 
 
 
+;// CONCATENATED MODULE: ./Code/src/Events/PubSub.ts
+function PubSub_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function PubSub_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function PubSub_createClass(Constructor, protoProps, staticProps) { if (protoProps) PubSub_defineProperties(Constructor.prototype, protoProps); if (staticProps) PubSub_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function PubSub_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/** Class that handles simple subscription/publish event manager.
+ */
+var PubSub = /*#__PURE__*/function () {
+  function PubSub() {
+    PubSub_classCallCheck(this, PubSub);
+
+    PubSub_defineProperty(this, "_events", new Map());
+  }
+
+  PubSub_createClass(PubSub, [{
+    key: "subscribe",
+    value:
+    /**
+    * Handle subscribing to events
+    */
+    function subscribe(event, callback) {
+      if (typeof event != "string") {
+        console.error("Trying to subscribe to a Timer's event with an invalid input: ", event);
+        return false;
+      }
+
+      if (typeof callback != "function") {
+        console.error("Trying to subscribe to a Timer's event using an invalid function: ", callback);
+        return false;
+      }
+
+      var eventCallbacks = this._events.get(event);
+
+      if (eventCallbacks == undefined) {
+        var jqueryCallback = jQuery.Callbacks("unique");
+
+        this._events.set(event, jqueryCallback);
+
+        eventCallbacks = jqueryCallback;
+      }
+
+      eventCallbacks.add(callback);
+      return true;
+    }
+    /**
+    * Handle unsubscribing from events
+    */
+
+  }, {
+    key: "unsubscribe",
+    value: function unsubscribe(event, callback) {
+      if (typeof event != "string") {
+        console.error("Trying to subscribe to a Timer's event with an invalid input: ", event);
+        return false;
+      }
+
+      if (typeof callback != "function") {
+        console.error("Trying to subscribe to a Timer's event using an invalid function: ", callback);
+        return false;
+      }
+
+      var eventCallbacks = this._events.get(event);
+
+      if (eventCallbacks == undefined) return true;
+      eventCallbacks.remove(callback);
+      return true;
+    }
+    /**
+    * Handle publishing events
+    */
+
+  }, {
+    key: "publish",
+    value: function publish(event) {
+      if (typeof event != "string") {
+        console.error("Trying to publish to a Timer's event with an invalid input: ", event);
+        return false;
+      }
+
+      var eventCallbacks = this._events.get(event);
+
+      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+      }
+
+      if (eventCallbacks != undefined) eventCallbacks.fire.apply(eventCallbacks, args);
+      return true;
+    }
+  }]);
+
+  return PubSub;
+}();
+;// CONCATENATED MODULE: ./Code/src/Utilities/MultiKeyMap.ts
+function MultiKeyMap_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function MultiKeyMap_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function MultiKeyMap_createClass(Constructor, protoProps, staticProps) { if (protoProps) MultiKeyMap_defineProperties(Constructor.prototype, protoProps); if (staticProps) MultiKeyMap_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function MultiKeyMap_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/** Class that handles multiple keys to one value Map
+ */
+var MultiKeyMap = /*#__PURE__*/function () {
+  //** Store all forward references to values to allow searching*/
+
+  /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
+
+  /**
+  * Create a map between multiple keys and a single value
+  * @param  {any | any[]} Keys - Any key/s to add on creation
+  * @param  {T} value - The value to link these keys to
+  */
+  function MultiKeyMap() {
+    var _this = this;
+
+    var keys = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    var value = arguments.length > 1 ? arguments[1] : undefined;
+
+    MultiKeyMap_classCallCheck(this, MultiKeyMap);
+
+    MultiKeyMap_defineProperty(this, "__map__", new Map());
+
+    MultiKeyMap_defineProperty(this, "__reverseMap__", new Map());
+
+    if (keys == null || value == null) return;
+
+    if (Array.isArray(keys)) {
+      keys.forEach(function (element) {
+        _this.__map__.set(element, value);
+      });
+    } else {
+      this.__map__.set(keys, value);
+    }
+
+    this.__reverseMap__.set(value, keys);
+  }
+  /**
+  * Return Value associated with a key
+  * @param  {any} key - The key to return the value for
+  */
+
+
+  MultiKeyMap_createClass(MultiKeyMap, [{
+    key: "getValue",
+    value: function getValue(key) {
+      return this.__map__.get(key);
+    }
+    /**
+    * Return Map of Value to Keys
+    * @param  {T} Value - The value to return keys Map for
+    */
+
+  }, {
+    key: "getKeys",
+    value: function getKeys(value) {
+      return this.__reverseMap__.get(value);
+    }
+    /**
+    * Return all keys relating to a value in array format
+    * @param  {T} Value - The value to return keys for
+    */
+
+  }, {
+    key: "getKeysArray",
+    value: function getKeysArray(value) {
+      var keys = this.getKeys(value);
+      return keys != undefined ? Array.from(keys.keys()) : [];
+    }
+    /**
+    * Test if a value exists for a given key
+    * @param  {any} Key - The key to check if a value exists
+    */
+
+  }, {
+    key: "hasKey",
+    value: function hasKey(key) {
+      return this.getValue(key) != undefined;
+    }
+    /**
+    * Create a map between a key and a single value
+    * @param  {any} Key - The key to add this value to
+    * @param  {T} value - The value to link this key to
+    */
+
+  }, {
+    key: "setKey",
+    value: function setKey(key, value) {
+      var keys = this.getKeys(value);
+
+      if (keys == undefined) {
+        keys = new Map();
+        keys.set(key);
+
+        this.__map__.set(key, value);
+
+        this.__reverseMap__.set(value, keys);
+      } else {
+        this.__map__.set(key, value);
+
+        keys.set(key);
+
+        this.__reverseMap__.set(value, keys);
+      }
+    }
+    /**
+    * Create a map between multiple keys and a single value
+    * @param  {any | any[]} Keys - Any keys to add this value to
+    * @param  {T} value - The value to link these keys to
+    */
+
+  }, {
+    key: "setKeys",
+    value: function setKeys(keys, value) {
+      var _this2 = this;
+
+      keys.forEach(function (element) {
+        _this2.setKey(element, value);
+      });
+    }
+    /**
+    * Remove a key from this map
+    * @param  {any} Key - The key to remove from this value
+    * @param  {T} value - The value that this key links to
+    */
+
+  }, {
+    key: "deleteKey",
+    value: function deleteKey(key, value) {
+      var otherKeys = this.__reverseMap__.get(value);
+
+      if (otherKeys == undefined) {
+        this.__map__.delete(key);
+
+        return;
+      }
+
+      otherKeys.delete(key);
+
+      if (otherKeys.size == 0) {
+        this.__map__.delete(key);
+
+        this.__reverseMap__.delete(value);
+
+        return;
+      }
+
+      this.__reverseMap__.set(value, otherKeys);
+
+      this.__map__.delete(key);
+    }
+    /**
+    * Remove many keys from this map
+    * @param  {any} Keys - The keys to remove from this value
+    * @param  {T} value - The value that these keys link to
+    */
+
+  }, {
+    key: "deleteKeys",
+    value: function deleteKeys(keys, value) {
+      var _this3 = this;
+
+      keys.forEach(function (element) {
+        _this3.deleteKey(element, value);
+      });
+    }
+    /**
+    * Remove all references to a value
+    * @param  {T} value - The value to remove
+    */
+
+  }, {
+    key: "deleteValue",
+    value: function deleteValue(value) {
+      var _this4 = this;
+
+      this.getKeysArray(value).forEach(function (element) {
+        _this4.__map__.delete(element);
+      });
+
+      this.__reverseMap__.delete(value);
+    }
+  }]);
+
+  return MultiKeyMap;
+}();
+;// CONCATENATED MODULE: ./Code/src/Timers/TimerController.ts
+function TimerController_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function TimerController_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function TimerController_createClass(Constructor, protoProps, staticProps) { if (protoProps) TimerController_defineProperties(Constructor.prototype, protoProps); if (staticProps) TimerController_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function TimerController_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+/** Class representing a any utility functions or variables that help Timers.
+ */
+var TimerController = /*#__PURE__*/function () {
+  function TimerController() {
+    TimerController_classCallCheck(this, TimerController);
+
+    TimerController_defineProperty(this, "_uniqueID", 0);
+
+    TimerController_defineProperty(this, "_timers", new MultiKeyMap());
+
+    if (TimerController._instance) return TimerController._instance;
+    TimerController._instance = this;
+  } //** Store an incrementing variable to ensure unique IDs*/
+
+
+  TimerController_createClass(TimerController, [{
+    key: "uniqueID",
+    get: function get() {
+      if (this != TimerController.Instance) return TimerController.Instance.uniqueID;
+      return this._uniqueID;
+    },
+    set: function set(value) {
+      if (typeof value != "number") {
+        console.error("Trying to set TimerController's unique ID with an invalid input: ", value);
+        return;
+      }
+
+      this._uniqueID = value;
+    } //** Store all references to Timers to allow searching*/
+
+  }, {
+    key: "timers",
+    get: function get() {
+      if (this != TimerController.Instance) return TimerController.Instance._timers;
+      return this.timers;
+    }
+    /**
+    * Return the current datetime
+    */
+
+  }], [{
+    key: "Instance",
+    get: //** Store a singleton of TimerController to assure only one exists */
+    function get() {
+      return this._instance || (this._instance = new this());
+    }
+  }, {
+    key: "Time",
+    value: function Time() {
+      return new Date().getTime();
+    }
+    /**
+    * Return and increment a value to fake uniqueness
+    */
+
+  }, {
+    key: "generateUID",
+    value: function generateUID() {
+      this.Instance.uniqueID++;
+      return this.Instance.uniqueID;
+    }
+    /**
+    * Searches for and returns a timer with a name parameter
+    * @param  {string} name - The Timer to return
+    */
+
+  }, {
+    key: "getTimer",
+    value: function getTimer(name) {
+      if (typeof name != "number") {
+        console.error("Trying to get a Timer with an invalid input: ", name);
+        return;
+      }
+
+      return this.Instance.timers.getValue(name);
+    }
+    /**
+    * Searches for and returns a timer with a id parameter
+    * @param  {number} id - The Timer to return
+    */
+
+  }, {
+    key: "getTimerFromID",
+    value: function getTimerFromID(id) {
+      if (typeof id != "number") {
+        console.error("Trying to get a Timer with an invalid input: ", id);
+        return;
+      }
+
+      return this.Instance.timers.getValue(id);
+    }
+    /**
+    * Searches for and returns if a timer already exists with a name
+    * @param  {string} name - The Timer name to test
+    */
+
+  }, {
+    key: "testTimerNameIsValid",
+    value: function testTimerNameIsValid(name) {
+      return this.getTimer(name) == undefined;
+    }
+    /**
+    * Adds a timer to a singleton map and update references
+    * @param  {Timer} timer - The Timer to add
+    */
+
+  }, {
+    key: "addTimer",
+    value: function addTimer(timer) {
+      this.Instance.timers.setKeys([timer.name, timer.timerID], timer);
+    }
+    /**
+    * Remove a timer from a singleton map and update references
+    * @param  {Timer} timer - The Timer to remove
+    */
+
+  }, {
+    key: "removeTimer",
+    value: function removeTimer(timer) {
+      this.Instance.timers.deleteValue(timer);
+    }
+  }]);
+
+  return TimerController;
+}();
+
+TimerController_defineProperty(TimerController, "_instance", void 0);
+;// CONCATENATED MODULE: ./Code/src/Timers/TimerSkipOffsetType.ts
+/** Enum representing a offset skip type of a timer.
+ */
+var TimerSkipOffsetType;
+
+(function (TimerSkipOffsetType) {
+  TimerSkipOffsetType[TimerSkipOffsetType["NoSkip"] = 0] = "NoSkip";
+  TimerSkipOffsetType[TimerSkipOffsetType["SkipAnyIncludingInstantLoops"] = 1] = "SkipAnyIncludingInstantLoops";
+  TimerSkipOffsetType[TimerSkipOffsetType["SkipExcludingInstantLoops"] = 2] = "SkipExcludingInstantLoops";
+})(TimerSkipOffsetType || (TimerSkipOffsetType = {}));
+;// CONCATENATED MODULE: ./Code/src/Timers/Timer.ts
+function Timer_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function Timer_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function Timer_createClass(Constructor, protoProps, staticProps) { if (protoProps) Timer_defineProperties(Constructor.prototype, protoProps); if (staticProps) Timer_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function Timer_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+/** Class representing a Timer that implements custom controls ontop of setTimeout to create a configurable timer.
+ */
+
+var Timer = /*#__PURE__*/function () {
+  /**
+  * Create a timer
+  * @param  {string} name - The name of the timer
+  * @param  {number} timerInterval - The time between each loop on this timer
+  * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
+  * @param  {number} timerRunTime - The total time for this timer to run 
+  * @param  {boolean} enableOffset - Determines if a timers loop should change based on browser time discrepancies
+  * @param  {TimerSkipOffsetType} skipOffset - Determines if a timers should skip offsets if they are too large
+  */
+  function Timer(name, timingInterval) {
+    var _this2 = this;
+
+    var callbacks = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+    var startOnCreation = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+    var timerRunTime = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : Number.MAX_SAFE_INTEGER;
+    var enableOffset = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
+    var skipOffset = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : TimerSkipOffsetType.NoSkip;
+
+    Timer_classCallCheck(this, Timer);
+
+    Timer_defineProperty(this, "_name", "");
+
+    Timer_defineProperty(this, "_running", false);
+
+    Timer_defineProperty(this, "_timeout", -1);
+
+    Timer_defineProperty(this, "_timerID", -1);
+
+    Timer_defineProperty(this, "_startDate", -1);
+
+    Timer_defineProperty(this, "_timingInterval", -1);
+
+    Timer_defineProperty(this, "_currentTimingInterval", -1);
+
+    Timer_defineProperty(this, "_lastTickDate", -1);
+
+    Timer_defineProperty(this, "_ticksRemaining", -1);
+
+    Timer_defineProperty(this, "_ticksElapsed", -1);
+
+    Timer_defineProperty(this, "_pausedAt", -1);
+
+    Timer_defineProperty(this, "_lastCompletion", -1);
+
+    Timer_defineProperty(this, "_enableOffset", false);
+
+    Timer_defineProperty(this, "_intervalOffset", -1);
+
+    Timer_defineProperty(this, "_skipOffset", TimerSkipOffsetType.NoSkip);
+
+    Timer_defineProperty(this, "_skipOffsetCalculation", false);
+
+    Timer_defineProperty(this, "_events", new PubSub());
+
+    if (typeof name != "string" || name == "") {
+      console.error("Trying to create a timer without a valid name: ", name);
+      return;
+    }
+
+    if (typeof timingInterval != "number" || timingInterval <= -1) {
+      console.error("Trying to create a timer without a valid timing interval: ", timingInterval);
+      return;
+    }
+
+    if (typeof startOnCreation != "boolean" || startOnCreation == null) {
+      console.error("Trying to create a timer without a valid start on creation: ", startOnCreation);
+      return;
+    }
+
+    if (typeof enableOffset != "boolean" || enableOffset == null) {
+      console.error("Trying to create a timer without a valid enable offset: ", enableOffset);
+      return;
+    }
+
+    this.name = name;
+    this.timerID = TimerController.generateUID();
+    this.timingInterval = timingInterval;
+    this.ticksRemaining = timerRunTime;
+    this.enableOffset = enableOffset;
+    this.startDate = TimerController.Time();
+    this.skipOffset = skipOffset;
+    callbacks.forEach(function (element) {
+      _this2.events.subscribe("loopCompletion", element);
+    });
+    TimerController.addTimer(this);
+
+    if (startOnCreation) {
+      this.start();
+    }
+  }
+  /**
+  * Start this Timer
+  */
+
+
+  Timer_createClass(Timer, [{
+    key: "name",
+    get: //** The name of this timer*/ 
+    function get() {
+      return this._name;
+    },
+    set: function set(name) {
+      if (typeof name != "string") {
+        console.error("Trying to set a Timer's name with an invalid input: ", name);
+        return;
+      }
+
+      this._name = name;
+    } //** Boolean representing if this timer is currently running*/ 
+
+  }, {
+    key: "running",
+    get: function get() {
+      return this._running;
+    },
+    set: function set(isRunning) {
+      if (typeof isRunning != "boolean") {
+        console.error("Trying to set a Timer's running status with an invalid input: ", isRunning);
+        return;
+      }
+
+      this._running = isRunning;
+    } //Callback
+    //** The browser setTimeout for this timer*/
+
+  }, {
+    key: "timeout",
+    get: function get() {
+      return this._timeout;
+    },
+    set: function set(timeout) {
+      if (typeof timeout != "number") {
+        console.error("Trying to set a Timer's timeout reference with an invalid input: ", timeout);
+        return;
+      }
+
+      this._timeout = timeout;
+    } //** The ID of this timer*/ 
+
+  }, {
+    key: "timerID",
+    get: function get() {
+      return this._timerID;
+    },
+    set: function set(timerID) {
+      if (typeof timerID != "number") {
+        console.error("Trying to set a Timer's ID with an invalid input: ", timerID);
+        return;
+      }
+
+      this._timerID = timerID;
+    } //** The start time of this timer*/ 
+
+  }, {
+    key: "startDate",
+    get: function get() {
+      return this._startDate;
+    },
+    set: function set(date) {
+      if (typeof date != "number") {
+        console.error("Trying to set a Timer's start date with an invalid input: ", date);
+        return;
+      }
+
+      this._startDate = date;
+    } //** The time between loop completion*/ 
+
+  }, {
+    key: "timingInterval",
+    get: function get() {
+      return this._timingInterval;
+    },
+    set: function set(interval) {
+      if (typeof interval != "number") {
+        console.error("Trying to set a Timer's timing interval with an invalid input: ", interval);
+        return;
+      }
+
+      this._timingInterval = interval;
+    } //** The current time between loop completion*/ 
+
+  }, {
+    key: "currentTimingInterval",
+    get: function get() {
+      return this._currentTimingInterval;
+    },
+    set: function set(interval) {
+      if (typeof interval != "number") {
+        console.error("Trying to set a Timer's current timing interval with an invalid input: ", interval);
+        return;
+      }
+
+      this._timingInterval = interval;
+    } //** The last time this timer has completed a loop*/
+
+  }, {
+    key: "lastTickDate",
+    get: function get() {
+      return this._lastTickDate;
+    },
+    set: function set(date) {
+      if (typeof date != "number") {
+        console.error("Trying to set a Timer's last tick date with an invalid input: ", date);
+        return;
+      }
+
+      this._lastTickDate = date;
+    } //** The miliseconds left of this timer*/
+
+  }, {
+    key: "ticksRemaining",
+    get: function get() {
+      return this._ticksRemaining;
+    },
+    set: function set(ticksRemaining) {
+      if (typeof ticksRemaining != "number") {
+        console.error("Trying to set a Timer's remaining time with an invalid input: ", ticksRemaining);
+        return;
+      }
+
+      this._ticksRemaining = ticksRemaining;
+    } //** The miliseconds that this timer has been running*/ 
+
+  }, {
+    key: "ticksElapsed",
+    get: function get() {
+      return this._ticksRemaining;
+    },
+    set: function set(ticksElapsed) {
+      if (typeof ticksElapsed != "number") {
+        console.error("Trying to set a Timer's elapsed time with an invalid input: ", ticksElapsed);
+        return;
+      }
+
+      this._ticksElapsed = ticksElapsed;
+    } //** The last time this timer was paused*/ 
+
+  }, {
+    key: "pausedAt",
+    get: function get() {
+      return this._pausedAt;
+    },
+    set: function set(date) {
+      if (typeof date != "number") {
+        console.error("Trying to set a Timer's paused time with an invalid input: ", date);
+        return;
+      }
+
+      this._pausedAt = date;
+    } //** The last time this timer was completed*/ 
+
+  }, {
+    key: "lastCompletion",
+    get: function get() {
+      return this._lastCompletion;
+    },
+    set: function set(date) {
+      if (typeof date != "number") {
+        console.error("Trying to set a Timer's last completion date with an invalid input: ", date);
+        return;
+      }
+
+      this._lastCompletion = date;
+    } //** Determines if this timer should take into account timer discrepancies in time*/
+
+  }, {
+    key: "enableOffset",
+    get: function get() {
+      return this._enableOffset;
+    },
+    set: function set(enabled) {
+      if (typeof enabled != "boolean") {
+        console.error("Trying to set a Timer's offset enabled with an invalid input: ", enabled);
+        return;
+      }
+
+      this._enableOffset = enabled;
+    } //** Calculate the difference between loop time and actual time*/
+
+  }, {
+    key: "intervalOffset",
+    get: function get() {
+      return this._intervalOffset;
+    },
+    set: function set(interval) {
+      if (typeof interval != "number") {
+        console.error("Trying to set a Timer's offset value with an invalid input: ", interval);
+        return;
+      }
+
+      this._intervalOffset = interval;
+    } //** Determines if this timer should apply offset to current loop time based on discrepancies*/
+
+  }, {
+    key: "skipOffset",
+    get: function get() {
+      return this._skipOffset;
+    },
+    set: function set(skipType) {
+      if (!(skipType in TimerSkipOffsetType)) {
+        console.error("Trying to set a Timer's offset skip type with an invalid input: ", skipType);
+        return;
+      }
+
+      this._skipOffset = skipType;
+    } //** Handles if the timer is currently skipping a loop*/
+
+  }, {
+    key: "skipOffsetCalculation",
+    get: function get() {
+      return this._skipOffsetCalculation;
+    },
+    set: function set(skipOffsetCalculation) {
+      if (typeof skipOffsetCalculation != "boolean") {
+        console.error("Trying to set a Timer's skip loop value with an invalid input: ", skipOffsetCalculation);
+        return;
+      }
+
+      this.skipOffsetCalculation = skipOffsetCalculation;
+    } //** Handles any custom events required by this Timer*/
+
+  }, {
+    key: "events",
+    get: function get() {
+      return this._events;
+    }
+  }, {
+    key: "start",
+    value: function start() {
+      if (this.timingInterval == -1) {
+        console.error("Trying to start a timer with an invalid timing interval: ", this.timingInterval);
+        return;
+      }
+
+      this.running = true;
+      this.lastTickDate = TimerController.Time();
+      this.loop();
+    }
+    /**
+    * Stop this Timer
+    */
+
+  }, {
+    key: "stop",
+    value: function stop() {
+      this.running = false;
+      this.pausedAt = 0;
+      window.clearTimeout(this.timeout);
+      this.timeout = NaN;
+    }
+    /**
+    * Restart this Timer
+    */
+
+  }, {
+    key: "restart",
+    value: function restart() {
+      this.stop();
+      this.start();
+    }
+    /**
+    * Pause this Timer
+    */
+
+  }, {
+    key: "pause",
+    value: function pause() {
+      if (this.running) {
+        this.stop();
+        this.pausedAt = TimerController.Time();
+      }
+    }
+    /**
+    * Resume this Timer
+    */
+
+  }, {
+    key: "resume",
+    value: function resume() {
+      if (this.isPaused()) this.start();
+    }
+    /**
+    * Resume this Timer
+    */
+
+  }, {
+    key: "unpause",
+    value: function unpause() {
+      this.resume();
+    }
+    /**
+    * Test if this Timer is currently pause
+    */
+
+  }, {
+    key: "isPaused",
+    value: function isPaused() {
+      return this.pausedAt != -1;
+    }
+    /**
+    * Handle the looping/countdown calculation of this timer
+    */
+
+  }, {
+    key: "loop",
+    value: function loop() {
+      if (this.timingInterval == -1) {
+        console.error("Trying to handle a timer's loop with an invalid timing interval: ", this.timingInterval);
+        return;
+      }
+
+      this.currentTimingInterval = this.timingInterval;
+
+      if (this.isPaused()) {
+        this.currentTimingInterval = this.currentTimingInterval - (this.pausedAt - this.lastCompletion);
+        this.pausedAt = -1;
+      }
+
+      var time = TimerController.Time();
+      var timeSinceLastUpdate = time - this.lastTickDate;
+      this.lastTickDate = time;
+      this.ticksElapsed += timeSinceLastUpdate;
+      this.ticksRemaining -= timeSinceLastUpdate;
+
+      if (this.enableOffset && timeSinceLastUpdate != this.currentTimingInterval && this.skipOffsetCalculation == false) {
+        if (this.skipOffset != TimerSkipOffsetType.NoSkip) {
+          this.intervalOffset = this.currentTimingInterval - timeSinceLastUpdate;
+
+          if (this.intervalOffset < -this.currentTimingInterval) {
+            switch (this.skipOffset) {
+              case TimerSkipOffsetType.SkipAnyIncludingInstantLoops:
+                this.intervalOffset = -(this.currentTimingInterval & this.intervalOffset);
+                break;
+
+              case TimerSkipOffsetType.SkipExcludingInstantLoops:
+                this.intervalOffset = -this.currentTimingInterval;
+                break;
+            }
+          }
+        } else {
+          this.intervalOffset = 0;
+        }
+      } else {
+        this.intervalOffset = 0;
+        this.skipOffsetCalculation = false;
+      }
+
+      var _this = this;
+
+      this.timeout = window.setTimeout(function () {
+        return _this.runLoop();
+      }, this.currentTimingInterval + this.intervalOffset);
+    }
+    /**
+    * Handle the looping of this timer
+    */
+
+  }, {
+    key: "runLoop",
+    value: function runLoop() {
+      var timer = this;
+      this.events.publish("loopCompletion");
+      this.lastCompletion = TimerController.Time();
+
+      if (this.running) {
+        if (this.ticksRemaining - this.currentTimingInterval < 0) {
+          this.destroy();
+          return;
+        }
+
+        this.loop();
+      }
+    }
+    /**
+    * Handle the destruction of this timer
+    */
+
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      this.stop();
+      TimerController.removeTimer(this);
+    }
+  }]);
+
+  return Timer;
+}();
+;// CONCATENATED MODULE: ./Definitions/Modules/Timers.ts
+
+
+
+
+;// CONCATENATED MODULE: ./Definitions/Modules/Events.ts
+
+
+;// CONCATENATED MODULE: ./Definitions/Modules/Utilities.ts
+
+
 ;// CONCATENATED MODULE: ./Definitions/WebpackAll.ts
+
+
+
 
 
 TestExport = __webpack_exports__;
