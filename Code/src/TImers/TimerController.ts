@@ -34,7 +34,7 @@ import { Timer } from "./Timer";
     private _timers: MultiKeyMap<Timer> = new MultiKeyMap();
     public get timers(): MultiKeyMap<Timer> {
         if (this != TimerController.Instance) return TimerController.Instance._timers;
-        return this.timers;
+        return this._timers;
     }
 
 

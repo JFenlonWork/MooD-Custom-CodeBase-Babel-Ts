@@ -65,7 +65,7 @@ Create a Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:30](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L30)
+[Maths/Vector2.ts:30](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L30)
 
 ## Properties
 
@@ -75,7 +75,7 @@ Create a Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:5](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L5)
+[Maths/Vector2.ts:5](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L5)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[Maths/Vector2.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L15)
+[Maths/Vector2.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L15)
 
 ## Accessors
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[Maths/Vector2.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L6)
+[Maths/Vector2.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L6)
 
 • `set` **x**(`value`): `void`
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[Maths/Vector2.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L10)
+[Maths/Vector2.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L10)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[Maths/Vector2.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L16)
+[Maths/Vector2.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L16)
 
 • `set` **y**(`value`): `void`
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[Maths/Vector2.ts:20](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L20)
+[Maths/Vector2.ts:20](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L20)
 
 ## Methods
 
@@ -167,7 +167,7 @@ Add two Vector2's values and apply the values to this Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:152](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L152)
+[Maths/Vector2.ts:152](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L152)
 
 ___
 
@@ -189,7 +189,7 @@ Calcualte the dot product of two Vector2's and apply the values to this Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:218](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L218)
+[Maths/Vector2.ts:218](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L218)
 
 ___
 
@@ -205,7 +205,7 @@ Returns if this Vector2 has a NaN value
 
 #### Defined in
 
-[Maths/Vector2.ts:93](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L93)
+[Maths/Vector2.ts:93](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L93)
 
 ___
 
@@ -221,7 +221,7 @@ Returns if this Vector2 is all NaN
 
 #### Defined in
 
-[Maths/Vector2.ts:85](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L85)
+[Maths/Vector2.ts:85](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L85)
 
 ___
 
@@ -243,7 +243,7 @@ Calcualte the scaled value of a Vector2 and apply the values to this Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:196](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L196)
+[Maths/Vector2.ts:196](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L196)
 
 ___
 
@@ -265,7 +265,7 @@ Subract two Vector2's values and apply the values to this Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:174](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L174)
+[Maths/Vector2.ts:174](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L174)
 
 ___
 
@@ -287,7 +287,7 @@ Add two Vector2's values and return the result in a new Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:142](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L142)
+[Maths/Vector2.ts:142](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L142)
 
 ___
 
@@ -303,7 +303,7 @@ Returns a new Vector2 with the same values as this Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:133](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L133)
+[Maths/Vector2.ts:133](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L133)
 
 ___
 
@@ -325,7 +325,7 @@ Calculate the distance between two Vector2's
 
 #### Defined in
 
-[Maths/Vector2.ts:230](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L230)
+[Maths/Vector2.ts:230](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L230)
 
 ___
 
@@ -347,7 +347,7 @@ Calculate the squared distance between two Vector2's
 
 #### Defined in
 
-[Maths/Vector2.ts:240](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L240)
+[Maths/Vector2.ts:240](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L240)
 
 ___
 
@@ -369,7 +369,7 @@ Calcualte the dot product of two Vector2's and return the result in a new Vector
 
 #### Defined in
 
-[Maths/Vector2.ts:208](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L208)
+[Maths/Vector2.ts:208](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L208)
 
 ___
 
@@ -391,7 +391,7 @@ Returns if an object is the same as this Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:76](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L76)
+[Maths/Vector2.ts:76](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L76)
 
 ___
 
@@ -413,7 +413,7 @@ Calcualte the scaled value of a Vector2 and return the result in a new Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:186](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L186)
+[Maths/Vector2.ts:186](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L186)
 
 ___
 
@@ -436,7 +436,7 @@ Set this Vector2's x and y value to be the parameter's value and apply the value
 
 #### Defined in
 
-[Maths/Vector2.ts:41](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L41)
+[Maths/Vector2.ts:41](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L41)
 
 ___
 
@@ -458,7 +458,7 @@ Set this Vector2's values to be the parameter's values and apply the values to t
 
 #### Defined in
 
-[Maths/Vector2.ts:122](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L122)
+[Maths/Vector2.ts:122](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L122)
 
 ___
 
@@ -480,7 +480,7 @@ Subract two Vector2's values and return the result in a new Vector2
 
 #### Defined in
 
-[Maths/Vector2.ts:164](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L164)
+[Maths/Vector2.ts:164](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L164)
 
 ___
 
@@ -496,7 +496,7 @@ Create a Vector2 filled with NaN
 
 #### Defined in
 
-[Maths/Vector2.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L51)
+[Maths/Vector2.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L51)
 
 ___
 
@@ -512,7 +512,7 @@ Create a Vector2 filled with 1
 
 #### Defined in
 
-[Maths/Vector2.ts:67](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L67)
+[Maths/Vector2.ts:67](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L67)
 
 ___
 
@@ -528,7 +528,7 @@ Create a Vector2 filled with 0
 
 #### Defined in
 
-[Maths/Vector2.ts:59](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L59)
+[Maths/Vector2.ts:59](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L59)
 
 ___
 
@@ -550,7 +550,7 @@ Returns if a Vector2 has a NaN value
 
 #### Defined in
 
-[Maths/Vector2.ts:112](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L112)
+[Maths/Vector2.ts:112](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L112)
 
 ___
 
@@ -572,4 +572,4 @@ Returns if a Vector2 is all NaN
 
 #### Defined in
 
-[Maths/Vector2.ts:102](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/d57657b/Code/src/Maths/Vector2.ts#L102)
+[Maths/Vector2.ts:102](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Maths/Vector2.ts#L102)

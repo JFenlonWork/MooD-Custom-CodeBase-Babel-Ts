@@ -32,7 +32,7 @@ Class that handles simple subscription/publish event manager.
 
 #### Defined in
 
-Events/PubSub.ts:6
+[Events/PubSub.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Events/PubSub.ts#L6)
 
 ## Methods
 
@@ -55,7 +55,7 @@ Handle publishing events
 
 #### Defined in
 
-Events/PubSub.ts:45
+[Events/PubSub.ts:45](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Events/PubSub.ts#L45)
 
 ___
 
@@ -78,7 +78,7 @@ Handle subscribing to events
 
 #### Defined in
 
-Events/PubSub.ts:11
+[Events/PubSub.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Events/PubSub.ts#L11)
 
 ___
 
@@ -101,4 +101,4 @@ Handle unsubscribing from events
 
 #### Defined in
 
-Events/PubSub.ts:31
+[Events/PubSub.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Events/PubSub.ts#L31)

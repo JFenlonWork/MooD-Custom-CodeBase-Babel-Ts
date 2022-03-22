@@ -3467,7 +3467,7 @@ var TestExport;
       key: "timers",
       get: function get() {
         if (this != TimerController.Instance) return TimerController.Instance._timers;
-        return this.timers;
+        return this._timers;
       }
       /**
       * Return the current datetime
