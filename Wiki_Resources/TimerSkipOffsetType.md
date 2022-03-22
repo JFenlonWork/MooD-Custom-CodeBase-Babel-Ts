@@ -18,7 +18,7 @@ Enum representing a offset skip type of a timer.
 
 #### Defined in
 
-TImer/TimerSkipOffsetType.ts:4
+TImers/TimerSkipOffsetType.ts:4
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-TImer/TimerSkipOffsetType.ts:5
+TImers/TimerSkipOffsetType.ts:5
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-TImer/TimerSkipOffsetType.ts:6
+TImers/TimerSkipOffsetType.ts:6
