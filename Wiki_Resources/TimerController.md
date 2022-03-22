@@ -38,7 +38,7 @@ Class representing a any utility functions or variables that help Timers.
 
 #### Defined in
 
-[TImers/TimerController.ts:14](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L14)
+[TImers/TimerController.ts:14](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L14)
 
 ## Properties
 
@@ -48,7 +48,7 @@ Class representing a any utility functions or variables that help Timers.
 
 #### Defined in
 
-[TImers/TimerController.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L34)
+[TImers/TimerController.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L34)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[TImers/TimerController.ts:22](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L22)
+[TImers/TimerController.ts:22](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L22)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[TImers/TimerController.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L9)
+[TImers/TimerController.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L9)
 
 ## Accessors
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[TImers/TimerController.ts:35](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L35)
+[TImers/TimerController.ts:35](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L35)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[TImers/TimerController.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L23)
+[TImers/TimerController.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L23)
 
 • `set` **uniqueID**(`value`): `void`
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[TImers/TimerController.ts:28](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L28)
+[TImers/TimerController.ts:28](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L28)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[TImers/TimerController.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L10)
+[TImers/TimerController.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L10)
 
 ## Methods
 
@@ -142,7 +142,7 @@ Return the current datetime
 
 #### Defined in
 
-[TImers/TimerController.ts:44](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L44)
+[TImers/TimerController.ts:44](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L44)
 
 ___
 
@@ -164,7 +164,7 @@ Adds a timer to a singleton map and update references
 
 #### Defined in
 
-[TImers/TimerController.ts:87](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L87)
+[TImers/TimerController.ts:87](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L87)
 
 ___
 
@@ -180,7 +180,7 @@ Return and increment a value to fake uniqueness
 
 #### Defined in
 
-[TImers/TimerController.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L51)
+[TImers/TimerController.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L51)
 
 ___
 
@@ -202,7 +202,7 @@ Searches for and returns a timer with a name parameter
 
 #### Defined in
 
-[TImers/TimerController.ts:60](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L60)
+[TImers/TimerController.ts:60](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L60)
 
 ___
 
@@ -224,7 +224,7 @@ Searches for and returns a timer with a id parameter
 
 #### Defined in
 
-[TImers/TimerController.ts:69](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L69)
+[TImers/TimerController.ts:69](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L69)
 
 ___
 
@@ -246,7 +246,7 @@ Remove a timer from a singleton map and update references
 
 #### Defined in
 
-[TImers/TimerController.ts:95](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L95)
+[TImers/TimerController.ts:95](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L95)
 
 ___
 
@@ -268,4 +268,4 @@ Searches for and returns if a timer already exists with a name
 
 #### Defined in
 
-[TImers/TimerController.ts:78](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/TImers/TimerController.ts#L78)
+[TImers/TimerController.ts:78](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/TimerController.ts#L78)

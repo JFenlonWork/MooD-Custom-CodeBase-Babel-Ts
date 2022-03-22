@@ -14,6 +14,8 @@ Class that handles simple subscription/publish event manager.
 
 ### Methods
 
+- [clear](../wiki/PubSub#clear)
+- [clearEvent](../wiki/PubSub#clearevent)
 - [publish](../wiki/PubSub#publish)
 - [subscribe](../wiki/PubSub#subscribe)
 - [unsubscribe](../wiki/PubSub#unsubscribe)
@@ -32,9 +34,47 @@ Class that handles simple subscription/publish event manager.
 
 #### Defined in
 
-[Events/PubSub.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Events/PubSub.ts#L6)
+[Events/PubSub.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L6)
 
 ## Methods
+
+### clear
+
+▸ **clear**(): `boolean`
+
+Handle clearing all events
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[Events/PubSub.ts:81](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L81)
+
+___
+
+### clearEvent
+
+▸ **clearEvent**(`event`): `boolean`
+
+Handle clearing events
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `string` | The event to clear all subscribers from This will need improving to handle event unsubscribing when clearing |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[Events/PubSub.ts:69](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L69)
+
+___
 
 ### publish
 
@@ -55,22 +95,23 @@ Handle publishing events
 
 #### Defined in
 
-[Events/PubSub.ts:45](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Events/PubSub.ts#L45)
+[Events/PubSub.ts:55](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L55)
 
 ___
 
 ### subscribe
 
-▸ **subscribe**(`event`, `callback`): `boolean`
+▸ **subscribe**(`event`, `callback`, ...`args`): `boolean`
 
 Handle subscribing to events
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` |
-| `callback` | `Function` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `string` | The event to subscribe to |
+| `callback` | `Function` | The callback to add to this event |
+| `...args` | `any`[] | Any extra arguments that will be sent to EventSubscribed event |
 
 #### Returns
 
@@ -78,22 +119,23 @@ Handle subscribing to events
 
 #### Defined in
 
-[Events/PubSub.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Events/PubSub.ts#L11)
+[Events/PubSub.ts:14](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L14)
 
 ___
 
 ### unsubscribe
 
-▸ **unsubscribe**(`event`, `callback`): `boolean`
+▸ **unsubscribe**(`event`, `callback`, ...`args`): `boolean`
 
 Handle unsubscribing from events
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` |
-| `callback` | `Function` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `string` | The event to unsubscribe from |
+| `callback` | `Function` | The callback to remove to this event |
+| `...args` | `any`[] | Any extra arguments that will be sent to EventUnsubscribed event |
 
 #### Returns
 
@@ -101,4 +143,4 @@ Handle unsubscribing from events
 
 #### Defined in
 
-[Events/PubSub.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/96bdea7/Code/src/Events/PubSub.ts#L31)
+[Events/PubSub.ts:39](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L39)
