@@ -72,6 +72,7 @@ __webpack_require__.d(Timers_namespaceObject, {
 var Events_namespaceObject = {};
 __webpack_require__.r(Events_namespaceObject);
 __webpack_require__.d(Events_namespaceObject, {
+  "Event": function() { return Event; },
   "PubSub": function() { return PubSub; }
 });
 
@@ -79,7 +80,9 @@ __webpack_require__.d(Events_namespaceObject, {
 var Utilities_namespaceObject = {};
 __webpack_require__.r(Utilities_namespaceObject);
 __webpack_require__.d(Utilities_namespaceObject, {
-  "MultiKeyMap": function() { return MultiKeyMap; }
+  "CompareTypes": function() { return CompareTypes; },
+  "MultiKeyMap": function() { return MultiKeyMap; },
+  "UniqueID": function() { return UniqueID; }
 });
 
 ;// CONCATENATED MODULE: ./Code/src/Maths/Vector2.ts
@@ -2526,149 +2529,45 @@ var Collision = /*#__PURE__*/function () {
 
 
 
-;// CONCATENATED MODULE: ./Code/src/Events/PubSub.ts
-function PubSub_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+;// CONCATENATED MODULE: ./Code/src/Utilities/CompareTypes.ts
+function CompareTypes_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function PubSub_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function CompareTypes_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function PubSub_createClass(Constructor, protoProps, staticProps) { if (protoProps) PubSub_defineProperties(Constructor.prototype, protoProps); if (staticProps) PubSub_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function CompareTypes_createClass(Constructor, protoProps, staticProps) { if (protoProps) CompareTypes_defineProperties(Constructor.prototype, protoProps); if (staticProps) CompareTypes_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function PubSub_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-/** Class that handles simple subscription/publish event manager.
+/** Class representing a utility that compares types.
  */
-var PubSub = /*#__PURE__*/function () {
-  function PubSub() {
-    PubSub_classCallCheck(this, PubSub);
-
-    PubSub_defineProperty(this, "_events", new Map());
+var CompareTypes = /*#__PURE__*/function () {
+  function CompareTypes() {
+    CompareTypes_classCallCheck(this, CompareTypes);
   }
 
-  PubSub_createClass(PubSub, [{
-    key: "subscribe",
+  CompareTypes_createClass(CompareTypes, null, [{
+    key: "same",
     value:
     /**
-    * Handle subscribing to events
-    * @param  {string} event - The event to subscribe to
-    * @param  {Function} callback - The callback to add to this event
-    * @param  {any[]} args - Any extra arguments that will be sent to EventSubscribed event
+     * Compare two parameters and return if they are the same type
+     * @param  {any} a - The value to compare
+     * @param  {any} b - The value to compare to
     */
-    function subscribe(event, callback) {
-      if (typeof event != "string") {
-        console.error("Trying to subscribe to a Timer's event with an invalid input: ", event);
-        return false;
-      }
-
-      if (typeof callback != "function") {
-        console.error("Trying to subscribe to a Timer's event using an invalid function: ", callback);
-        return false;
-      }
-
-      var eventCallbacks = this._events.get(event);
-
-      if (eventCallbacks == undefined) {
-        var jqueryCallback = jQuery.Callbacks("unique");
-
-        this._events.set(event, jqueryCallback);
-
-        eventCallbacks = jqueryCallback;
-      }
-
-      eventCallbacks.add(callback);
-
-      for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-        args[_key - 2] = arguments[_key];
-      }
-
-      this.publish.apply(this, ["EventSubscribed", event, callback].concat(args));
-      return true;
+    function same(a, b) {
+      return Object.prototype.toString.call(a) == Object.prototype.toString.call(b);
     }
     /**
-    * Handle unsubscribing from events
-    * @param  {string} event - The event to unsubscribe from
-    * @param  {Function} callback - The callback to remove to this event
-    * @param  {any[]} args - Any extra arguments that will be sent to EventUnsubscribed event
+     * Compare two parameters and return if they are not the same type
+     * @param  {any} a - The value to compare
+     * @param  {any} b - The value to compare to
     */
 
   }, {
-    key: "unsubscribe",
-    value: function unsubscribe(event, callback) {
-      if (typeof event != "string") {
-        console.error("Trying to subscribe to a Timer's event with an invalid input: ", event);
-        return false;
-      }
-
-      if (typeof callback != "function") {
-        console.error("Trying to subscribe to a Timer's event using an invalid function: ", callback);
-        return false;
-      }
-
-      var eventCallbacks = this._events.get(event);
-
-      if (eventCallbacks == undefined) return true;
-      eventCallbacks.remove(callback);
-
-      for (var _len2 = arguments.length, args = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments[_key2];
-      }
-
-      this.publish.apply(this, ["EventUnsubscribed", event, callback].concat(args));
-      return true;
-    }
-    /**
-    * Handle publishing events
-    */
-
-  }, {
-    key: "publish",
-    value: function publish(event) {
-      if (typeof event != "string") {
-        console.error("Trying to publish to a Timer's event with an invalid input: ", event);
-        return false;
-      }
-
-      var eventCallbacks = this._events.get(event);
-
-      for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
-        args[_key3 - 1] = arguments[_key3];
-      }
-
-      if (eventCallbacks != undefined) eventCallbacks.fire.apply(eventCallbacks, args);
-      return true;
-    }
-    /**
-    * Handle clearing events
-    * @param  {string} event - The event to clear all subscribers from
-     * This will need improving to handle event unsubscribing when clearing
-    */
-
-  }, {
-    key: "clearEvent",
-    value: function clearEvent(event) {
-      if (typeof event != "string") {
-        console.error("Trying to clear to a Timer's event with an invalid input: ", event);
-        return false;
-      }
-
-      var jqueryCallback = jQuery.Callbacks("unique");
-
-      this._events.set(event, jqueryCallback);
-
-      return true;
-    }
-    /**
-    * Handle clearing all events
-    */
-
-  }, {
-    key: "clear",
-    value: function clear() {
-      this._events = new Map();
-      return true;
+    key: "different",
+    value: function different(a, b) {
+      return !CompareTypes.same(a, b);
     }
   }]);
 
-  return PubSub;
+  return CompareTypes;
 }();
 ;// CONCATENATED MODULE: ./Code/src/Utilities/MultiKeyMap.ts
 function MultiKeyMap_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2679,8 +2578,10 @@ function MultiKeyMap_createClass(Constructor, protoProps, staticProps) { if (pro
 
 function MultiKeyMap_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
 /** Class that handles multiple keys to one value Map
  */
+
 var MultiKeyMap = /*#__PURE__*/function () {
   //** Store all forward references to values to allow searching*/
 
@@ -2688,13 +2589,13 @@ var MultiKeyMap = /*#__PURE__*/function () {
 
   /**
   * Create a map between multiple keys and a single value
-  * @param  {any | any[]} Keys - Any key/s to add on creation
-  * @param  {T} value - The value to link these keys to
+  * @param  {Key | Key[]} Keys - Any key/s to add on creation
+  * @param  {Value} value - The value to link these keys to
   */
   function MultiKeyMap() {
     var _this = this;
 
-    var keys = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    var keys = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var value = arguments.length > 1 ? arguments[1] : undefined;
 
     MultiKeyMap_classCallCheck(this, MultiKeyMap);
@@ -2703,21 +2604,26 @@ var MultiKeyMap = /*#__PURE__*/function () {
 
     MultiKeyMap_defineProperty(this, "__reverseMap__", new Map());
 
-    if (keys == null || value == null) return;
+    if (keys == null || Array.isArray(keys) && keys.length == 0 || value == null) return;
+    var reverseMap = new Map();
 
     if (Array.isArray(keys)) {
       keys.forEach(function (element) {
         _this.__map__.set(element, value);
+
+        reverseMap.set(element);
       });
     } else {
       this.__map__.set(keys, value);
+
+      reverseMap.set(keys);
     }
 
-    this.__reverseMap__.set(value, keys);
+    this.__reverseMap__.set(value, reverseMap);
   }
   /**
   * Return Value associated with a key
-  * @param  {any} key - The key to return the value for
+  * @param  {Key} key - The key to return the value for
   */
 
 
@@ -2728,7 +2634,7 @@ var MultiKeyMap = /*#__PURE__*/function () {
     }
     /**
     * Return Map of Value to Keys
-    * @param  {T} Value - The value to return keys Map for
+    * @param  {Value} Value - The value to return keys Map for
     */
 
   }, {
@@ -2738,7 +2644,7 @@ var MultiKeyMap = /*#__PURE__*/function () {
     }
     /**
     * Return all keys relating to a value in array format
-    * @param  {T} Value - The value to return keys for
+    * @param  {Value} Value - The value to return keys for
     */
 
   }, {
@@ -2749,7 +2655,7 @@ var MultiKeyMap = /*#__PURE__*/function () {
     }
     /**
     * Test if a value exists for a given key
-    * @param  {any} Key - The key to check if a value exists
+    * @param  {Key} Key - The key to check if a value exists
     */
 
   }, {
@@ -2759,8 +2665,8 @@ var MultiKeyMap = /*#__PURE__*/function () {
     }
     /**
     * Create a map between a key and a single value
-    * @param  {any} Key - The key to add this value to
-    * @param  {T} value - The value to link this key to
+    * @param  {Key} Key - The key to add this value to
+    * @param  {Value} value - The value to link this key to
     */
 
   }, {
@@ -2785,8 +2691,8 @@ var MultiKeyMap = /*#__PURE__*/function () {
     }
     /**
     * Create a map between multiple keys and a single value
-    * @param  {any | any[]} Keys - Any keys to add this value to
-    * @param  {T} value - The value to link these keys to
+    * @param  {Key | Key[]} Keys - Any keys to add this value to
+    * @param  {Value} value - The value to link these keys to
     */
 
   }, {
@@ -2799,9 +2705,75 @@ var MultiKeyMap = /*#__PURE__*/function () {
       });
     }
     /**
+    * Remap pre-existing keys to a new value
+    * @param  {Value} value - The value to get the keys from
+    * @param  {Value} newValue - The new value to link the keys to
+    */
+
+  }, {
+    key: "remapValue",
+    value: function remapValue(value, newValue) {
+      var _this3 = this;
+
+      if (value == null) {
+        console.error("Trying to remap a MultiKeyMap's value with an invalid value: ", value);
+        return [];
+      }
+
+      if (newValue == null) {
+        console.error("Trying to remap a MultiKeyMap's value with an invalid newValue: ", newValue);
+        return [];
+      }
+
+      if (CompareTypes.different(value, newValue)) {
+        console.error("Trying to remap a MultiKeyMap's value with different parameter types: ", value, " ", newValue);
+        return [];
+      }
+
+      var keys = this.getKeysArray(value);
+      this.deleteKeys(keys, value);
+      if (keys.length == 0) return keys;
+      keys.forEach(function (element) {
+        _this3.setKey(element, newValue);
+      });
+      return keys;
+    }
+    /**
+    * Remap pre-existing keys to a new value based on pre-existing Key->Value map
+    * @param  {Key} key - The key to lookup to find the original value to get the keys from
+    * @param  {Value} newValue - The new value to link the keys to
+    */
+
+  }, {
+    key: "remapValueFromKey",
+    value: function remapValueFromKey(key, newValue) {
+      var oldValue = this.getValue(key);
+      if (oldValue == undefined) return [];
+      return this.remapValue(oldValue, newValue);
+    }
+    /**
+    * Remap pre-existing key to a new value based on pre-existing Key->Value map
+    * @param  {Key} key - The key to remap
+    * @param  {Value} newValue - The new value to link the key to
+    */
+
+  }, {
+    key: "remapKey",
+    value: function remapKey(key, newValue) {
+      var oldValue = this.getValue(key);
+
+      if (oldValue == undefined) {
+        this.setKey(key, newValue);
+        return;
+      }
+
+      this.deleteKey(key, oldValue);
+      this.setKey(key, newValue);
+    }
+    /**
     * Remove a key from this map
-    * @param  {any} Key - The key to remove from this value
-    * @param  {T} value - The value that this key links to
+    * @param  {Key} Key - The key to remove from this value
+    * @param  {Value} value - The value that this key links to
     */
 
   }, {
@@ -2831,38 +2803,466 @@ var MultiKeyMap = /*#__PURE__*/function () {
     }
     /**
     * Remove many keys from this map
-    * @param  {any} Keys - The keys to remove from this value
-    * @param  {T} value - The value that these keys link to
+    * @param  {Key} Keys - The keys to remove from this value
+    * @param  {Value} value - The value that these keys link to
     */
 
   }, {
     key: "deleteKeys",
     value: function deleteKeys(keys, value) {
-      var _this3 = this;
+      var _this4 = this;
 
       keys.forEach(function (element) {
-        _this3.deleteKey(element, value);
+        _this4.deleteKey(element, value);
       });
     }
     /**
     * Remove all references to a value
-    * @param  {T} value - The value to remove
+    * @param  {Value} value - The value to remove
     */
 
   }, {
     key: "deleteValue",
     value: function deleteValue(value) {
-      var _this4 = this;
+      var _this5 = this;
 
       this.getKeysArray(value).forEach(function (element) {
-        _this4.__map__.delete(element);
+        _this5.__map__.delete(element);
       });
 
       this.__reverseMap__.delete(value);
     }
+    /**
+    * Remove all keys and values
+    */
+
+  }, {
+    key: "clear",
+    value: function clear() {
+      this.__map__.clear();
+
+      this.__reverseMap__.clear();
+    }
   }]);
 
   return MultiKeyMap;
+}();
+;// CONCATENATED MODULE: ./Code/src/Events/Event.ts
+function Event_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function Event_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function Event_createClass(Constructor, protoProps, staticProps) { if (protoProps) Event_defineProperties(Constructor.prototype, protoProps); if (staticProps) Event_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function Event_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+/** Class that handles any event driven data for event managers.
+ */
+var Event = /*#__PURE__*/function () {
+  /**
+  * Create an Event and store it's name and callback if provided
+  */
+  function Event(name) {
+    var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : jQuery.Callbacks("unique");
+
+    Event_classCallCheck(this, Event);
+
+    Event_defineProperty(this, "_name", "");
+
+    Event_defineProperty(this, "_callback", jQuery.Callbacks("unique"));
+
+    Event_defineProperty(this, "_subscribers", new Map());
+
+    if (typeof name != "string" || name == "") {
+      console.error("Trying to create a new event with invalid name: ", name);
+      return;
+    }
+
+    this.name = name;
+    if (callback == null || CompareTypes.different(callback, jQuery.Callbacks())) return;
+    this.callback = callback;
+  }
+  /**
+  * Handle setting up this event
+  * @param  {string} settings - The settings to apply to this JQuery.callbacks
+  */
+
+
+  Event_createClass(Event, [{
+    key: "name",
+    get: //** The name of this event*/
+    function get() {
+      return this._name;
+    },
+    set: function set(name) {
+      this._name = name;
+    } //** The name of this event*/
+
+  }, {
+    key: "callback",
+    get: function get() {
+      return this._callback;
+    },
+    set: function set(callback) {
+      this._callback = callback;
+    } //** Handles storing subscribers to this Event as JQuery.Callbacks do not expose this*/
+
+  }, {
+    key: "subscribers",
+    get: function get() {
+      return this._subscribers;
+    }
+  }, {
+    key: "setupEvent",
+    value: function setupEvent(settings) {
+      var _this = this;
+
+      if (typeof settings != "string") {
+        console.error("Trying to setup an Event's settings with invalid settings: ", settings);
+        return false;
+      }
+
+      var jqueryCallback = jQuery.Callbacks(settings);
+
+      if (this.callback != undefined) {
+        var keys = Array.from(this.subscribers.keys());
+        keys.forEach(function (element) {
+          jqueryCallback.add(element);
+
+          _this.subscribers.set(element, jqueryCallback);
+        });
+      }
+
+      this.callback = jqueryCallback;
+      return true;
+    }
+    /**
+    * Handle subscribing to this event
+    * @param  {Function} callback - The subscriber to be added
+    */
+
+  }, {
+    key: "subscribe",
+    value: function subscribe(subscriber) {
+      if (typeof subscriber != "function") {
+        console.error("Trying to subscribe to an Event using an invalid callback: ", subscriber);
+        return false;
+      }
+
+      if (this._subscribers.get(subscriber) != undefined) {
+        console.error("Trying to subscribe to an event using a callback that is already subscribed: ", subscriber);
+        return false;
+      }
+
+      this._subscribers.set(subscriber, this.callback);
+
+      this.callback.add(subscriber);
+      return true;
+    }
+    /**
+    * Handle unsubscribing to this event
+    * @param  {Function} callback - The subscriber to be removed
+    */
+
+  }, {
+    key: "unsubscribe",
+    value: function unsubscribe(subscriber) {
+      if (typeof subscriber != "function") {
+        console.error("Trying to unsubscribe from an Event using an invalid callback: ", subscriber);
+        return false;
+      }
+
+      if (this._subscribers.get(subscriber) == undefined) return false;
+
+      this._subscribers.delete(subscriber);
+
+      this.callback.remove(subscriber);
+      return true;
+    }
+    /**
+    * Handle clearing this event
+    */
+
+  }, {
+    key: "clear",
+    value: function clear() {
+      if (this.callback == null) return false;
+      this.callback.empty();
+      this.subscribers.clear();
+      return true;
+    }
+  }]);
+
+  return Event;
+}();
+;// CONCATENATED MODULE: ./Code/src/Events/PubSub.ts
+function PubSub_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function PubSub_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function PubSub_createClass(Constructor, protoProps, staticProps) { if (protoProps) PubSub_defineProperties(Constructor.prototype, protoProps); if (staticProps) PubSub_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function PubSub_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+/** Class that handles simple subscription/publish event manager.
+ */
+
+var PubSub = /*#__PURE__*/function () {
+  function PubSub() {
+    PubSub_classCallCheck(this, PubSub);
+
+    PubSub_defineProperty(this, "_events", new Map());
+
+    PubSub_defineProperty(this, "_subscribers", new MultiKeyMap());
+  }
+
+  PubSub_createClass(PubSub, [{
+    key: "events",
+    get: function get() {
+      return this._events;
+    } //** Handles storing subscribers to events that this PubSub has as JQuery.Callbacks do not expose this*/
+
+  }, {
+    key: "subscribers",
+    get: function get() {
+      return this._subscribers;
+    }
+    /**
+    * Handle modifiy/creating event with specific settings
+     * @link https://api.jquery.com/jquery.callbacks/
+    * @param  {string} event - The event to subscribe to
+    * @param  {string} settings - The JQuery.Callbacks settings to apply to this event
+    * @param  {any[]} args - Any extra arguments that will be sent to EventSetup event
+    */
+
+  }, {
+    key: "setupEvent",
+    value: function setupEvent(event) {
+      var settings = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+
+      if (typeof event != "string" || event == "") {
+        console.error("Trying to setup an event with an invalid event: ", event);
+        return false;
+      }
+
+      if (typeof settings != "string") {
+        console.error("Trying to setup an event's settings with invalid settings: ", settings);
+        return false;
+      }
+
+      var eventCallbacks = this._events.get(event);
+
+      if (eventCallbacks == undefined) {
+        eventCallbacks = new Event(event);
+
+        this._events.set(event, eventCallbacks);
+      }
+
+      if (!eventCallbacks.setupEvent(settings)) return false;
+
+      for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+        args[_key - 2] = arguments[_key];
+      }
+
+      this.publish.apply(this, ["EventSetup", event].concat(args));
+      return true;
+    }
+    /**
+    * Handle subscribing to events
+    * @param  {string} event - The event to subscribe to
+    * @param  {Function} callback - The callback to add to this event
+    * @param  {any[]} args - Any extra arguments that will be sent to EventSubscribed event
+    */
+
+  }, {
+    key: "subscribe",
+    value: function subscribe(event, callback) {
+      var _event2;
+
+      if (typeof event != "string" || event == "") {
+        console.error("Trying to subscribe to a Timer's event with an invalid input: ", event);
+        return false;
+      }
+
+      if (typeof callback != "function") {
+        console.error("Trying to subscribe to a Timer's event using an invalid function: ", callback);
+        return false;
+      }
+
+      var _event = this._events.get(event);
+
+      if (_event == undefined) {
+        this.setupEvent(event);
+        _event = this._events.get(event);
+      }
+
+      if (!((_event2 = _event) !== null && _event2 !== void 0 && _event2.subscribe(callback))) return false;
+
+      this._subscribers.setKey(_event, callback);
+
+      for (var _len2 = arguments.length, args = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      this.publish.apply(this, ["EventSubscribed", event, callback].concat(args));
+      return true;
+    }
+    /**
+    * Handle unsubscribing from events
+    * @param  {string} event - The event to unsubscribe from
+    * @param  {Function} callback - The callback to remove to this event
+    * @param  {any[]} args - Any extra arguments that will be sent to EventUnsubscribed event
+    */
+
+  }, {
+    key: "unsubscribe",
+    value: function unsubscribe(event, callback) {
+      if (typeof event != "string") {
+        console.error("Trying to subscribe to a Timer's event with an invalid input: ", event);
+        return false;
+      }
+
+      if (typeof callback != "function") {
+        console.error("Trying to subscribe to a Timer's event using an invalid function: ", callback);
+        return false;
+      }
+
+      var _event = this._events.get(event);
+
+      if (_event == undefined) return false;
+      if (!(_event !== null && _event !== void 0 && _event.unsubscribe(callback))) return false;
+
+      this._subscribers.deleteKey(_event, callback);
+
+      for (var _len3 = arguments.length, args = new Array(_len3 > 2 ? _len3 - 2 : 0), _key3 = 2; _key3 < _len3; _key3++) {
+        args[_key3 - 2] = arguments[_key3];
+      }
+
+      this.publish.apply(this, ["EventUnsubscribed", event, callback].concat(args));
+      return true;
+    }
+    /**
+    * Handle publishing events
+    */
+
+  }, {
+    key: "publish",
+    value: function publish(event) {
+      var _event$callback;
+
+      if (typeof event != "string") {
+        console.error("Trying to publish to a Timer's event with an invalid input: ", event);
+        return false;
+      }
+
+      var _event = this._events.get(event);
+
+      if (_event == undefined) return false;
+
+      for (var _len4 = arguments.length, args = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+        args[_key4 - 1] = arguments[_key4];
+      }
+
+      (_event$callback = _event.callback).fire.apply(_event$callback, [event].concat(args));
+
+      if (event != "EventPublished") this.publish.apply(this, ["EventPublished", event].concat(args));
+      return true;
+    }
+    /**
+    * Handle clearing specific event
+    * @param  {string} event - The event to clear all subscribers from
+     * This will need improving to handle event unsubscribing when clearing
+    */
+
+  }, {
+    key: "clearEvent",
+    value: function clearEvent(event) {
+      if (typeof event != "string") {
+        console.error("Trying to clear to a Timer's event with an invalid input: ", event);
+        return false;
+      }
+
+      var _event = this._events.get(event);
+
+      if (_event == undefined) return false;
+
+      _event.clear();
+
+      for (var _len5 = arguments.length, args = new Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
+        args[_key5 - 1] = arguments[_key5];
+      }
+
+      this.publish.apply(this, ["EventCleared", event].concat(args));
+      return true;
+    }
+    /**
+    * Handle clearing all events
+    */
+
+  }, {
+    key: "clear",
+    value: function clear() {
+      this.events.clear();
+
+      for (var _len6 = arguments.length, args = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+        args[_key6] = arguments[_key6];
+      }
+
+      this.publish.apply(this, ["AllEventsCleared"].concat(args));
+      return true;
+    }
+  }]);
+
+  return PubSub;
+}();
+;// CONCATENATED MODULE: ./Code/src/Utilities/UniqueID.ts
+function UniqueID_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function UniqueID_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function UniqueID_createClass(Constructor, protoProps, staticProps) { if (protoProps) UniqueID_defineProperties(Constructor.prototype, protoProps); if (staticProps) UniqueID_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function UniqueID_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/** Holds any properties and methods for generating Unique IDs.
+ */
+var UniqueID = /*#__PURE__*/function () {
+  function UniqueID() {
+    UniqueID_classCallCheck(this, UniqueID);
+
+    UniqueID_defineProperty(this, "_uniqueID", 0);
+  }
+
+  UniqueID_createClass(UniqueID, [{
+    key: "uniqueID",
+    get: function get() {
+      return this._uniqueID;
+    },
+    set: function set(value) {
+      if (typeof value != "number") {
+        console.error("Trying to set UniqueID's unique ID with an invalid input: ", value);
+        return;
+      }
+
+      this._uniqueID = value;
+    }
+    /**
+    * Return and increment a value to fake uniqueness
+    */
+
+  }, {
+    key: "generateUID",
+    value: function generateUID() {
+      this.uniqueID++;
+      return this.uniqueID;
+    }
+  }]);
+
+  return UniqueID;
 }();
 ;// CONCATENATED MODULE: ./Code/src/Timers/TimerController.ts
 function TimerController_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2875,13 +3275,17 @@ function TimerController_defineProperty(obj, key, value) { if (key in obj) { Obj
 
 
 
-/** Class representing a any utility functions or variables that help Timers.
+
+/** Class representing any utility functions or variables that help Timers.
  */
 var TimerController = /*#__PURE__*/function () {
+  /**
+  * Return this or singleton instance of TimerController
+  */
   function TimerController() {
     TimerController_classCallCheck(this, TimerController);
 
-    TimerController_defineProperty(this, "_uniqueID", 0);
+    TimerController_defineProperty(this, "_uniqueID", new UniqueID());
 
     TimerController_defineProperty(this, "_timers", new MultiKeyMap());
 
@@ -2895,20 +3299,12 @@ var TimerController = /*#__PURE__*/function () {
     get: function get() {
       if (this != TimerController.Instance) return TimerController.Instance.uniqueID;
       return this._uniqueID;
-    },
-    set: function set(value) {
-      if (typeof value != "number") {
-        console.error("Trying to set TimerController's unique ID with an invalid input: ", value);
-        return;
-      }
-
-      this._uniqueID = value;
     } //** Store all references to Timers to allow searching*/
 
   }, {
     key: "timers",
     get: function get() {
-      if (this != TimerController.Instance) return TimerController.Instance._timers;
+      if (this != TimerController.Instance) return TimerController.Instance.timers;
       return this._timers;
     }
     /**
@@ -2925,16 +3321,6 @@ var TimerController = /*#__PURE__*/function () {
     key: "Time",
     value: function Time() {
       return new Date().getTime();
-    }
-    /**
-    * Return and increment a value to fake uniqueness
-    */
-
-  }, {
-    key: "generateUID",
-    value: function generateUID() {
-      this.Instance.uniqueID++;
-      return this.Instance.uniqueID;
     }
     /**
     * Searches for and returns a timer with a name parameter
@@ -3103,7 +3489,7 @@ var Timer = /*#__PURE__*/function () {
     }
 
     this.name = name;
-    this.timerID = TimerController.generateUID();
+    this.timerID = TimerController.Instance.uniqueID.generateUID();
     this.timingInterval = timingInterval;
     this.ticksRemaining = timerRunTime;
     this.enableOffset = enableOffset;
@@ -3531,7 +3917,10 @@ var Timer = /*#__PURE__*/function () {
 ;// CONCATENATED MODULE: ./Definitions/Modules/Events.ts
 
 
+
 ;// CONCATENATED MODULE: ./Definitions/Modules/Utilities.ts
+
+
 
 
 ;// CONCATENATED MODULE: ./Definitions/WebpackAll.ts
