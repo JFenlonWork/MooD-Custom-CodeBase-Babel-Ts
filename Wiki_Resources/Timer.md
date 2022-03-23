@@ -83,7 +83,7 @@ Create a timer
 
 #### Defined in
 
-[TImers/Timer.ts:204](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L204)
+[TImers/Timer.ts:204](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L204)
 
 ## Properties
 
@@ -93,7 +93,7 @@ Create a timer
 
 #### Defined in
 
-[TImers/Timer.ts:78](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L78)
+[TImers/Timer.ts:78](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L78)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:146](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L146)
+[TImers/Timer.ts:146](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L146)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:190](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L190)
+[TImers/Timer.ts:190](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L190)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:157](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L157)
+[TImers/Timer.ts:157](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L157)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:133](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L133)
+[TImers/Timer.ts:133](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L133)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:89](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L89)
+[TImers/Timer.ts:89](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L89)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L10)
+[TImers/Timer.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L10)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:122](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L122)
+[TImers/Timer.ts:122](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L122)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L21)
+[TImers/Timer.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L21)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:168](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L168)
+[TImers/Timer.ts:168](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L168)
 
 ___
 
@@ -193,7 +193,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:179](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L179)
+[TImers/Timer.ts:179](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L179)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:56](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L56)
+[TImers/Timer.ts:56](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L56)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:111](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L111)
+[TImers/Timer.ts:111](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L111)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:100](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L100)
+[TImers/Timer.ts:100](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L100)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:33](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L33)
+[TImers/Timer.ts:33](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L33)
 
 ___
 
@@ -243,7 +243,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:44](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L44)
+[TImers/Timer.ts:44](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L44)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:67](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L67)
+[TImers/Timer.ts:67](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L67)
 
 ## Accessors
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:79](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L79)
+[TImers/Timer.ts:79](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L79)
 
 • `set` **currentTimingInterval**(`interval`): `void`
 
@@ -283,7 +283,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:83](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L83)
+[TImers/Timer.ts:83](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L83)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:147](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L147)
+[TImers/Timer.ts:147](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L147)
 
 • `set` **enableOffset**(`enabled`): `void`
 
@@ -313,7 +313,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:151](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L151)
+[TImers/Timer.ts:151](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L151)
 
 ___
 
@@ -327,7 +327,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:191](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L191)
+[TImers/Timer.ts:191](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L191)
 
 ___
 
@@ -341,7 +341,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:158](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L158)
+[TImers/Timer.ts:158](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L158)
 
 • `set` **intervalOffset**(`interval`): `void`
 
@@ -357,7 +357,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:162](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L162)
+[TImers/Timer.ts:162](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L162)
 
 ___
 
@@ -371,7 +371,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:134](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L134)
+[TImers/Timer.ts:134](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L134)
 
 • `set` **lastCompletion**(`date`): `void`
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:138](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L138)
+[TImers/Timer.ts:138](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L138)
 
 ___
 
@@ -401,7 +401,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:90](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L90)
+[TImers/Timer.ts:90](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L90)
 
 • `set` **lastTickDate**(`date`): `void`
 
@@ -417,7 +417,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:94](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L94)
+[TImers/Timer.ts:94](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L94)
 
 ___
 
@@ -431,7 +431,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L11)
+[TImers/Timer.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L11)
 
 • `set` **name**(`name`): `void`
 
@@ -447,7 +447,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L15)
+[TImers/Timer.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L15)
 
 ___
 
@@ -461,7 +461,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:123](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L123)
+[TImers/Timer.ts:123](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L123)
 
 • `set` **pausedAt**(`date`): `void`
 
@@ -477,7 +477,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:127](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L127)
+[TImers/Timer.ts:127](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L127)
 
 ___
 
@@ -491,7 +491,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:22](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L22)
+[TImers/Timer.ts:22](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L22)
 
 • `set` **running**(`isRunning`): `void`
 
@@ -507,7 +507,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L26)
+[TImers/Timer.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L26)
 
 ___
 
@@ -521,7 +521,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:169](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L169)
+[TImers/Timer.ts:169](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L169)
 
 • `set` **skipOffset**(`skipType`): `void`
 
@@ -537,7 +537,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:173](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L173)
+[TImers/Timer.ts:173](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L173)
 
 ___
 
@@ -551,7 +551,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:180](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L180)
+[TImers/Timer.ts:180](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L180)
 
 • `set` **skipOffsetCalculation**(`skipOffsetCalculation`): `void`
 
@@ -567,7 +567,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:184](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L184)
+[TImers/Timer.ts:184](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L184)
 
 ___
 
@@ -581,7 +581,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:57](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L57)
+[TImers/Timer.ts:57](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L57)
 
 • `set` **startDate**(`date`): `void`
 
@@ -597,7 +597,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:61](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L61)
+[TImers/Timer.ts:61](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L61)
 
 ___
 
@@ -611,7 +611,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:112](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L112)
+[TImers/Timer.ts:112](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L112)
 
 • `set` **ticksElapsed**(`ticksElapsed`): `void`
 
@@ -627,7 +627,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:116](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L116)
+[TImers/Timer.ts:116](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L116)
 
 ___
 
@@ -641,7 +641,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:101](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L101)
+[TImers/Timer.ts:101](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L101)
 
 • `set` **ticksRemaining**(`ticksRemaining`): `void`
 
@@ -657,7 +657,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:105](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L105)
+[TImers/Timer.ts:105](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L105)
 
 ___
 
@@ -671,7 +671,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L34)
+[TImers/Timer.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L34)
 
 • `set` **timeout**(`timeout`): `void`
 
@@ -687,7 +687,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:38](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L38)
+[TImers/Timer.ts:38](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L38)
 
 ___
 
@@ -701,7 +701,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:45](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L45)
+[TImers/Timer.ts:45](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L45)
 
 • `set` **timerID**(`timerID`): `void`
 
@@ -717,7 +717,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:49](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L49)
+[TImers/Timer.ts:49](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L49)
 
 ___
 
@@ -731,7 +731,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:68](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L68)
+[TImers/Timer.ts:68](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L68)
 
 • `set` **timingInterval**(`interval`): `void`
 
@@ -747,7 +747,7 @@ ___
 
 #### Defined in
 
-[TImers/Timer.ts:72](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L72)
+[TImers/Timer.ts:72](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L72)
 
 ## Methods
 
@@ -763,7 +763,7 @@ Handle the destruction of this timer
 
 #### Defined in
 
-[TImers/Timer.ts:366](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L366)
+[TImers/Timer.ts:366](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L366)
 
 ___
 
@@ -779,7 +779,7 @@ Test if this Timer is currently pause
 
 #### Defined in
 
-[TImers/Timer.ts:292](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L292)
+[TImers/Timer.ts:292](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L292)
 
 ___
 
@@ -795,7 +795,7 @@ Handle the looping/countdown calculation of this timer
 
 #### Defined in
 
-[TImers/Timer.ts:299](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L299)
+[TImers/Timer.ts:299](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L299)
 
 ___
 
@@ -811,7 +811,7 @@ Pause this Timer
 
 #### Defined in
 
-[TImers/Timer.ts:265](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L265)
+[TImers/Timer.ts:265](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L265)
 
 ___
 
@@ -827,7 +827,7 @@ Restart this Timer
 
 #### Defined in
 
-[TImers/Timer.ts:257](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L257)
+[TImers/Timer.ts:257](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L257)
 
 ___
 
@@ -843,7 +843,7 @@ Resume this Timer
 
 #### Defined in
 
-[TImers/Timer.ts:276](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L276)
+[TImers/Timer.ts:276](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L276)
 
 ___
 
@@ -859,7 +859,7 @@ Handle the looping of this timer
 
 #### Defined in
 
-[TImers/Timer.ts:348](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L348)
+[TImers/Timer.ts:348](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L348)
 
 ___
 
@@ -875,7 +875,7 @@ Start this Timer
 
 #### Defined in
 
-[TImers/Timer.ts:237](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L237)
+[TImers/Timer.ts:237](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L237)
 
 ___
 
@@ -891,7 +891,7 @@ Stop this Timer
 
 #### Defined in
 
-[TImers/Timer.ts:247](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L247)
+[TImers/Timer.ts:247](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L247)
 
 ___
 
@@ -907,4 +907,4 @@ Resume this Timer
 
 #### Defined in
 
-[TImers/Timer.ts:284](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/TImers/Timer.ts#L284)
+[TImers/Timer.ts:284](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/TImers/Timer.ts#L284)

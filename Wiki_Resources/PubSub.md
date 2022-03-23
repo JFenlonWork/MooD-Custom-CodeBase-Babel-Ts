@@ -11,12 +11,19 @@ Class that handles simple subscription/publish event manager.
 ### Properties
 
 - [\_events](../wiki/PubSub#_events)
+- [\_subscribers](../wiki/PubSub#_subscribers)
+
+### Accessors
+
+- [events](../wiki/PubSub#events)
+- [subscribers](../wiki/PubSub#subscribers)
 
 ### Methods
 
 - [clear](../wiki/PubSub#clear)
 - [clearEvent](../wiki/PubSub#clearevent)
 - [publish](../wiki/PubSub#publish)
+- [setupEvent](../wiki/PubSub#setupevent)
 - [subscribe](../wiki/PubSub#subscribe)
 - [unsubscribe](../wiki/PubSub#unsubscribe)
 
@@ -30,19 +37,63 @@ Class that handles simple subscription/publish event manager.
 
 ### \_events
 
-• `Protected` **\_events**: `Map`<`String`, `Callbacks`<`Function`\>\>
+• `Private` **\_events**: `Map`<`String`, [`Event`](../wiki/Event)\>
 
 #### Defined in
 
-[Events/PubSub.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L6)
+[Events/PubSub.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Events/PubSub.ts#L9)
+
+___
+
+### \_subscribers
+
+• `Protected` **\_subscribers**: [`MultiKeyMap`](../wiki/MultiKeyMap)<[`Event`](../wiki/Event), `Function`\>
+
+#### Defined in
+
+[Events/PubSub.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Events/PubSub.ts#L15)
+
+## Accessors
+
+### events
+
+• `get` **events**(): `Map`<`String`, [`Event`](../wiki/Event)\>
+
+#### Returns
+
+`Map`<`String`, [`Event`](../wiki/Event)\>
+
+#### Defined in
+
+[Events/PubSub.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Events/PubSub.ts#L10)
+
+___
+
+### subscribers
+
+• `get` **subscribers**(): [`MultiKeyMap`](../wiki/MultiKeyMap)<[`Event`](../wiki/Event), `Function`\>
+
+#### Returns
+
+[`MultiKeyMap`](../wiki/MultiKeyMap)<[`Event`](../wiki/Event), `Function`\>
+
+#### Defined in
+
+[Events/PubSub.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Events/PubSub.ts#L16)
 
 ## Methods
 
 ### clear
 
-▸ **clear**(): `boolean`
+▸ **clear**(...`args`): `boolean`
 
 Handle clearing all events
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...args` | `any`[] |
 
 #### Returns
 
@@ -50,21 +101,22 @@ Handle clearing all events
 
 #### Defined in
 
-[Events/PubSub.ts:81](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L81)
+[Events/PubSub.ts:125](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Events/PubSub.ts#L125)
 
 ___
 
 ### clearEvent
 
-▸ **clearEvent**(`event`): `boolean`
+▸ **clearEvent**(`event`, ...`args`): `boolean`
 
-Handle clearing events
+Handle clearing specific event
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `event` | `string` | The event to clear all subscribers from This will need improving to handle event unsubscribing when clearing |
+| `...args` | `any`[] | - |
 
 #### Returns
 
@@ -72,7 +124,7 @@ Handle clearing events
 
 #### Defined in
 
-[Events/PubSub.ts:69](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L69)
+[Events/PubSub.ts:110](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Events/PubSub.ts#L110)
 
 ___
 
@@ -95,7 +147,33 @@ Handle publishing events
 
 #### Defined in
 
-[Events/PubSub.ts:55](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L55)
+[Events/PubSub.ts:92](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Events/PubSub.ts#L92)
+
+___
+
+### setupEvent
+
+▸ **setupEvent**(`event`, `settings?`, ...`args`): `boolean`
+
+Handle modifiy/creating event with specific settings
+
+**`link`** https://api.jquery.com/jquery.callbacks/
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `event` | `string` | `undefined` | The event to subscribe to |
+| `settings` | `string` | `""` | The JQuery.Callbacks settings to apply to this event |
+| `...args` | `any`[] | `undefined` | Any extra arguments that will be sent to EventSetup event |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[Events/PubSub.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Events/PubSub.ts#L27)
 
 ___
 
@@ -119,7 +197,7 @@ Handle subscribing to events
 
 #### Defined in
 
-[Events/PubSub.ts:14](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L14)
+[Events/PubSub.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Events/PubSub.ts#L50)
 
 ___
 
@@ -143,4 +221,4 @@ Handle unsubscribing from events
 
 #### Defined in
 
-[Events/PubSub.ts:39](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Events/PubSub.ts#L39)
+[Events/PubSub.ts:75](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Events/PubSub.ts#L75)

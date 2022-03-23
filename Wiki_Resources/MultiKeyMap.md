@@ -1,4 +1,4 @@
-# Class: MultiKeyMap<T\>
+# Class: MultiKeyMap<Key, Value\>
 
 Class that handles multiple keys to one value Map
 
@@ -6,7 +6,8 @@ Class that handles multiple keys to one value Map
 
 | Name |
 | :------ |
-| `T` |
+| `Key` |
+| `Value` |
 
 ## Table of contents
 
@@ -21,6 +22,7 @@ Class that handles multiple keys to one value Map
 
 ### Methods
 
+- [clear](../wiki/MultiKeyMap#clear)
 - [deleteKey](../wiki/MultiKeyMap#deletekey)
 - [deleteKeys](../wiki/MultiKeyMap#deletekeys)
 - [deleteValue](../wiki/MultiKeyMap#deletevalue)
@@ -28,6 +30,9 @@ Class that handles multiple keys to one value Map
 - [getKeysArray](../wiki/MultiKeyMap#getkeysarray)
 - [getValue](../wiki/MultiKeyMap#getvalue)
 - [hasKey](../wiki/MultiKeyMap#haskey)
+- [remapKey](../wiki/MultiKeyMap#remapkey)
+- [remapValue](../wiki/MultiKeyMap#remapvalue)
+- [remapValueFromKey](../wiki/MultiKeyMap#remapvaluefromkey)
 - [setKey](../wiki/MultiKeyMap#setkey)
 - [setKeys](../wiki/MultiKeyMap#setkeys)
 
@@ -35,7 +40,7 @@ Class that handles multiple keys to one value Map
 
 ### constructor
 
-• **new MultiKeyMap**<`T`\>(`keys?`, `value?`)
+• **new MultiKeyMap**<`Key`, `Value`\>(`keys?`, `value?`)
 
 Create a map between multiple keys and a single value
 
@@ -43,42 +48,59 @@ Create a map between multiple keys and a single value
 
 | Name |
 | :------ |
-| `T` |
+| `Key` |
+| `Value` |
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `keys` | `any` | `null` | - |
-| `value?` | `T` | `undefined` | The value to link these keys to |
+| `keys` | `Key` \| `Key`[] | `[]` | - |
+| `value?` | `Value` | `undefined` | The value to link these keys to |
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L16)
+[Utilities/MultiKeyMap.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L18)
 
 ## Properties
 
 ### \_\_map\_\_
 
-• `Private` **\_\_map\_\_**: `Map`<`any`, `T`\>
+• `Private` **\_\_map\_\_**: `Map`<`Key`, `Value`\>
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L6)
+[Utilities/MultiKeyMap.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L8)
 
 ___
 
 ### \_\_reverseMap\_\_
 
-• `Private` **\_\_reverseMap\_\_**: `Map`<`T`, `Map`<`any`, `void`\>\>
+• `Private` **\_\_reverseMap\_\_**: `Map`<`Value`, `Map`<`Key`, `void`\>\>
 
 Store all inverse references to values to allow searching and Maps the values to void for O(1) checking
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L9)
+[Utilities/MultiKeyMap.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L11)
 
 ## Methods
+
+### clear
+
+▸ **clear**(): `void`
+
+Remove all keys and values
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[Utilities/MultiKeyMap.ts:183](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L183)
+
+___
 
 ### deleteKey
 
@@ -90,8 +112,8 @@ Remove a key from this map
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `key` | `any` | - |
-| `value` | `T` | The value that this key links to |
+| `key` | `Key` | - |
+| `value` | `Value` | The value that this key links to |
 
 #### Returns
 
@@ -99,7 +121,7 @@ Remove a key from this map
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:98](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L98)
+[Utilities/MultiKeyMap.ts:147](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L147)
 
 ___
 
@@ -113,8 +135,8 @@ Remove many keys from this map
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `keys` | `any`[] | - |
-| `value` | `T` | The value that these keys link to |
+| `keys` | `Key`[] | - |
+| `value` | `Value` | The value that these keys link to |
 
 #### Returns
 
@@ -122,7 +144,7 @@ Remove many keys from this map
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:114](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L114)
+[Utilities/MultiKeyMap.ts:163](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L163)
 
 ___
 
@@ -136,7 +158,7 @@ Remove all references to a value
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `value` | `T` | The value to remove |
+| `value` | `Value` | The value to remove |
 
 #### Returns
 
@@ -144,13 +166,13 @@ Remove all references to a value
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:124](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L124)
+[Utilities/MultiKeyMap.ts:173](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L173)
 
 ___
 
 ### getKeys
 
-▸ **getKeys**(`value`): `undefined` \| `Map`<`any`, `void`\>
+▸ **getKeys**(`value`): `undefined` \| `Map`<`Key`, `void`\>
 
 Return Map of Value to Keys
 
@@ -158,21 +180,21 @@ Return Map of Value to Keys
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `T` |
+| `value` | `Value` |
 
 #### Returns
 
-`undefined` \| `Map`<`any`, `void`\>
+`undefined` \| `Map`<`Key`, `void`\>
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:42](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L42)
+[Utilities/MultiKeyMap.ts:47](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L47)
 
 ___
 
 ### getKeysArray
 
-▸ **getKeysArray**(`value`): `any`[]
+▸ **getKeysArray**(`value`): `Key`[]
 
 Return all keys relating to a value in array format
 
@@ -180,21 +202,21 @@ Return all keys relating to a value in array format
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `T` |
+| `value` | `Value` |
 
 #### Returns
 
-`any`[]
+`Key`[]
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L50)
+[Utilities/MultiKeyMap.ts:55](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L55)
 
 ___
 
 ### getValue
 
-▸ **getValue**(`key`): `any`
+▸ **getValue**(`key`): `undefined` \| `Value`
 
 Return Value associated with a key
 
@@ -202,15 +224,15 @@ Return Value associated with a key
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `key` | `any` | The key to return the value for |
+| `key` | `Key` | The key to return the value for |
 
 #### Returns
 
-`any`
+`undefined` \| `Value`
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L34)
+[Utilities/MultiKeyMap.ts:39](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L39)
 
 ___
 
@@ -224,7 +246,7 @@ Test if a value exists for a given key
 
 | Name | Type |
 | :------ | :------ |
-| `key` | `any` |
+| `key` | `Key` |
 
 #### Returns
 
@@ -232,7 +254,76 @@ Test if a value exists for a given key
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:59](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L59)
+[Utilities/MultiKeyMap.ts:64](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L64)
+
+___
+
+### remapKey
+
+▸ **remapKey**(`key`, `newValue`): `void`
+
+Remap pre-existing key to a new value based on pre-existing Key->Value map
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `key` | `Key` | The key to remap |
+| `newValue` | `Value` | The new value to link the key to |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[Utilities/MultiKeyMap.ts:134](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L134)
+
+___
+
+### remapValue
+
+▸ **remapValue**(`value`, `newValue`): `Key`[]
+
+Remap pre-existing keys to a new value
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `Value` | The value to get the keys from |
+| `newValue` | `Value` | The new value to link the keys to |
+
+#### Returns
+
+`Key`[]
+
+#### Defined in
+
+[Utilities/MultiKeyMap.ts:103](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L103)
+
+___
+
+### remapValueFromKey
+
+▸ **remapValueFromKey**(`key`, `newValue`): `Key`[]
+
+Remap pre-existing keys to a new value based on pre-existing Key->Value map
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `key` | `Key` | The key to lookup to find the original value to get the keys from |
+| `newValue` | `Value` | The new value to link the keys to |
+
+#### Returns
+
+`Key`[]
+
+#### Defined in
+
+[Utilities/MultiKeyMap.ts:123](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L123)
 
 ___
 
@@ -246,8 +337,8 @@ Create a map between a key and a single value
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `key` | `any` | - |
-| `value` | `T` | The value to link this key to |
+| `key` | `Key` | - |
+| `value` | `Value` | The value to link this key to |
 
 #### Returns
 
@@ -255,7 +346,7 @@ Create a map between a key and a single value
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:68](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L68)
+[Utilities/MultiKeyMap.ts:73](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L73)
 
 ___
 
@@ -269,8 +360,8 @@ Create a map between multiple keys and a single value
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `keys` | `any`[] | - |
-| `value` | `T` | The value to link these keys to |
+| `keys` | `Key`[] | - |
+| `value` | `Value` | The value to link these keys to |
 
 #### Returns
 
@@ -278,4 +369,4 @@ Create a map between multiple keys and a single value
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:87](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/a03acf3/Code/src/Utilities/MultiKeyMap.ts#L87)
+[Utilities/MultiKeyMap.ts:92](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L92)
