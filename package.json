@@ -26,6 +26,7 @@
     "@types/jquery": "^3.5.14",
     "babel-loader": "^8.2.3",
     "copyfiles": "^2.4.1",
+    "devextreme": "^21.2.6",
     "jquery": "^3.6.0",
     "rimraf": "^3.0.2",
     "typedoc": "^0.22.12",
