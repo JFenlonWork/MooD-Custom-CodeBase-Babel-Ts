@@ -1,7 +1,8 @@
 import { MultiKeyMap } from "../Utilities/MultiKeyMap";
+import { UniqueID } from "../Utilities/UniqueID";
 import { Timer } from "./Timer";
 
-/** Class representing a any utility functions or variables that help Timers.
+/** Class representing any utility functions or variables that help Timers.
  */
  export class TimerController {
 
@@ -11,6 +12,9 @@ import { Timer } from "./Timer";
         return this._instance || (this._instance = new this());
     }
 
+    /**
+	 * Return this or singleton instance of TimerController
+	 */
     private constructor() {
         if (TimerController._instance) return TimerController._instance;
         TimerController._instance = this;
@@ -19,21 +23,16 @@ import { Timer } from "./Timer";
 
 
     //** Store an incrementing variable to ensure unique IDs*/
-    private _uniqueID: number = 0;
-    public get uniqueID(): number {
+    private _uniqueID: UniqueID = new UniqueID();
+    public get uniqueID(): UniqueID {
         if (this != TimerController.Instance) return TimerController.Instance.uniqueID;
         return this._uniqueID;
     }
 
-    private set uniqueID(value: number) {
-        if (typeof(value) != "number") { console.error("Trying to set TimerController's unique ID with an invalid input: ", value); return; }
-        this._uniqueID = value;
-    }
-
     //** Store all references to Timers to allow searching*/
-    private _timers: MultiKeyMap<Timer> = new MultiKeyMap();
-    public get timers(): MultiKeyMap<Timer> {
-        if (this != TimerController.Instance) return TimerController.Instance._timers;
+    private _timers: MultiKeyMap<String | Number, Timer> = new MultiKeyMap();
+    public get timers(): MultiKeyMap<String | Number, Timer> {
+        if (this != TimerController.Instance) return TimerController.Instance.timers;
         return this._timers;
     }
 
@@ -43,14 +42,6 @@ import { Timer } from "./Timer";
 	 */
     public static Time(): number {
         return new Date().getTime();
-    }
-
-    /**
-	 * Return and increment a value to fake uniqueness
-	 */
-    public static generateUID(): number {
-        this.Instance.uniqueID++;
-        return this.Instance.uniqueID;
     }
 
     /**
