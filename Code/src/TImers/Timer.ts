@@ -208,7 +208,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
         if (typeof enableOffset != "boolean" || enableOffset == null) { console.error("Trying to create a timer without a valid enable offset: ", enableOffset); return; }
 
         this.name = name;
-        this.timerID = TimerController.generateUID();
+        this.timerID = TimerController.Instance.uniqueID.generateUID();
         this.timingInterval = timingInterval;
         this.ticksRemaining = timerRunTime;
         this.enableOffset = enableOffset;
