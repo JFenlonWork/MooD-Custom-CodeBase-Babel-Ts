@@ -55,7 +55,7 @@ Create a reversible map between Keys and Values
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:15
+[Utilities/ReversibleMap.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L15)
 
 ## Properties
 
@@ -65,7 +65,7 @@ Utilities/ReversibleMap.ts:15
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:5
+[Utilities/ReversibleMap.ts:5](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L5)
 
 ___
 
@@ -77,7 +77,7 @@ Store all inverse references to values to allow searching and Maps the values to
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:8
+[Utilities/ReversibleMap.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L8)
 
 ## Methods
 
@@ -93,7 +93,7 @@ Remove all keys and values
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:101
+[Utilities/ReversibleMap.ts:101](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L101)
 
 ___
 
@@ -115,7 +115,7 @@ Remove a key from this map
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:74
+[Utilities/ReversibleMap.ts:74](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L74)
 
 ___
 
@@ -137,7 +137,7 @@ Remove a Value from this map
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:88
+[Utilities/ReversibleMap.ts:88](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L88)
 
 ___
 
@@ -159,7 +159,7 @@ Return Key associated with a Value
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:34
+[Utilities/ReversibleMap.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L34)
 
 ___
 
@@ -181,7 +181,7 @@ Return Value associated with a key
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:26
+[Utilities/ReversibleMap.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L26)
 
 ___
 
@@ -203,7 +203,7 @@ Test if a Value exists for a given Key
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:42
+[Utilities/ReversibleMap.ts:42](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L42)
 
 ___
 
@@ -225,7 +225,7 @@ Test if a Key exists for a given Value
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:50
+[Utilities/ReversibleMap.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L50)
 
 ___
 
@@ -248,4 +248,4 @@ Create a map between a Key and a Value
 
 #### Defined in
 
-Utilities/ReversibleMap.ts:59
+[Utilities/ReversibleMap.ts:59](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/Utilities/ReversibleMap.ts#L59)

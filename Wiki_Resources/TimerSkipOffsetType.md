@@ -18,7 +18,7 @@ Enum representing a offset skip type of a timer.
 
 #### Defined in
 
-[TImers/TimerSkipOffsetType.ts:4](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/TImers/TimerSkipOffsetType.ts#L4)
+[TImers/TimerSkipOffsetType.ts:4](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/TImers/TimerSkipOffsetType.ts#L4)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[TImers/TimerSkipOffsetType.ts:5](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/TImers/TimerSkipOffsetType.ts#L5)
+[TImers/TimerSkipOffsetType.ts:5](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/TImers/TimerSkipOffsetType.ts#L5)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[TImers/TimerSkipOffsetType.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/TImers/TimerSkipOffsetType.ts#L6)
+[TImers/TimerSkipOffsetType.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/84e0bbd/Code/src/TImers/TimerSkipOffsetType.ts#L6)
