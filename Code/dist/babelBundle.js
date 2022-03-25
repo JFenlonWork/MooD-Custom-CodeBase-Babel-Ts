@@ -204,8 +204,11 @@ var TestExport;
     "CompareTypes": function CompareTypes() {
       return _CompareTypes;
     },
-    "MultiKeyMap": function MultiKeyMap() {
-      return _MultiKeyMap;
+    "MultiKeyReversableMap": function MultiKeyReversableMap() {
+      return _MultiKeyReversableMap;
+    },
+    "ReversableMap": function ReversableMap() {
+      return _ReversableMap;
     },
     "UniqueID": function UniqueID() {
       return _UniqueID;
@@ -3110,15 +3113,15 @@ var TestExport;
     return CompareTypes;
   }();
 
-  ; // CONCATENATED MODULE: ./Code/src/Utilities/MultiKeyMap.ts
+  ; // CONCATENATED MODULE: ./Code/src/Utilities/MultiKeyReversableMap.ts
 
-  function MultiKeyMap_classCallCheck(instance, Constructor) {
+  function MultiKeyReversableMap_classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
     }
   }
 
-  function MultiKeyMap_defineProperties(target, props) {
+  function MultiKeyReversableMap_defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
       var descriptor = props[i];
       descriptor.enumerable = descriptor.enumerable || false;
@@ -3128,16 +3131,16 @@ var TestExport;
     }
   }
 
-  function MultiKeyMap_createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) MultiKeyMap_defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) MultiKeyMap_defineProperties(Constructor, staticProps);
+  function MultiKeyReversableMap_createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) MultiKeyReversableMap_defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) MultiKeyReversableMap_defineProperties(Constructor, staticProps);
     Object.defineProperty(Constructor, "prototype", {
       writable: false
     });
     return Constructor;
   }
 
-  function MultiKeyMap_defineProperty(obj, key, value) {
+  function MultiKeyReversableMap_defineProperty(obj, key, value) {
     if (key in obj) {
       Object.defineProperty(obj, key, {
         value: value,
@@ -3151,11 +3154,11 @@ var TestExport;
 
     return obj;
   }
-  /** Class that handles multiple keys to one value Map
+  /** Class that handles multiple keys to value Map with reversable search 
    */
 
 
-  var _MultiKeyMap = /*#__PURE__*/function () {
+  var _MultiKeyReversableMap = /*#__PURE__*/function () {
     //** Store all forward references to values to allow searching*/
 
     /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
@@ -3165,14 +3168,14 @@ var TestExport;
     * @param  {Key | Key[]} Keys - Any key/s to add on creation
     * @param  {Value} value - The value to link these keys to
     */
-    function MultiKeyMap() {
+    function MultiKeyReversableMap() {
       var _this = this;
 
       var keys = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
       var value = arguments.length > 1 ? arguments[1] : undefined;
-      MultiKeyMap_classCallCheck(this, MultiKeyMap);
-      MultiKeyMap_defineProperty(this, "__map__", new Map());
-      MultiKeyMap_defineProperty(this, "__reverseMap__", new Map());
+      MultiKeyReversableMap_classCallCheck(this, MultiKeyReversableMap);
+      MultiKeyReversableMap_defineProperty(this, "__map__", new Map());
+      MultiKeyReversableMap_defineProperty(this, "__reverseMap__", new Map());
       if (keys == null || Array.isArray(keys) && keys.length == 0 || value == null) return;
       var reverseMap = new Map();
 
@@ -3196,10 +3199,20 @@ var TestExport;
     */
 
 
-    MultiKeyMap_createClass(MultiKeyMap, [{
+    MultiKeyReversableMap_createClass(MultiKeyReversableMap, [{
       key: "getValue",
       value: function getValue(key) {
         return this.__map__.get(key);
+      }
+      /**
+      * Test if a key exists for a given value
+      * @param  {Value} value - The value to check if a key exists
+      */
+
+    }, {
+      key: "hasValue",
+      value: function hasValue(value) {
+        return this.getKeys(value) != undefined;
       }
       /**
       * Return Map of Value to Keys
@@ -3209,6 +3222,11 @@ var TestExport;
     }, {
       key: "getKeys",
       value: function getKeys(value) {
+        if (value === undefined) {
+          console.error("Trying to get a MultiKeyMap's Keys map with an invalid value: ", value);
+          return undefined;
+        }
+
         return this.__reverseMap__.get(value);
       }
       /**
@@ -3219,6 +3237,11 @@ var TestExport;
     }, {
       key: "getKeysArray",
       value: function getKeysArray(value) {
+        if (value === undefined) {
+          console.error("Trying to get a MultiKeyMap's Keys array with an invalid value: ", value);
+          return [];
+        }
+
         var keys = this.getKeys(value);
         return keys != undefined ? Array.from(keys.keys()) : [];
       }
@@ -3241,6 +3264,16 @@ var TestExport;
     }, {
       key: "setKey",
       value: function setKey(key, value) {
+        if (key == null) {
+          console.error("Trying to set a MultiKeyMap's Key with an invalid key: ", key);
+          return false;
+        }
+
+        if (value === undefined) {
+          console.error("Trying to set a MultiKeyMap's Key with an invalid value: ", value);
+          return false;
+        }
+
         var keys = this.getKeys(value);
 
         if (keys == undefined) {
@@ -3257,6 +3290,8 @@ var TestExport;
 
           this.__reverseMap__.set(value, keys);
         }
+
+        return true;
       }
       /**
       * Create a map between multiple keys and a single value
@@ -3269,9 +3304,20 @@ var TestExport;
       value: function setKeys(keys, value) {
         var _this2 = this;
 
+        if (keys == null) {
+          console.error("Trying to set a MultiKeyMap's Keys with an invalid keys: ", keys);
+          return false;
+        }
+
+        if (value === undefined) {
+          console.error("Trying to set a MultiKeyMap's Keys with an invalid value: ", value);
+          return false;
+        }
+
         keys.forEach(function (element) {
           _this2.setKey(element, value);
         });
+        return true;
       }
       /**
       * Remap pre-existing keys to a new value
@@ -3289,7 +3335,7 @@ var TestExport;
           return [];
         }
 
-        if (newValue == null) {
+        if (newValue === undefined) {
           console.error("Trying to remap a MultiKeyMap's value with an invalid newValue: ", newValue);
           return [];
         }
@@ -3316,6 +3362,16 @@ var TestExport;
     }, {
       key: "remapValueFromKey",
       value: function remapValueFromKey(key, newValue) {
+        if (key == null) {
+          console.error("Trying to remap a value from a key in a MultiKeyReversableMap wtih an invalid key: ", key);
+          return [];
+        }
+
+        if (newValue === undefined) {
+          console.error("Trying to remap a value from a key in a MultiKeyReversableMap wtih an invalid newValue: ", newValue);
+          return [];
+        }
+
         var oldValue = this.getValue(key);
         if (oldValue == undefined) return [];
         return this.remapValue(oldValue, newValue);
@@ -3329,15 +3385,26 @@ var TestExport;
     }, {
       key: "remapKey",
       value: function remapKey(key, newValue) {
+        if (key == null) {
+          console.error("Trying to remap a key in a MultiKeyReversableMap wtih an invalid key: ", key);
+          return false;
+        }
+
+        if (newValue == null) {
+          console.error("Trying to remap a key in a MultiKeyReversableMap wtih an invalid newValue: ", newValue);
+          return false;
+        }
+
         var oldValue = this.getValue(key);
 
         if (oldValue == undefined) {
           this.setKey(key, newValue);
-          return;
+          return true;
         }
 
         this.deleteKey(key, oldValue);
         this.setKey(key, newValue);
+        return true;
       }
       /**
       * Remove a key from this map
@@ -3348,12 +3415,22 @@ var TestExport;
     }, {
       key: "deleteKey",
       value: function deleteKey(key, value) {
+        if (key == null) {
+          console.error("Trying to delete a key in a MultiKeyReversableMap wtih an invalid key: ", key);
+          return false;
+        }
+
+        if (value == null) {
+          console.error("Trying to delete a key in a MultiKeyReversableMap wtih an invalid value: ", value);
+          return false;
+        }
+
         var otherKeys = this.__reverseMap__.get(value);
 
         if (otherKeys == undefined) {
           this.__map__.delete(key);
 
-          return;
+          return true;
         }
 
         otherKeys.delete(key);
@@ -3363,12 +3440,14 @@ var TestExport;
 
           this.__reverseMap__.delete(value);
 
-          return;
+          return true;
         }
 
         this.__reverseMap__.set(value, otherKeys);
 
         this.__map__.delete(key);
+
+        return true;
       }
       /**
       * Remove many keys from this map
@@ -3381,9 +3460,20 @@ var TestExport;
       value: function deleteKeys(keys, value) {
         var _this4 = this;
 
+        if (keys == null || keys.length) {
+          console.error("Trying to delete a keys in a MultiKeyReversableMap wtih an invalid keys: ", keys);
+          return false;
+        }
+
+        if (value == null) {
+          console.error("Trying to delete a keys in a MultiKeyReversableMap wtih an invalid value: ", value);
+          return false;
+        }
+
         keys.forEach(function (element) {
           _this4.deleteKey(element, value);
         });
+        return true;
       }
       /**
       * Remove all references to a value
@@ -3395,11 +3485,18 @@ var TestExport;
       value: function deleteValue(value) {
         var _this5 = this;
 
+        if (value == null) {
+          console.error("Trying to delete a value in a MultiKeyReversableMap wtih an invalid value: ", value);
+          return false;
+        }
+
         this.getKeysArray(value).forEach(function (element) {
           _this5.__map__.delete(element);
         });
 
         this.__reverseMap__.delete(value);
+
+        return true;
       }
       /**
       * Remove all keys and values
@@ -3413,7 +3510,7 @@ var TestExport;
         this.__reverseMap__.clear();
       }
     }]);
-    return MultiKeyMap;
+    return MultiKeyReversableMap;
   }();
 
   ; // CONCATENATED MODULE: ./Code/src/Events/Event.ts
@@ -3643,7 +3740,7 @@ var TestExport;
     function PubSub() {
       PubSub_classCallCheck(this, PubSub);
       PubSub_defineProperty(this, "_events", new Map());
-      PubSub_defineProperty(this, "_subscribers", new _MultiKeyMap());
+      PubSub_defineProperty(this, "_subscribers", new _MultiKeyReversableMap());
     }
 
     PubSub_createClass(PubSub, [{
@@ -3975,7 +4072,7 @@ var TestExport;
     function TimerController() {
       TimerController_classCallCheck(this, TimerController);
       TimerController_defineProperty(this, "_uniqueID", new _UniqueID());
-      TimerController_defineProperty(this, "_timers", new _MultiKeyMap());
+      TimerController_defineProperty(this, "_timers", new _MultiKeyReversableMap());
       if (TimerController._instance) return TimerController._instance;
       TimerController._instance = this;
     } //** Store an incrementing variable to ensure unique IDs*/
@@ -4615,6 +4712,202 @@ var TestExport;
   ; // CONCATENATED MODULE: ./Definitions/Modules/Timers.ts
 
   ; // CONCATENATED MODULE: ./Definitions/Modules/Events.ts
+
+  ; // CONCATENATED MODULE: ./Code/src/Utilities/ReversableMap.ts
+
+  function ReversableMap_classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  function ReversableMap_defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function ReversableMap_createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) ReversableMap_defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) ReversableMap_defineProperties(Constructor, staticProps);
+    Object.defineProperty(Constructor, "prototype", {
+      writable: false
+    });
+    return Constructor;
+  }
+
+  function ReversableMap_defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+  /** Class that handles key to value Map with reversable search 
+   */
+
+
+  var _ReversableMap = /*#__PURE__*/function () {
+    //** Store all forward references to values to allow searching*/
+
+    /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
+
+    /**
+    * Create a reversable map between Keys and Values
+    * @param  {Key} Key - The key to add on creation
+    * @param  {Value} value - The value to link this key
+    */
+    function ReversableMap(key, value) {
+      ReversableMap_classCallCheck(this, ReversableMap);
+      ReversableMap_defineProperty(this, "__map__", new Map());
+      ReversableMap_defineProperty(this, "__reverseMap__", new Map());
+      if (key == null || value == null) return;
+
+      this.__map__.set(key, value);
+
+      this.__reverseMap__.set(value, key);
+    }
+    /**
+    * Return Value associated with a key
+    * @param  {Key} key - The key to return the value for
+    */
+
+
+    ReversableMap_createClass(ReversableMap, [{
+      key: "getValue",
+      value: function getValue(key) {
+        return this.__map__.get(key);
+      }
+      /**
+      * Return Key associated with a Value
+      * @param  {Value} Value - The value to return keys Map for
+      */
+
+    }, {
+      key: "getKey",
+      value: function getKey(value) {
+        return this.__reverseMap__.get(value);
+      }
+      /**
+      * Test if a Value exists for a given Key
+      * @param  {Key} Key - The Key to check if a value exists
+      */
+
+    }, {
+      key: "hasKey",
+      value: function hasKey(key) {
+        return this.getValue(key) != undefined;
+      }
+      /**
+      * Test if a Key exists for a given Value
+      * @param  {Value} value - The Value to check if a Key exists
+      */
+
+    }, {
+      key: "hasValue",
+      value: function hasValue(value) {
+        return this.getKey(value) != undefined;
+      }
+      /**
+      * Create a map between a Key and a Value
+      * @param  {Key} Key - The Key to link to this Value
+      * @param  {Value} value - The Value to link to this Key
+      */
+
+    }, {
+      key: "setKey",
+      value: function setKey(key, value) {
+        if (key == null) {
+          console.error("Trying to set a key in a ReversableMap wtih an invalid key: ", key);
+          return false;
+        }
+
+        if (value == null) {
+          console.error("Trying to set a value in a ReversableMap wtih an invalid value: ", value);
+          return false;
+        }
+
+        var _key = this.getKey(value);
+
+        if (_key != undefined) this.deleteKey(_key);
+
+        this.__map__.set(key, value);
+
+        this.__reverseMap__.set(value, key);
+
+        return true;
+      }
+      /**
+      * Remove a key from this map
+      * @param  {Key} Key - The Key to remove from this value
+      */
+
+    }, {
+      key: "deleteKey",
+      value: function deleteKey(key) {
+        if (key == null) {
+          console.error("Trying to delete a key in a ReversableMap wtih an invalid key: ", key);
+          return false;
+        }
+
+        var value = this.__map__.get(key);
+
+        if (value == null) return false;
+
+        this.__map__.delete(key);
+
+        this.__reverseMap__.delete(value);
+
+        return true;
+      }
+      /**
+      * Remove a Value from this map
+      * @param  {Value} value - The Value to remove
+      */
+
+    }, {
+      key: "deleteValue",
+      value: function deleteValue(value) {
+        if (value == null) {
+          console.error("Trying to delete a value in a ReversableMap wtih an invalid value: ", value);
+          return false;
+        }
+
+        var key = this.__reverseMap__.get(value);
+
+        if (key == null) return false;
+
+        this.__map__.delete(key);
+
+        this.__reverseMap__.delete(value);
+
+        return true;
+      }
+      /**
+      * Remove all keys and values
+      */
+
+    }, {
+      key: "clear",
+      value: function clear() {
+        this.__map__.clear();
+
+        this.__reverseMap__.clear();
+      }
+    }]);
+    return ReversableMap;
+  }();
 
   ; // CONCATENATED MODULE: ./Definitions/Modules/Utilities.ts
 
