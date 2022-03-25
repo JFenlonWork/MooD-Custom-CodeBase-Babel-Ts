@@ -1,6 +1,4 @@
-import { map } from "jquery";
 import { CompareTypes } from "../Utilities/CompareTypes";
-import { MultiKeyMap } from "../Utilities/MultiKeyMap";
 
 /** Class that handles any event driven data for event managers.
  */

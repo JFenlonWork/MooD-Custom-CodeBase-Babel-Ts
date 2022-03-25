@@ -1,4 +1,4 @@
-import { MultiKeyMap } from "../Utilities/MultiKeyMap";
+import { MultiKeyReversableMap } from "../Utilities/MultiKeyReversableMap";
 import { UniqueID } from "../Utilities/UniqueID";
 import { Timer } from "./Timer";
 
@@ -30,8 +30,8 @@ import { Timer } from "./Timer";
     }
 
     //** Store all references to Timers to allow searching*/
-    private _timers: MultiKeyMap<String | Number, Timer> = new MultiKeyMap();
-    public get timers(): MultiKeyMap<String | Number, Timer> {
+    private _timers: MultiKeyReversableMap<String | Number, Timer> = new MultiKeyReversableMap();
+    public get timers(): MultiKeyReversableMap<String | Number, Timer> {
         if (this != TimerController.Instance) return TimerController.Instance.timers;
         return this._timers;
     }

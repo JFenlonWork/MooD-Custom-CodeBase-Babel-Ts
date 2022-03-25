@@ -1,4 +1,4 @@
-import { MultiKeyMap } from "../Utilities/MultiKeyMap";
+import { MultiKeyReversableMap } from "../Utilities/MultiKeyReversableMap";
 import { Event } from "./Event";
 
 /** Class that handles simple subscription/publish event manager.
@@ -12,8 +12,8 @@ import { Event } from "./Event";
     }
 
     //** Handles storing subscribers to events that this PubSub has as JQuery.Callbacks do not expose this*/
-    protected _subscribers: MultiKeyMap<Event, Function> = new MultiKeyMap(); 
-    public get subscribers(): MultiKeyMap<Event, Function> {
+    protected _subscribers: MultiKeyReversableMap<Event, Function> = new MultiKeyReversableMap(); 
+    public get subscribers(): MultiKeyReversableMap<Event, Function> {
         return this._subscribers;
     }
 
