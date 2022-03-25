@@ -1,6 +1,6 @@
-# Class: MultiKeyMap<Key, Value\>
+# Class: MultiKeyReversableMap<Key, Value\>
 
-Class that handles multiple keys to one value Map
+Class that handles multiple keys to value Map with reversable search
 
 ## Type parameters
 
@@ -13,34 +13,35 @@ Class that handles multiple keys to one value Map
 
 ### Constructors
 
-- [constructor](../wiki/MultiKeyMap#constructor)
+- [constructor](../wiki/MultiKeyReversableMap#constructor)
 
 ### Properties
 
-- [\_\_map\_\_](../wiki/MultiKeyMap#__map__)
-- [\_\_reverseMap\_\_](../wiki/MultiKeyMap#__reversemap__)
+- [\_\_map\_\_](../wiki/MultiKeyReversableMap#__map__)
+- [\_\_reverseMap\_\_](../wiki/MultiKeyReversableMap#__reversemap__)
 
 ### Methods
 
-- [clear](../wiki/MultiKeyMap#clear)
-- [deleteKey](../wiki/MultiKeyMap#deletekey)
-- [deleteKeys](../wiki/MultiKeyMap#deletekeys)
-- [deleteValue](../wiki/MultiKeyMap#deletevalue)
-- [getKeys](../wiki/MultiKeyMap#getkeys)
-- [getKeysArray](../wiki/MultiKeyMap#getkeysarray)
-- [getValue](../wiki/MultiKeyMap#getvalue)
-- [hasKey](../wiki/MultiKeyMap#haskey)
-- [remapKey](../wiki/MultiKeyMap#remapkey)
-- [remapValue](../wiki/MultiKeyMap#remapvalue)
-- [remapValueFromKey](../wiki/MultiKeyMap#remapvaluefromkey)
-- [setKey](../wiki/MultiKeyMap#setkey)
-- [setKeys](../wiki/MultiKeyMap#setkeys)
+- [clear](../wiki/MultiKeyReversableMap#clear)
+- [deleteKey](../wiki/MultiKeyReversableMap#deletekey)
+- [deleteKeys](../wiki/MultiKeyReversableMap#deletekeys)
+- [deleteValue](../wiki/MultiKeyReversableMap#deletevalue)
+- [getKeys](../wiki/MultiKeyReversableMap#getkeys)
+- [getKeysArray](../wiki/MultiKeyReversableMap#getkeysarray)
+- [getValue](../wiki/MultiKeyReversableMap#getvalue)
+- [hasKey](../wiki/MultiKeyReversableMap#haskey)
+- [hasValue](../wiki/MultiKeyReversableMap#hasvalue)
+- [remapKey](../wiki/MultiKeyReversableMap#remapkey)
+- [remapValue](../wiki/MultiKeyReversableMap#remapvalue)
+- [remapValueFromKey](../wiki/MultiKeyReversableMap#remapvaluefromkey)
+- [setKey](../wiki/MultiKeyReversableMap#setkey)
+- [setKeys](../wiki/MultiKeyReversableMap#setkeys)
 
 ## Constructors
 
 ### constructor
 
-• **new MultiKeyMap**<`Key`, `Value`\>(`keys?`, `value?`)
+• **new MultiKeyReversableMap**<`Key`, `Value`\>(`keys?`, `value?`)
 
 Create a map between multiple keys and a single value
 
@@ -60,7 +61,7 @@ Create a map between multiple keys and a single value
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L18)
+Utilities/MultiKeyReversableMap.ts:18
 
 ## Properties
 
@@ -70,7 +71,7 @@ Create a map between multiple keys and a single value
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L8)
+Utilities/MultiKeyReversableMap.ts:8
 
 ___
 
@@ -82,7 +83,7 @@ Store all inverse references to values to allow searching and Maps the values to
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L11)
+Utilities/MultiKeyReversableMap.ts:11
 
 ## Methods
 
@@ -98,13 +99,13 @@ Remove all keys and values
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:183](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L183)
+Utilities/MultiKeyReversableMap.ts:216
 
 ___
 
 ### deleteKey
 
-▸ **deleteKey**(`key`, `value`): `void`
+▸ **deleteKey**(`key`, `value`): `boolean`
 
 Remove a key from this map
 
@@ -117,17 +118,17 @@ Remove a key from this map
 
 #### Returns
 
-`void`
+`boolean`
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:147](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L147)
+Utilities/MultiKeyReversableMap.ts:172
 
 ___
 
 ### deleteKeys
 
-▸ **deleteKeys**(`keys`, `value`): `void`
+▸ **deleteKeys**(`keys`, `value`): `boolean`
 
 Remove many keys from this map
 
@@ -140,17 +141,17 @@ Remove many keys from this map
 
 #### Returns
 
-`void`
+`boolean`
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:163](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L163)
+Utilities/MultiKeyReversableMap.ts:191
 
 ___
 
 ### deleteValue
 
-▸ **deleteValue**(`value`): `void`
+▸ **deleteValue**(`value`): `boolean`
 
 Remove all references to a value
 
@@ -162,11 +163,11 @@ Remove all references to a value
 
 #### Returns
 
-`void`
+`boolean`
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:173](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L173)
+Utilities/MultiKeyReversableMap.ts:204
 
 ___
 
@@ -188,7 +189,7 @@ Return Map of Value to Keys
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:47](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L47)
+Utilities/MultiKeyReversableMap.ts:55
 
 ___
 
@@ -210,7 +211,7 @@ Return all keys relating to a value in array format
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:55](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L55)
+Utilities/MultiKeyReversableMap.ts:64
 
 ___
 
@@ -232,7 +233,7 @@ Return Value associated with a key
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:39](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L39)
+Utilities/MultiKeyReversableMap.ts:39
 
 ___
 
@@ -254,13 +255,35 @@ Test if a value exists for a given key
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:64](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L64)
+Utilities/MultiKeyReversableMap.ts:74
+
+___
+
+### hasValue
+
+▸ **hasValue**(`value`): `boolean`
+
+Test if a key exists for a given value
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `Value` | The value to check if a key exists |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+Utilities/MultiKeyReversableMap.ts:47
 
 ___
 
 ### remapKey
 
-▸ **remapKey**(`key`, `newValue`): `void`
+▸ **remapKey**(`key`, `newValue`): `boolean`
 
 Remap pre-existing key to a new value based on pre-existing Key->Value map
 
@@ -273,11 +296,11 @@ Remap pre-existing key to a new value based on pre-existing Key->Value map
 
 #### Returns
 
-`void`
+`boolean`
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:134](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L134)
+Utilities/MultiKeyReversableMap.ts:155
 
 ___
 
@@ -300,7 +323,7 @@ Remap pre-existing keys to a new value
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:103](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L103)
+Utilities/MultiKeyReversableMap.ts:121
 
 ___
 
@@ -323,13 +346,13 @@ Remap pre-existing keys to a new value based on pre-existing Key->Value map
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:123](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L123)
+Utilities/MultiKeyReversableMap.ts:141
 
 ___
 
 ### setKey
 
-▸ **setKey**(`key`, `value`): `void`
+▸ **setKey**(`key`, `value`): `boolean`
 
 Create a map between a key and a single value
 
@@ -342,17 +365,17 @@ Create a map between a key and a single value
 
 #### Returns
 
-`void`
+`boolean`
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:73](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L73)
+Utilities/MultiKeyReversableMap.ts:83
 
 ___
 
 ### setKeys
 
-▸ **setKeys**(`keys`, `value`): `void`
+▸ **setKeys**(`keys`, `value`): `boolean`
 
 Create a map between multiple keys and a single value
 
@@ -365,8 +388,8 @@ Create a map between multiple keys and a single value
 
 #### Returns
 
-`void`
+`boolean`
 
 #### Defined in
 
-[Utilities/MultiKeyMap.ts:92](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fbb3331/Code/src/Utilities/MultiKeyMap.ts#L92)
+Utilities/MultiKeyReversableMap.ts:107

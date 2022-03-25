@@ -35,17 +35,17 @@ Return this or singleton instance of TooltipController
 
 #### Defined in
 
-Tooltips/TooltipController.ts:19
+[Tooltips/TooltipController.ts:19](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Tooltips/TooltipController.ts#L19)
 
 ## Properties
 
 ### \_tooltips
 
-• `Private` **\_tooltips**: [`MultiKeyMap`](../wiki/MultiKeyMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
+• `Private` **\_tooltips**: [`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
 
 #### Defined in
 
-Tooltips/TooltipController.ts:32
+[Tooltips/TooltipController.ts:32](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Tooltips/TooltipController.ts#L32)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-Tooltips/TooltipController.ts:25
+[Tooltips/TooltipController.ts:25](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Tooltips/TooltipController.ts#L25)
 
 ___
 
@@ -65,21 +65,21 @@ ___
 
 #### Defined in
 
-Tooltips/TooltipController.ts:10
+[Tooltips/TooltipController.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Tooltips/TooltipController.ts#L10)
 
 ## Accessors
 
 ### tooltips
 
-• `get` **tooltips**(): [`MultiKeyMap`](../wiki/MultiKeyMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
+• `get` **tooltips**(): [`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
 
 #### Returns
 
-[`MultiKeyMap`](../wiki/MultiKeyMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
+[`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
 
 #### Defined in
 
-Tooltips/TooltipController.ts:33
+[Tooltips/TooltipController.ts:33](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Tooltips/TooltipController.ts#L33)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-Tooltips/TooltipController.ts:26
+[Tooltips/TooltipController.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Tooltips/TooltipController.ts#L26)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-Tooltips/TooltipController.ts:11
+[Tooltips/TooltipController.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Tooltips/TooltipController.ts#L11)
 
 ## Methods
 
@@ -129,7 +129,7 @@ Searches for and returns a Tooltip with a name parameter
 
 #### Defined in
 
-Tooltips/TooltipController.ts:44
+[Tooltips/TooltipController.ts:44](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Tooltips/TooltipController.ts#L44)
 
 ___
 
@@ -151,4 +151,4 @@ Searches for and returns a Tooltip with a id parameter
 
 #### Defined in
 
-Tooltips/TooltipController.ts:53
+[Tooltips/TooltipController.ts:53](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Tooltips/TooltipController.ts#L53)

@@ -44,7 +44,7 @@ Create an Event and store it's name and callback if provided
 
 #### Defined in
 
-Events/Event.ts:39
+[Events/Event.ts:37](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L37)
 
 ## Properties
 
@@ -54,7 +54,7 @@ Events/Event.ts:39
 
 #### Defined in
 
-Events/Event.ts:20
+[Events/Event.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L18)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-Events/Event.ts:10
+[Events/Event.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L8)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-Events/Event.ts:30
+[Events/Event.ts:28](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L28)
 
 ## Accessors
 
@@ -88,7 +88,7 @@ Events/Event.ts:30
 
 #### Defined in
 
-Events/Event.ts:21
+[Events/Event.ts:19](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L19)
 
 • `set` **callback**(`callback`): `void`
 
@@ -104,7 +104,7 @@ Events/Event.ts:21
 
 #### Defined in
 
-Events/Event.ts:25
+[Events/Event.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L23)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-Events/Event.ts:11
+[Events/Event.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L9)
 
 • `set` **name**(`name`): `void`
 
@@ -134,7 +134,7 @@ Events/Event.ts:11
 
 #### Defined in
 
-Events/Event.ts:15
+[Events/Event.ts:13](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L13)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-Events/Event.ts:31
+[Events/Event.ts:29](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L29)
 
 ## Methods
 
@@ -164,7 +164,7 @@ Handle clearing this event
 
 #### Defined in
 
-Events/Event.ts:100
+[Events/Event.ts:98](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L98)
 
 ___
 
@@ -186,7 +186,7 @@ Handle setting up this event
 
 #### Defined in
 
-Events/Event.ts:51
+[Events/Event.ts:49](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L49)
 
 ___
 
@@ -208,7 +208,7 @@ Handle subscribing to this event
 
 #### Defined in
 
-Events/Event.ts:72
+[Events/Event.ts:70](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L70)
 
 ___
 
@@ -230,4 +230,4 @@ Handle unsubscribing to this event
 
 #### Defined in
 
-Events/Event.ts:86
+[Events/Event.ts:84](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/9921b29/Code/src/Events/Event.ts#L84)
