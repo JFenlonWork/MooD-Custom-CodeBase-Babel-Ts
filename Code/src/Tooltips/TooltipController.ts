@@ -1,4 +1,4 @@
-import { MultiKeyReversableMap } from "../Utilities/MultiKeyReversableMap";
+import { MultiKeyReversibleMap } from "../Utilities/MultiKeyReversibleMap";
 import { UniqueID } from "../Utilities/UniqueID";
 import { Tooltip } from "./Tooltip";
 
@@ -29,8 +29,8 @@ import { Tooltip } from "./Tooltip";
     }
 
     //** Store all references to Tooltips to allow searching*/
-    private _tooltips: MultiKeyReversableMap<String | Number, Tooltip> = new MultiKeyReversableMap();
-    public get tooltips(): MultiKeyReversableMap<String | Number, Tooltip> {
+    private _tooltips: MultiKeyReversibleMap<String | Number, Tooltip> = new MultiKeyReversibleMap();
+    public get tooltips(): MultiKeyReversibleMap<String | Number, Tooltip> {
         if (this != TooltipController.Instance) return TooltipController.Instance.tooltips;
         return this._tooltips;
     }

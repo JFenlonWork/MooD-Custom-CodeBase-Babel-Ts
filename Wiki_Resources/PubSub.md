@@ -47,7 +47,7 @@ ___
 
 ### \_subscribers
 
-• `Protected` **\_subscribers**: [`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<[`Event`](../wiki/Event), `Function`\>
+• `Protected` **\_subscribers**: [`MultiKeyReversibleMap`](../wiki/MultiKeyReversibleMap)<[`Event`](../wiki/Event), `Function`\>
 
 #### Defined in
 
@@ -71,11 +71,11 @@ ___
 
 ### subscribers
 
-• `get` **subscribers**(): [`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<[`Event`](../wiki/Event), `Function`\>
+• `get` **subscribers**(): [`MultiKeyReversibleMap`](../wiki/MultiKeyReversibleMap)<[`Event`](../wiki/Event), `Function`\>
 
 #### Returns
 
-[`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<[`Event`](../wiki/Event), `Function`\>
+[`MultiKeyReversibleMap`](../wiki/MultiKeyReversibleMap)<[`Event`](../wiki/Event), `Function`\>
 
 #### Defined in
 

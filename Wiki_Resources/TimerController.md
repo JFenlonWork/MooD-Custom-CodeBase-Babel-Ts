@@ -45,7 +45,7 @@ Return this or singleton instance of TimerController
 
 ### \_timers
 
-• `Private` **\_timers**: [`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<`String` \| `Number`, [`Timer`](../wiki/Timer)\>
+• `Private` **\_timers**: [`MultiKeyReversibleMap`](../wiki/MultiKeyReversibleMap)<`String` \| `Number`, [`Timer`](../wiki/Timer)\>
 
 #### Defined in
 
@@ -75,11 +75,11 @@ ___
 
 ### timers
 
-• `get` **timers**(): [`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<`String` \| `Number`, [`Timer`](../wiki/Timer)\>
+• `get` **timers**(): [`MultiKeyReversibleMap`](../wiki/MultiKeyReversibleMap)<`String` \| `Number`, [`Timer`](../wiki/Timer)\>
 
 #### Returns
 
-[`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<`String` \| `Number`, [`Timer`](../wiki/Timer)\>
+[`MultiKeyReversibleMap`](../wiki/MultiKeyReversibleMap)<`String` \| `Number`, [`Timer`](../wiki/Timer)\>
 
 #### Defined in
 

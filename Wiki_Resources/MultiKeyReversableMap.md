@@ -1,6 +1,6 @@
-# Class: MultiKeyReversableMap<Key, Value\>
+# Class: MultiKeyReversibleMap<Key, Value\>
 
-Class that handles multiple keys to value Map with reversable search
+Class that handles multiple keys to value Map with reversible search
 
 ## Type parameters
 
@@ -13,35 +13,35 @@ Class that handles multiple keys to value Map with reversable search
 
 ### Constructors
 
-- [constructor](../wiki/MultiKeyReversableMap#constructor)
+- [constructor](../wiki/MultiKeyReversibleMap#constructor)
 
 ### Properties
 
-- [\_\_map\_\_](../wiki/MultiKeyReversableMap#__map__)
-- [\_\_reverseMap\_\_](../wiki/MultiKeyReversableMap#__reversemap__)
+- [\_\_map\_\_](../wiki/MultiKeyReversibleMap#__map__)
+- [\_\_reverseMap\_\_](../wiki/MultiKeyReversibleMap#__reversemap__)
 
 ### Methods
 
-- [clear](../wiki/MultiKeyReversableMap#clear)
-- [deleteKey](../wiki/MultiKeyReversableMap#deletekey)
-- [deleteKeys](../wiki/MultiKeyReversableMap#deletekeys)
-- [deleteValue](../wiki/MultiKeyReversableMap#deletevalue)
-- [getKeys](../wiki/MultiKeyReversableMap#getkeys)
-- [getKeysArray](../wiki/MultiKeyReversableMap#getkeysarray)
-- [getValue](../wiki/MultiKeyReversableMap#getvalue)
-- [hasKey](../wiki/MultiKeyReversableMap#haskey)
-- [hasValue](../wiki/MultiKeyReversableMap#hasvalue)
-- [remapKey](../wiki/MultiKeyReversableMap#remapkey)
-- [remapValue](../wiki/MultiKeyReversableMap#remapvalue)
-- [remapValueFromKey](../wiki/MultiKeyReversableMap#remapvaluefromkey)
-- [setKey](../wiki/MultiKeyReversableMap#setkey)
-- [setKeys](../wiki/MultiKeyReversableMap#setkeys)
+- [clear](../wiki/MultiKeyReversibleMap#clear)
+- [deleteKey](../wiki/MultiKeyReversibleMap#deletekey)
+- [deleteKeys](../wiki/MultiKeyReversibleMap#deletekeys)
+- [deleteValue](../wiki/MultiKeyReversibleMap#deletevalue)
+- [getKeys](../wiki/MultiKeyReversibleMap#getkeys)
+- [getKeysArray](../wiki/MultiKeyReversibleMap#getkeysarray)
+- [getValue](../wiki/MultiKeyReversibleMap#getvalue)
+- [hasKey](../wiki/MultiKeyReversibleMap#haskey)
+- [hasValue](../wiki/MultiKeyReversibleMap#hasvalue)
+- [remapKey](../wiki/MultiKeyReversibleMap#remapkey)
+- [remapValue](../wiki/MultiKeyReversibleMap#remapvalue)
+- [remapValueFromKey](../wiki/MultiKeyReversibleMap#remapvaluefromkey)
+- [setKey](../wiki/MultiKeyReversibleMap#setkey)
+- [setKeys](../wiki/MultiKeyReversibleMap#setkeys)
 
 ## Constructors
 
 ### constructor
 
-• **new MultiKeyReversableMap**<`Key`, `Value`\>(`keys?`, `value?`)
+• **new MultiKeyReversibleMap**<`Key`, `Value`\>(`keys?`, `value?`)
 
 Create a map between multiple keys and a single value
 
@@ -61,7 +61,7 @@ Create a map between multiple keys and a single value
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:18
+Utilities/MultiKeyReversibleMap.ts:18
 
 ## Properties
 
@@ -71,7 +71,7 @@ Utilities/MultiKeyReversableMap.ts:18
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:8
+Utilities/MultiKeyReversibleMap.ts:8
 
 ___
 
@@ -83,7 +83,7 @@ Store all inverse references to values to allow searching and Maps the values to
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:11
+Utilities/MultiKeyReversibleMap.ts:11
 
 ## Methods
 
@@ -99,7 +99,7 @@ Remove all keys and values
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:216
+Utilities/MultiKeyReversibleMap.ts:216
 
 ___
 
@@ -122,7 +122,7 @@ Remove a key from this map
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:172
+Utilities/MultiKeyReversibleMap.ts:172
 
 ___
 
@@ -145,7 +145,7 @@ Remove many keys from this map
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:191
+Utilities/MultiKeyReversibleMap.ts:191
 
 ___
 
@@ -167,7 +167,7 @@ Remove all references to a value
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:204
+Utilities/MultiKeyReversibleMap.ts:204
 
 ___
 
@@ -189,7 +189,7 @@ Return Map of Value to Keys
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:55
+Utilities/MultiKeyReversibleMap.ts:55
 
 ___
 
@@ -211,7 +211,7 @@ Return all keys relating to a value in array format
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:64
+Utilities/MultiKeyReversibleMap.ts:64
 
 ___
 
@@ -233,7 +233,7 @@ Return Value associated with a key
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:39
+Utilities/MultiKeyReversibleMap.ts:39
 
 ___
 
@@ -255,7 +255,7 @@ Test if a value exists for a given key
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:74
+Utilities/MultiKeyReversibleMap.ts:74
 
 ___
 
@@ -277,7 +277,7 @@ Test if a key exists for a given value
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:47
+Utilities/MultiKeyReversibleMap.ts:47
 
 ___
 
@@ -300,7 +300,7 @@ Remap pre-existing key to a new value based on pre-existing Key->Value map
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:155
+Utilities/MultiKeyReversibleMap.ts:155
 
 ___
 
@@ -323,7 +323,7 @@ Remap pre-existing keys to a new value
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:121
+Utilities/MultiKeyReversibleMap.ts:121
 
 ___
 
@@ -346,7 +346,7 @@ Remap pre-existing keys to a new value based on pre-existing Key->Value map
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:141
+Utilities/MultiKeyReversibleMap.ts:141
 
 ___
 
@@ -369,7 +369,7 @@ Create a map between a key and a single value
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:83
+Utilities/MultiKeyReversibleMap.ts:83
 
 ___
 
@@ -392,4 +392,4 @@ Create a map between multiple keys and a single value
 
 #### Defined in
 
-Utilities/MultiKeyReversableMap.ts:107
+Utilities/MultiKeyReversibleMap.ts:107

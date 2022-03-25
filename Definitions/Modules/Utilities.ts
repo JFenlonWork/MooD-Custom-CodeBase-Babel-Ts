@@ -1,6 +1,6 @@
-import { ReversableMap } from "../../Code/src/Utilities/ReversableMap"
-import { MultiKeyReversableMap } from "../../Code/src/Utilities/MultiKeyReversableMap"
+import { ReversibleMap } from "../../Code/src/Utilities/ReversibleMap"
+import { MultiKeyReversibleMap } from "../../Code/src/Utilities/MultiKeyReversibleMap"
 import { UniqueID } from "../../Code/src/Utilities/UniqueID"
 import { CompareTypes } from "../../Code/src/Utilities/CompareTypes"
 
-export { ReversableMap, MultiKeyReversableMap, UniqueID, CompareTypes };
+export { ReversibleMap, MultiKeyReversibleMap, UniqueID, CompareTypes };

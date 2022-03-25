@@ -81,8 +81,8 @@ var Utilities_namespaceObject = {};
 __webpack_require__.r(Utilities_namespaceObject);
 __webpack_require__.d(Utilities_namespaceObject, {
   "CompareTypes": function() { return CompareTypes; },
-  "MultiKeyReversableMap": function() { return MultiKeyReversableMap; },
-  "ReversableMap": function() { return ReversableMap; },
+  "MultiKeyReversibleMap": function() { return MultiKeyReversibleMap; },
+  "ReversibleMap": function() { return ReversibleMap; },
   "UniqueID": function() { return UniqueID; }
 });
 
@@ -2570,20 +2570,20 @@ var CompareTypes = /*#__PURE__*/function () {
 
   return CompareTypes;
 }();
-;// CONCATENATED MODULE: ./Code/src/Utilities/MultiKeyReversableMap.ts
-function MultiKeyReversableMap_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+;// CONCATENATED MODULE: ./Code/src/Utilities/MultiKeyReversibleMap.ts
+function MultiKeyReversibleMap_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function MultiKeyReversableMap_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function MultiKeyReversibleMap_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function MultiKeyReversableMap_createClass(Constructor, protoProps, staticProps) { if (protoProps) MultiKeyReversableMap_defineProperties(Constructor.prototype, protoProps); if (staticProps) MultiKeyReversableMap_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function MultiKeyReversibleMap_createClass(Constructor, protoProps, staticProps) { if (protoProps) MultiKeyReversibleMap_defineProperties(Constructor.prototype, protoProps); if (staticProps) MultiKeyReversibleMap_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function MultiKeyReversableMap_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function MultiKeyReversibleMap_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-/** Class that handles multiple keys to value Map with reversable search 
+/** Class that handles multiple keys to value Map with reversible search 
  */
 
-var MultiKeyReversableMap = /*#__PURE__*/function () {
+var MultiKeyReversibleMap = /*#__PURE__*/function () {
   //** Store all forward references to values to allow searching*/
 
   /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
@@ -2593,17 +2593,17 @@ var MultiKeyReversableMap = /*#__PURE__*/function () {
   * @param  {Key | Key[]} Keys - Any key/s to add on creation
   * @param  {Value} value - The value to link these keys to
   */
-  function MultiKeyReversableMap() {
+  function MultiKeyReversibleMap() {
     var _this = this;
 
     var keys = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var value = arguments.length > 1 ? arguments[1] : undefined;
 
-    MultiKeyReversableMap_classCallCheck(this, MultiKeyReversableMap);
+    MultiKeyReversibleMap_classCallCheck(this, MultiKeyReversibleMap);
 
-    MultiKeyReversableMap_defineProperty(this, "__map__", new Map());
+    MultiKeyReversibleMap_defineProperty(this, "__map__", new Map());
 
-    MultiKeyReversableMap_defineProperty(this, "__reverseMap__", new Map());
+    MultiKeyReversibleMap_defineProperty(this, "__reverseMap__", new Map());
 
     if (keys == null || Array.isArray(keys) && keys.length == 0 || value == null) return;
     var reverseMap = new Map();
@@ -2628,7 +2628,7 @@ var MultiKeyReversableMap = /*#__PURE__*/function () {
   */
 
 
-  MultiKeyReversableMap_createClass(MultiKeyReversableMap, [{
+  MultiKeyReversibleMap_createClass(MultiKeyReversibleMap, [{
     key: "getValue",
     value: function getValue(key) {
       return this.__map__.get(key);
@@ -2792,12 +2792,12 @@ var MultiKeyReversableMap = /*#__PURE__*/function () {
     key: "remapValueFromKey",
     value: function remapValueFromKey(key, newValue) {
       if (key == null) {
-        console.error("Trying to remap a value from a key in a MultiKeyReversableMap wtih an invalid key: ", key);
+        console.error("Trying to remap a value from a key in a MultiKeyReversibleMap wtih an invalid key: ", key);
         return [];
       }
 
       if (newValue === undefined) {
-        console.error("Trying to remap a value from a key in a MultiKeyReversableMap wtih an invalid newValue: ", newValue);
+        console.error("Trying to remap a value from a key in a MultiKeyReversibleMap wtih an invalid newValue: ", newValue);
         return [];
       }
 
@@ -2815,12 +2815,12 @@ var MultiKeyReversableMap = /*#__PURE__*/function () {
     key: "remapKey",
     value: function remapKey(key, newValue) {
       if (key == null) {
-        console.error("Trying to remap a key in a MultiKeyReversableMap wtih an invalid key: ", key);
+        console.error("Trying to remap a key in a MultiKeyReversibleMap wtih an invalid key: ", key);
         return false;
       }
 
       if (newValue == null) {
-        console.error("Trying to remap a key in a MultiKeyReversableMap wtih an invalid newValue: ", newValue);
+        console.error("Trying to remap a key in a MultiKeyReversibleMap wtih an invalid newValue: ", newValue);
         return false;
       }
 
@@ -2845,12 +2845,12 @@ var MultiKeyReversableMap = /*#__PURE__*/function () {
     key: "deleteKey",
     value: function deleteKey(key, value) {
       if (key == null) {
-        console.error("Trying to delete a key in a MultiKeyReversableMap wtih an invalid key: ", key);
+        console.error("Trying to delete a key in a MultiKeyReversibleMap wtih an invalid key: ", key);
         return false;
       }
 
       if (value == null) {
-        console.error("Trying to delete a key in a MultiKeyReversableMap wtih an invalid value: ", value);
+        console.error("Trying to delete a key in a MultiKeyReversibleMap wtih an invalid value: ", value);
         return false;
       }
 
@@ -2890,12 +2890,12 @@ var MultiKeyReversableMap = /*#__PURE__*/function () {
       var _this4 = this;
 
       if (keys == null || keys.length) {
-        console.error("Trying to delete a keys in a MultiKeyReversableMap wtih an invalid keys: ", keys);
+        console.error("Trying to delete a keys in a MultiKeyReversibleMap wtih an invalid keys: ", keys);
         return false;
       }
 
       if (value == null) {
-        console.error("Trying to delete a keys in a MultiKeyReversableMap wtih an invalid value: ", value);
+        console.error("Trying to delete a keys in a MultiKeyReversibleMap wtih an invalid value: ", value);
         return false;
       }
 
@@ -2915,7 +2915,7 @@ var MultiKeyReversableMap = /*#__PURE__*/function () {
       var _this5 = this;
 
       if (value == null) {
-        console.error("Trying to delete a value in a MultiKeyReversableMap wtih an invalid value: ", value);
+        console.error("Trying to delete a value in a MultiKeyReversibleMap wtih an invalid value: ", value);
         return false;
       }
 
@@ -2940,7 +2940,7 @@ var MultiKeyReversableMap = /*#__PURE__*/function () {
     }
   }]);
 
-  return MultiKeyReversableMap;
+  return MultiKeyReversibleMap;
 }();
 ;// CONCATENATED MODULE: ./Code/src/Events/Event.ts
 function Event_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3112,7 +3112,7 @@ var PubSub = /*#__PURE__*/function () {
 
     PubSub_defineProperty(this, "_events", new Map());
 
-    PubSub_defineProperty(this, "_subscribers", new MultiKeyReversableMap());
+    PubSub_defineProperty(this, "_subscribers", new MultiKeyReversibleMap());
   }
 
   PubSub_createClass(PubSub, [{
@@ -3382,7 +3382,7 @@ var TimerController = /*#__PURE__*/function () {
 
     TimerController_defineProperty(this, "_uniqueID", new UniqueID());
 
-    TimerController_defineProperty(this, "_timers", new MultiKeyReversableMap());
+    TimerController_defineProperty(this, "_timers", new MultiKeyReversibleMap());
 
     if (TimerController._instance) return TimerController._instance;
     TimerController._instance = this;
@@ -4013,33 +4013,33 @@ var Timer = /*#__PURE__*/function () {
 
 
 
-;// CONCATENATED MODULE: ./Code/src/Utilities/ReversableMap.ts
-function ReversableMap_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+;// CONCATENATED MODULE: ./Code/src/Utilities/ReversibleMap.ts
+function ReversibleMap_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function ReversableMap_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function ReversibleMap_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function ReversableMap_createClass(Constructor, protoProps, staticProps) { if (protoProps) ReversableMap_defineProperties(Constructor.prototype, protoProps); if (staticProps) ReversableMap_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function ReversibleMap_createClass(Constructor, protoProps, staticProps) { if (protoProps) ReversibleMap_defineProperties(Constructor.prototype, protoProps); if (staticProps) ReversibleMap_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function ReversableMap_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function ReversibleMap_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/** Class that handles key to value Map with reversable search 
+/** Class that handles key to value Map with reversible search 
  */
-var ReversableMap = /*#__PURE__*/function () {
+var ReversibleMap = /*#__PURE__*/function () {
   //** Store all forward references to values to allow searching*/
 
   /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
 
   /**
-  * Create a reversable map between Keys and Values
+  * Create a reversible map between Keys and Values
   * @param  {Key} Key - The key to add on creation
   * @param  {Value} value - The value to link this key
   */
-  function ReversableMap(key, value) {
-    ReversableMap_classCallCheck(this, ReversableMap);
+  function ReversibleMap(key, value) {
+    ReversibleMap_classCallCheck(this, ReversibleMap);
 
-    ReversableMap_defineProperty(this, "__map__", new Map());
+    ReversibleMap_defineProperty(this, "__map__", new Map());
 
-    ReversableMap_defineProperty(this, "__reverseMap__", new Map());
+    ReversibleMap_defineProperty(this, "__reverseMap__", new Map());
 
     if (key == null || value == null) return;
 
@@ -4053,7 +4053,7 @@ var ReversableMap = /*#__PURE__*/function () {
   */
 
 
-  ReversableMap_createClass(ReversableMap, [{
+  ReversibleMap_createClass(ReversibleMap, [{
     key: "getValue",
     value: function getValue(key) {
       return this.__map__.get(key);
@@ -4098,12 +4098,12 @@ var ReversableMap = /*#__PURE__*/function () {
     key: "setKey",
     value: function setKey(key, value) {
       if (key == null) {
-        console.error("Trying to set a key in a ReversableMap wtih an invalid key: ", key);
+        console.error("Trying to set a key in a ReversibleMap wtih an invalid key: ", key);
         return false;
       }
 
       if (value == null) {
-        console.error("Trying to set a value in a ReversableMap wtih an invalid value: ", value);
+        console.error("Trying to set a value in a ReversibleMap wtih an invalid value: ", value);
         return false;
       }
 
@@ -4126,7 +4126,7 @@ var ReversableMap = /*#__PURE__*/function () {
     key: "deleteKey",
     value: function deleteKey(key) {
       if (key == null) {
-        console.error("Trying to delete a key in a ReversableMap wtih an invalid key: ", key);
+        console.error("Trying to delete a key in a ReversibleMap wtih an invalid key: ", key);
         return false;
       }
 
@@ -4149,7 +4149,7 @@ var ReversableMap = /*#__PURE__*/function () {
     key: "deleteValue",
     value: function deleteValue(value) {
       if (value == null) {
-        console.error("Trying to delete a value in a ReversableMap wtih an invalid value: ", value);
+        console.error("Trying to delete a value in a ReversibleMap wtih an invalid value: ", value);
         return false;
       }
 
@@ -4176,7 +4176,7 @@ var ReversableMap = /*#__PURE__*/function () {
     }
   }]);
 
-  return ReversableMap;
+  return ReversibleMap;
 }();
 ;// CONCATENATED MODULE: ./Definitions/Modules/Utilities.ts
 

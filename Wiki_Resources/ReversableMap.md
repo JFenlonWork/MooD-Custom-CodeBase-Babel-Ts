@@ -1,6 +1,6 @@
-# Class: ReversableMap<Key, Value\>
+# Class: ReversibleMap<Key, Value\>
 
-Class that handles key to value Map with reversable search
+Class that handles key to value Map with reversible search
 
 ## Type parameters
 
@@ -13,31 +13,31 @@ Class that handles key to value Map with reversable search
 
 ### Constructors
 
-- [constructor](../wiki/ReversableMap#constructor)
+- [constructor](../wiki/ReversibleMap#constructor)
 
 ### Properties
 
-- [\_\_map\_\_](../wiki/ReversableMap#__map__)
-- [\_\_reverseMap\_\_](../wiki/ReversableMap#__reversemap__)
+- [\_\_map\_\_](../wiki/ReversibleMap#__map__)
+- [\_\_reverseMap\_\_](../wiki/ReversibleMap#__reversemap__)
 
 ### Methods
 
-- [clear](../wiki/ReversableMap#clear)
-- [deleteKey](../wiki/ReversableMap#deletekey)
-- [deleteValue](../wiki/ReversableMap#deletevalue)
-- [getKey](../wiki/ReversableMap#getkey)
-- [getValue](../wiki/ReversableMap#getvalue)
-- [hasKey](../wiki/ReversableMap#haskey)
-- [hasValue](../wiki/ReversableMap#hasvalue)
-- [setKey](../wiki/ReversableMap#setkey)
+- [clear](../wiki/ReversibleMap#clear)
+- [deleteKey](../wiki/ReversibleMap#deletekey)
+- [deleteValue](../wiki/ReversibleMap#deletevalue)
+- [getKey](../wiki/ReversibleMap#getkey)
+- [getValue](../wiki/ReversibleMap#getvalue)
+- [hasKey](../wiki/ReversibleMap#haskey)
+- [hasValue](../wiki/ReversibleMap#hasvalue)
+- [setKey](../wiki/ReversibleMap#setkey)
 
 ## Constructors
 
 ### constructor
 
-• **new ReversableMap**<`Key`, `Value`\>(`key?`, `value?`)
+• **new ReversibleMap**<`Key`, `Value`\>(`key?`, `value?`)
 
-Create a reversable map between Keys and Values
+Create a reversible map between Keys and Values
 
 #### Type parameters
 
@@ -55,7 +55,7 @@ Create a reversable map between Keys and Values
 
 #### Defined in
 
-Utilities/ReversableMap.ts:15
+Utilities/ReversibleMap.ts:15
 
 ## Properties
 
@@ -65,7 +65,7 @@ Utilities/ReversableMap.ts:15
 
 #### Defined in
 
-Utilities/ReversableMap.ts:5
+Utilities/ReversibleMap.ts:5
 
 ___
 
@@ -77,7 +77,7 @@ Store all inverse references to values to allow searching and Maps the values to
 
 #### Defined in
 
-Utilities/ReversableMap.ts:8
+Utilities/ReversibleMap.ts:8
 
 ## Methods
 
@@ -93,7 +93,7 @@ Remove all keys and values
 
 #### Defined in
 
-Utilities/ReversableMap.ts:101
+Utilities/ReversibleMap.ts:101
 
 ___
 
@@ -115,7 +115,7 @@ Remove a key from this map
 
 #### Defined in
 
-Utilities/ReversableMap.ts:74
+Utilities/ReversibleMap.ts:74
 
 ___
 
@@ -137,7 +137,7 @@ Remove a Value from this map
 
 #### Defined in
 
-Utilities/ReversableMap.ts:88
+Utilities/ReversibleMap.ts:88
 
 ___
 
@@ -159,7 +159,7 @@ Return Key associated with a Value
 
 #### Defined in
 
-Utilities/ReversableMap.ts:34
+Utilities/ReversibleMap.ts:34
 
 ___
 
@@ -181,7 +181,7 @@ Return Value associated with a key
 
 #### Defined in
 
-Utilities/ReversableMap.ts:26
+Utilities/ReversibleMap.ts:26
 
 ___
 
@@ -203,7 +203,7 @@ Test if a Value exists for a given Key
 
 #### Defined in
 
-Utilities/ReversableMap.ts:42
+Utilities/ReversibleMap.ts:42
 
 ___
 
@@ -225,7 +225,7 @@ Test if a Key exists for a given Value
 
 #### Defined in
 
-Utilities/ReversableMap.ts:50
+Utilities/ReversibleMap.ts:50
 
 ___
 
@@ -248,4 +248,4 @@ Create a map between a Key and a Value
 
 #### Defined in
 
-Utilities/ReversableMap.ts:59
+Utilities/ReversibleMap.ts:59

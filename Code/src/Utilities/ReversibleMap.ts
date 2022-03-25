@@ -1,6 +1,6 @@
-/** Class that handles key to value Map with reversable search 
+/** Class that handles key to value Map with reversible search 
  */
- export class ReversableMap<Key, Value> {
+ export class ReversibleMap<Key, Value> {
 //** Store all forward references to values to allow searching*/
     private __map__: Map<Key, Value> = new Map();
 
@@ -8,7 +8,7 @@
     private __reverseMap__: Map<Value, Key> = new Map();
 
     /**
-	 * Create a reversable map between Keys and Values
+	 * Create a reversible map between Keys and Values
 	 * @param  {Key} Key - The key to add on creation
 	 * @param  {Value} value - The value to link this key
 	 */
@@ -57,8 +57,8 @@
 	 * @param  {Value} value - The Value to link to this Key
 	 */
     public setKey(key: Key, value: Value): boolean {
-        if (key == null) { console.error("Trying to set a key in a ReversableMap wtih an invalid key: ", key); return false; }
-        if (value == null) { console.error("Trying to set a value in a ReversableMap wtih an invalid value: ", value); return false; }
+        if (key == null) { console.error("Trying to set a key in a ReversibleMap wtih an invalid key: ", key); return false; }
+        if (value == null) { console.error("Trying to set a value in a ReversibleMap wtih an invalid value: ", value); return false; }
         let _key: Key | undefined = this.getKey(value);
 
         if (_key != undefined)  this.deleteKey(_key);
@@ -72,7 +72,7 @@
 	 * @param  {Key} Key - The Key to remove from this value
 	 */
     public deleteKey(key: Key): boolean {
-        if (key == null) { console.error("Trying to delete a key in a ReversableMap wtih an invalid key: ", key); return false; }
+        if (key == null) { console.error("Trying to delete a key in a ReversibleMap wtih an invalid key: ", key); return false; }
         let value = this.__map__.get(key);
 
         if (value == null) return false;
@@ -86,7 +86,7 @@
 	 * @param  {Value} value - The Value to remove
 	 */
      public deleteValue(value: Value): boolean {
-        if (value == null) { console.error("Trying to delete a value in a ReversableMap wtih an invalid value: ", value); return false; }
+        if (value == null) { console.error("Trying to delete a value in a ReversibleMap wtih an invalid value: ", value); return false; }
         let key = this.__reverseMap__.get(value);
 
         if (key == null) return false;

@@ -41,7 +41,7 @@ Return this or singleton instance of TooltipController
 
 ### \_tooltips
 
-• `Private` **\_tooltips**: [`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
+• `Private` **\_tooltips**: [`MultiKeyReversibleMap`](../wiki/MultiKeyReversibleMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
 
 #### Defined in
 
@@ -71,11 +71,11 @@ ___
 
 ### tooltips
 
-• `get` **tooltips**(): [`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
+• `get` **tooltips**(): [`MultiKeyReversibleMap`](../wiki/MultiKeyReversibleMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
 
 #### Returns
 
-[`MultiKeyReversableMap`](../wiki/MultiKeyReversableMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
+[`MultiKeyReversibleMap`](../wiki/MultiKeyReversibleMap)<`String` \| `Number`, [`Tooltip`](../wiki/Tooltip)\>
 
 #### Defined in
 

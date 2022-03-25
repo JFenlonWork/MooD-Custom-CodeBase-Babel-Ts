@@ -1,8 +1,8 @@
 import { CompareTypes } from "./CompareTypes";
 
-/** Class that handles multiple keys to value Map with reversable search 
+/** Class that handles multiple keys to value Map with reversible search 
  */
- export class MultiKeyReversableMap<Key, Value> {
+ export class MultiKeyReversibleMap<Key, Value> {
 
     //** Store all forward references to values to allow searching*/
     private __map__: Map<Key, Value> = new Map();
@@ -139,8 +139,8 @@ import { CompareTypes } from "./CompareTypes";
 	 * @param  {Value} newValue - The new value to link the keys to
 	 */
      public remapValueFromKey(key: Key, newValue: Value): Key[] {
-        if (key == null) { console.error("Trying to remap a value from a key in a MultiKeyReversableMap wtih an invalid key: ", key); return []; }
-        if (newValue === undefined) { console.error("Trying to remap a value from a key in a MultiKeyReversableMap wtih an invalid newValue: ", newValue); return []; }
+        if (key == null) { console.error("Trying to remap a value from a key in a MultiKeyReversibleMap wtih an invalid key: ", key); return []; }
+        if (newValue === undefined) { console.error("Trying to remap a value from a key in a MultiKeyReversibleMap wtih an invalid newValue: ", newValue); return []; }
 
         let oldValue = this.getValue(key);
         if (oldValue == undefined) return [];
@@ -153,8 +153,8 @@ import { CompareTypes } from "./CompareTypes";
 	 * @param  {Value} newValue - The new value to link the key to
 	 */
      public remapKey(key: Key, newValue: Value): boolean {
-        if (key == null) { console.error("Trying to remap a key in a MultiKeyReversableMap wtih an invalid key: ", key); return false; }
-        if (newValue == null) { console.error("Trying to remap a key in a MultiKeyReversableMap wtih an invalid newValue: ", newValue); return false; }
+        if (key == null) { console.error("Trying to remap a key in a MultiKeyReversibleMap wtih an invalid key: ", key); return false; }
+        if (newValue == null) { console.error("Trying to remap a key in a MultiKeyReversibleMap wtih an invalid newValue: ", newValue); return false; }
 
         let oldValue = this.getValue(key);
         if (oldValue == undefined) { this.setKey(key, newValue); return true; }
@@ -170,8 +170,8 @@ import { CompareTypes } from "./CompareTypes";
 	 * @param  {Value} value - The value that this key links to
 	 */
     public deleteKey(key: Key, value: Value): boolean {
-        if (key == null) { console.error("Trying to delete a key in a MultiKeyReversableMap wtih an invalid key: ", key); return false; }
-        if (value == null) { console.error("Trying to delete a key in a MultiKeyReversableMap wtih an invalid value: ", value); return false; }
+        if (key == null) { console.error("Trying to delete a key in a MultiKeyReversibleMap wtih an invalid key: ", key); return false; }
+        if (value == null) { console.error("Trying to delete a key in a MultiKeyReversibleMap wtih an invalid value: ", value); return false; }
         let otherKeys = this.__reverseMap__.get(value);
 
         if (otherKeys == undefined) { this.__map__.delete(key); return true; }
@@ -189,8 +189,8 @@ import { CompareTypes } from "./CompareTypes";
 	 * @param  {Value} value - The value that these keys link to
 	 */
     public deleteKeys(keys: Key[], value: Value): boolean {
-        if (keys == null || keys.length) { console.error("Trying to delete a keys in a MultiKeyReversableMap wtih an invalid keys: ", keys); return false; }
-        if (value == null) { console.error("Trying to delete a keys in a MultiKeyReversableMap wtih an invalid value: ", value); return false; }
+        if (keys == null || keys.length) { console.error("Trying to delete a keys in a MultiKeyReversibleMap wtih an invalid keys: ", keys); return false; }
+        if (value == null) { console.error("Trying to delete a keys in a MultiKeyReversibleMap wtih an invalid value: ", value); return false; }
         keys.forEach(element => {
             this.deleteKey(element, value);
         });
@@ -202,7 +202,7 @@ import { CompareTypes } from "./CompareTypes";
 	 * @param  {Value} value - The value to remove
 	 */
     public deleteValue(value: Value): boolean {
-        if (value == null) { console.error("Trying to delete a value in a MultiKeyReversableMap wtih an invalid value: ", value); return false; }
+        if (value == null) { console.error("Trying to delete a value in a MultiKeyReversibleMap wtih an invalid value: ", value); return false; }
         this.getKeysArray(value).forEach(element => {
             this.__map__.delete(element);
         });
