@@ -10,7 +10,7 @@
     "compile": "rimraf ./Code/dist && webpack && babel Code/dist --out-file Code/dist/babelBundle.js --extensions \".js\"",
     "document": "typedoc && copyfiles -u 1 Wiki_Resources/* MooD-Custom-CodeBase-Babel-Ts.wiki/",
     "clearWiki": "rimraf MooD-Custom-CodeBase-Babel-Ts.wiki/* ",
-    "check-types": "tsc"
+    "check-types": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
