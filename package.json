@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf ./Code/js/* && babel Code/src --out-dir Code/js --extensions \".ts,.tsx\"",
-    "compile": "rimraf ./Code/dist && webpack && babel Code/dist --out-file Code/dist/babelBundle.js --extensions \".js\"",
+    "compile": "rimraf ./Code/dist && webpack --json > stats.json && babel Code/dist --out-file Code/dist/babelBundle.js --extensions \".js\"",
     "document": "typedoc && copyfiles -u 1 Wiki_Resources/* MooD-Custom-CodeBase-Babel-Ts.wiki/",
     "clearWiki": "rimraf MooD-Custom-CodeBase-Babel-Ts.wiki/* ",
     "check-types": "tsc --noEmit"
