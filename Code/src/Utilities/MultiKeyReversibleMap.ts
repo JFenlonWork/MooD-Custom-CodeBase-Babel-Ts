@@ -1,8 +1,8 @@
 import { CompareTypes } from "./CompareTypes";
 
-/** Class that handles multiple keys to value Map with reversible search 
+/** Class that handles multiple keys to value Map with reversable search 
  */
- export class MultiKeyReversibleMap<Key, Value> {
+export class MultiKeyReversibleMap<Key, Value> {
 
     //** Store all forward references to values to allow searching*/
     private __map__: Map<Key, Value> = new Map();
@@ -166,20 +166,32 @@ import { CompareTypes } from "./CompareTypes";
 
     /**
 	 * Remove a key from this map
-	 * @param  {Key} Key - The key to remove from this value
+	 * @param  {Key} Key - The key to remove from this map
 	 * @param  {Value} value - The value that this key links to
 	 */
-    public deleteKey(key: Key, value: Value): boolean {
+     public deleteKey(key: Key, value?: Value): boolean {
         if (key == null) { console.error("Trying to delete a key in a MultiKeyReversibleMap wtih an invalid key: ", key); return false; }
-        if (value == null) { console.error("Trying to delete a key in a MultiKeyReversibleMap wtih an invalid value: ", value); return false; }
-        let otherKeys = this.__reverseMap__.get(value);
 
-        if (otherKeys == undefined) { this.__map__.delete(key); return true; }
-        otherKeys.delete(key);
-        if (otherKeys.size == 0) { this.__map__.delete(key); this.__reverseMap__.delete(value); return true; }
-        
-        this.__reverseMap__.set(value, otherKeys);
-        this.__map__.delete(key);
+        if (value == null) {
+
+            let reverseKeys = Array.from(this.__reverseMap__.keys());
+
+            reverseKeys.forEach(elemet => {
+                this.deleteKey(key, elemet);
+            });
+
+        } else {
+
+            let otherKeys = this.__reverseMap__.get(value);
+
+            if (otherKeys == undefined) { this.__map__.delete(key); return true; }
+            otherKeys.delete(key);
+            if (otherKeys.size == 0) { this.__map__.delete(key); this.__reverseMap__.delete(value); return true; }
+            
+            this.__reverseMap__.set(value, otherKeys);
+            this.__map__.delete(key);
+        }
+
         return true;
     }
 
@@ -188,9 +200,8 @@ import { CompareTypes } from "./CompareTypes";
 	 * @param  {Key} Keys - The keys to remove from this value
 	 * @param  {Value} value - The value that these keys link to
 	 */
-    public deleteKeys(keys: Key[], value: Value): boolean {
+    public deleteKeys(keys: Key[], value?: Value): boolean {
         if (keys == null || keys.length) { console.error("Trying to delete a keys in a MultiKeyReversibleMap wtih an invalid keys: ", keys); return false; }
-        if (value == null) { console.error("Trying to delete a keys in a MultiKeyReversibleMap wtih an invalid value: ", value); return false; }
         keys.forEach(element => {
             this.deleteKey(element, value);
         });
