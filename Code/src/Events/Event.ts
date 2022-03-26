@@ -1,6 +1,7 @@
 import { CompareTypes } from "../Utilities/CompareTypes";
 
-/** Class that handles any event driven data for event managers.
+/** Class that handles any event driven data for event managers using:
+ * @link https://api.jquery.com/jquery.callbacks/
  */
  export class Event {
 

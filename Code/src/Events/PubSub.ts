@@ -35,6 +35,7 @@ import { Event } from "./Event";
             this._events.set(event, eventCallbacks);
         }
 
+        this.subscribers.deleteKey(eventCallbacks);
         if (!eventCallbacks.setupEvent(settings)) return false;
         this.publish("EventSetup", event, ...args);
 
@@ -55,7 +56,7 @@ import { Event } from "./Event";
             callbacks.forEach(element => {
                 this.subscribe(event, element, ...args);
             });
-        } else if (typeof(callbacks) != "function") {
+        } else if (typeof(callbacks) == "function") {
 
             let _event = this._events.get(event);
 
@@ -90,7 +91,7 @@ import { Event } from "./Event";
             callbacks.forEach(element => {
                 this.unsubscribe(event, element, ...args);
             });
-        } else if (typeof(callbacks) != "function") {
+        } else if (typeof(callbacks) == "function") {
 
             let _event = this._events.get(event);
             if (_event == undefined) return false;
