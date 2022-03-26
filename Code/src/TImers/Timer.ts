@@ -69,7 +69,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
         return this._timingInterval;
     }
 
-    private set timingInterval(interval: number) {
+    protected set timingInterval(interval: number) {
         if (typeof(interval) != "number") { console.error("Trying to set a Timer's timing interval with an invalid input: ", interval); return; }
         this._timingInterval = interval;
     }
@@ -246,7 +246,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
 	 */  
     public stop() {
         this.running = false;
-        this.pausedAt = 0;
+        this.pausedAt = -1;
         window.clearTimeout(this.timeout);
         this.timeout = NaN;
     }
