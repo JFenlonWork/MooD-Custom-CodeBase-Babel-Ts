@@ -39,7 +39,7 @@ Return this or singleton instance of TimerManager
 
 #### Defined in
 
-TImers/TimerManager.ts:18
+[TImers/TimerManager.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L18)
 
 ## Properties
 
@@ -49,7 +49,7 @@ TImers/TimerManager.ts:18
 
 #### Defined in
 
-TImers/TimerManager.ts:33
+[TImers/TimerManager.ts:33](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L33)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-TImers/TimerManager.ts:26
+[TImers/TimerManager.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L26)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-TImers/TimerManager.ts:10
+[TImers/TimerManager.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L10)
 
 ## Accessors
 
@@ -83,7 +83,7 @@ TImers/TimerManager.ts:10
 
 #### Defined in
 
-TImers/TimerManager.ts:34
+[TImers/TimerManager.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L34)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-TImers/TimerManager.ts:27
+[TImers/TimerManager.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L27)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-TImers/TimerManager.ts:11
+[TImers/TimerManager.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L11)
 
 ## Methods
 
@@ -127,7 +127,7 @@ Return the current datetime
 
 #### Defined in
 
-TImers/TimerManager.ts:43
+[TImers/TimerManager.ts:43](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L43)
 
 ___
 
@@ -149,7 +149,7 @@ Adds a timer to a singleton map and update references
 
 #### Defined in
 
-TImers/TimerManager.ts:78
+[TImers/TimerManager.ts:78](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L78)
 
 ___
 
@@ -171,7 +171,7 @@ Searches for and returns a timer with a name parameter
 
 #### Defined in
 
-TImers/TimerManager.ts:51
+[TImers/TimerManager.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L51)
 
 ___
 
@@ -193,7 +193,7 @@ Searches for and returns a timer with a id parameter
 
 #### Defined in
 
-TImers/TimerManager.ts:60
+[TImers/TimerManager.ts:60](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L60)
 
 ___
 
@@ -215,7 +215,7 @@ Remove a timer from a singleton map and update references
 
 #### Defined in
 
-TImers/TimerManager.ts:86
+[TImers/TimerManager.ts:86](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L86)
 
 ___
 
@@ -237,4 +237,4 @@ Searches for and returns if a timer already exists with a name
 
 #### Defined in
 
-TImers/TimerManager.ts:69
+[TImers/TimerManager.ts:69](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/TImers/TimerManager.ts#L69)

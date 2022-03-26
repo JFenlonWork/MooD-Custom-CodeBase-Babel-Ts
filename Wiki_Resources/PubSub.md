@@ -41,7 +41,7 @@ Class that handles simple subscription/publish event manager.
 
 #### Defined in
 
-[Events/PubSub.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/12477d4/Code/src/Events/PubSub.ts#L9)
+[Events/PubSub.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Events/PubSub.ts#L9)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[Events/PubSub.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/12477d4/Code/src/Events/PubSub.ts#L15)
+[Events/PubSub.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Events/PubSub.ts#L15)
 
 ## Accessors
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[Events/PubSub.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/12477d4/Code/src/Events/PubSub.ts#L10)
+[Events/PubSub.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Events/PubSub.ts#L10)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[Events/PubSub.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/12477d4/Code/src/Events/PubSub.ts#L16)
+[Events/PubSub.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Events/PubSub.ts#L16)
 
 ## Methods
 
@@ -101,7 +101,7 @@ Handle clearing all events
 
 #### Defined in
 
-[Events/PubSub.ts:125](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/12477d4/Code/src/Events/PubSub.ts#L125)
+[Events/PubSub.ts:145](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Events/PubSub.ts#L145)
 
 ___
 
@@ -124,7 +124,7 @@ Handle clearing specific event
 
 #### Defined in
 
-[Events/PubSub.ts:110](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/12477d4/Code/src/Events/PubSub.ts#L110)
+[Events/PubSub.ts:130](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Events/PubSub.ts#L130)
 
 ___
 
@@ -147,7 +147,7 @@ Handle publishing events
 
 #### Defined in
 
-[Events/PubSub.ts:92](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/12477d4/Code/src/Events/PubSub.ts#L92)
+[Events/PubSub.ts:112](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Events/PubSub.ts#L112)
 
 ___
 
@@ -173,13 +173,13 @@ Handle modifiy/creating event with specific settings
 
 #### Defined in
 
-[Events/PubSub.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/12477d4/Code/src/Events/PubSub.ts#L27)
+[Events/PubSub.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Events/PubSub.ts#L27)
 
 ___
 
 ### subscribe
 
-▸ **subscribe**(`event`, `callback`, ...`args`): `boolean`
+▸ **subscribe**(`event`, `callbacks`, ...`args`): `boolean`
 
 Handle subscribing to events
 
@@ -188,7 +188,7 @@ Handle subscribing to events
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `event` | `string` | The event to subscribe to |
-| `callback` | `Function` | The callback to add to this event |
+| `callbacks` | `Function` \| `Function`[] | The callbacks to add to this event |
 | `...args` | `any`[] | Any extra arguments that will be sent to EventSubscribed event |
 
 #### Returns
@@ -197,13 +197,13 @@ Handle subscribing to events
 
 #### Defined in
 
-[Events/PubSub.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/12477d4/Code/src/Events/PubSub.ts#L50)
+[Events/PubSub.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Events/PubSub.ts#L50)
 
 ___
 
 ### unsubscribe
 
-▸ **unsubscribe**(`event`, `callback`, ...`args`): `boolean`
+▸ **unsubscribe**(`event`, `callbacks`, ...`args`): `boolean`
 
 Handle unsubscribing from events
 
@@ -212,7 +212,7 @@ Handle unsubscribing from events
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `event` | `string` | The event to unsubscribe from |
-| `callback` | `Function` | The callback to remove to this event |
+| `callbacks` | `Function` \| `Function`[] | The callbacks to remove from this event |
 | `...args` | `any`[] | Any extra arguments that will be sent to EventUnsubscribed event |
 
 #### Returns
@@ -221,4 +221,4 @@ Handle unsubscribing from events
 
 #### Defined in
 
-[Events/PubSub.ts:75](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/12477d4/Code/src/Events/PubSub.ts#L75)
+[Events/PubSub.ts:85](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Events/PubSub.ts#L85)
