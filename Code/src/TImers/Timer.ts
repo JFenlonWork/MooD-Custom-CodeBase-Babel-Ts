@@ -201,7 +201,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
 	 * @param  {boolean} enableOffset - Determines if a timers loop should change based on browser time discrepancies
 	 * @param  {TimerSkipOffsetType} skipOffset - Determines if a timers should skip offsets if they are too large
 	 */
-    constructor (name: string , timingInterval:number, callbacks: Function[] = [], startOnCreation:boolean = true, timerRunTime:number = Number.MAX_SAFE_INTEGER, enableOffset:boolean = false, skipOffset:TimerSkipOffsetType = TimerSkipOffsetType.NoSkip) {
+    constructor (name: string, timingInterval:number, callbacks: Function[] = [], startOnCreation:boolean = true, timerRunTime:number = Number.MAX_SAFE_INTEGER, enableOffset:boolean = false, skipOffset:TimerSkipOffsetType = TimerSkipOffsetType.NoSkip) {
         if (typeof name != "string" || name == "") { console.error("Trying to create a timer without a valid name: ", name); return; }
         if (typeof timingInterval != "number" || timingInterval <= -1) { console.error("Trying to create a timer without a valid timing interval: ", timingInterval); return; }
         if (typeof startOnCreation != "boolean" || startOnCreation == null) { console.error("Trying to create a timer without a valid start on creation: ", startOnCreation); return; }
