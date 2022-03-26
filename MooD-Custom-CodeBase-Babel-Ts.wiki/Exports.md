@@ -19,6 +19,8 @@
 - [PubSub](../wiki/PubSub)
 - [RealtimeTimer](../wiki/RealtimeTimer)
 - [ReversibleMap](../wiki/ReversibleMap)
+- [ScaledTime](../wiki/ScaledTime)
+- [ScaledTimer](../wiki/ScaledTimer)
 - [Timer](../wiki/Timer)
 - [TimerManager](../wiki/TimerManager)
 - [Tooltip](../wiki/Tooltip)

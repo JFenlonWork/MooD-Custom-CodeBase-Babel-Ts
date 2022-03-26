@@ -1,81 +1,84 @@
-# Class: RealtimeTimer
+# Class: ScaledTimer
 
-Class representing a Realtime Timer that implements
- custom controls ontop of setTimeout to create a timer that activates as fast as possible.
+A ScaledTimer that builds upon default Timer to change have
+ variable interval times based on a pass/fail return value
 
 ## Hierarchy
 
 - [`Timer`](../wiki/Timer)
 
-  ↳ **`RealtimeTimer`**
+  ↳ **`ScaledTimer`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](../wiki/RealtimeTimer#constructor)
+- [constructor](../wiki/ScaledTimer#constructor)
 
 ### Properties
 
-- [\_currentTimingInterval](../wiki/RealtimeTimer#_currenttiminginterval)
-- [\_destroyOnStop](../wiki/RealtimeTimer#_destroyonstop)
-- [\_enableOffset](../wiki/RealtimeTimer#_enableoffset)
-- [\_intervalOffset](../wiki/RealtimeTimer#_intervaloffset)
-- [\_lastCompletion](../wiki/RealtimeTimer#_lastcompletion)
-- [\_lastTickDate](../wiki/RealtimeTimer#_lasttickdate)
-- [\_name](../wiki/RealtimeTimer#_name)
-- [\_pausedAt](../wiki/RealtimeTimer#_pausedat)
-- [\_realtimeEvents](../wiki/RealtimeTimer#_realtimeevents)
-- [\_running](../wiki/RealtimeTimer#_running)
-- [\_skipOffset](../wiki/RealtimeTimer#_skipoffset)
-- [\_skipOffsetCalculation](../wiki/RealtimeTimer#_skipoffsetcalculation)
-- [\_startDate](../wiki/RealtimeTimer#_startdate)
-- [\_ticksElapsed](../wiki/RealtimeTimer#_tickselapsed)
-- [\_ticksRemaining](../wiki/RealtimeTimer#_ticksremaining)
-- [\_timeout](../wiki/RealtimeTimer#_timeout)
-- [\_timerID](../wiki/RealtimeTimer#_timerid)
-- [\_timingInterval](../wiki/RealtimeTimer#_timinginterval)
+- [\_currentTimingInterval](../wiki/ScaledTimer#_currenttiminginterval)
+- [\_enableOffset](../wiki/ScaledTimer#_enableoffset)
+- [\_failCount](../wiki/ScaledTimer#_failcount)
+- [\_intervalOffset](../wiki/ScaledTimer#_intervaloffset)
+- [\_lastCompletion](../wiki/ScaledTimer#_lastcompletion)
+- [\_lastTickDate](../wiki/ScaledTimer#_lasttickdate)
+- [\_name](../wiki/ScaledTimer#_name)
+- [\_pausedAt](../wiki/ScaledTimer#_pausedat)
+- [\_running](../wiki/ScaledTimer#_running)
+- [\_scaledEvents](../wiki/ScaledTimer#_scaledevents)
+- [\_skipOffset](../wiki/ScaledTimer#_skipoffset)
+- [\_skipOffsetCalculation](../wiki/ScaledTimer#_skipoffsetcalculation)
+- [\_startDate](../wiki/ScaledTimer#_startdate)
+- [\_ticksElapsed](../wiki/ScaledTimer#_tickselapsed)
+- [\_ticksRemaining](../wiki/ScaledTimer#_ticksremaining)
+- [\_timeScalers](../wiki/ScaledTimer#_timescalers)
+- [\_timeout](../wiki/ScaledTimer#_timeout)
+- [\_timerID](../wiki/ScaledTimer#_timerid)
+- [\_timingInterval](../wiki/ScaledTimer#_timinginterval)
 
 ### Accessors
 
-- [currentTimingInterval](../wiki/RealtimeTimer#currenttiminginterval)
-- [destroyOnStop](../wiki/RealtimeTimer#destroyonstop)
-- [enableOffset](../wiki/RealtimeTimer#enableoffset)
-- [events](../wiki/RealtimeTimer#events)
-- [intervalOffset](../wiki/RealtimeTimer#intervaloffset)
-- [lastCompletion](../wiki/RealtimeTimer#lastcompletion)
-- [lastTickDate](../wiki/RealtimeTimer#lasttickdate)
-- [name](../wiki/RealtimeTimer#name)
-- [pausedAt](../wiki/RealtimeTimer#pausedat)
-- [running](../wiki/RealtimeTimer#running)
-- [skipOffset](../wiki/RealtimeTimer#skipoffset)
-- [skipOffsetCalculation](../wiki/RealtimeTimer#skipoffsetcalculation)
-- [startDate](../wiki/RealtimeTimer#startdate)
-- [ticksElapsed](../wiki/RealtimeTimer#tickselapsed)
-- [ticksRemaining](../wiki/RealtimeTimer#ticksremaining)
-- [timeout](../wiki/RealtimeTimer#timeout)
-- [timerID](../wiki/RealtimeTimer#timerid)
-- [timingInterval](../wiki/RealtimeTimer#timinginterval)
+- [currentTimingInterval](../wiki/ScaledTimer#currenttiminginterval)
+- [enableOffset](../wiki/ScaledTimer#enableoffset)
+- [events](../wiki/ScaledTimer#events)
+- [failCount](../wiki/ScaledTimer#failcount)
+- [intervalOffset](../wiki/ScaledTimer#intervaloffset)
+- [lastCompletion](../wiki/ScaledTimer#lastcompletion)
+- [lastTickDate](../wiki/ScaledTimer#lasttickdate)
+- [name](../wiki/ScaledTimer#name)
+- [pausedAt](../wiki/ScaledTimer#pausedat)
+- [running](../wiki/ScaledTimer#running)
+- [skipOffset](../wiki/ScaledTimer#skipoffset)
+- [skipOffsetCalculation](../wiki/ScaledTimer#skipoffsetcalculation)
+- [startDate](../wiki/ScaledTimer#startdate)
+- [ticksElapsed](../wiki/ScaledTimer#tickselapsed)
+- [ticksRemaining](../wiki/ScaledTimer#ticksremaining)
+- [timeScalers](../wiki/ScaledTimer#timescalers)
+- [timeout](../wiki/ScaledTimer#timeout)
+- [timerID](../wiki/ScaledTimer#timerid)
+- [timingInterval](../wiki/ScaledTimer#timinginterval)
 
 ### Methods
 
-- [destroy](../wiki/RealtimeTimer#destroy)
-- [isPaused](../wiki/RealtimeTimer#ispaused)
-- [listenToResponse](../wiki/RealtimeTimer#listentoresponse)
-- [loop](../wiki/RealtimeTimer#loop)
-- [pause](../wiki/RealtimeTimer#pause)
-- [restart](../wiki/RealtimeTimer#restart)
-- [resume](../wiki/RealtimeTimer#resume)
-- [runLoop](../wiki/RealtimeTimer#runloop)
-- [start](../wiki/RealtimeTimer#start)
-- [stop](../wiki/RealtimeTimer#stop)
-- [unpause](../wiki/RealtimeTimer#unpause)
+- [destroy](../wiki/ScaledTimer#destroy)
+- [isPaused](../wiki/ScaledTimer#ispaused)
+- [listenToResponse](../wiki/ScaledTimer#listentoresponse)
+- [loop](../wiki/ScaledTimer#loop)
+- [pause](../wiki/ScaledTimer#pause)
+- [restart](../wiki/ScaledTimer#restart)
+- [resume](../wiki/ScaledTimer#resume)
+- [runLoop](../wiki/ScaledTimer#runloop)
+- [start](../wiki/ScaledTimer#start)
+- [stop](../wiki/ScaledTimer#stop)
+- [unpause](../wiki/ScaledTimer#unpause)
+- [updateCurrentTimeScaler](../wiki/ScaledTimer#updatecurrenttimescaler)
 
 ## Constructors
 
 ### constructor
 
-• **new RealtimeTimer**(`name`, `callbacks?`, `startOnCreation?`, `timerRunTime?`, `destroyOnStop?`)
+• **new ScaledTimer**(`name`, `timeScalers`, `callbacks?`, `startOnCreation?`, `timerRunTime?`, `enableOffset?`)
 
 Create a RealtimeTimer
 
@@ -84,10 +87,11 @@ Create a RealtimeTimer
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `name` | `string` | `undefined` | The name of the timer |
+| `timeScalers` | [`ScaledTime`](../wiki/ScaledTime)[] | `undefined` | An array of ScaledTimes that control this ScaledTimer's timing interval |
 | `callbacks` | `Function`[] | `[]` | The callbacks listening to this timer |
 | `startOnCreation` | `boolean` | `true` | Determines if this timer should start running after creation |
 | `timerRunTime` | `number` | `Number.MAX_SAFE_INTEGER` | The total time for this timer to run |
-| `destroyOnStop` | `boolean` | `true` | Determines if a timers should destroy itself once it recieves a single stop command |
+| `enableOffset` | `boolean` | `true` | Determines if a timers loop should change based on browser time discrepancies |
 
 #### Overrides
 
@@ -95,7 +99,7 @@ Create a RealtimeTimer
 
 #### Defined in
 
-Timers/RealtimeTimer.ts:36
+Timers/ScaledTimer.ts:51
 
 ## Properties
 
@@ -113,16 +117,6 @@ Timers/Timer.ts:78
 
 ___
 
-### \_destroyOnStop
-
-• `Private` **\_destroyOnStop**: `boolean` = `true`
-
-#### Defined in
-
-Timers/RealtimeTimer.ts:17
-
-___
-
 ### \_enableOffset
 
 • `Protected` **\_enableOffset**: `boolean` = `false`
@@ -134,6 +128,16 @@ ___
 #### Defined in
 
 Timers/Timer.ts:146
+
+___
+
+### \_failCount
+
+• **\_failCount**: `number` = `0`
+
+#### Defined in
+
+Timers/ScaledTimer.ts:17
 
 ___
 
@@ -207,16 +211,6 @@ Timers/Timer.ts:122
 
 ___
 
-### \_realtimeEvents
-
-• `Private` **\_realtimeEvents**: [`PubSub`](../wiki/PubSub)
-
-#### Defined in
-
-Timers/RealtimeTimer.ts:11
-
-___
-
 ### \_running
 
 • `Protected` **\_running**: `boolean` = `false`
@@ -228,6 +222,16 @@ ___
 #### Defined in
 
 Timers/Timer.ts:21
+
+___
+
+### \_scaledEvents
+
+• `Private` **\_scaledEvents**: [`PubSub`](../wiki/PubSub)
+
+#### Defined in
+
+Timers/ScaledTimer.ts:11
 
 ___
 
@@ -298,6 +302,16 @@ ___
 #### Defined in
 
 Timers/Timer.ts:100
+
+___
+
+### \_timeScalers
+
+• **\_timeScalers**: [`ScaledTime`](../wiki/ScaledTime)[] = `[]`
+
+#### Defined in
+
+Timers/ScaledTimer.ts:28
 
 ___
 
@@ -381,36 +395,6 @@ Timers/Timer.ts:83
 
 ___
 
-### destroyOnStop
-
-• `get` **destroyOnStop**(): `boolean`
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-Timers/RealtimeTimer.ts:18
-
-• `set` **destroyOnStop**(`destroyOnStop`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `destroyOnStop` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-Timers/RealtimeTimer.ts:22
-
-___
-
 ### enableOffset
 
 • `get` **enableOffset**(): `boolean`
@@ -463,7 +447,37 @@ Timer.events
 
 #### Defined in
 
-Timers/RealtimeTimer.ts:12
+Timers/ScaledTimer.ts:12
+
+___
+
+### failCount
+
+• `get` **failCount**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+Timers/ScaledTimer.ts:18
+
+• `set` **failCount**(`failCount`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `failCount` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Timers/ScaledTimer.ts:22
 
 ___
 
@@ -885,6 +899,36 @@ Timers/Timer.ts:105
 
 ___
 
+### timeScalers
+
+• `get` **timeScalers**(): [`ScaledTime`](../wiki/ScaledTime)[]
+
+#### Returns
+
+[`ScaledTime`](../wiki/ScaledTime)[]
+
+#### Defined in
+
+Timers/ScaledTimer.ts:29
+
+• `set` **timeScalers**(`timeScalers`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `timeScalers` | [`ScaledTime`](../wiki/ScaledTime) \| [`ScaledTime`](../wiki/ScaledTime)[] |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Timers/ScaledTimer.ts:33
+
+___
+
 ### timeout
 
 • `get` **timeout**(): `number`
@@ -1043,6 +1087,9 @@ ___
 
 ▸ `Private` **listenToResponse**(...`args`): `void`
 
+Handles listening to responses from callbacks to see if this ScaledTimer
+  should change it's timing interval
+
 #### Parameters
 
 | Name | Type |
@@ -1055,7 +1102,7 @@ ___
 
 #### Defined in
 
-Timers/RealtimeTimer.ts:47
+Timers/ScaledTimer.ts:66
 
 ___
 
@@ -1216,3 +1263,19 @@ Resume this Timer
 #### Defined in
 
 Timers/Timer.ts:284
+
+___
+
+### updateCurrentTimeScaler
+
+▸ `Private` **updateCurrentTimeScaler**(): [`ScaledTime`](../wiki/ScaledTime)
+
+Handles finding the correct ScaledTime for the current fail rate
+
+#### Returns
+
+[`ScaledTime`](../wiki/ScaledTime)
+
+#### Defined in
+
+Timers/ScaledTimer.ts:89

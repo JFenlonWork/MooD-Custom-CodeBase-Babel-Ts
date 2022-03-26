@@ -45,7 +45,7 @@ Class representing a Tooltip that can be added to pre-existing HTML.
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:65](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L65)
+[Tooltips/Tooltip.ts:65](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L65)
 
 ## Properties
 
@@ -55,7 +55,7 @@ Class representing a Tooltip that can be added to pre-existing HTML.
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:25](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L25)
+[Tooltips/Tooltip.ts:25](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L25)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:35](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L35)
+[Tooltips/Tooltip.ts:35](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L35)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L9)
+[Tooltips/Tooltip.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L9)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L15)
+[Tooltips/Tooltip.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L15)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:45](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L45)
+[Tooltips/Tooltip.ts:45](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L45)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:55](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L55)
+[Tooltips/Tooltip.ts:55](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L55)
 
 ## Accessors
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L26)
+[Tooltips/Tooltip.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L26)
 
 • `set` **TooltipTypeType**(`TooltipTypeType`): `void`
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:30](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L30)
+[Tooltips/Tooltip.ts:30](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L30)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:36](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L36)
+[Tooltips/Tooltip.ts:36](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L36)
 
 • `set` **tooltipCSS**(`tooltipCSS`): `void`
 
@@ -165,7 +165,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:40](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L40)
+[Tooltips/Tooltip.ts:40](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L40)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L10)
+[Tooltips/Tooltip.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L10)
 
 ___
 
@@ -193,7 +193,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L16)
+[Tooltips/Tooltip.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L16)
 
 • `set` **tooltipObject**(`tooltipObject`): `void`
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:20](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L20)
+[Tooltips/Tooltip.ts:20](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L20)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:46](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L46)
+[Tooltips/Tooltip.ts:46](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L46)
 
 • `set` **tooltipParentCSS**(`tooltipParentCSS`): `void`
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L50)
+[Tooltips/Tooltip.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L50)
 
 ___
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:56](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L56)
+[Tooltips/Tooltip.ts:56](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L56)
 
 • `set` **tooltipText**(`tooltipText`): `void`
 
@@ -269,4 +269,4 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:60](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/c636381/Code/src/Tooltips/Tooltip.ts#L60)
+[Tooltips/Tooltip.ts:60](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/6fa2b8b/Code/src/Tooltips/Tooltip.ts#L60)
