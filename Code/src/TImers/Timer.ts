@@ -1,5 +1,5 @@
 import { PubSub } from "../Events/PubSub";
-import { TimerController } from "./TimerController";
+import { TimerManager } from "./TimerManager";
 import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
 
 /** Class representing a Timer that implements custom controls ontop of setTimeout to create a configurable timer.
@@ -208,12 +208,12 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
         if (typeof enableOffset != "boolean" || enableOffset == null) { console.error("Trying to create a timer without a valid enable offset: ", enableOffset); return; }
 
         this.name = name;
-        this.timerID = TimerController.Instance.uniqueID.generateUID();
+        this.timerID = TimerManager.Instance.uniqueID.generateUID();
         this.timingInterval = timingInterval;
         this.ticksRemaining = timerRunTime;
         this.enableOffset = enableOffset;
 
-        this.startDate = TimerController.Time();
+        this.startDate = TimerManager.Time();
         this.skipOffset = skipOffset;
 
         if (Array.isArray(callbacks)) {
@@ -224,7 +224,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
             this.events.subscribe("loopCompletion", callbacks);
         }
 
-        TimerController.addTimer(this);
+        TimerManager.addTimer(this);
 
         if (startOnCreation) {
             this.start();
@@ -237,7 +237,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
     public start() {
         if (this.timingInterval == -1) { console.error("Trying to start a timer with an invalid timing interval: ", this.timingInterval); return; }
         this.running = true;
-        this.lastTickDate = TimerController.Time();
+        this.lastTickDate = TimerManager.Time();
         this.loop();
     }
 
@@ -266,7 +266,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
         if (this.running)
         {
             this.stop();
-            this.pausedAt = TimerController.Time();
+            this.pausedAt = TimerManager.Time();
         }
     }
 
@@ -305,7 +305,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
             this.pausedAt = -1;
         }
 
-        let time = TimerController.Time();
+        let time = TimerManager.Time();
         
         let timeSinceLastUpdate = time - this.lastTickDate;
         this.lastTickDate = time;
@@ -349,7 +349,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
         let timer = this;
         this.events.publish("loopCompletion");
 
-        this.lastCompletion = TimerController.Time();
+        this.lastCompletion = TimerManager.Time();
 
         if (this.running) {
             if (this.ticksRemaining - this.currentTimingInterval < 0) {
@@ -367,7 +367,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
         this.stop();
         this.events.publish("TimerDestroyed", this);
         this.events.clear();
-        TimerController.removeTimer(this);
+        TimerManager.removeTimer(this);
     }
 
  }

@@ -4,20 +4,20 @@ import { Timer } from "./Timer";
 
 /** Class representing any utility functions or variables that help Timers.
  */
- export class TimerController {
+ export class TimerManager {
 
-    //** Store a singleton of TimerController to assure only one exists */
-    private static _instance: TimerController;
-    public static get Instance(): TimerController {
+    //** Store a singleton of TimerManager to assure only one exists */
+    private static _instance: TimerManager;
+    public static get Instance(): TimerManager {
         return this._instance || (this._instance = new this());
     }
 
     /**
-	 * Return this or singleton instance of TimerController
+	 * Return this or singleton instance of TimerManager
 	 */
     private constructor() {
-        if (TimerController._instance) return TimerController._instance;
-        TimerController._instance = this;
+        if (TimerManager._instance) return TimerManager._instance;
+        TimerManager._instance = this;
     }
 
 
@@ -25,14 +25,14 @@ import { Timer } from "./Timer";
     //** Store an incrementing variable to ensure unique IDs*/
     private _uniqueID: UniqueID = new UniqueID();
     public get uniqueID(): UniqueID {
-        if (this != TimerController.Instance) return TimerController.Instance.uniqueID;
+        if (this != TimerManager.Instance) return TimerManager.Instance.uniqueID;
         return this._uniqueID;
     }
 
     //** Store all references to Timers to allow searching*/
     private _timers: MultiKeyReversibleMap<String | Number, Timer> = new MultiKeyReversibleMap();
     public get timers(): MultiKeyReversibleMap<String | Number, Timer> {
-        if (this != TimerController.Instance) return TimerController.Instance.timers;
+        if (this != TimerManager.Instance) return TimerManager.Instance.timers;
         return this._timers;
     }
 

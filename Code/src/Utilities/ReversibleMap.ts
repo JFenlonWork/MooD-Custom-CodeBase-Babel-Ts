@@ -1,7 +1,8 @@
 /** Class that handles key to value Map with reversible search 
  */
  export class ReversibleMap<Key, Value> {
-//** Store all forward references to values to allow searching*/
+     
+    //** Store all forward references to values to allow searching*/
     private __map__: Map<Key, Value> = new Map();
 
     /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
