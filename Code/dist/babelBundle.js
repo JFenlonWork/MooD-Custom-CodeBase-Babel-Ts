@@ -173,8 +173,8 @@ var TestExport;
     "Timer": function Timer() {
       return _Timer;
     },
-    "TimerController": function TimerController() {
-      return _TimerController;
+    "TimerManager": function TimerManager() {
+      return _TimerManager;
     },
     "TimerSkipOffsetType": function TimerSkipOffsetType() {
       return _TimerSkipOffsetType;
@@ -4020,15 +4020,15 @@ var TestExport;
     return UniqueID;
   }();
 
-  ; // CONCATENATED MODULE: ./Code/src/Timers/TimerController.ts
+  ; // CONCATENATED MODULE: ./Code/src/Timers/TimerManager.ts
 
-  function TimerController_classCallCheck(instance, Constructor) {
+  function TimerManager_classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
     }
   }
 
-  function TimerController_defineProperties(target, props) {
+  function TimerManager_defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
       var descriptor = props[i];
       descriptor.enumerable = descriptor.enumerable || false;
@@ -4038,16 +4038,16 @@ var TestExport;
     }
   }
 
-  function TimerController_createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) TimerController_defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) TimerController_defineProperties(Constructor, staticProps);
+  function TimerManager_createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) TimerManager_defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) TimerManager_defineProperties(Constructor, staticProps);
     Object.defineProperty(Constructor, "prototype", {
       writable: false
     });
     return Constructor;
   }
 
-  function TimerController_defineProperty(obj, key, value) {
+  function TimerManager_defineProperty(obj, key, value) {
     if (key in obj) {
       Object.defineProperty(obj, key, {
         value: value,
@@ -4065,30 +4065,30 @@ var TestExport;
    */
 
 
-  var _TimerController = /*#__PURE__*/function () {
+  var _TimerManager = /*#__PURE__*/function () {
     /**
-    * Return this or singleton instance of TimerController
+    * Return this or singleton instance of TimerManager
     */
-    function TimerController() {
-      TimerController_classCallCheck(this, TimerController);
-      TimerController_defineProperty(this, "_uniqueID", new _UniqueID());
-      TimerController_defineProperty(this, "_timers", new _MultiKeyReversibleMap());
-      if (TimerController._instance) return TimerController._instance;
-      TimerController._instance = this;
+    function TimerManager() {
+      TimerManager_classCallCheck(this, TimerManager);
+      TimerManager_defineProperty(this, "_uniqueID", new _UniqueID());
+      TimerManager_defineProperty(this, "_timers", new _MultiKeyReversibleMap());
+      if (TimerManager._instance) return TimerManager._instance;
+      TimerManager._instance = this;
     } //** Store an incrementing variable to ensure unique IDs*/
 
 
-    TimerController_createClass(TimerController, [{
+    TimerManager_createClass(TimerManager, [{
       key: "uniqueID",
       get: function get() {
-        if (this != TimerController.Instance) return TimerController.Instance.uniqueID;
+        if (this != TimerManager.Instance) return TimerManager.Instance.uniqueID;
         return this._uniqueID;
       } //** Store all references to Timers to allow searching*/
 
     }, {
       key: "timers",
       get: function get() {
-        if (this != TimerController.Instance) return TimerController.Instance.timers;
+        if (this != TimerManager.Instance) return TimerManager.Instance.timers;
         return this._timers;
       }
       /**
@@ -4097,7 +4097,7 @@ var TestExport;
 
     }], [{
       key: "Instance",
-      get: //** Store a singleton of TimerController to assure only one exists */
+      get: //** Store a singleton of TimerManager to assure only one exists */
       function get() {
         return this._instance || (this._instance = new this());
       }
@@ -4167,10 +4167,10 @@ var TestExport;
         this.Instance.timers.deleteValue(timer);
       }
     }]);
-    return TimerController;
+    return TimerManager;
   }();
 
-  TimerController_defineProperty(_TimerController, "_instance", void 0);
+  TimerManager_defineProperty(_TimerManager, "_instance", void 0);
   ; // CONCATENATED MODULE: ./Code/src/Timers/TimerSkipOffsetType.ts
 
   /** Enum representing a offset skip type of a timer.
@@ -4287,11 +4287,11 @@ var TestExport;
       }
 
       this.name = name;
-      this.timerID = _TimerController.Instance.uniqueID.generateUID();
+      this.timerID = _TimerManager.Instance.uniqueID.generateUID();
       this.timingInterval = timingInterval;
       this.ticksRemaining = timerRunTime;
       this.enableOffset = enableOffset;
-      this.startDate = _TimerController.Time();
+      this.startDate = _TimerManager.Time();
       this.skipOffset = skipOffset;
 
       if (Array.isArray(callbacks)) {
@@ -4302,7 +4302,7 @@ var TestExport;
         this.events.subscribe("loopCompletion", callbacks);
       }
 
-      _TimerController.addTimer(this);
+      _TimerManager.addTimer(this);
 
       if (startOnCreation) {
         this.start();
@@ -4553,7 +4553,7 @@ var TestExport;
         }
 
         this.running = true;
-        this.lastTickDate = _TimerController.Time();
+        this.lastTickDate = _TimerManager.Time();
         this.loop();
       }
       /**
@@ -4587,7 +4587,7 @@ var TestExport;
       value: function pause() {
         if (this.running) {
           this.stop();
-          this.pausedAt = _TimerController.Time();
+          this.pausedAt = _TimerManager.Time();
         }
       }
       /**
@@ -4636,7 +4636,7 @@ var TestExport;
           this.pausedAt = -1;
         }
 
-        var time = _TimerController.Time();
+        var time = _TimerManager.Time();
 
         var timeSinceLastUpdate = time - this.lastTickDate;
         this.lastTickDate = time;
@@ -4681,7 +4681,7 @@ var TestExport;
       value: function runLoop() {
         var timer = this;
         this.events.publish("loopCompletion");
-        this.lastCompletion = _TimerController.Time();
+        this.lastCompletion = _TimerManager.Time();
 
         if (this.running) {
           if (this.ticksRemaining - this.currentTimingInterval < 0) {
@@ -4703,7 +4703,7 @@ var TestExport;
         this.events.publish("TimerDestroyed", this);
         this.events.clear();
 
-        _TimerController.removeTimer(this);
+        _TimerManager.removeTimer(this);
       }
     }]);
     return Timer;
