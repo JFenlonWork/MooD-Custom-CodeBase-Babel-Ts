@@ -44,46 +44,66 @@ import { Event } from "./Event";
     /**
 	 * Handle subscribing to events
 	 * @param  {string} event - The event to subscribe to
-	 * @param  {Function} callback - The callback to add to this event
+	 * @param  {Function | Functionp[]} callbacks - The callbacks to add to this event
 	 * @param  {any[]} args - Any extra arguments that will be sent to EventSubscribed event
 	 */
-    public subscribe(event: string, callback: Function, ...args: any[]): boolean {
+    public subscribe(event: string, callbacks: Array<Function> | Function, ...args: any[]): boolean {
         if (typeof(event) != "string" || event == "") { console.error("Trying to subscribe to a Timer's event with an invalid input: ", event); return false; }
-        if (typeof(callback) != "function") { console.error("Trying to subscribe to a Timer's event using an invalid function: ", callback); return false; }
 
-        let _event = this._events.get(event);
+        if (Array.isArray(callbacks)) 
+        {
+            callbacks.forEach(element => {
+                this.subscribe(event, element, ...args);
+            });
+        } else if (typeof(callbacks) != "function") {
 
-        if (_event == undefined) { 
-            this.setupEvent(event);
-            _event = this._events.get(event);
+            let _event = this._events.get(event);
+
+            if (_event == undefined) { 
+                this.setupEvent(event);
+                _event = this._events.get(event);
+            }
+
+            if (!_event?.subscribe(callbacks)) return false;
+            this._subscribers.setKey(_event, callbacks);
+
+            this.publish("EventSubscribed", event, callbacks, ...args);
+
+            return true;
         }
 
-        if (!_event?.subscribe(callback)) return false;
-        this._subscribers.setKey(_event, callback);
-
-        this.publish("EventSubscribed", event, callback, ...args);
-
-        return true;
+        console.error("Trying to subscribe to a Timer's event using an invalid function: ", callbacks);
+        return false;
     }
 
     /**
 	 * Handle unsubscribing from events
 	 * @param  {string} event - The event to unsubscribe from
-	 * @param  {Function} callback - The callback to remove to this event
+	 * @param  {Array<Function> | Function} callbacks - The callbacks to remove from this event
 	 * @param  {any[]} args - Any extra arguments that will be sent to EventUnsubscribed event
 	 */
-    public unsubscribe(event: string, callback: Function, ...args: any[]): boolean {
+    public unsubscribe(event: string, callbacks: Array<Function> | Function, ...args: any[]): boolean {
         if (typeof(event) != "string") { console.error("Trying to subscribe to a Timer's event with an invalid input: ", event); return false; }
-        if (typeof(callback) != "function") { console.error("Trying to subscribe to a Timer's event using an invalid function: ", callback); return false; }
 
-        let _event = this._events.get(event);
-        if (_event == undefined) return false;
-        if (!_event?.unsubscribe(callback)) return false;
+        if (Array.isArray(callbacks)) 
+        {
+            callbacks.forEach(element => {
+                this.unsubscribe(event, element, ...args);
+            });
+        } else if (typeof(callbacks) != "function") {
 
-        this._subscribers.deleteKey(_event, callback);
-        this.publish("EventUnsubscribed", event, callback, ...args);
+            let _event = this._events.get(event);
+            if (_event == undefined) return false;
+            if (!_event?.unsubscribe(callbacks)) return false;
 
-        return true;
+            this._subscribers.deleteKey(_event, callbacks);
+            this.publish("EventUnsubscribed", event, callbacks, ...args);
+
+            return true;
+        }
+
+        console.error("Trying to subscribe to a Timer's event using an invalid function: ", callbacks);
+        return false;
     }
 
     /**
