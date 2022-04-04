@@ -99,7 +99,7 @@ Create a RealtimeTimer
 
 #### Defined in
 
-Timers/ScaledTimer.ts:51
+[Timers/ScaledTimer.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L51)
 
 ## Properties
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-Timers/ScaledTimer.ts:17
+[Timers/ScaledTimer.ts:17](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L17)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-Timers/ScaledTimer.ts:11
+[Timers/ScaledTimer.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L11)
 
 ___
 
@@ -311,7 +311,7 @@ ___
 
 #### Defined in
 
-Timers/ScaledTimer.ts:28
+[Timers/ScaledTimer.ts:28](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L28)
 
 ___
 
@@ -447,7 +447,7 @@ Timer.events
 
 #### Defined in
 
-Timers/ScaledTimer.ts:12
+[Timers/ScaledTimer.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L12)
 
 ___
 
@@ -461,7 +461,7 @@ ___
 
 #### Defined in
 
-Timers/ScaledTimer.ts:18
+[Timers/ScaledTimer.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L18)
 
 • `set` **failCount**(`failCount`): `void`
 
@@ -477,7 +477,7 @@ Timers/ScaledTimer.ts:18
 
 #### Defined in
 
-Timers/ScaledTimer.ts:22
+[Timers/ScaledTimer.ts:22](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L22)
 
 ___
 
@@ -909,7 +909,7 @@ ___
 
 #### Defined in
 
-Timers/ScaledTimer.ts:29
+[Timers/ScaledTimer.ts:29](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L29)
 
 • `set` **timeScalers**(`timeScalers`): `void`
 
@@ -925,7 +925,7 @@ Timers/ScaledTimer.ts:29
 
 #### Defined in
 
-Timers/ScaledTimer.ts:33
+[Timers/ScaledTimer.ts:33](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L33)
 
 ___
 
@@ -1102,7 +1102,7 @@ Handles listening to responses from callbacks to see if this ScaledTimer
 
 #### Defined in
 
-Timers/ScaledTimer.ts:66
+[Timers/ScaledTimer.ts:66](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L66)
 
 ___
 
@@ -1278,4 +1278,4 @@ Handles finding the correct ScaledTime for the current fail rate
 
 #### Defined in
 
-Timers/ScaledTimer.ts:89
+[Timers/ScaledTimer.ts:89](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTimer.ts#L89)

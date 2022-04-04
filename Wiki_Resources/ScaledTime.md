@@ -35,7 +35,7 @@ Create a Scaled Time which stores data for ScaledTimers
 
 #### Defined in
 
-Timers/ScaledTime.ts:31
+[Timers/ScaledTime.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTime.ts#L31)
 
 ## Properties
 
@@ -45,7 +45,7 @@ Timers/ScaledTime.ts:31
 
 #### Defined in
 
-Timers/ScaledTime.ts:16
+[Timers/ScaledTime.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTime.ts#L16)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-Timers/ScaledTime.ts:6
+[Timers/ScaledTime.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTime.ts#L6)
 
 ## Accessors
 
@@ -69,7 +69,7 @@ Timers/ScaledTime.ts:6
 
 #### Defined in
 
-Timers/ScaledTime.ts:17
+[Timers/ScaledTime.ts:17](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTime.ts#L17)
 
 • `set` **interval**(`interval`): `void`
 
@@ -85,7 +85,7 @@ Timers/ScaledTime.ts:17
 
 #### Defined in
 
-Timers/ScaledTime.ts:21
+[Timers/ScaledTime.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTime.ts#L21)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-Timers/ScaledTime.ts:7
+[Timers/ScaledTime.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTime.ts#L7)
 
 • `set` **threshold**(`threshold`): `void`
 
@@ -115,4 +115,4 @@ Timers/ScaledTime.ts:7
 
 #### Defined in
 
-Timers/ScaledTime.ts:11
+[Timers/ScaledTime.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/19d4fab/Code/src/Timers/ScaledTime.ts#L11)
