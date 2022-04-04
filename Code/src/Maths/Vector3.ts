@@ -20,7 +20,7 @@ export class Vector3 extends Vector2 {
 	 * @param  {number} y - The y value to set
 	 * @param  {number} z - The z value to set
 	 */
-	public constructor(x: number, y: number, z: number) {
+	public constructor(x: number = NaN, y: number = NaN, z: number = NaN) {
 		super(x, y);
 		this.z = z;
 	}
@@ -35,6 +35,18 @@ export class Vector3 extends Vector2 {
 	public set(x: number, y: number, z: number = 0): Vector3 {
 		super.set(x, y);
 		this.z = z;
+		return this;
+	}
+
+	/**
+	 * Set this Vector3's values to be the parameter's values and apply the values to this Vector3
+	 * @param  {Vector3} _vector
+	 * @returns {Vector3}
+	 */
+	public setVector3(_vector: Vector3): Vector3 {
+		if (!(_vector instanceof Vector3)) { console.error("Error trying to set a Vector3's values using an invalid Vector3: ", _vector); _vector = new Vector3(NaN,NaN,NaN); }	
+
+		this.set(_vector.x, _vector.y, _vector.z);
 		return this;
 	}
 
@@ -117,18 +129,6 @@ export class Vector3 extends Vector2 {
 	}
 
 	/**
-	 * Set this Vector3's values to be the parameter's values and apply the values to this Vector3
-	 * @param  {Vector3} _vector
-	 * @returns {Vector3}
-	 */
-	public setVector3(_vector: Vector3): Vector3 | null {
-		if (!(_vector instanceof Vector3)) { console.error("Error trying to set a Vector3's values using an invalid Vector3: ", _vector); _vector = new Vector3(NaN,NaN,NaN); }	
-
-		this.set(_vector.x, _vector.y, _vector.z);
-		return this;
-	}
-
-	/**
 	 * Returns a new Vector3 with the same values as this Vector3
 	 * @returns {Vector3}
 	 */
@@ -181,23 +181,45 @@ export class Vector3 extends Vector2 {
 	}
 
 	/**
-	 * Calcualte the scaled value of a Vector3 and return the result in a new Vector3
+	 * Calcualte the multiplied value of a Vector3 and return the result in a new Vector3
 	 * @param  {number} _scalar
 	 * @returns {Vector3}
 	 */
-	public scale(_scalar: number): Vector3 {
-		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate scaled vector using an invalid scaler: ", _scalar); _scalar = NaN }	
+	public multiply(_scalar: number): Vector3 {
+		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate multiplied vector using an invalid scaler: ", _scalar); _scalar = NaN }	
 		return new Vector3(this.x * _scalar, this.y * _scalar, this.z * _scalar);
 	}
 
 	/**
-	 * Calcualte the scaled value of a Vector3 and apply the values to this Vector3
+	 * Calcualte the multiplied value of a Vector3 and apply the values to this Vector3
 	 * @param  {number} _scalar
 	 * @returns {Vector3}
 	 */
-	public Scale(_scalar: number): Vector3 {
-		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate scaled vector using an invalid scaler: ", _scalar); _scalar = NaN }		
+	public Multiply(_scalar: number): Vector3 {
+		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate multiplied vector using an invalid scaler: ", _scalar); _scalar = NaN }		
 		this.set(this.x * _scalar, this.y * _scalar, this.z * _scalar);
+
+		return this;
+	}
+
+	/**
+	 * Calcualte the divided value of a Vector3 and return the result in a new Vector3
+	 * @param  {number} _scalar
+	 * @returns {Vector3}
+	 */
+	 public divide(_scalar: number): Vector3 {
+		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate divided vector using an invalid scaler: ", _scalar); _scalar = NaN }	
+		return new Vector3(this.x / _scalar, this.y / _scalar, this.z / _scalar);
+	}
+
+	/**
+	 * Calcualte the divided value of a Vector3 and apply the values to this Vector3
+	 * @param  {number} _scalar
+	 * @returns {Vector3}
+	 */
+	public Divide(_scalar: number): Vector3 {
+		if (typeof(_scalar) != "number" || isNaN(_scalar)) { console.error("Error trying to calculate divided vector using an invalid scaler: ", _scalar); _scalar = NaN }		
+		this.set(this.x / _scalar, this.y / _scalar, this.z / _scalar);
 
 		return this;
 	}
