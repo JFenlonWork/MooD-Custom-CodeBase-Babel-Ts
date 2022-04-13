@@ -1,15 +1,15 @@
 import "jasmine";
 import { Vector2 } from "../../../../Code/src/Maths/Vector2";
 import { Vector3 } from "../../../../Code/src/Maths/Vector3";
-
-//Create a random variable between 0 and x
-function random(x: number): number {
-    return Math.floor(Math.random() * x);
-}
+import { random } from "../../helpers/spec helpers";
 
 let x = random(100), y = random(100), z = random(100), x2 = random(100), y2 = random(100), z2 = random(100);
 
 describe("Vector3", () => {
+    
+    beforeEach(() => {
+        x = random(100), y = random(100), z = random(100), x2 = random(100), y2 = random(100), z2 = random(100);
+    });
 
     it("should be able to create a new vector", () => {
         // arrange
