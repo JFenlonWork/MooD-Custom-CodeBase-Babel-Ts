@@ -39,6 +39,19 @@ import { Vector2 } from "./Vector2";
     }
 
     /**
+	 * Calculate if otherBounds is overlapping areaBounds
+	 * @param  {Bounds} areaBounds
+	 * @param  {Bounds} otherBounds
+	 * @returns {boolean}
+	 */
+    public static checkAreaOverlapArea(areaBounds: Bounds, otherBounds: Bounds): boolean {
+        if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if an area is within bounds with invalid area bounds: ", areaBounds); return false; }
+        if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) { console.error("Error trying to calculate if an area is within bounds with invalid other bounds: ", otherBounds); return false; }	
+
+        return Collision.checkAreaWithinArea(otherBounds, areaBounds);
+    }
+
+    /**
 	 * Calculate if otherBounds is intersects areaBounds
 	 * @param  {Bounds} areaBounds
 	 * @param  {Bounds} otherBounds
@@ -48,10 +61,19 @@ import { Vector2 } from "./Vector2";
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if an area is intersecting bounds with invalid area bounds: ", areaBounds); return false; }
         if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) { console.error("Error trying to calculate if an area is intersecting bounds with invalid other bounds: ", otherBounds); return false; }	
 
+        //Check if any otherBounds corners are within areaBounds
         if (this.checkPointWithinArea(areaBounds, otherBounds.topLeft) ||  
             this.checkPointWithinArea(areaBounds, otherBounds.topRight) ||  
             this.checkPointWithinArea(areaBounds, otherBounds.bottomRight) || 
             this.checkPointWithinArea(areaBounds, otherBounds.bottomLeft)) {
+                return true;
+        }
+
+        //Check if any areaBounds corners are within otherBounds
+        if (this.checkPointWithinArea(otherBounds, areaBounds.topLeft) ||  
+            this.checkPointWithinArea(otherBounds, areaBounds.topRight) ||  
+            this.checkPointWithinArea(otherBounds, areaBounds.bottomRight) || 
+            this.checkPointWithinArea(otherBounds, areaBounds.bottomLeft)) {
                 return true;
         }
 
@@ -97,6 +119,32 @@ import { Vector2 } from "./Vector2";
             let otherBounds: Bounds = Bounds.fromObject(dom);
 
             if (this.checkAreaWithinArea(areaBounds, otherBounds)) {
+                ret.push({
+                    object: dom,
+                    bounds: otherBounds
+                });
+            }
+        });
+
+        return ret;
+    }
+
+    /**
+	 * Calculate if objects are overlapping areaBounds
+	 * @param  {Bounds} areaBounds
+	 * @param  {HTMLElement | HTMLElement[]} objects
+	 * @returns {object[]}
+	 */
+    public static returnObjectsOverlapArea(areaBounds: Bounds, objects: HTMLElement | HTMLElement[]): object[] {
+        if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if objects are within bounds with invalid area bounds: ", areaBounds); return []; }
+        if (!(objects instanceof HTMLElement || Array.isArray(objects))) { console.error("Error trying to calculate if objects are within bounds with invalid objects: ", objects); return []; }	
+        let ret: object[] = [];
+
+        let objectsArray: HTMLElement[] = objects instanceof HTMLElement ? [objects] : objects;
+        objectsArray.forEach(dom => {
+            let otherBounds: Bounds = Bounds.fromObject(dom);
+
+            if (this.checkAreaOverlapArea(areaBounds, otherBounds)) {
                 ret.push({
                     object: dom,
                     bounds: otherBounds

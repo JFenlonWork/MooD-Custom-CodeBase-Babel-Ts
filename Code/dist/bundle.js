@@ -2526,6 +2526,28 @@ var Collision = /*#__PURE__*/function () {
       return this.checkPointWithinArea(areaBounds, otherBounds.topLeft) && this.checkPointWithinArea(areaBounds, otherBounds.topRight) && this.checkPointWithinArea(areaBounds, otherBounds.bottomRight) && this.checkPointWithinArea(areaBounds, otherBounds.bottomLeft);
     }
     /**
+    * Calculate if otherBounds is overlapping areaBounds
+    * @param  {Bounds} areaBounds
+    * @param  {Bounds} otherBounds
+    * @returns {boolean}
+    */
+
+  }, {
+    key: "checkAreaOverlapArea",
+    value: function checkAreaOverlapArea(areaBounds, otherBounds) {
+      if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) {
+        console.error("Error trying to calculate if an area is within bounds with invalid area bounds: ", areaBounds);
+        return false;
+      }
+
+      if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) {
+        console.error("Error trying to calculate if an area is within bounds with invalid other bounds: ", otherBounds);
+        return false;
+      }
+
+      return Collision.checkAreaWithinArea(otherBounds, areaBounds);
+    }
+    /**
     * Calculate if otherBounds is intersects areaBounds
     * @param  {Bounds} areaBounds
     * @param  {Bounds} otherBounds
@@ -2543,9 +2565,15 @@ var Collision = /*#__PURE__*/function () {
       if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) {
         console.error("Error trying to calculate if an area is intersecting bounds with invalid other bounds: ", otherBounds);
         return false;
-      }
+      } //Check if any otherBounds corners are within areaBounds
+
 
       if (this.checkPointWithinArea(areaBounds, otherBounds.topLeft) || this.checkPointWithinArea(areaBounds, otherBounds.topRight) || this.checkPointWithinArea(areaBounds, otherBounds.bottomRight) || this.checkPointWithinArea(areaBounds, otherBounds.bottomLeft)) {
+        return true;
+      } //Check if any areaBounds corners are within otherBounds
+
+
+      if (this.checkPointWithinArea(otherBounds, areaBounds.topLeft) || this.checkPointWithinArea(otherBounds, areaBounds.topRight) || this.checkPointWithinArea(otherBounds, areaBounds.bottomRight) || this.checkPointWithinArea(otherBounds, areaBounds.bottomLeft)) {
         return true;
       }
 
@@ -2596,15 +2624,15 @@ var Collision = /*#__PURE__*/function () {
       return ret;
     }
     /**
-    * Calculate if objects are intersecting areaBounds
+    * Calculate if objects are overlapping areaBounds
     * @param  {Bounds} areaBounds
     * @param  {HTMLElement | HTMLElement[]} objects
     * @returns {object[]}
     */
 
   }, {
-    key: "returnObjectsIntersectArea",
-    value: function returnObjectsIntersectArea(areaBounds, objects) {
+    key: "returnObjectsOverlapArea",
+    value: function returnObjectsOverlapArea(areaBounds, objects) {
       var _this2 = this;
 
       if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) {
@@ -2622,7 +2650,43 @@ var Collision = /*#__PURE__*/function () {
       objectsArray.forEach(function (dom) {
         var otherBounds = Bounds.fromObject(dom);
 
-        if (_this2.checkAreaIntersectsArea(areaBounds, otherBounds)) {
+        if (_this2.checkAreaOverlapArea(areaBounds, otherBounds)) {
+          ret.push({
+            object: dom,
+            bounds: otherBounds
+          });
+        }
+      });
+      return ret;
+    }
+    /**
+    * Calculate if objects are intersecting areaBounds
+    * @param  {Bounds} areaBounds
+    * @param  {HTMLElement | HTMLElement[]} objects
+    * @returns {object[]}
+    */
+
+  }, {
+    key: "returnObjectsIntersectArea",
+    value: function returnObjectsIntersectArea(areaBounds, objects) {
+      var _this3 = this;
+
+      if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) {
+        console.error("Error trying to calculate if objects are within bounds with invalid area bounds: ", areaBounds);
+        return [];
+      }
+
+      if (!(objects instanceof HTMLElement || Array.isArray(objects))) {
+        console.error("Error trying to calculate if objects are within bounds with invalid objects: ", objects);
+        return [];
+      }
+
+      var ret = [];
+      var objectsArray = objects instanceof HTMLElement ? [objects] : objects;
+      objectsArray.forEach(function (dom) {
+        var otherBounds = Bounds.fromObject(dom);
+
+        if (_this3.checkAreaIntersectsArea(areaBounds, otherBounds)) {
           ret.push({
             object: dom,
             bounds: otherBounds
