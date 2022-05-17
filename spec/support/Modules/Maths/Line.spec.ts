@@ -1,9 +1,9 @@
-import "jasmine";
-import { Vector2 } from "../../../../Code/src/Maths/Vector2";
-import { Vector4 } from "../../../../Code/src/Maths/Vector4";
-import { Line } from "../../../../Code/src/Maths/Line";
-import { random } from "../../helpers/spec helpers";
-import { Generic } from "../../../../Code/src/Maths/Generic";
+import { random } from "../../Helpers/spec_helper";
+
+import { Generic } from "@code/Maths/Generic";
+import { Line } from "@code/Maths/Line";
+import { Vector2 } from "@code/Maths/Vector2";
+import { Vector4 } from "@code/Maths/Vector4";
 
 let x1 = random(100), y1 = random(100), x2 = random(100), y2 = random(100), x3 = random(100), y3 = random(100), x4 = random(100), y4 = random(100);
 

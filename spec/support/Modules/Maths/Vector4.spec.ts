@@ -1,8 +1,8 @@
-import "jasmine";
-import { Vector2 } from "../../../../Code/src/Maths/Vector2";
-import { Vector3 } from "../../../../Code/src/Maths/Vector3";
-import { Vector4 } from "../../../../Code/src/Maths/Vector4";
-import { random } from "../../helpers/spec helpers";
+import { random } from "../../Helpers/spec_helper";
+
+import { Vector2 } from "@code/Maths/Vector2";
+import { Vector3 } from "@code/Maths/Vector3";
+import { Vector4 } from "@code/Maths/Vector4";
 
 let x = random(100), y = random(100), z = random(100), w = random(100), x2 = random(100), y2 = random(100), z2 = random(100), w2 = random(100);
 

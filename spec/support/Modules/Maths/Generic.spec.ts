@@ -1,6 +1,6 @@
-import "jasmine";
-import { random } from "../../helpers/spec helpers";
-import { Generic } from "../../../../Code/src/Maths/Generic";
+import { random } from "../../Helpers/spec_helper";
+
+import { Generic } from "@code/Maths/Generic";
 
 let x = random(100);
 

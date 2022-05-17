@@ -1,39 +1,53 @@
-import "jasmine";
-import { random } from "../../helpers/spec helpers";
+import { random } from "../../Helpers/spec_helper";
 
-import { Collision } from "../../../../Code/src/Maths/Collision";
-import { Bounds } from "../../../../Code/src/Maths/Bounds";
-import { Vector2 } from "../../../../Code/src/Maths/Vector2";
+import { Collision } from "@code/Maths/Collision";
+import { Bounds } from "@code/Maths/Bounds";
+import { Vector2 } from "@code/Maths/Vector2";
 
-let x1 = random(100), y1 = random(100), x2 = x1 + 10 + random(100), y2 = y1 + 10 + random(100);
+let x1 = 1 + random(100), y1 = 1 + random(100), x2 = x1 + 10 + random(100), y2 = y1 + 10 + random(100);
 let areaBounds = new Bounds(x1, y1, x2, y2);
 let insideBounds = new Bounds(x1 + 5, y1 + 5, x2 - 5, y2 - 5);
 let outsideBounds = new Bounds(x1 - 5, y1 - 5, x2 + 5, y2 + 5);
-let intersectBounds = new Bounds(x1 - 5, (y1 + y2) / 2, x1 + 5, (y1 + y2) / 2);
+let intersectBounds = new Bounds(x1 - 5, (y1 + y2) / 2 - 1, x1 + 5, (y1 + y2) / 2 + 1);
 
-let insideObject: HTMLElement = document.createElement("div");
+let insideObject = document.createElement("div");
+insideObject.style.position = "absolute";
 insideObject.style.left = insideBounds.x1 + "px";
 insideObject.style.top = insideBounds.y1 + "px";
-insideObject.style.right = insideBounds.x2 + "px";
-insideObject.style.bottom = insideBounds.y2 + "px";
+insideObject.style.width = insideBounds.x2 - insideBounds.x1 + "px";
+insideObject.style.height = insideBounds.y2 - insideBounds.y1 + "px";
 
-let outsideObject: HTMLElement = document.createElement("div");
+let outsideObject = document.createElement("div");
+outsideObject.style.position = "absolute";
 outsideObject.style.left = outsideBounds.x1 + "px";
 outsideObject.style.top = outsideBounds.y1 + "px";
-outsideObject.style.right = outsideBounds.x2 + "px";
-outsideObject.style.bottom = outsideBounds.y2 + "px";
+outsideObject.style.width = outsideBounds.x2 - outsideBounds.x1 + "px";
+outsideObject.style.height = outsideBounds.y2 - outsideBounds.y1 + "px";
 
-let intersectObject: HTMLElement = document.createElement("div");
-outsideObject.style.left = outsideBounds.x1 + "px";
-outsideObject.style.top = outsideBounds.y1 + "px";
-outsideObject.style.right = outsideBounds.x2 + "px";
-outsideObject.style.bottom = outsideBounds.y2 + "px";
+let intersectObject = document.createElement("div");
+intersectObject.style.position = "absolute";
+intersectObject.style.left = intersectBounds.x1 + "px";
+intersectObject.style.top = intersectBounds.y1 + "px";
+intersectObject.style.width = intersectBounds.x2 - intersectBounds.x1 + "px";
+intersectObject.style.height = intersectBounds.y2 - intersectBounds.y1 + "px";
 
 describe("Collision", () => {
 
+    beforeAll(() => {
+        document.body.appendChild(insideObject);
+        document.body.appendChild(outsideObject);
+        document.body.appendChild(intersectObject);
+    });
+
+    afterAll(() => {
+        document.body.removeChild(insideObject);
+        document.body.removeChild(outsideObject);
+        document.body.removeChild(intersectObject);
+    });
+
     it("Should test if a vector2 point is within a bounds", () => {
         //  act
-        let result = Collision.checkPointWithinArea(areaBounds, new Vector2(50, 50));
+        let result = Collision.checkPointWithinArea(areaBounds, new Vector2((x1 + x2) / 2, (y1 + y2) / 2));
 
         //  arrange
         expect(result).toBe(true);
