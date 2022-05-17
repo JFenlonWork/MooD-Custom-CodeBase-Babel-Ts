@@ -10,9 +10,10 @@ Class representing all position based functions needed for math calculations.
 
 ### Methods
 
-- [applyPageViewportOffsetFromPage](../wiki/Positioning#applypageviewportoffsetfrompage)
+- [addPageViewportOffsetFromPage](../wiki/Positioning#addpageviewportoffsetfrompage)
 - [getCoords](../wiki/Positioning#getcoords)
 - [getPageViewportOffsetFromPage](../wiki/Positioning#getpageviewportoffsetfrompage)
+- [subtractPageViewportOffsetFromPage](../wiki/Positioning#subtractpageviewportoffsetfrompage)
 - [translateCssSizes](../wiki/Positioning#translatecsssizes)
 
 ## Constructors
@@ -23,11 +24,11 @@ Class representing all position based functions needed for math calculations.
 
 ## Methods
 
-### applyPageViewportOffsetFromPage
+### addPageViewportOffsetFromPage
 
-▸ `Static` **applyPageViewportOffsetFromPage**(`_vector`): `void`
+▸ `Static` **addPageViewportOffsetFromPage**(`_vector`): `void`
 
-Apply viewport offset to a vector
+Apply viewport offset to a vector to return coordinates in viewport space
 
 #### Parameters
 
@@ -41,7 +42,7 @@ Apply viewport offset to a vector
 
 #### Defined in
 
-[Maths/Positioning.ts:24](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Maths/Positioning.ts#L24)
+[Maths/Positioning.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Maths/Positioning.ts#L23)
 
 ___
 
@@ -56,7 +57,7 @@ Calculate coordinates of object
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `_object` | `HTMLElement` | `undefined` | The object to calculate the coordinates for |
-| `_relativeTo` | `HTMLElement` \| `Document` | `document` | - |
+| `_relativeTo` | ``null`` \| `HTMLElement` \| `Document` | `document` | - |
 
 #### Returns
 
@@ -64,7 +65,7 @@ Calculate coordinates of object
 
 #### Defined in
 
-[Maths/Positioning.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Maths/Positioning.ts#L34)
+[Maths/Positioning.ts:41](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Maths/Positioning.ts#L41)
 
 ___
 
@@ -80,7 +81,29 @@ Calculate viewport offset from document origin
 
 #### Defined in
 
-[Maths/Positioning.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Maths/Positioning.ts#L11)
+[Maths/Positioning.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Maths/Positioning.ts#L11)
+
+___
+
+### subtractPageViewportOffsetFromPage
+
+▸ `Static` **subtractPageViewportOffsetFromPage**(`_vector`): `void`
+
+Subtract viewport offset to a vector to return relative coordinates to the document origin
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `_vector` | [`Vector2`](../wiki/Vector2) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[Maths/Positioning.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Maths/Positioning.ts#L31)
 
 ___
 
@@ -96,7 +119,7 @@ Calculate sizes of computed style
 | :------ | :------ | :------ |
 | `_object` | `HTMLElement` | The object to calculate the size on |
 | `_css` | `string` | The CSS attribute |
-| `_computedStyle?` | `CSSStyleDeclaration` | - |
+| `_computedStyle?` | `CSSStyleDeclaration` | The style of the DOM element |
 
 #### Returns
 
@@ -104,4 +127,4 @@ Calculate sizes of computed style
 
 #### Defined in
 
-[Maths/Positioning.ts:76](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Maths/Positioning.ts#L76)
+[Maths/Positioning.ts:84](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Maths/Positioning.ts#L84)
