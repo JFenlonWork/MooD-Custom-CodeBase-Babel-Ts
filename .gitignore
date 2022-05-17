@@ -1,3 +1,5 @@
 MooD-Custom-CodeBase-Babel-Ts.wiki/
 Code/js
+spec/support/jasmineTestBundle.js
 node_modules/
+coverage/
