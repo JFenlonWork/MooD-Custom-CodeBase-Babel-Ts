@@ -17,31 +17,42 @@ export class Positioning {
     }
 
     /**
-	 * Apply viewport offset to a vector
+	 * Apply viewport offset to a vector to return coordinates in viewport space
 	 * @param  {Vector2} _vector
-	 * @returns {Vector2}
 	 */
-    public static applyPageViewportOffsetFromPage(_vector: Vector2) {
+    public static addPageViewportOffsetFromPage(_vector: Vector2) {
         _vector.Add(Positioning.getPageViewportOffsetFromPage());
+    }
+
+    /**
+	 * Subtract viewport offset to a vector to return relative coordinates to the document origin
+	 * @param  {Vector2} _vector
+	 */
+    public static subtractPageViewportOffsetFromPage(_vector: Vector2) {
+        _vector.Subtract(Positioning.getPageViewportOffsetFromPage());
     }
 
     /**
 	 * Calculate coordinates of object
 	 * @param  {HTMLElement} _object - The object to calculate the coordinates for
-	 * @param  {HTMLElement | string} _relative - The object or "screen" to calculate the coordinates relative to
+	 * @param  {Document | HTMLElement | null} _relative - The object or "screen"(null) to calculate the coordinates relative to
 	 * @returns {Vector2}
 	 */
-    public static getCoords(_object: HTMLElement, _relativeTo: Document | HTMLElement = document): Vector2 {
+    public static getCoords(_object: HTMLElement, _relativeTo: Document | HTMLElement | null = document): Vector2 {
 		if (_object == null) { console.error("Error trying to calculate coordinates with invalid object: ", _object); return new Vector2(NaN,NaN) }
 
         let ret = new Vector2(NaN,NaN);
 
-        if (_relativeTo == null) {
+        if (_relativeTo == null || _relativeTo == document) {
             let box = _object.getBoundingClientRect();
 
             ret.x = box.left;
             ret.y = box.top;
-        } else {
+            
+            if (_relativeTo == document) this.subtractPageViewportOffsetFromPage(ret);
+        } 
+        else 
+        {
             if (_relativeTo === _object.offsetParent) {
                 ret.x = _object.offsetLeft;
                 ret.y = _object.offsetTop;
@@ -53,14 +64,10 @@ export class Positioning {
                 ret.y = box.top;
 
                 //if relative to exists then calculate offset from that
-                if (_relativeTo !== document) {
-                    let otherBox = (_relativeTo as HTMLElement).getBoundingClientRect();
+                let otherBox = (_relativeTo as HTMLElement).getBoundingClientRect();
 
-                    ret.x -= otherBox.left;
-                    ret.y -= otherBox.top;
-                }
-
-                this.applyPageViewportOffsetFromPage(ret);
+                ret.x -= otherBox.left;
+                ret.y -= otherBox.top;
             }
         }
 
@@ -71,6 +78,7 @@ export class Positioning {
 	 * Calculate sizes of computed style
 	 * @param  {HTMLElement} _object - The object to calculate the size on
 	 * @param  {string} _css - The CSS attribute 
+	 * @param  {CSSStyleDeclaration} _computedStyle - The style of the DOM element 
 	 * @returns {number}
 	 */
     public static translateCssSizes(_object: HTMLElement, _css: string, _computedStyle?: CSSStyleDeclaration): number {
@@ -82,11 +90,11 @@ export class Positioning {
 
         switch(computedStyle[key]) {
             case "thin":
-                return 2;
+                return 1;
             case "medium":
-                return 4;
+                return 3;
             case "thick":
-                return 6;
+                return 5;
             case "auto":
                 return 0;
             case "inherit":
