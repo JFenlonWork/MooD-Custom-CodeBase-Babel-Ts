@@ -6,6 +6,16 @@ import { Vector4 } from "./Vector4";
  */
  export class Bounds {
 
+	//** Whether the bounds has it's Y values flipped to account for web origin*/
+	private _webFormat: boolean = false;
+	public get webFormat(): boolean {
+		return this._webFormat;
+	}
+
+	private set webFormat(isWebFormat: boolean) {
+		this._webFormat = isWebFormat;
+	}
+
     private _x1: number = NaN;
 	public get x1(): number {
 		return this._x1;
@@ -26,7 +36,6 @@ import { Vector4 } from "./Vector4";
 			this.bottomLeft.x = value;
 		}
 		this.size.x = this.topRight.x - this.topLeft.x;
-		this.size.y =  this.topRight.y - this.bottomRight.y;
 	}
 
     private _y1: number = NaN;
@@ -37,7 +46,7 @@ import { Vector4 } from "./Vector4";
 	public set y1(value: number) {
 		if (typeof(value) != "number") { console.error("Error trying to set a Bounds's y1 value using an invalid input: ", value); value = NaN }	
 		this._y1 = value;
-        if (value > this.y2) {
+        if (this.webFormat == true ? value < this.y2 : value > this.y2) {
 			this.topLeft.y = value;
 			this.topRight.y = value;
 			this.bottomLeft.y = this.y2;
@@ -48,8 +57,7 @@ import { Vector4 } from "./Vector4";
 			this.bottomLeft.y = value;
 			this.bottomRight.y = value;
 		}
-		this.size.x = this.topRight.x - this.topLeft.x;
-		this.size.y =  this.topRight.y - this.bottomRight.y;
+		this.size.y = this.webFormat == true ? this.bottomRight.y - this.topRight.y : this.topRight.y - this.bottomRight.y;
 	}
 
     private _x2: number = NaN;
@@ -72,7 +80,6 @@ import { Vector4 } from "./Vector4";
 			this.bottomLeft.x = value;
 		}
 		this.size.x = this.topRight.x - this.topLeft.x;
-		this.size.y =  this.topRight.y - this.bottomRight.y;
 	}
 	
     private _y2: number = NaN;
@@ -83,7 +90,7 @@ import { Vector4 } from "./Vector4";
 	public set y2(value: number) {
 		if (typeof(value) != "number") { console.error("Error trying to set a Bounds's y2 value using an invalid input: ", value); value = NaN }	
 		this._y2 = value;
-        if (value > this.y1) {
+        if (this.webFormat == true ? value < this.y1 : value > this.y1) {
 			this.topLeft.y = value;
 			this.topRight.y = value;
 			this.bottomLeft.y = this.y1;
@@ -94,8 +101,7 @@ import { Vector4 } from "./Vector4";
 			this.bottomLeft.y = value;
 			this.bottomRight.y = value;
 		}
-		this.size.x = this.topRight.x - this.topLeft.x;
-		this.size.y =  this.topRight.y - this.bottomRight.y;
+		this.size.y = this.webFormat == true ? this.bottomRight.y - this.topRight.y : this.topRight.y - this.bottomRight.y;
 	}
 	
 	//** The minimum x and y point*/
@@ -154,8 +160,10 @@ import { Vector4 } from "./Vector4";
 	 * @param  {number} y1 - The first point y value to set
 	 * @param  {number} x2 - The second point x value to set
 	 * @param  {number} y2 - The second point y value to set
+	 * @param  {boolean} isWebFormat - If this bounds is in web format (Y's are flipped)
 	 */
-	public constructor(x1: number, y1: number, x2: number, y2: number) {
+	public constructor(x1: number, y1: number, x2: number, y2: number, isWebFormat: boolean = false) {
+		this.webFormat = isWebFormat;
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
@@ -168,9 +176,11 @@ import { Vector4 } from "./Vector4";
 	 * @param  {number} y1 - The y1 value to set
 	 * @param  {number} y2 - The x2 value to set
 	 * @param  {number} y2 - The y2 value to set
+	 * @param  {boolean} isWebFormat - If this bounds is in web format (Y's are flipped)
 	 * @returns {Bounds}
 	 */
-	 public set(x1: number, y1: number, x2: number, y2: number): Bounds {
+	 public set(x1: number, y1: number, x2: number, y2: number, isWebFormat: boolean = this.webFormat): Bounds {
+		this.webFormat = isWebFormat;
 		this.x1 = x1;
 		this.y1 = y1;
 		this.x2 = x2;
@@ -255,7 +265,8 @@ import { Vector4 } from "./Vector4";
 	 */
     public add(_bounds: Bounds): Bounds {
         if (!(_bounds instanceof Bounds)) { console.error("Error trying to add to a Bounds's values using an invalid Bound"); _bounds = new Bounds(NaN,NaN,NaN,NaN); }	
-        return new Bounds(this.x1 + _bounds.x1, this.y1 + _bounds.y1, this.x2 + _bounds.x2, this.y2 + _bounds.y2);
+		if (_bounds.webFormat != this.webFormat) { console.error("Error trying to add to a Bounds's values when the formats are different, Web vs Non-Web ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }
+        return new Bounds(this.x1 + _bounds.x1, this.y1 + _bounds.y1, this.x2 + _bounds.x2, this.y2 + _bounds.y2, this.webFormat);
     }
 
     /**
@@ -265,6 +276,7 @@ import { Vector4 } from "./Vector4";
 	 */
     public Add(_bounds: Bounds): Bounds {
         if (!(_bounds instanceof Bounds)) { console.error("Error trying to add to a Bounds's values using an invalid Bound: ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }	
+		if (_bounds.webFormat != this.webFormat) { console.error("Error trying to add to a Bounds's values when the formats are different, Web vs Non-Web ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }
 		this.set(this.x1 + _bounds.x1, this.y1 + _bounds.y1, this.x2 + _bounds.x2, this.y2 + _bounds.y2);
         return this;
     }
@@ -275,8 +287,9 @@ import { Vector4 } from "./Vector4";
 	 * @returns {Bounds}
 	 */
     public subtract(_bounds: Bounds): Bounds {
-        if (!(_bounds instanceof Bounds)) { console.error("Error trying to subtract from a Bounds's values using an invalid Bound: ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }	
-        return new Bounds(this.x1 - _bounds.x1, this.y1 - _bounds.y1, this.x2 - _bounds.x2, this.y2 - _bounds.y2);
+        if (!(_bounds instanceof Bounds)) { console.error("Error trying to subtract from a Bounds's values using an invalid Bound: ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }
+		if (_bounds.webFormat != this.webFormat) { console.error("Error trying to subtract from a Bounds's values when the formats are different, Web vs Non-Web ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }
+        return new Bounds(this.x1 - _bounds.x1, this.y1 - _bounds.y1, this.x2 - _bounds.x2, this.y2 - _bounds.y2, this.webFormat);
     }
 
     /**
@@ -286,6 +299,7 @@ import { Vector4 } from "./Vector4";
 	 */
     public Subtract(_bounds: Bounds): Bounds {
         if (!(_bounds instanceof Bounds)) { console.error("Error trying to subtract from a Bounds's values using an invalid Bound: ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }
+		if (_bounds.webFormat != this.webFormat) { console.error("Error trying to subtract from a Bounds's values when the formats are different, Web vs Non-Web ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }
 		this.set(this.x1 - _bounds.x1, this.y1 - _bounds.y1, this.x2 - _bounds.x2, this.y2 - _bounds.y2);
         return this;
     }
@@ -297,7 +311,7 @@ import { Vector4 } from "./Vector4";
 	 */
 	public scale(_scalar: number): Bounds {
 		if (typeof(_scalar) != "number"  || isNaN(_scalar)) { console.error("Error trying to calculate scaled Bounds using an invalid scaler: ", {_scalar}); _scalar = NaN }	
-		return new Bounds(this.x1 * _scalar, this.y1 * _scalar, this.x2 * _scalar, this.y2 * _scalar);
+		return new Bounds(this.x1 * _scalar, this.y1 * _scalar, this.x2 * _scalar, this.y2 * _scalar, this.webFormat);
 	}
 
 	/**
@@ -318,8 +332,9 @@ import { Vector4 } from "./Vector4";
 	 * @returns {Bounds}
 	 */
 	public dot(_bounds: Bounds): Bounds {
-		if (!(_bounds instanceof Bounds)) { console.error("Error trying to calculate dot product using an invalid Bounds: ", {_bounds}); return new Bounds(NaN,NaN,NaN,NaN); }	
-		return new Bounds(this.x1 * _bounds.x1, this.y1 * _bounds.y1, this.x2 * _bounds.x2, this.y2 * _bounds.y2);
+		if (!(_bounds instanceof Bounds)) { console.error("Error trying to calculate dot product using an invalid Bounds: ", {_bounds}); return new Bounds(NaN,NaN,NaN,NaN); }
+		if (_bounds.webFormat != this.webFormat) { console.error("Error trying to calculate dot product when the formats are different, Web vs Non-Web ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }	
+		return new Bounds(this.x1 * _bounds.x1, this.y1 * _bounds.y1, this.x2 * _bounds.x2, this.y2 * _bounds.y2, this.webFormat);
 	}
 
 	/**
@@ -329,6 +344,7 @@ import { Vector4 } from "./Vector4";
 	 */
 	public Dot(_bounds: Bounds): Bounds {
 		if (!(_bounds instanceof Bounds)) { console.error("Error trying to calculate dot product using an invalid Bounds", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }	
+		if (_bounds.webFormat != this.webFormat) { console.error("Error trying to calculate dot product when the formats are different, Web vs Non-Web ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }	
 		this.set(this.x1 * _bounds.x1, this.y1 * _bounds.y1, this.x2 * _bounds.x2, this.y2 * _bounds.y2);
 
 		return this;
@@ -356,14 +372,52 @@ import { Vector4 } from "./Vector4";
         return new Bounds(_vector.x, _vector.y, _vector.z, _vector.w);
     }
 
+	/**
+	 * Returns a new Bounds that has it's Y's respective of origin in bottom left
+	 * @returns {Bounds}
+	 */
+	public convertFromWeb(): Bounds {
+		if (!this.webFormat) return this;
+		return new Bounds(this.x1, this.y2, this.x2, this.y1);
+	}
+
+	/**
+	 * Returns a this bound with it's Y's respective of origin in bottom left
+	 * @returns {Bounds}
+	 */
+	 public ConvertFromWeb(): Bounds {
+		if (!this.webFormat) return this;
+		this.webFormat = false;
+		return this.set(this.x1, this.y2, this.x2, this.y1);
+	}
+
+	/**
+	 * Returns a new Bounds that has it's Y's respective of origin in top left
+	 * @returns {Bounds}
+	 */
+	public convertToWeb(): Bounds {
+		if (this.webFormat) return this;
+		return new Bounds(this.x1, this.y2, this.x2, this.y1, true);
+	}
+
+	/**
+	 * Returns this bound with it's Y's respective of origin in top left
+	 * @returns {Bounds}
+	 */
+	 public ConvertToWeb(): Bounds {
+		if (this.webFormat) return this;
+		this.webFormat = true;
+		return this.set(this.x1, this.y2, this.x2, this.y1);
+	}
+
     /**
 	 * Create a bounds from a set of HTML DOMs
 	 * @param  {HTMLElement | string} _objects - A DOM or JQUERY string to use to create a Bounds
-	 * @param  {HTMLElement} _relative - Determines if the Bounds should be created in relation to another object
+	 * @param  {HTMLElement | Document | null} _relative - Determines if the Bounds should be created in relation to another object
 	 * @param  {string[]} _includeChildren - An array of strings that are used to include children DOMs of the _objects
 	 * @returns {Bounds | null}
 	 */
-	public static fromObject(_object: HTMLElement | string, _relative: HTMLElement | Document = document, _includeChildren?: string[]): Bounds {
+	public static fromObject(_object: HTMLElement | String, _relative: HTMLElement | Document | null = document, _includeChildren?: string[]): Bounds {
 		if (_object == null) { console.error("Error trying to generate bounds fromObject with invalid object: ", _object); return new Bounds(NaN,NaN,NaN,NaN) }
 
 		let _objectBounds = {
@@ -373,27 +427,27 @@ import { Vector4 } from "./Vector4";
 			bottom: NaN
 		}
 
-		let _objectJQuery: JQuery<HTMLElement> = $(_object);
+		let _objectJQuery: JQuery<HTMLElement> = $(_object) as JQuery<HTMLElement>;
 
 		//Calculate bounds of object as long as it isn't hidden
 		if (_objectJQuery.attr("type") !== "hidden" && _objectJQuery.attr("display") !== "hidden") {
 			let dom: HTMLElement = _objectJQuery[0];
+			let boundingRect : DOMRect = dom.getBoundingClientRect();
+
 			let _position = Positioning.getCoords(dom, _relative);
 
 			let _computedStyle = window.getComputedStyle(dom);
-			let height = dom.clientHeight;
+			let height = boundingRect.height;
 
+			_objectBounds.top -= Positioning.translateCssSizes(dom, "marginTop", _computedStyle);
 			height += Positioning.translateCssSizes(dom, "marginTop", _computedStyle);
 			height += Positioning.translateCssSizes(dom, "marginBottom", _computedStyle);
-			height += Positioning.translateCssSizes(dom, "borderTopWidth", _computedStyle);
-			height += Positioning.translateCssSizes(dom, "borderBottomWidth", _computedStyle);
 
-			let width = _objectJQuery[0].clientWidth;
+			let width = boundingRect.width;
 			
+			_position.x -= Positioning.translateCssSizes(dom, "marginLeft", _computedStyle);
 			width += Positioning.translateCssSizes(dom, "marginLeft", _computedStyle);
 			width += Positioning.translateCssSizes(dom, "marginRight", _computedStyle);
-			width += Positioning.translateCssSizes(dom, "borderLeftWidth", _computedStyle);
-			width += Positioning.translateCssSizes(dom, "borderRightWidth", _computedStyle);
 
 			_objectBounds.left = _position.x;
 			_objectBounds.top = _position.y;
@@ -423,8 +477,8 @@ import { Vector4 } from "./Vector4";
 			});
 		}
 
-		return new Bounds(_objectBounds.left,_objectBounds.top,_objectBounds.right,_objectBounds.bottom);
+		return new Bounds(_objectBounds.left,_objectBounds.top,_objectBounds.right,_objectBounds.bottom, true);
 
 	}
 
- }
+}
