@@ -133,7 +133,7 @@ var TestExport;
         Utilities_namespaceObject
       );
     }
-  }); // NAMESPACE OBJECT: ./Definitions/Modules/Maths.ts
+  }); // NAMESPACE OBJECT: ./Definitions/Code/Modules/Maths.ts
 
 
   var Maths_namespaceObject = {};
@@ -162,7 +162,7 @@ var TestExport;
     "Vector4": function Vector4() {
       return _Vector4;
     }
-  }); // NAMESPACE OBJECT: ./Definitions/Modules/Timers.ts
+  }); // NAMESPACE OBJECT: ./Definitions/Code/Modules/Timers.ts
 
 
   var Timers_namespaceObject = {};
@@ -188,7 +188,7 @@ var TestExport;
     "TimerSkipOffsetType": function TimerSkipOffsetType() {
       return _TimerSkipOffsetType;
     }
-  }); // NAMESPACE OBJECT: ./Definitions/Modules/Events.ts
+  }); // NAMESPACE OBJECT: ./Definitions/Code/Modules/Events.ts
 
 
   var Events_namespaceObject = {};
@@ -202,7 +202,7 @@ var TestExport;
     "PubSub": function PubSub() {
       return _PubSub;
     }
-  }); // NAMESPACE OBJECT: ./Definitions/Modules/Utilities.ts
+  }); // NAMESPACE OBJECT: ./Definitions/Code/Modules/Utilities.ts
 
 
   var Utilities_namespaceObject = {};
@@ -1817,20 +1817,29 @@ var TestExport;
         return new _Vector2((window.pageXOffset || docEl.scrollLeft || body.scrollLeft) - (docEl.clientLeft || body.clientLeft || 0), (window.pageYOffset || docEl.scrollTop || body.scrollTop) - (docEl.clientTop || body.clientTop || 0));
       }
       /**
-      * Apply viewport offset to a vector
+      * Apply viewport offset to a vector to return coordinates in viewport space
       * @param  {Vector2} _vector
-      * @returns {Vector2}
       */
 
     }, {
-      key: "applyPageViewportOffsetFromPage",
-      value: function applyPageViewportOffsetFromPage(_vector) {
+      key: "addPageViewportOffsetFromPage",
+      value: function addPageViewportOffsetFromPage(_vector) {
         _vector.Add(Positioning.getPageViewportOffsetFromPage());
+      }
+      /**
+      * Subtract viewport offset to a vector to return relative coordinates to the document origin
+      * @param  {Vector2} _vector
+      */
+
+    }, {
+      key: "subtractPageViewportOffsetFromPage",
+      value: function subtractPageViewportOffsetFromPage(_vector) {
+        _vector.Subtract(Positioning.getPageViewportOffsetFromPage());
       }
       /**
       * Calculate coordinates of object
       * @param  {HTMLElement} _object - The object to calculate the coordinates for
-      * @param  {HTMLElement | string} _relative - The object or "screen" to calculate the coordinates relative to
+      * @param  {Document | HTMLElement | null} _relative - The object or "screen"(null) to calculate the coordinates relative to
       * @returns {Vector2}
       */
 
@@ -1846,11 +1855,12 @@ var TestExport;
 
         var ret = new _Vector2(NaN, NaN);
 
-        if (_relativeTo == null) {
+        if (_relativeTo == null || _relativeTo == document) {
           var box = _object.getBoundingClientRect();
 
           ret.x = box.left;
           ret.y = box.top;
+          if (_relativeTo == document) this.subtractPageViewportOffsetFromPage(ret);
         } else {
           if (_relativeTo === _object.offsetParent) {
             ret.x = _object.offsetLeft;
@@ -1862,14 +1872,10 @@ var TestExport;
             ret.x = _box.left;
             ret.y = _box.top; //if relative to exists then calculate offset from that
 
-            if (_relativeTo !== document) {
-              var otherBox = _relativeTo.getBoundingClientRect();
+            var otherBox = _relativeTo.getBoundingClientRect();
 
-              ret.x -= otherBox.left;
-              ret.y -= otherBox.top;
-            }
-
-            this.applyPageViewportOffsetFromPage(ret);
+            ret.x -= otherBox.left;
+            ret.y -= otherBox.top;
           }
         }
 
@@ -1879,6 +1885,7 @@ var TestExport;
       * Calculate sizes of computed style
       * @param  {HTMLElement} _object - The object to calculate the size on
       * @param  {string} _css - The CSS attribute 
+      * @param  {CSSStyleDeclaration} _computedStyle - The style of the DOM element 
       * @returns {number}
       */
 
@@ -1900,13 +1907,13 @@ var TestExport;
 
         switch (computedStyle[key]) {
           case "thin":
-            return 2;
+            return 1;
 
           case "medium":
-            return 4;
+            return 3;
 
           case "thick":
-            return 6;
+            return 5;
 
           case "auto":
             return 0;
@@ -1979,9 +1986,12 @@ var TestExport;
     * @param  {number} y1 - The first point y value to set
     * @param  {number} x2 - The second point x value to set
     * @param  {number} y2 - The second point y value to set
+    * @param  {boolean} isWebFormat - If this bounds is in web format (Y's are flipped)
     */
     function Bounds(x1, y1, x2, y2) {
+      var isWebFormat = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
       Bounds_classCallCheck(this, Bounds);
+      Bounds_defineProperty(this, "_webFormat", false);
       Bounds_defineProperty(this, "_x1", NaN);
       Bounds_defineProperty(this, "_y1", NaN);
       Bounds_defineProperty(this, "_x2", NaN);
@@ -1991,6 +2001,7 @@ var TestExport;
       Bounds_defineProperty(this, "_bottomRight", _Vector2[NaN]());
       Bounds_defineProperty(this, "_bottomLeft", _Vector2[NaN]());
       Bounds_defineProperty(this, "_size", _Vector2[NaN]());
+      this.webFormat = isWebFormat;
       this.x1 = x1;
       this.y1 = y1;
       this.x2 = x2;
@@ -2002,11 +2013,21 @@ var TestExport;
      * @param  {number} y1 - The y1 value to set
      * @param  {number} y2 - The x2 value to set
      * @param  {number} y2 - The y2 value to set
+     * @param  {boolean} isWebFormat - If this bounds is in web format (Y's are flipped)
      * @returns {Bounds}
      */
 
 
     Bounds_createClass(Bounds, [{
+      key: "webFormat",
+      get: //** Whether the bounds has it's Y values flipped to account for web origin*/
+      function get() {
+        return this._webFormat;
+      },
+      set: function set(isWebFormat) {
+        this._webFormat = isWebFormat;
+      }
+    }, {
       key: "x1",
       get: function get() {
         return this._x1;
@@ -2032,7 +2053,6 @@ var TestExport;
         }
 
         this.size.x = this.topRight.x - this.topLeft.x;
-        this.size.y = this.topRight.y - this.bottomRight.y;
       }
     }, {
       key: "y1",
@@ -2047,7 +2067,7 @@ var TestExport;
 
         this._y1 = value;
 
-        if (value > this.y2) {
+        if (this.webFormat == true ? value < this.y2 : value > this.y2) {
           this.topLeft.y = value;
           this.topRight.y = value;
           this.bottomLeft.y = this.y2;
@@ -2059,8 +2079,7 @@ var TestExport;
           this.bottomRight.y = value;
         }
 
-        this.size.x = this.topRight.x - this.topLeft.x;
-        this.size.y = this.topRight.y - this.bottomRight.y;
+        this.size.y = this.webFormat == true ? this.bottomRight.y - this.topRight.y : this.topRight.y - this.bottomRight.y;
       }
     }, {
       key: "x2",
@@ -2088,7 +2107,6 @@ var TestExport;
         }
 
         this.size.x = this.topRight.x - this.topLeft.x;
-        this.size.y = this.topRight.y - this.bottomRight.y;
       }
     }, {
       key: "y2",
@@ -2103,7 +2121,7 @@ var TestExport;
 
         this._y2 = value;
 
-        if (value > this.y1) {
+        if (this.webFormat == true ? value < this.y1 : value > this.y1) {
           this.topLeft.y = value;
           this.topRight.y = value;
           this.bottomLeft.y = this.y1;
@@ -2115,8 +2133,7 @@ var TestExport;
           this.bottomRight.y = value;
         }
 
-        this.size.x = this.topRight.x - this.topLeft.x;
-        this.size.y = this.topRight.y - this.bottomRight.y;
+        this.size.y = this.webFormat == true ? this.bottomRight.y - this.topRight.y : this.topRight.y - this.bottomRight.y;
       } //** The minimum x and y point*/
 
     }, {
@@ -2166,6 +2183,8 @@ var TestExport;
     }, {
       key: "set",
       value: function set(x1, y1, x2, y2) {
+        var isWebFormat = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : this.webFormat;
+        this.webFormat = isWebFormat;
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
@@ -2239,7 +2258,14 @@ var TestExport;
           _bounds = new Bounds(NaN, NaN, NaN, NaN);
         }
 
-        return new Bounds(this.x1 + _bounds.x1, this.y1 + _bounds.y1, this.x2 + _bounds.x2, this.y2 + _bounds.y2);
+        if (_bounds.webFormat != this.webFormat) {
+          console.error("Error trying to add to a Bounds's values when the formats are different, Web vs Non-Web ", {
+            _bounds: _bounds
+          });
+          _bounds = new Bounds(NaN, NaN, NaN, NaN);
+        }
+
+        return new Bounds(this.x1 + _bounds.x1, this.y1 + _bounds.y1, this.x2 + _bounds.x2, this.y2 + _bounds.y2, this.webFormat);
       }
       /**
       * Add two Bounds's values and apply the values to this Bounds
@@ -2252,6 +2278,13 @@ var TestExport;
       value: function Add(_bounds) {
         if (!(_bounds instanceof Bounds)) {
           console.error("Error trying to add to a Bounds's values using an invalid Bound: ", {
+            _bounds: _bounds
+          });
+          _bounds = new Bounds(NaN, NaN, NaN, NaN);
+        }
+
+        if (_bounds.webFormat != this.webFormat) {
+          console.error("Error trying to add to a Bounds's values when the formats are different, Web vs Non-Web ", {
             _bounds: _bounds
           });
           _bounds = new Bounds(NaN, NaN, NaN, NaN);
@@ -2276,7 +2309,14 @@ var TestExport;
           _bounds = new Bounds(NaN, NaN, NaN, NaN);
         }
 
-        return new Bounds(this.x1 - _bounds.x1, this.y1 - _bounds.y1, this.x2 - _bounds.x2, this.y2 - _bounds.y2);
+        if (_bounds.webFormat != this.webFormat) {
+          console.error("Error trying to subtract from a Bounds's values when the formats are different, Web vs Non-Web ", {
+            _bounds: _bounds
+          });
+          _bounds = new Bounds(NaN, NaN, NaN, NaN);
+        }
+
+        return new Bounds(this.x1 - _bounds.x1, this.y1 - _bounds.y1, this.x2 - _bounds.x2, this.y2 - _bounds.y2, this.webFormat);
       }
       /**
       * Subtract two Bounds's values and apply the values to this Bounds
@@ -2289,6 +2329,13 @@ var TestExport;
       value: function Subtract(_bounds) {
         if (!(_bounds instanceof Bounds)) {
           console.error("Error trying to subtract from a Bounds's values using an invalid Bound: ", {
+            _bounds: _bounds
+          });
+          _bounds = new Bounds(NaN, NaN, NaN, NaN);
+        }
+
+        if (_bounds.webFormat != this.webFormat) {
+          console.error("Error trying to subtract from a Bounds's values when the formats are different, Web vs Non-Web ", {
             _bounds: _bounds
           });
           _bounds = new Bounds(NaN, NaN, NaN, NaN);
@@ -2313,7 +2360,7 @@ var TestExport;
           _scalar = NaN;
         }
 
-        return new Bounds(this.x1 * _scalar, this.y1 * _scalar, this.x2 * _scalar, this.y2 * _scalar);
+        return new Bounds(this.x1 * _scalar, this.y1 * _scalar, this.x2 * _scalar, this.y2 * _scalar, this.webFormat);
       }
       /**
        * Calcualte the scaled value of a Bounds and apply the values to this Bounds
@@ -2350,7 +2397,14 @@ var TestExport;
           return new Bounds(NaN, NaN, NaN, NaN);
         }
 
-        return new Bounds(this.x1 * _bounds.x1, this.y1 * _bounds.y1, this.x2 * _bounds.x2, this.y2 * _bounds.y2);
+        if (_bounds.webFormat != this.webFormat) {
+          console.error("Error trying to calculate dot product when the formats are different, Web vs Non-Web ", {
+            _bounds: _bounds
+          });
+          _bounds = new Bounds(NaN, NaN, NaN, NaN);
+        }
+
+        return new Bounds(this.x1 * _bounds.x1, this.y1 * _bounds.y1, this.x2 * _bounds.x2, this.y2 * _bounds.y2, this.webFormat);
       }
       /**
        * Calcualte the dot product of two Bounds's and apply the values to this Bounds
@@ -2368,6 +2422,13 @@ var TestExport;
           _bounds = new Bounds(NaN, NaN, NaN, NaN);
         }
 
+        if (_bounds.webFormat != this.webFormat) {
+          console.error("Error trying to calculate dot product when the formats are different, Web vs Non-Web ", {
+            _bounds: _bounds
+          });
+          _bounds = new Bounds(NaN, NaN, NaN, NaN);
+        }
+
         this.set(this.x1 * _bounds.x1, this.y1 * _bounds.y1, this.x2 * _bounds.x2, this.y2 * _bounds.y2);
         return this;
       }
@@ -2376,6 +2437,60 @@ var TestExport;
       * @param  {Vector2} _pos1
       * @param  {Vector2} _pos2
       * @returns {Bounds}
+      */
+
+    }, {
+      key: "convertFromWeb",
+      value:
+      /**
+       * Returns a new Bounds that has it's Y's respective of origin in bottom left
+       * @returns {Bounds}
+       */
+      function convertFromWeb() {
+        if (!this.webFormat) return this;
+        return new Bounds(this.x1, this.y2, this.x2, this.y1);
+      }
+      /**
+       * Returns a this bound with it's Y's respective of origin in bottom left
+       * @returns {Bounds}
+       */
+
+    }, {
+      key: "ConvertFromWeb",
+      value: function ConvertFromWeb() {
+        if (!this.webFormat) return this;
+        this.webFormat = false;
+        return this.set(this.x1, this.y2, this.x2, this.y1);
+      }
+      /**
+       * Returns a new Bounds that has it's Y's respective of origin in top left
+       * @returns {Bounds}
+       */
+
+    }, {
+      key: "convertToWeb",
+      value: function convertToWeb() {
+        if (this.webFormat) return this;
+        return new Bounds(this.x1, this.y2, this.x2, this.y1, true);
+      }
+      /**
+       * Returns this bound with it's Y's respective of origin in top left
+       * @returns {Bounds}
+       */
+
+    }, {
+      key: "ConvertToWeb",
+      value: function ConvertToWeb() {
+        if (this.webFormat) return this;
+        this.webFormat = true;
+        return this.set(this.x1, this.y2, this.x2, this.y1);
+      }
+      /**
+      * Create a bounds from a set of HTML DOMs
+      * @param  {HTMLElement | string} _objects - A DOM or JQUERY string to use to create a Bounds
+      * @param  {HTMLElement | Document | null} _relative - Determines if the Bounds should be created in relation to another object
+      * @param  {string[]} _includeChildren - An array of strings that are used to include children DOMs of the _objects
+      * @returns {Bounds | null}
       */
 
     }], [{
@@ -2462,14 +2577,6 @@ var TestExport;
 
         return new Bounds(_vector.x, _vector.y, _vector.z, _vector.w);
       }
-      /**
-      * Create a bounds from a set of HTML DOMs
-      * @param  {HTMLElement | string} _objects - A DOM or JQUERY string to use to create a Bounds
-      * @param  {HTMLElement} _relative - Determines if the Bounds should be created in relation to another object
-      * @param  {string[]} _includeChildren - An array of strings that are used to include children DOMs of the _objects
-      * @returns {Bounds | null}
-      */
-
     }, {
       key: "fromObject",
       value: function fromObject(_object) {
@@ -2494,21 +2601,20 @@ var TestExport;
 
         if (_objectJQuery.attr("type") !== "hidden" && _objectJQuery.attr("display") !== "hidden") {
           var dom = _objectJQuery[0];
+          var boundingRect = dom.getBoundingClientRect();
 
           var _position = _Positioning.getCoords(dom, _relative);
 
           var _computedStyle = window.getComputedStyle(dom);
 
-          var height = dom.clientHeight;
+          var height = boundingRect.height;
+          _objectBounds.top -= _Positioning.translateCssSizes(dom, "marginTop", _computedStyle);
           height += _Positioning.translateCssSizes(dom, "marginTop", _computedStyle);
           height += _Positioning.translateCssSizes(dom, "marginBottom", _computedStyle);
-          height += _Positioning.translateCssSizes(dom, "borderTopWidth", _computedStyle);
-          height += _Positioning.translateCssSizes(dom, "borderBottomWidth", _computedStyle);
-          var width = _objectJQuery[0].clientWidth;
+          var width = boundingRect.width;
+          _position.x -= _Positioning.translateCssSizes(dom, "marginLeft", _computedStyle);
           width += _Positioning.translateCssSizes(dom, "marginLeft", _computedStyle);
           width += _Positioning.translateCssSizes(dom, "marginRight", _computedStyle);
-          width += _Positioning.translateCssSizes(dom, "borderLeftWidth", _computedStyle);
-          width += _Positioning.translateCssSizes(dom, "borderRightWidth", _computedStyle);
           _objectBounds.left = _position.x;
           _objectBounds.top = _position.y;
           _objectBounds.right = _objectBounds.left + width;
@@ -2536,7 +2642,7 @@ var TestExport;
           });
         }
 
-        return new Bounds(_objectBounds.left, _objectBounds.top, _objectBounds.right, _objectBounds.bottom);
+        return new Bounds(_objectBounds.left, _objectBounds.top, _objectBounds.right, _objectBounds.bottom, true);
       }
     }]);
     return Bounds;
@@ -3034,7 +3140,8 @@ var TestExport;
           return false;
         }
 
-        return areaBounds.topLeft.x <= point.x && areaBounds.topLeft.y <= point.y && areaBounds.bottomRight.x >= point.x && areaBounds.bottomRight.y >= point.y;
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
+        return areaBounds.topLeft.x <= point.x && areaBounds.topLeft.y >= point.y && areaBounds.bottomRight.x >= point.x && areaBounds.bottomRight.y <= point.y;
       }
       /**
       * Calculate if otherBounds is within areaBounds
@@ -3056,6 +3163,8 @@ var TestExport;
           return false;
         }
 
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
+        if (otherBounds.webFormat) otherBounds = otherBounds.convertFromWeb();
         return this.checkPointWithinArea(areaBounds, otherBounds.topLeft) && this.checkPointWithinArea(areaBounds, otherBounds.topRight) && this.checkPointWithinArea(areaBounds, otherBounds.bottomRight) && this.checkPointWithinArea(areaBounds, otherBounds.bottomLeft);
       }
       /**
@@ -3078,6 +3187,8 @@ var TestExport;
           return false;
         }
 
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
+        if (otherBounds.webFormat) otherBounds = otherBounds.convertFromWeb();
         return Collision.checkAreaWithinArea(otherBounds, areaBounds);
       }
       /**
@@ -3098,8 +3209,10 @@ var TestExport;
         if (!(otherBounds instanceof _Bounds) || otherBounds.HasNaN()) {
           console.error("Error trying to calculate if an area is intersecting bounds with invalid other bounds: ", otherBounds);
           return false;
-        } //Check if any otherBounds corners are within areaBounds
+        }
 
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
+        if (otherBounds.webFormat) otherBounds = otherBounds.convertFromWeb(); //Check if any otherBounds corners are within areaBounds
 
         if (this.checkPointWithinArea(areaBounds, otherBounds.topLeft) || this.checkPointWithinArea(areaBounds, otherBounds.topRight) || this.checkPointWithinArea(areaBounds, otherBounds.bottomRight) || this.checkPointWithinArea(areaBounds, otherBounds.bottomLeft)) {
           return true;
@@ -3142,10 +3255,11 @@ var TestExport;
           return [];
         }
 
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
         var ret = [];
         var objectsArray = objects instanceof HTMLElement ? [objects] : objects;
         objectsArray.forEach(function (dom) {
-          var otherBounds = _Bounds.fromObject(dom);
+          var otherBounds = _Bounds.fromObject(dom, document);
 
           if (_this.checkAreaWithinArea(areaBounds, otherBounds)) {
             ret.push({
@@ -3178,10 +3292,11 @@ var TestExport;
           return [];
         }
 
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
         var ret = [];
         var objectsArray = objects instanceof HTMLElement ? [objects] : objects;
         objectsArray.forEach(function (dom) {
-          var otherBounds = _Bounds.fromObject(dom);
+          var otherBounds = _Bounds.fromObject(dom, document);
 
           if (_this2.checkAreaOverlapArea(areaBounds, otherBounds)) {
             ret.push({
@@ -3214,10 +3329,11 @@ var TestExport;
           return [];
         }
 
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
         var ret = [];
         var objectsArray = objects instanceof HTMLElement ? [objects] : objects;
         objectsArray.forEach(function (dom) {
-          var otherBounds = _Bounds.fromObject(dom);
+          var otherBounds = _Bounds.fromObject(dom, document);
 
           if (_this3.checkAreaIntersectsArea(areaBounds, otherBounds)) {
             ret.push({
@@ -3232,7 +3348,7 @@ var TestExport;
     return Collision;
   }();
 
-  ; // CONCATENATED MODULE: ./Definitions/Modules/Maths.ts
+  ; // CONCATENATED MODULE: ./Definitions/Code/Modules/Maths.ts
 
   ; // CONCATENATED MODULE: ./Code/src/Utilities/CompareTypes.ts
 
@@ -5079,7 +5195,6 @@ var TestExport;
     * Create a RealtimeTimer
     * @param  {string} name - The name of the timer
     * @param  {Array<Function>} callbacks - The callbacks listening to this timer
-    * @param  {number} timerInterval - The time between each loop on this timer
     * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
     * @param  {number} timerRunTime - The total time for this timer to run 
     * @param  {boolean} destroyOnStop - Determines if a timers should destroy itself once it recieves a single stop command
@@ -5087,36 +5202,34 @@ var TestExport;
 
 
     function RealtimeTimer(name) {
-      var _thisSuper, _this2;
+      var _thisSuper, _this;
 
       var callbacks = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
       var startOnCreation = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       var timerRunTime = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : Number.MAX_SAFE_INTEGER;
       var destroyOnStop = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
       RealtimeTimer_classCallCheck(this, RealtimeTimer);
-      _this2 = _super.call(this, name, 10, [], startOnCreation, timerRunTime, true, _TimerSkipOffsetType.NoSkip);
-      RealtimeTimer_defineProperty(RealtimeTimer_assertThisInitialized(_this2), "_realtimeEvents", new _PubSub());
-      RealtimeTimer_defineProperty(RealtimeTimer_assertThisInitialized(_this2), "_destroyOnStop", true);
-      _this2.destroyOnStop = destroyOnStop;
-      RealtimeTimer_get((_thisSuper = RealtimeTimer_assertThisInitialized(_this2), RealtimeTimer_getPrototypeOf(RealtimeTimer.prototype)), "events", _thisSuper).subscribe("loopCompletion", function () {
-        _this2.events.publish("loopCompletion");
+      _this = _super.call(this, name, 10, [], startOnCreation, timerRunTime, true, _TimerSkipOffsetType.NoSkip);
+      RealtimeTimer_defineProperty(RealtimeTimer_assertThisInitialized(_this), "_realtimeEvents", new _PubSub());
+      RealtimeTimer_defineProperty(RealtimeTimer_assertThisInitialized(_this), "_destroyOnStop", true);
+      _this.destroyOnStop = destroyOnStop;
+      RealtimeTimer_get((_thisSuper = RealtimeTimer_assertThisInitialized(_this), RealtimeTimer_getPrototypeOf(RealtimeTimer.prototype)), "events", _thisSuper).subscribe("loopCompletion", function () {
+        _this.events.publish("loopCompletion");
       });
 
-      _this2.events.subscribe("loopCompletion", callbacks);
+      _this.events.subscribe("loopCompletion", callbacks);
 
-      var _this = RealtimeTimer_assertThisInitialized(_this2);
-
-      _this2.events.subscribe("response", function () {
-        var _this2$listenToRespon;
+      _this.events.subscribe("response", function () {
+        var _this$listenToRespons;
 
         for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
           args[_key] = arguments[_key];
         }
 
-        return (_this2$listenToRespon = _this2.listenToResponse).call.apply(_this2$listenToRespon, [_this].concat(args));
+        return (_this$listenToRespons = _this.listenToResponse).call.apply(_this$listenToRespons, [RealtimeTimer_assertThisInitialized(_this)].concat(args));
       });
 
-      return _this2;
+      return _this;
     } //** Handles listening to responses from callbacks to see if this timer should stop*/
 
 
@@ -5661,9 +5774,9 @@ var TestExport;
     return ScaledTimer;
   }(_Timer2);
 
-  ; // CONCATENATED MODULE: ./Definitions/Modules/Timers.ts
+  ; // CONCATENATED MODULE: ./Definitions/Code/Modules/Timers.ts
 
-  ; // CONCATENATED MODULE: ./Definitions/Modules/Events.ts
+  ; // CONCATENATED MODULE: ./Definitions/Code/Modules/Events.ts
 
   ; // CONCATENATED MODULE: ./Code/src/Utilities/ReversibleMap.ts
 
@@ -5861,9 +5974,9 @@ var TestExport;
     return ReversibleMap;
   }();
 
-  ; // CONCATENATED MODULE: ./Definitions/Modules/Utilities.ts
+  ; // CONCATENATED MODULE: ./Definitions/Code/Modules/Utilities.ts
 
-  ; // CONCATENATED MODULE: ./Definitions/WebpackAll.ts
+  ; // CONCATENATED MODULE: ./Definitions/Code/WebpackAll.ts
 
   TestExport = __webpack_exports__;
   /******/
