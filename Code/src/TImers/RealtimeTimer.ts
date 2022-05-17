@@ -28,7 +28,6 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
 	 * Create a RealtimeTimer
 	 * @param  {string} name - The name of the timer
 	 * @param  {Array<Function>} callbacks - The callbacks listening to this timer
-	 * @param  {number} timerInterval - The time between each loop on this timer
 	 * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
 	 * @param  {number} timerRunTime - The total time for this timer to run 
 	 * @param  {boolean} destroyOnStop - Determines if a timers should destroy itself once it recieves a single stop command
@@ -39,8 +38,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
         super.events.subscribe("loopCompletion", () => { this.events.publish("loopCompletion"); });
         this.events.subscribe("loopCompletion", callbacks);
 
-        let _this = this;
-        this.events.subscribe("response", (...args: any[]) => { return this.listenToResponse.call(_this, ...args) });
+        this.events.subscribe("response", (...args: any[]) => { return this.listenToResponse.call(this, ...args) });
     }
 
     //** Handles listening to responses from callbacks to see if this timer should stop*/
