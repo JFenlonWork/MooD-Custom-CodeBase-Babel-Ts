@@ -3,3 +3,4 @@ Code/js
 spec/support/jasmineTestBundle.js
 node_modules/
 coverage/
+stats.json

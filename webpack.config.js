@@ -49,7 +49,7 @@ const path = require('path');
 // };
 
 module.exports = {
-    entry: path.resolve(__dirname, './Definitions/WebpackAll.ts'),
+    entry: path.resolve(__dirname, './Definitions/Code/WebpackAll.ts'),
     module: {
         rules: [
             {
