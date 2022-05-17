@@ -41,7 +41,7 @@ Class that handles simple subscription/publish event manager.
 
 #### Defined in
 
-[Events/PubSub.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Events/PubSub.ts#L9)
+[Events/PubSub.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Events/PubSub.ts#L9)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[Events/PubSub.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Events/PubSub.ts#L15)
+[Events/PubSub.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Events/PubSub.ts#L15)
 
 ## Accessors
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[Events/PubSub.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Events/PubSub.ts#L10)
+[Events/PubSub.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Events/PubSub.ts#L10)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[Events/PubSub.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Events/PubSub.ts#L16)
+[Events/PubSub.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Events/PubSub.ts#L16)
 
 ## Methods
 
@@ -101,7 +101,7 @@ Handle clearing all events
 
 #### Defined in
 
-[Events/PubSub.ts:146](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Events/PubSub.ts#L146)
+[Events/PubSub.ts:146](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Events/PubSub.ts#L146)
 
 ___
 
@@ -124,7 +124,7 @@ Handle clearing specific event
 
 #### Defined in
 
-[Events/PubSub.ts:131](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Events/PubSub.ts#L131)
+[Events/PubSub.ts:131](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Events/PubSub.ts#L131)
 
 ___
 
@@ -147,7 +147,7 @@ Handle publishing events
 
 #### Defined in
 
-[Events/PubSub.ts:113](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Events/PubSub.ts#L113)
+[Events/PubSub.ts:113](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Events/PubSub.ts#L113)
 
 ___
 
@@ -173,7 +173,7 @@ Handle modifiy/creating event with specific settings
 
 #### Defined in
 
-[Events/PubSub.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Events/PubSub.ts#L27)
+[Events/PubSub.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Events/PubSub.ts#L27)
 
 ___
 
@@ -197,7 +197,7 @@ Handle subscribing to events
 
 #### Defined in
 
-[Events/PubSub.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Events/PubSub.ts#L51)
+[Events/PubSub.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Events/PubSub.ts#L51)
 
 ___
 
@@ -221,4 +221,4 @@ Handle unsubscribing from events
 
 #### Defined in
 
-[Events/PubSub.ts:86](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/7ca3a3b/Code/src/Events/PubSub.ts#L86)
+[Events/PubSub.ts:86](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/fc52f80/Code/src/Events/PubSub.ts#L86)
