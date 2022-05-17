@@ -95,7 +95,7 @@ Create a RealtimeTimer
 
 #### Defined in
 
-Timers/RealtimeTimer.ts:36
+Timers/RealtimeTimer.ts:35
 
 ## Properties
 
@@ -1055,7 +1055,7 @@ ___
 
 #### Defined in
 
-Timers/RealtimeTimer.ts:47
+Timers/RealtimeTimer.ts:45
 
 ___
 

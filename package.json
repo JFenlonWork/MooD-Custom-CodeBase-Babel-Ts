@@ -8,7 +8,7 @@
     "test": "ts-node node_modules/jasmine/bin/jasmine",
     "build": "rimraf ./Code/js/* && babel Code/src --out-dir Code/js --extensions \".ts,.tsx\"",
     "compile": "rimraf ./Code/dist && webpack --config ./webpack.config.js --json > stats.json && babel Code/dist --out-file Code/dist/babelBundle.js --extensions \".js\"",
-    "document": "typedoc && copyfiles -u 1 Wiki_Resources/* MooD-Custom-CodeBase-Babel-Ts.wiki/",
+    "document": "rimraf MooD-Custom-CodeBase-Babel-Ts.wiki/* && typedoc --tsconfig ./Code/src/tsconfig.json && copyfiles -u 1 Wiki_Resources/* MooD-Custom-CodeBase-Babel-Ts.wiki/",
     "clearWiki": "rimraf MooD-Custom-CodeBase-Babel-Ts.wiki/* ",
     "check-types": "tsc --noEmit",
     "test-browser": "webpack build --config ./spec/support/jasmineWebpack.config.js"
