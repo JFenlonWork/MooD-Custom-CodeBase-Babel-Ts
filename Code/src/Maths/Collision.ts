@@ -15,11 +15,12 @@ import { Vector2 } from "./Vector2";
     public static checkPointWithinArea(areaBounds: Bounds, point: Vector2): boolean {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if a point is within bounds with invalid area bounds: ", areaBounds); return false; }	
         if (!(point instanceof Vector2) || point.HasNaN()) { console.error("Error trying to calculate if a point is within bounds with invalid point: ", point); return false; }	
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
 
         return (areaBounds.topLeft.x <= point.x &&
-                areaBounds.topLeft.y <= point.y &&
+                areaBounds.topLeft.y >= point.y &&
                 areaBounds.bottomRight.x >= point.x &&
-                areaBounds.bottomRight.y >= point.y);
+                areaBounds.bottomRight.y <= point.y);
     }
 
     /**
@@ -31,6 +32,8 @@ import { Vector2 } from "./Vector2";
     public static checkAreaWithinArea(areaBounds: Bounds, otherBounds: Bounds): boolean {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if an area is within bounds with invalid area bounds: ", areaBounds); return false; }
         if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) { console.error("Error trying to calculate if an area is within bounds with invalid other bounds: ", otherBounds); return false; }	
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
+        if (otherBounds.webFormat) otherBounds = otherBounds.convertFromWeb();
 
         return (this.checkPointWithinArea(areaBounds, otherBounds.topLeft) && 
                 this.checkPointWithinArea(areaBounds, otherBounds.topRight) && 
@@ -47,6 +50,8 @@ import { Vector2 } from "./Vector2";
     public static checkAreaOverlapArea(areaBounds: Bounds, otherBounds: Bounds): boolean {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if an area is within bounds with invalid area bounds: ", areaBounds); return false; }
         if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) { console.error("Error trying to calculate if an area is within bounds with invalid other bounds: ", otherBounds); return false; }	
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
+        if (otherBounds.webFormat) otherBounds = otherBounds.convertFromWeb();
 
         return Collision.checkAreaWithinArea(otherBounds, areaBounds);
     }
@@ -60,7 +65,9 @@ import { Vector2 } from "./Vector2";
     public static checkAreaIntersectsArea(areaBounds: Bounds, otherBounds: Bounds): boolean {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if an area is intersecting bounds with invalid area bounds: ", areaBounds); return false; }
         if (!(otherBounds instanceof Bounds) || otherBounds.HasNaN()) { console.error("Error trying to calculate if an area is intersecting bounds with invalid other bounds: ", otherBounds); return false; }	
-
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
+        if (otherBounds.webFormat) otherBounds = otherBounds.convertFromWeb();
+        
         //Check if any otherBounds corners are within areaBounds
         if (this.checkPointWithinArea(areaBounds, otherBounds.topLeft) ||  
             this.checkPointWithinArea(areaBounds, otherBounds.topRight) ||  
@@ -112,11 +119,13 @@ import { Vector2 } from "./Vector2";
     public static returnObjectsWithinArea(areaBounds: Bounds, objects: HTMLElement | HTMLElement[]): object[] {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if objects are within bounds with invalid area bounds: ", areaBounds); return []; }
         if (!(objects instanceof HTMLElement || Array.isArray(objects))) { console.error("Error trying to calculate if objects are within bounds with invalid objects: ", objects); return []; }	
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
+        
         let ret: object[] = [];
 
         let objectsArray: HTMLElement[] = objects instanceof HTMLElement ? [objects] : objects;
         objectsArray.forEach(dom => {
-            let otherBounds: Bounds = Bounds.fromObject(dom);
+            let otherBounds: Bounds = Bounds.fromObject(dom, document);
 
             if (this.checkAreaWithinArea(areaBounds, otherBounds)) {
                 ret.push({
@@ -138,11 +147,13 @@ import { Vector2 } from "./Vector2";
     public static returnObjectsOverlapArea(areaBounds: Bounds, objects: HTMLElement | HTMLElement[]): object[] {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if objects are within bounds with invalid area bounds: ", areaBounds); return []; }
         if (!(objects instanceof HTMLElement || Array.isArray(objects))) { console.error("Error trying to calculate if objects are within bounds with invalid objects: ", objects); return []; }	
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
+
         let ret: object[] = [];
 
         let objectsArray: HTMLElement[] = objects instanceof HTMLElement ? [objects] : objects;
         objectsArray.forEach(dom => {
-            let otherBounds: Bounds = Bounds.fromObject(dom);
+            let otherBounds: Bounds = Bounds.fromObject(dom, document);
 
             if (this.checkAreaOverlapArea(areaBounds, otherBounds)) {
                 ret.push({
@@ -164,11 +175,13 @@ import { Vector2 } from "./Vector2";
     public static returnObjectsIntersectArea(areaBounds: Bounds, objects: HTMLElement | HTMLElement[]): object[] {
         if (!(areaBounds instanceof Bounds) || areaBounds.HasNaN()) { console.error("Error trying to calculate if objects are within bounds with invalid area bounds: ", areaBounds); return []; }
         if (!(objects instanceof HTMLElement || Array.isArray(objects))) { console.error("Error trying to calculate if objects are within bounds with invalid objects: ", objects); return []; }	
+        if (areaBounds.webFormat) areaBounds = areaBounds.convertFromWeb();
+        
         let ret: object[] = [];
 
         let objectsArray: HTMLElement[] = objects instanceof HTMLElement ? [objects] : objects;
         objectsArray.forEach(dom => {
-            let otherBounds: Bounds = Bounds.fromObject(dom);
+            let otherBounds: Bounds = Bounds.fromObject(dom, document);
 
             if (this.checkAreaIntersectsArea(areaBounds, otherBounds)) {
                 ret.push({
