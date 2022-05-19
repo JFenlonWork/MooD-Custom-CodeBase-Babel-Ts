@@ -203,6 +203,28 @@ export class Vector3 extends Vector2 {
 	}
 
 	/**
+	 * Calcualte the multiplied value of two Vector3's and return the result in a new Vector3
+	 * @param  {Vector3} _vector
+	 * @returns {Vector3}
+	 */
+	public multiplyVector(_vector: Vector3): Vector3 {
+		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate dot product using an invalid Vector3: ", _vector); return new Vector3(NaN,NaN,NaN); }	
+		return new Vector3(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z);
+	}
+
+	/**
+	 * Calcualte the multiplied value of two Vector3's and apply the values to this Vector3
+	 * @param  {Vector3} _vector
+	 * @returns {Vector3}
+	 */
+	public MultiplyVector(_vector: Vector3): Vector3 {
+		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate dot product using an invalid Vector3: ", _vector); _vector = new Vector3(NaN,NaN,NaN); }	
+		this.set(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z);
+
+		return this;
+	}
+
+	/**
 	 * Calcualte the divided value of a Vector3 and return the result in a new Vector3
 	 * @param  {number} _scalar
 	 * @returns {Vector3}
@@ -225,23 +247,23 @@ export class Vector3 extends Vector2 {
 	}
 
 	/**
-	 * Calcualte the dot product of two Vector3's and return the result in a new Vector3
+	 * Calcualte the divided value of two Vector3's and return the result in a new Vector3
 	 * @param  {Vector3} _vector
 	 * @returns {Vector3}
 	 */
-	public dot(_vector: Vector3): Vector3 {
-		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate dot product using an invalid Vector3: ", _vector); return new Vector3(NaN,NaN,NaN); }	
-		return new Vector3(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z);
+	 public divideVector(_vector: Vector3): Vector3 {
+		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate the divided value of two vectors using an invalid Vector3: ", _vector); return new Vector3(NaN,NaN,NaN); }	
+		return new Vector3(this.x / _vector.x, this.y / _vector.y, this.z / _vector.z);
 	}
 
 	/**
-	 * Calcualte the dot product of two Vector3's and apply the values to this Vector3
+	 * Calcualte the divded value of two Vector2's and apply the values to this Vector2
 	 * @param  {Vector3} _vector
 	 * @returns {Vector3}
 	 */
-	public Dot(_vector: Vector3): Vector3 {
-		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate dot product using an invalid Vector3: ", _vector); _vector = new Vector3(NaN,NaN,NaN); }	
-		this.set(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z);
+	public DivideVector(_vector: Vector3): Vector3 {
+		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate the divided value of two vectors using an invalid Vector3: ", _vector); _vector = new Vector3(NaN,NaN,NaN); }	
+		this.set(this.x / _vector.x, this.y / _vector.y, this.z / _vector.z);
 
 		return this;
 	}

@@ -201,6 +201,28 @@ export class Vector2 {
 	}
 
 	/**
+	 * Calcualte the multiplied value of two Vector2's and return the result in a new Vector2
+	 * @param  {Vector2} _vector
+	 * @returns {Vector2}
+	 */
+	public multiplyVector(_vector: Vector2): Vector2 {
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate dot product using an invalid Vector2: ", _vector); return new Vector2(NaN,NaN); }	
+		return new Vector2(this.x * _vector.x, this.y * _vector.y);
+	}
+
+	/**
+	 * Calcualte the multiplied value of two Vector2's and apply the values to this Vector2
+	 * @param  {Vector2} _vector
+	 * @returns {Vector2}
+	 */
+	public MultiplyVector(_vector: Vector2): Vector2 {
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate dot product using an invalid Vector2: ", _vector); _vector = new Vector2(NaN,NaN); }	
+		this.set(this.x * _vector.x, this.y * _vector.y);
+
+		return this;
+	}
+
+	/**
 	 * Calcualte the divided value of a Vector2 and return the result in a new Vector2
 	 * @param  {number} _scalar
 	 * @returns {Vector2}
@@ -223,23 +245,23 @@ export class Vector2 {
 	}
 
 	/**
-	 * Calcualte the dot product of two Vector2's and return the result in a new Vector2
+	 * Calcualte the divided value of two Vector2's and return the result in a new Vector2
 	 * @param  {Vector2} _vector
 	 * @returns {Vector2}
 	 */
-	public dot(_vector: Vector2): Vector2 {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate dot product using an invalid Vector2: ", _vector); return new Vector2(NaN,NaN); }	
-		return new Vector2(this.x * _vector.x, this.y * _vector.y);
+	public divideVector(_vector: Vector2): Vector2 {
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate the divided value of two vectors using an invalid Vector2: ", _vector); return new Vector2(NaN,NaN); }	
+		return new Vector2(this.x / _vector.x, this.y / _vector.y);
 	}
 
 	/**
-	 * Calcualte the dot product of two Vector2's and apply the values to this Vector2
+	 * Calcualte the divded value of two Vector2's and apply the values to this Vector2
 	 * @param  {Vector2} _vector
 	 * @returns {Vector2}
 	 */
-	public Dot(_vector: Vector2): Vector2 {
-		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate dot product using an invalid Vector2: ", _vector); _vector = new Vector2(NaN,NaN); }	
-		this.set(this.x * _vector.x, this.y * _vector.y);
+	public DivideVector(_vector: Vector2): Vector2 {
+		if (!(_vector instanceof Vector2)) { console.error("Error trying to calculate the divided value of two vectors using an invalid Vector2: ", _vector); _vector = new Vector2(NaN,NaN); }	
+		this.set(this.x / _vector.x, this.y / _vector.y);
 
 		return this;
 	}

@@ -46,7 +46,7 @@ export class Vector4 extends Vector3 {
 	 * @returns {Vector4}
 	 */
 	public setVector4(_vector: Vector4): Vector4 {
-		if (!(_vector instanceof Vector3)) { console.error("Error trying to set a Vector4's values using an invalid Vector4: ", _vector); _vector = new Vector4(NaN,NaN,NaN,NaN); }	
+		if (!(_vector instanceof Vector4)) { console.error("Error trying to set a Vector4's values using an invalid Vector4: ", _vector); _vector = new Vector4(NaN,NaN,NaN,NaN); }	
 
 		this.set(_vector.x, _vector.y, _vector.z, _vector.w);
 		return this;
@@ -205,6 +205,28 @@ export class Vector4 extends Vector3 {
 	}
 
 	/**
+	 * Calcualte the multiplied value of two Vector4's and return the result in a new Vector4
+	 * @param  {Vector4} _vector
+	 * @returns {Vector4}
+	 */
+	public multiplyVector(_vector: Vector4): Vector4 {
+		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector); return new Vector4(NaN,NaN,NaN,NaN); }	
+		return new Vector4(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z, this.w * _vector.w);
+	}
+
+	/**
+	 * Calcualte the dot product of two Vector4's and apply the values to this Vector4
+	 * @param  {Vector4} _vector
+	 * @returns {Vector4}
+	 */
+	public MultiplyVector(_vector: Vector4): Vector4 {
+		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector); _vector = new Vector4(NaN,NaN,NaN,NaN); }	
+		this.set(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z, this.w * _vector.w);
+
+		return this;
+	}
+
+	/**
 	 * Calcualte the divided value of a Vector4 and return the result in a new Vector4
 	 * @param  {number} _scalar
 	 * @returns {Vector4}
@@ -227,23 +249,23 @@ export class Vector4 extends Vector3 {
 	}
 
 	/**
-	 * Calcualte the dot product of two Vector4's and return the result in a new Vector4
+	 * Calcualte the divided value of two Vector4's and return the result in a new Vector4
 	 * @param  {Vector4} _vector
 	 * @returns {Vector4}
 	 */
-	public dot(_vector: Vector4): Vector4 {
-		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector); return new Vector4(NaN,NaN,NaN,NaN); }	
-		return new Vector4(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z, this.w * _vector.w);
+	 public divideVector(_vector: Vector4): Vector4 {
+		if (!(_vector instanceof Vector4)) { console.error("Error trying to calculate the divided value of two vectors using an invalid Vector4: ", _vector); return new Vector4(NaN,NaN,NaN,NaN); }	
+		return new Vector4(this.x / _vector.x, this.y / _vector.y, this.z / _vector.z, this.w / _vector.w);
 	}
 
 	/**
-	 * Calcualte the dot product of two Vector4's and apply the values to this Vector4
+	 * Calcualte the divded value of two Vector2's and apply the values to this Vector2
 	 * @param  {Vector4} _vector
 	 * @returns {Vector4}
 	 */
-	public Dot(_vector: Vector4): Vector4 {
-		if (!(_vector instanceof Vector3)) { console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector); _vector = new Vector4(NaN,NaN,NaN,NaN); }	
-		this.set(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z, this.w * _vector.w);
+	public DivideVector(_vector: Vector4): Vector4 {
+		if (!(_vector instanceof Vector4)) { console.error("Error trying to calculate the divided value of two vectors using an invalid Vector4: ", _vector); _vector = new Vector4(NaN,NaN,NaN,NaN); }	
+		this.set(this.x / _vector.x, this.y / _vector.y, this.z / _vector.z, this.w / _vector.w);
 
 		return this;
 	}
