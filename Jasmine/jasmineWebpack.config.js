@@ -29,7 +29,7 @@ module.exports = {
         library: 'TestExport',
         libraryTarget: 'window',
         filename: 'jasmineTestBundle.js',
-        path: path.resolve(__dirname, 'Jasmine Standalone'),
+        path: path.resolve(__dirname, 'Jasmine-Standalone'),
     },
     optimization: {
         minimize: false

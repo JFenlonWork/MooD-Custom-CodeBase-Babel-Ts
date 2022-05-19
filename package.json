@@ -13,7 +13,7 @@
     "check-types": "tsc --noEmit",
     "stop-testing": "pm2 delete \"Jasmine Testing\"",
     "start-testing": "pm2 startOrRestart pm2/jasmine-testing.json",
-    "scriptTesting": "concurrently \"webpack build --config ./Jasmine/jasmineWebpack.config.js\"  \"npx live-server --open=Jasmine/Jasmine%20Standalone/SpecRunner.html --port=63475\""
+    "scriptTesting": "concurrently \"webpack build --config ./Jasmine/jasmineWebpackConcurrently.config.js\"  \"npx live-server --open=Jasmine/Jasmine-Standalone/SpecRunner.html --port=63475\""
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,6 @@
 MooD-Custom-CodeBase-Babel-Ts.wiki/
 Code/js
-spec/support/jasmineTestBundle.js
+Jasmine/Jasmine-Standalone/jasmineTestBundle.js
 node_modules/
 coverage/
 stats.json
