@@ -16,19 +16,19 @@
 		// Import non-ES modules as default imports.
 		"esModuleInterop": true,
 		"outDir": "JavaScriptModules",
-		"baseUrl": "../../",
+		"baseUrl": "../",
 		"paths": {
 			"*": ["."],
 			"@code/*": ["Code/src/*"],
-			"@tests/*": ["spec/support/Modules/*"],
-			"@helpers/*": ["spec/support/Helpers/*"]
+			"@tests/*": ["Jasmine/Tests/Modules/*"],
+			"@helpers/*": ["Jasmine/Tests/Helpers/*"]
 		}
 	},
 	"include": [
-		"**/*.spec.ts"
+		"Tests/**/*.spec.ts"
 	],
 	"exclude": [
 		"node_modules",
-		"../../Code/js"
+		"../Code/js"
 	]
 }
