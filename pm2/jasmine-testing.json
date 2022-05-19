@@ -1,0 +1,7 @@
+{
+  "apps" : [{
+    "name": "Jasmine Testing",
+    "script": "pm2/pm2-npm.js",
+    "args": "run scriptTesting"
+  }]
+}

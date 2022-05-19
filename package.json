@@ -11,7 +11,9 @@
     "document": "rimraf MooD-Custom-CodeBase-Babel-Ts.wiki/* && typedoc --tsconfig ./Code/src/tsconfig.json && copyfiles -u 1 Wiki_Resources/* MooD-Custom-CodeBase-Babel-Ts.wiki/",
     "clearWiki": "rimraf MooD-Custom-CodeBase-Babel-Ts.wiki/* ",
     "check-types": "tsc --noEmit",
-    "test-browser": "webpack build --config ./spec/support/jasmineWebpack.config.js"
+    "stop-testing": "pm2 delete \"Jasmine Testing\"",
+    "start-testing": "pm2 startOrRestart pm2/jasmine-testing.json",
+    "scriptTesting": "concurrently \"webpack build --config ./Jasmine/jasmineWebpack.config.js\"  \"npx live-server --open=Jasmine/Jasmine%20Standalone/SpecRunner.html --port=63475\""
   },
   "keywords": [],
   "author": "",
@@ -28,9 +30,12 @@
     "@types/jquery": "^3.5.14",
     "babel-loader": "^8.2.3",
     "babel-plugin-module-resolver": "^4.1.0",
+    "concurrently": "^7.2.0",
     "copyfiles": "^2.4.1",
     "devextreme": "^21.2.6",
     "jquery": "^3.6.0",
+    "live-server": "^1.2.2",
+    "pm2": "^5.2.0",
     "rimraf": "^3.0.2",
     "ts-node": "^10.7.0",
     "typedoc": "^0.22.12",
