@@ -49,7 +49,7 @@ describe("Collision", () => {
         //  act
         let result = Collision.checkPointWithinArea(areaBounds, new Vector2((x1 + x2) / 2, (y1 + y2) / 2));
 
-        //  arrange
+        //  assert
         expect(result).toBe(true);
     });
 
@@ -58,7 +58,7 @@ describe("Collision", () => {
         let result = Collision.checkAreaWithinArea(areaBounds, insideBounds);
         let result2 = Collision.checkAreaWithinArea(insideBounds, areaBounds);
 
-        //  arrange
+        //  assert
         expect(result).toBe(true);
         expect(result2).toBe(false);
     });
@@ -68,7 +68,7 @@ describe("Collision", () => {
         let result = Collision.checkAreaOverlapArea(areaBounds, insideBounds);
         let result2 = Collision.checkAreaOverlapArea(areaBounds, outsideBounds);
 
-        //  arrange
+        //  assert
         expect(result).toBe(false);
         expect(result2).toBe(true);
     });
@@ -78,7 +78,7 @@ describe("Collision", () => {
         let result = Collision.checkAreaIntersectsArea(areaBounds, intersectBounds);
         let result2 = Collision.checkAreaIntersectsArea(areaBounds, outsideBounds);
 
-        //  arrange
+        //  assert
         expect(result).toBe(true);
         expect(result2).toBe(true);
     });
@@ -89,7 +89,7 @@ describe("Collision", () => {
         let result2 = Collision.returnObjectsWithinArea(areaBounds, [insideObject, intersectObject]);
         let result3 = Collision.returnObjectsWithinArea(areaBounds, outsideObject);
 
-        //  arrange
+        //  assert
         expect(result.length).toBe(1);
         expect(result2.length).toBe(1);
         expect(result3.length).toBe(0);
@@ -101,7 +101,7 @@ describe("Collision", () => {
         let result2 = Collision.returnObjectsOverlapArea(areaBounds, [insideObject, intersectObject]);
         let result3 = Collision.returnObjectsOverlapArea(areaBounds, outsideObject);
 
-        //  arrange
+        //  assert
         expect(result.length).toBe(0);
         expect(result2.length).toBe(0);
         expect(result3.length).toBe(1);
@@ -112,7 +112,7 @@ describe("Collision", () => {
         let result = Collision.returnObjectsIntersectArea(areaBounds, insideObject);
         let result2 = Collision.returnObjectsIntersectArea(areaBounds, [insideObject, outsideObject]);
 
-        //  arrange
+        //  assert
         expect(result.length).toBe(1);
         expect(result2.length).toBe(2);
     });

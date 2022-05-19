@@ -13,34 +13,39 @@ describe("Line", () => {
         x1 = random(100), y1 = random(100), x2 = random(100), y2 = random(100), x3 = random(100), y3 = random(100), x4 = random(100), y4 = random(100);
     });
 
-    it("should create a Line", () => {
+    it("Should create a Line", () => {
+        //  arrange
         let line = new Line(x1, y1, x2, y2);
+
+        //  assert
         expect(line.x1).toBe(x1);
         expect(line.y1).toBe(y1);
         expect(line.x2).toBe(x2);
         expect(line.y2).toBe(y2);
     });
 
-    it("should have a x1 property", () => {
+    it("Should have a x1 property", () => {
+        //  assert
         expect(new Line(x1, y1, x2, y2).x1).toBe(x1);
     });
 
-    it("should set a x1 property", () => {
+    it("Should set a x1 property", () => {
         //  arrange
         let line = new Line(x1, y1, x2, y2);
 
         //  act
         line.x1 = x3;
 
-        //  arrange
+        //  assert
         expect(line.x1).toBe(x3);
     });
 
-    it("should have a y1 property", () => {
+    it("Should have a y1 property", () => {
+        //  assert
         expect(new Line(x1, y1, x2, y2).y1).toBe(y1);
     });
 
-    it("should set a y1 property", () => {
+    it("Should set a y1 property", () => {
         //  arrange
         let line = new Line(x1, y1, x2, y2);
 
@@ -51,44 +56,46 @@ describe("Line", () => {
         expect(line.y1).toBe(y3);
     });
 
-    it("should have a x2 property", () => {
+    it("Should have a x2 property", () => {
+        //  assert
         expect(new Line(x1, y1, x2, y2).x2).toBe(x2);
     });
 
-    it("should set a x2 property", () => {
+    it("Should set a x2 property", () => {
         //  arrange
         let line = new Line(x1, y1, x2, y2);
 
         //  act
         line.x2 = x4;
 
-        //  arrange
+        //  assert
         expect(line.x2).toBe(x4);
     });
 
-    it("should have a y2 property", () => {
+    it("Should have a y2 property", () => {
+        //  assert
         expect(new Line(x1, y1, x2, y2).y2).toBe(y2);
     });
 
-    it("should set a y2 property", () => {
+    it("Should set a y2 property", () => {
         //  arrange
         let line = new Line(x1, y1, x2, y2);
 
         //  act
         line.y2 = y4;
 
-        //  arrange
+        //  assert
         expect(line.y2).toBe(y4);
     });
 
-    it("should set all properties", () => {
+    it("Should set all properties", () => {
         //  arrange
         let line = new Line(x1, y1, x2, y2);
 
-        //act
+        //  act
         line.set(x3, y3, x4, y4);
 
-        //  arrange
+        //  assert
         expect(line.x1).toBe(x3);
         expect(line.y1).toBe(y3);
         expect(line.x2).toBe(x4);
@@ -99,6 +106,7 @@ describe("Line", () => {
         //  arrange
         let line = Line.NaN();
         
+        //  assert
         expect(line.x1).toBeNaN();
         expect(line.y1).toBeNaN();
         expect(line.x2).toBeNaN();
@@ -109,6 +117,7 @@ describe("Line", () => {
         //  arrange
         let line = Line.Zero();
         
+        //  assert
         expect(line.x1).toBe(0);
         expect(line.y1).toBe(0);
         expect(line.x2).toBe(0);
@@ -123,7 +132,7 @@ describe("Line", () => {
         //  act
         let result = line1.equals(line2);
 
-        //  arrange
+        //  assert
         expect(result).toBe(true);
     });
 
@@ -134,7 +143,7 @@ describe("Line", () => {
         //  act
         let result = line.IsNaN();
 
-        //  arrange
+        //  assert
         expect(result).toBe(false);
     });
 
@@ -145,7 +154,7 @@ describe("Line", () => {
         //  act
         let result = line.HasNaN();
 
-        //  arrange
+        //  assert
         expect(result).toBe(false);
     });
 
@@ -156,7 +165,7 @@ describe("Line", () => {
         //  act
         let result = Line.isNaN(line);
 
-        //  arrange
+        //  assert
         expect(result).toBe(true);
     });
 
@@ -167,7 +176,7 @@ describe("Line", () => {
         //  act
         let result = Line.hasNaN(line);
 
-        //  arrange
+        //  assert
         expect(result).toBe(true);
     });
 
@@ -178,7 +187,7 @@ describe("Line", () => {
         //  act
         let result = line.clone();
 
-        //  arrange
+        //  assert
         expect(result.x1).toBe(x1);
         expect(result.y1).toBe(y1);
         expect(result.x2).toBe(x2);
@@ -193,7 +202,7 @@ describe("Line", () => {
         //  act
         let result = Line.fromVector2s(vector1, vector2);
 
-        //  arrange
+        //  assert
         expect(result.x1).toBe(x1);
         expect(result.y1).toBe(y1);
         expect(result.x2).toBe(x2);
@@ -207,7 +216,7 @@ describe("Line", () => {
         //  act
         let result = Line.fromVector4(vector);
 
-        //  arrange
+        //  assert
         expect(result.x1).toBe(x1);
         expect(result.y1).toBe(y1);
         expect(result.x2).toBe(x2);
@@ -221,7 +230,7 @@ describe("Line", () => {
         //  act
         let result = line.distance();
 
-        //  arrange
+        //  assert
         expect(result).toBe(Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
     });
 
@@ -232,7 +241,7 @@ describe("Line", () => {
         //  act
         let result = line.distanceSqr();
 
-        //  arrange
+        //  assert
         expect(result).toBe(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     });
     
@@ -257,7 +266,7 @@ describe("Line", () => {
             (line1.y1 - line1.y2) * (line2.x1 * line2.y2 - line2.y1 * line2.x2));
         lineIntersect.y /= div;
 
-        //  arrange
+        //  assert
         expect(result.x).toBe(lineIntersect.x);
         expect(result.y).toBe(lineIntersect.y);
     });
@@ -302,7 +311,7 @@ describe("Line", () => {
             if (Generic.between(line2.y1, intersection.y, line2.y2)) intersectionResult = Vector2.NaN();
         }
 
-        //  arrange
+        //  assert
         if (isNaN(intersectionResult.x)) {
             expect(result.x).toBeNaN();
         } else {
