@@ -29,19 +29,21 @@ Class representing a Vector3 which hold three floats.
 
 - [Add](../wiki/Vector4#add)
 - [Divide](../wiki/Vector4#divide)
-- [Dot](../wiki/Vector4#dot)
+- [DivideVector](../wiki/Vector4#dividevector)
 - [HasNaN](../wiki/Vector4#hasnan)
 - [IsNaN](../wiki/Vector4#isnan)
 - [Multiply](../wiki/Vector4#multiply)
+- [MultiplyVector](../wiki/Vector4#multiplyvector)
 - [Subtract](../wiki/Vector4#subtract)
 - [add](../wiki/Vector4#add)
 - [clone](../wiki/Vector4#clone)
 - [distance](../wiki/Vector4#distance)
 - [distanceSqr](../wiki/Vector4#distancesqr)
 - [divide](../wiki/Vector4#divide)
-- [dot](../wiki/Vector4#dot)
+- [divideVector](../wiki/Vector4#dividevector)
 - [equals](../wiki/Vector4#equals)
 - [multiply](../wiki/Vector4#multiply)
+- [multiplyVector](../wiki/Vector4#multiplyvector)
 - [set](../wiki/Vector4#set)
 - [setVector2](../wiki/Vector4#setvector2)
 - [setVector3](../wiki/Vector4#setvector3)
@@ -78,7 +80,7 @@ Create a Vector3
 
 #### Defined in
 
-[Maths/Vector4.ts:24](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L24)
+[Maths/Vector4.ts:24](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L24)
 
 ## Properties
 
@@ -88,7 +90,7 @@ Create a Vector3
 
 #### Defined in
 
-[Maths/Vector4.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L7)
+[Maths/Vector4.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L7)
 
 ## Accessors
 
@@ -102,7 +104,7 @@ Create a Vector3
 
 #### Defined in
 
-[Maths/Vector4.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L8)
+[Maths/Vector4.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L8)
 
 • `set` **w**(`value`): `void`
 
@@ -118,7 +120,7 @@ Create a Vector3
 
 #### Defined in
 
-[Maths/Vector4.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L12)
+[Maths/Vector4.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L12)
 
 ___
 
@@ -136,7 +138,7 @@ Vector3.x
 
 #### Defined in
 
-[Maths/Vector2.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector2.ts#L6)
+[Maths/Vector2.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector2.ts#L6)
 
 • `set` **x**(`value`): `void`
 
@@ -156,7 +158,7 @@ Vector3.x
 
 #### Defined in
 
-[Maths/Vector2.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector2.ts#L10)
+[Maths/Vector2.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector2.ts#L10)
 
 ___
 
@@ -174,7 +176,7 @@ Vector3.y
 
 #### Defined in
 
-[Maths/Vector2.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector2.ts#L16)
+[Maths/Vector2.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector2.ts#L16)
 
 • `set` **y**(`value`): `void`
 
@@ -194,7 +196,7 @@ Vector3.y
 
 #### Defined in
 
-[Maths/Vector2.ts:20](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector2.ts#L20)
+[Maths/Vector2.ts:20](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector2.ts#L20)
 
 ___
 
@@ -212,7 +214,7 @@ Vector3.z
 
 #### Defined in
 
-[Maths/Vector3.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector3.ts#L8)
+[Maths/Vector3.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector3.ts#L8)
 
 • `set` **z**(`value`): `void`
 
@@ -232,7 +234,7 @@ Vector3.z
 
 #### Defined in
 
-[Maths/Vector3.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector3.ts#L12)
+[Maths/Vector3.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector3.ts#L12)
 
 ## Methods
 
@@ -258,7 +260,7 @@ Add two Vector4's values and apply the values to this Vector4
 
 #### Defined in
 
-[Maths/Vector4.ts:156](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L156)
+[Maths/Vector4.ts:156](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L156)
 
 ___
 
@@ -284,15 +286,15 @@ Calcualte the divided value of a Vector4 and apply the values to this Vector4
 
 #### Defined in
 
-[Maths/Vector4.ts:222](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L222)
+[Maths/Vector4.ts:244](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L244)
 
 ___
 
-### Dot
+### DivideVector
 
-▸ **Dot**(`_vector`): [`Vector4`](../wiki/Vector4)
+▸ **DivideVector**(`_vector`): [`Vector4`](../wiki/Vector4)
 
-Calcualte the dot product of two Vector4's and apply the values to this Vector4
+Calcualte the divded value of two Vector2's and apply the values to this Vector2
 
 #### Parameters
 
@@ -306,11 +308,11 @@ Calcualte the dot product of two Vector4's and apply the values to this Vector4
 
 #### Overrides
 
-[Vector3](../wiki/Vector3).[Dot](../wiki/Vector3#dot)
+[Vector3](../wiki/Vector3).[DivideVector](../wiki/Vector3#dividevector)
 
 #### Defined in
 
-[Maths/Vector4.ts:244](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L244)
+[Maths/Vector4.ts:266](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L266)
 
 ___
 
@@ -330,7 +332,7 @@ Returns if this Vector4 has a NaN value
 
 #### Defined in
 
-[Maths/Vector4.ts:101](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L101)
+[Maths/Vector4.ts:101](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L101)
 
 ___
 
@@ -350,7 +352,7 @@ Returns if this Vector4 is all NaN
 
 #### Defined in
 
-[Maths/Vector4.ts:93](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L93)
+[Maths/Vector4.ts:93](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L93)
 
 ___
 
@@ -376,7 +378,33 @@ Calcualte the multiplied value of a Vector4 and apply the values to this Vector4
 
 #### Defined in
 
-[Maths/Vector4.ts:200](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L200)
+[Maths/Vector4.ts:200](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L200)
+
+___
+
+### MultiplyVector
+
+▸ **MultiplyVector**(`_vector`): [`Vector4`](../wiki/Vector4)
+
+Calcualte the dot product of two Vector4's and apply the values to this Vector4
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `_vector` | [`Vector4`](../wiki/Vector4) |
+
+#### Returns
+
+[`Vector4`](../wiki/Vector4)
+
+#### Overrides
+
+[Vector3](../wiki/Vector3).[MultiplyVector](../wiki/Vector3#multiplyvector)
+
+#### Defined in
+
+[Maths/Vector4.ts:222](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L222)
 
 ___
 
@@ -402,7 +430,7 @@ Subract two Vector4's values and apply the values to this Vector4
 
 #### Defined in
 
-[Maths/Vector4.ts:178](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L178)
+[Maths/Vector4.ts:178](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L178)
 
 ___
 
@@ -428,7 +456,7 @@ Add two Vector4's values and return the result in a new Vector4
 
 #### Defined in
 
-[Maths/Vector4.ts:146](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L146)
+[Maths/Vector4.ts:146](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L146)
 
 ___
 
@@ -448,7 +476,7 @@ Returns a new Vector4 with the same values as this Vector4
 
 #### Defined in
 
-[Maths/Vector4.ts:137](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L137)
+[Maths/Vector4.ts:137](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L137)
 
 ___
 
@@ -474,7 +502,7 @@ Calculate the distance between two Vector3's
 
 #### Defined in
 
-[Maths/Vector3.ts:254](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector3.ts#L254)
+[Maths/Vector3.ts:276](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector3.ts#L276)
 
 ___
 
@@ -500,7 +528,7 @@ Calculate the squared distance between two Vector3's
 
 #### Defined in
 
-[Maths/Vector3.ts:264](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector3.ts#L264)
+[Maths/Vector3.ts:286](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector3.ts#L286)
 
 ___
 
@@ -526,15 +554,15 @@ Calcualte the divided value of a Vector4 and return the result in a new Vector4
 
 #### Defined in
 
-[Maths/Vector4.ts:212](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L212)
+[Maths/Vector4.ts:234](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L234)
 
 ___
 
-### dot
+### divideVector
 
-▸ **dot**(`_vector`): [`Vector4`](../wiki/Vector4)
+▸ **divideVector**(`_vector`): [`Vector4`](../wiki/Vector4)
 
-Calcualte the dot product of two Vector4's and return the result in a new Vector4
+Calcualte the divided value of two Vector4's and return the result in a new Vector4
 
 #### Parameters
 
@@ -548,11 +576,11 @@ Calcualte the dot product of two Vector4's and return the result in a new Vector
 
 #### Overrides
 
-[Vector3](../wiki/Vector3).[dot](../wiki/Vector3#dot)
+[Vector3](../wiki/Vector3).[divideVector](../wiki/Vector3#dividevector)
 
 #### Defined in
 
-[Maths/Vector4.ts:234](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L234)
+[Maths/Vector4.ts:256](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L256)
 
 ___
 
@@ -578,7 +606,7 @@ Returns if an object is the same as this Vector4
 
 #### Defined in
 
-[Maths/Vector4.ts:84](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L84)
+[Maths/Vector4.ts:84](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L84)
 
 ___
 
@@ -604,7 +632,33 @@ Calcualte the multiplied value of a Vector4 and return the result in a new Vecto
 
 #### Defined in
 
-[Maths/Vector4.ts:190](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L190)
+[Maths/Vector4.ts:190](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L190)
+
+___
+
+### multiplyVector
+
+▸ **multiplyVector**(`_vector`): [`Vector4`](../wiki/Vector4)
+
+Calcualte the multiplied value of two Vector4's and return the result in a new Vector4
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `_vector` | [`Vector4`](../wiki/Vector4) |
+
+#### Returns
+
+[`Vector4`](../wiki/Vector4)
+
+#### Overrides
+
+[Vector3](../wiki/Vector3).[multiplyVector](../wiki/Vector3#multiplyvector)
+
+#### Defined in
+
+[Maths/Vector4.ts:212](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L212)
 
 ___
 
@@ -633,7 +687,7 @@ Set this Vector4's x value to be the parameter's value and apply the values to t
 
 #### Defined in
 
-[Maths/Vector4.ts:37](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L37)
+[Maths/Vector4.ts:37](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L37)
 
 ___
 
@@ -659,7 +713,7 @@ Set this Vector2's values to be the parameter's values and apply the values to t
 
 #### Defined in
 
-[Maths/Vector2.ts:52](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector2.ts#L52)
+[Maths/Vector2.ts:52](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector2.ts#L52)
 
 ___
 
@@ -685,7 +739,7 @@ Set this Vector3's values to be the parameter's values and apply the values to t
 
 #### Defined in
 
-[Maths/Vector3.ts:46](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector3.ts#L46)
+[Maths/Vector3.ts:46](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector3.ts#L46)
 
 ___
 
@@ -707,7 +761,7 @@ Set this Vector4's values to be the parameter's values and apply the values to t
 
 #### Defined in
 
-[Maths/Vector4.ts:48](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L48)
+[Maths/Vector4.ts:48](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L48)
 
 ___
 
@@ -733,7 +787,7 @@ Subract two Vector4's values and return the result in a new Vector4
 
 #### Defined in
 
-[Maths/Vector4.ts:168](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L168)
+[Maths/Vector4.ts:168](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L168)
 
 ___
 
@@ -753,7 +807,7 @@ Returns a Vector2 version of this Vector3
 
 #### Defined in
 
-[Maths/Vector3.ts:127](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector3.ts#L127)
+[Maths/Vector3.ts:127](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector3.ts#L127)
 
 ___
 
@@ -769,7 +823,7 @@ Returns a Vector3 version of this Vector4
 
 #### Defined in
 
-[Maths/Vector4.ts:129](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L129)
+[Maths/Vector4.ts:129](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L129)
 
 ___
 
@@ -789,7 +843,7 @@ Create a Vector4 filled with NaN
 
 #### Defined in
 
-[Maths/Vector4.ts:59](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L59)
+[Maths/Vector4.ts:59](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L59)
 
 ___
 
@@ -809,7 +863,7 @@ Create a Vector4 filled with 1
 
 #### Defined in
 
-[Maths/Vector4.ts:75](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L75)
+[Maths/Vector4.ts:75](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L75)
 
 ___
 
@@ -829,7 +883,7 @@ Create a Vector4 filled with 0
 
 #### Defined in
 
-[Maths/Vector4.ts:67](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L67)
+[Maths/Vector4.ts:67](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L67)
 
 ___
 
@@ -855,7 +909,7 @@ Returns if a Vector4 has a NaN value
 
 #### Defined in
 
-[Maths/Vector4.ts:120](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L120)
+[Maths/Vector4.ts:120](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L120)
 
 ___
 
@@ -881,4 +935,4 @@ Returns if a Vector4 is all NaN
 
 #### Defined in
 
-[Maths/Vector4.ts:110](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Vector4.ts#L110)
+[Maths/Vector4.ts:110](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Vector4.ts#L110)

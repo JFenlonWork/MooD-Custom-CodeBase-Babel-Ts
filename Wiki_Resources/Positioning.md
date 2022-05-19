@@ -42,7 +42,7 @@ Apply viewport offset to a vector to return coordinates in viewport space
 
 #### Defined in
 
-[Maths/Positioning.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Positioning.ts#L23)
+[Maths/Positioning.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Positioning.ts#L23)
 
 ___
 
@@ -65,7 +65,7 @@ Calculate coordinates of object
 
 #### Defined in
 
-[Maths/Positioning.ts:41](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Positioning.ts#L41)
+[Maths/Positioning.ts:41](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Positioning.ts#L41)
 
 ___
 
@@ -81,7 +81,7 @@ Calculate viewport offset from document origin
 
 #### Defined in
 
-[Maths/Positioning.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Positioning.ts#L11)
+[Maths/Positioning.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Positioning.ts#L11)
 
 ___
 
@@ -103,7 +103,7 @@ Subtract viewport offset to a vector to return relative coordinates to the docum
 
 #### Defined in
 
-[Maths/Positioning.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Positioning.ts#L31)
+[Maths/Positioning.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Positioning.ts#L31)
 
 ___
 
@@ -127,4 +127,4 @@ Calculate sizes of computed style
 
 #### Defined in
 
-[Maths/Positioning.ts:84](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/88a4aaa/Code/src/Maths/Positioning.ts#L84)
+[Maths/Positioning.ts:84](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Maths/Positioning.ts#L84)
