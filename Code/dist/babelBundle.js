@@ -499,6 +499,39 @@ var TestExport;
         return this;
       }
       /**
+       * Calcualte the multiplied value of two Vector2's and return the result in a new Vector2
+       * @param  {Vector2} _vector
+       * @returns {Vector2}
+       */
+
+    }, {
+      key: "multiplyVector",
+      value: function multiplyVector(_vector) {
+        if (!(_vector instanceof Vector2)) {
+          console.error("Error trying to calculate dot product using an invalid Vector2: ", _vector);
+          return new Vector2(NaN, NaN);
+        }
+
+        return new Vector2(this.x * _vector.x, this.y * _vector.y);
+      }
+      /**
+       * Calcualte the multiplied value of two Vector2's and apply the values to this Vector2
+       * @param  {Vector2} _vector
+       * @returns {Vector2}
+       */
+
+    }, {
+      key: "MultiplyVector",
+      value: function MultiplyVector(_vector) {
+        if (!(_vector instanceof Vector2)) {
+          console.error("Error trying to calculate dot product using an invalid Vector2: ", _vector);
+          _vector = new Vector2(NaN, NaN);
+        }
+
+        this.set(this.x * _vector.x, this.y * _vector.y);
+        return this;
+      }
+      /**
        * Calcualte the divided value of a Vector2 and return the result in a new Vector2
        * @param  {number} _scalar
        * @returns {Vector2}
@@ -532,36 +565,36 @@ var TestExport;
         return this;
       }
       /**
-       * Calcualte the dot product of two Vector2's and return the result in a new Vector2
+       * Calcualte the divided value of two Vector2's and return the result in a new Vector2
        * @param  {Vector2} _vector
        * @returns {Vector2}
        */
 
     }, {
-      key: "dot",
-      value: function dot(_vector) {
+      key: "divideVector",
+      value: function divideVector(_vector) {
         if (!(_vector instanceof Vector2)) {
-          console.error("Error trying to calculate dot product using an invalid Vector2: ", _vector);
+          console.error("Error trying to calculate the divided value of two vectors using an invalid Vector2: ", _vector);
           return new Vector2(NaN, NaN);
         }
 
-        return new Vector2(this.x * _vector.x, this.y * _vector.y);
+        return new Vector2(this.x / _vector.x, this.y / _vector.y);
       }
       /**
-       * Calcualte the dot product of two Vector2's and apply the values to this Vector2
+       * Calcualte the divded value of two Vector2's and apply the values to this Vector2
        * @param  {Vector2} _vector
        * @returns {Vector2}
        */
 
     }, {
-      key: "Dot",
-      value: function Dot(_vector) {
+      key: "DivideVector",
+      value: function DivideVector(_vector) {
         if (!(_vector instanceof Vector2)) {
-          console.error("Error trying to calculate dot product using an invalid Vector2: ", _vector);
+          console.error("Error trying to calculate the divided value of two vectors using an invalid Vector2: ", _vector);
           _vector = new Vector2(NaN, NaN);
         }
 
-        this.set(this.x * _vector.x, this.y * _vector.y);
+        this.set(this.x / _vector.x, this.y / _vector.y);
         return this;
       }
       /**
@@ -1069,6 +1102,39 @@ var TestExport;
         return this;
       }
       /**
+       * Calcualte the multiplied value of two Vector3's and return the result in a new Vector3
+       * @param  {Vector3} _vector
+       * @returns {Vector3}
+       */
+
+    }, {
+      key: "multiplyVector",
+      value: function multiplyVector(_vector) {
+        if (!(_vector instanceof Vector3)) {
+          console.error("Error trying to calculate dot product using an invalid Vector3: ", _vector);
+          return new Vector3(NaN, NaN, NaN);
+        }
+
+        return new Vector3(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z);
+      }
+      /**
+       * Calcualte the multiplied value of two Vector3's and apply the values to this Vector3
+       * @param  {Vector3} _vector
+       * @returns {Vector3}
+       */
+
+    }, {
+      key: "MultiplyVector",
+      value: function MultiplyVector(_vector) {
+        if (!(_vector instanceof Vector3)) {
+          console.error("Error trying to calculate dot product using an invalid Vector3: ", _vector);
+          _vector = new Vector3(NaN, NaN, NaN);
+        }
+
+        this.set(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z);
+        return this;
+      }
+      /**
        * Calcualte the divided value of a Vector3 and return the result in a new Vector3
        * @param  {number} _scalar
        * @returns {Vector3}
@@ -1102,36 +1168,36 @@ var TestExport;
         return this;
       }
       /**
-       * Calcualte the dot product of two Vector3's and return the result in a new Vector3
+       * Calcualte the divided value of two Vector3's and return the result in a new Vector3
        * @param  {Vector3} _vector
        * @returns {Vector3}
        */
 
     }, {
-      key: "dot",
-      value: function dot(_vector) {
+      key: "divideVector",
+      value: function divideVector(_vector) {
         if (!(_vector instanceof Vector3)) {
-          console.error("Error trying to calculate dot product using an invalid Vector3: ", _vector);
+          console.error("Error trying to calculate the divided value of two vectors using an invalid Vector3: ", _vector);
           return new Vector3(NaN, NaN, NaN);
         }
 
-        return new Vector3(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z);
+        return new Vector3(this.x / _vector.x, this.y / _vector.y, this.z / _vector.z);
       }
       /**
-       * Calcualte the dot product of two Vector3's and apply the values to this Vector3
+       * Calcualte the divded value of two Vector2's and apply the values to this Vector2
        * @param  {Vector3} _vector
        * @returns {Vector3}
        */
 
     }, {
-      key: "Dot",
-      value: function Dot(_vector) {
+      key: "DivideVector",
+      value: function DivideVector(_vector) {
         if (!(_vector instanceof Vector3)) {
-          console.error("Error trying to calculate dot product using an invalid Vector3: ", _vector);
+          console.error("Error trying to calculate the divided value of two vectors using an invalid Vector3: ", _vector);
           _vector = new Vector3(NaN, NaN, NaN);
         }
 
-        this.set(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z);
+        this.set(this.x / _vector.x, this.y / _vector.y, this.z / _vector.z);
         return this;
       }
       /**
@@ -1466,7 +1532,7 @@ var TestExport;
     }, {
       key: "setVector4",
       value: function setVector4(_vector) {
-        if (!(_vector instanceof _Vector3)) {
+        if (!(_vector instanceof Vector4)) {
           console.error("Error trying to set a Vector4's values using an invalid Vector4: ", _vector);
           _vector = new Vector4(NaN, NaN, NaN, NaN);
         }
@@ -1637,6 +1703,39 @@ var TestExport;
         return this;
       }
       /**
+       * Calcualte the multiplied value of two Vector4's and return the result in a new Vector4
+       * @param  {Vector4} _vector
+       * @returns {Vector4}
+       */
+
+    }, {
+      key: "multiplyVector",
+      value: function multiplyVector(_vector) {
+        if (!(_vector instanceof _Vector3)) {
+          console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector);
+          return new Vector4(NaN, NaN, NaN, NaN);
+        }
+
+        return new Vector4(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z, this.w * _vector.w);
+      }
+      /**
+       * Calcualte the dot product of two Vector4's and apply the values to this Vector4
+       * @param  {Vector4} _vector
+       * @returns {Vector4}
+       */
+
+    }, {
+      key: "MultiplyVector",
+      value: function MultiplyVector(_vector) {
+        if (!(_vector instanceof _Vector3)) {
+          console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector);
+          _vector = new Vector4(NaN, NaN, NaN, NaN);
+        }
+
+        this.set(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z, this.w * _vector.w);
+        return this;
+      }
+      /**
        * Calcualte the divided value of a Vector4 and return the result in a new Vector4
        * @param  {number} _scalar
        * @returns {Vector4}
@@ -1670,36 +1769,36 @@ var TestExport;
         return this;
       }
       /**
-       * Calcualte the dot product of two Vector4's and return the result in a new Vector4
+       * Calcualte the divided value of two Vector4's and return the result in a new Vector4
        * @param  {Vector4} _vector
        * @returns {Vector4}
        */
 
     }, {
-      key: "dot",
-      value: function dot(_vector) {
-        if (!(_vector instanceof _Vector3)) {
-          console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector);
+      key: "divideVector",
+      value: function divideVector(_vector) {
+        if (!(_vector instanceof Vector4)) {
+          console.error("Error trying to calculate the divided value of two vectors using an invalid Vector4: ", _vector);
           return new Vector4(NaN, NaN, NaN, NaN);
         }
 
-        return new Vector4(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z, this.w * _vector.w);
+        return new Vector4(this.x / _vector.x, this.y / _vector.y, this.z / _vector.z, this.w / _vector.w);
       }
       /**
-       * Calcualte the dot product of two Vector4's and apply the values to this Vector4
+       * Calcualte the divded value of two Vector2's and apply the values to this Vector2
        * @param  {Vector4} _vector
        * @returns {Vector4}
        */
 
     }, {
-      key: "Dot",
-      value: function Dot(_vector) {
-        if (!(_vector instanceof _Vector3)) {
-          console.error("Error trying to calculate dot product using an invalid Vector4: ", _vector);
+      key: "DivideVector",
+      value: function DivideVector(_vector) {
+        if (!(_vector instanceof Vector4)) {
+          console.error("Error trying to calculate the divided value of two vectors using an invalid Vector4: ", _vector);
           _vector = new Vector4(NaN, NaN, NaN, NaN);
         }
 
-        this.set(this.x * _vector.x, this.y * _vector.y, this.z * _vector.z, this.w * _vector.w);
+        this.set(this.x / _vector.x, this.y / _vector.y, this.z / _vector.z, this.w / _vector.w);
         return this;
       }
     }], [{
@@ -1986,7 +2085,7 @@ var TestExport;
     * @param  {number} y1 - The first point y value to set
     * @param  {number} x2 - The second point x value to set
     * @param  {number} y2 - The second point y value to set
-    * @param  {boolean} isWebFormat - If this bounds is in web format (Y's are flipped)
+    * @param  {boolean} isWebFormat - If this bounds is in web format (Y's are flipped) - defaults to false
     */
     function Bounds(x1, y1, x2, y2) {
       var isWebFormat = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
@@ -2200,13 +2299,17 @@ var TestExport;
       key: "equals",
       value:
       /**
-      * Returns if an object is the same as this Bound
+      * Returns if an object is the same as this Bound based on:
+      * webFormat, topLeft, topRight, bottomLeft, bottomRight
       * @param  {object} o
+      * @param  {boolean} checkCoordinates - Determines if coordinates need to be the same and not just the four points of the bound
       * @returns {boolean}
       */
       function equals(o) {
+        var checkCoordinates = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
         if (!(o instanceof Bounds)) return false;
-        return this.x1 == o.x1 && this.y1 == o.y1 && this.x2 == o.x2 && this.y2 == o.y2;
+        if (checkCoordinates == true && this.x1 == o.x1 && this.y1 == o.y1 && this.x2 == o.x2 && this.y2 == o.y2) return false;
+        return this.webFormat == o.webFormat && this.size.equals(o.size) && this.topLeft.equals(o.topLeft) && this.topRight.equals(o.topRight) && this.bottomRight.equals(o.bottomRight) && this.bottomLeft.equals(o.bottomLeft);
       }
       /**
        * Returns if this Bounds is all NaN
@@ -2242,7 +2345,7 @@ var TestExport;
       * @returns {Bounds}
       */
       function clone() {
-        return new Bounds(this.x1, this.y1, this.x2, this.y2);
+        return new Bounds(this.x1, this.y1, this.x2, this.y2, this.webFormat);
       }
       /**
       * Add two Bounds's values and return the result in a new Bounds
@@ -2382,57 +2485,6 @@ var TestExport;
         return this;
       }
       /**
-       * Calcualte the dot product of two Bounds's and return the result in a new Bounds
-       * @param  {Bounds} _bounds
-       * @returns {Bounds}
-       */
-
-    }, {
-      key: "dot",
-      value: function dot(_bounds) {
-        if (!(_bounds instanceof Bounds)) {
-          console.error("Error trying to calculate dot product using an invalid Bounds: ", {
-            _bounds: _bounds
-          });
-          return new Bounds(NaN, NaN, NaN, NaN);
-        }
-
-        if (_bounds.webFormat != this.webFormat) {
-          console.error("Error trying to calculate dot product when the formats are different, Web vs Non-Web ", {
-            _bounds: _bounds
-          });
-          _bounds = new Bounds(NaN, NaN, NaN, NaN);
-        }
-
-        return new Bounds(this.x1 * _bounds.x1, this.y1 * _bounds.y1, this.x2 * _bounds.x2, this.y2 * _bounds.y2, this.webFormat);
-      }
-      /**
-       * Calcualte the dot product of two Bounds's and apply the values to this Bounds
-       * @param  {Bounds} _vector
-       * @returns {Bounds}
-       */
-
-    }, {
-      key: "Dot",
-      value: function Dot(_bounds) {
-        if (!(_bounds instanceof Bounds)) {
-          console.error("Error trying to calculate dot product using an invalid Bounds", {
-            _bounds: _bounds
-          });
-          _bounds = new Bounds(NaN, NaN, NaN, NaN);
-        }
-
-        if (_bounds.webFormat != this.webFormat) {
-          console.error("Error trying to calculate dot product when the formats are different, Web vs Non-Web ", {
-            _bounds: _bounds
-          });
-          _bounds = new Bounds(NaN, NaN, NaN, NaN);
-        }
-
-        this.set(this.x1 * _bounds.x1, this.y1 * _bounds.y1, this.x2 * _bounds.x2, this.y2 * _bounds.y2);
-        return this;
-      }
-      /**
       * Create a bounds from two Vector2s
       * @param  {Vector2} _pos1
       * @param  {Vector2} _pos2
@@ -2447,7 +2499,7 @@ var TestExport;
        * @returns {Bounds}
        */
       function convertFromWeb() {
-        if (!this.webFormat) return this;
+        if (this.webFormat == false) return this;
         return new Bounds(this.x1, this.y2, this.x2, this.y1);
       }
       /**
@@ -2458,7 +2510,7 @@ var TestExport;
     }, {
       key: "ConvertFromWeb",
       value: function ConvertFromWeb() {
-        if (!this.webFormat) return this;
+        if (this.webFormat == false) return this;
         this.webFormat = false;
         return this.set(this.x1, this.y2, this.x2, this.y1);
       }
@@ -2470,7 +2522,7 @@ var TestExport;
     }, {
       key: "convertToWeb",
       value: function convertToWeb() {
-        if (this.webFormat) return this;
+        if (this.webFormat == true) return this;
         return new Bounds(this.x1, this.y2, this.x2, this.y1, true);
       }
       /**
@@ -2481,7 +2533,7 @@ var TestExport;
     }, {
       key: "ConvertToWeb",
       value: function ConvertToWeb() {
-        if (this.webFormat) return this;
+        if (this.webFormat == true) return this;
         this.webFormat = true;
         return this.set(this.x1, this.y2, this.x2, this.y1);
       }
