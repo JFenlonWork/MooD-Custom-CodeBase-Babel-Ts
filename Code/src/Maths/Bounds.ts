@@ -160,7 +160,7 @@ import { Vector4 } from "./Vector4";
 	 * @param  {number} y1 - The first point y value to set
 	 * @param  {number} x2 - The second point x value to set
 	 * @param  {number} y2 - The second point y value to set
-	 * @param  {boolean} isWebFormat - If this bounds is in web format (Y's are flipped)
+	 * @param  {boolean} isWebFormat - If this bounds is in web format (Y's are flipped) - defaults to false
 	 */
 	public constructor(x1: number, y1: number, x2: number, y2: number, isWebFormat: boolean = false) {
 		this.webFormat = isWebFormat;
@@ -205,13 +205,27 @@ import { Vector4 } from "./Vector4";
 	}
 
     /**
-	 * Returns if an object is the same as this Bound
+	 * Returns if an object is the same as this Bound based on:
+	 * webFormat, topLeft, topRight, bottomLeft, bottomRight
 	 * @param  {object} o
+	 * @param  {boolean} checkCoordinates - Determines if coordinates need to be the same and not just the four points of the bound
 	 * @returns {boolean}
 	 */
-	public equals(o: object): boolean {
+	public equals(o: object, checkCoordinates: boolean = false): boolean {
 		if (!(o instanceof Bounds)) return false;
-		return (this.x1 == o.x1 && this.y1 == o.y1 && this.x2 == o.x2 && this.y2 == o.y2);
+
+		if (checkCoordinates == true &&
+			 this.x1 == o.x1 &&
+			 this.y1 == o.y1 &&
+			 this.x2 == o.x2 &&
+			 this.y2 == o.y2) return false;
+
+		return (this.webFormat == o.webFormat &&
+				 this.size.equals(o.size) &&
+				 this.topLeft.equals(o.topLeft) &&
+				 this.topRight.equals(o.topRight) && 
+				 this.bottomRight.equals(o.bottomRight) && 
+				 this.bottomLeft.equals(o.bottomLeft));
 	}
 
 	/**
@@ -255,7 +269,7 @@ import { Vector4 } from "./Vector4";
 	 * @returns {Bounds}
 	 */
     public clone() {
-        return new Bounds(this.x1, this.y1, this.x2, this.y2);
+        return new Bounds(this.x1, this.y1, this.x2, this.y2, this.webFormat);
     }
 
     /**
@@ -326,30 +340,6 @@ import { Vector4 } from "./Vector4";
 		return this;
 	}
 
-	/**
-	 * Calcualte the dot product of two Bounds's and return the result in a new Bounds
-	 * @param  {Bounds} _bounds
-	 * @returns {Bounds}
-	 */
-	public dot(_bounds: Bounds): Bounds {
-		if (!(_bounds instanceof Bounds)) { console.error("Error trying to calculate dot product using an invalid Bounds: ", {_bounds}); return new Bounds(NaN,NaN,NaN,NaN); }
-		if (_bounds.webFormat != this.webFormat) { console.error("Error trying to calculate dot product when the formats are different, Web vs Non-Web ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }	
-		return new Bounds(this.x1 * _bounds.x1, this.y1 * _bounds.y1, this.x2 * _bounds.x2, this.y2 * _bounds.y2, this.webFormat);
-	}
-
-	/**
-	 * Calcualte the dot product of two Bounds's and apply the values to this Bounds
-	 * @param  {Bounds} _vector
-	 * @returns {Bounds}
-	 */
-	public Dot(_bounds: Bounds): Bounds {
-		if (!(_bounds instanceof Bounds)) { console.error("Error trying to calculate dot product using an invalid Bounds", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }	
-		if (_bounds.webFormat != this.webFormat) { console.error("Error trying to calculate dot product when the formats are different, Web vs Non-Web ", {_bounds}); _bounds = new Bounds(NaN,NaN,NaN,NaN); }	
-		this.set(this.x1 * _bounds.x1, this.y1 * _bounds.y1, this.x2 * _bounds.x2, this.y2 * _bounds.y2);
-
-		return this;
-	}
-
     /**
 	 * Create a bounds from two Vector2s
 	 * @param  {Vector2} _pos1
@@ -377,7 +367,7 @@ import { Vector4 } from "./Vector4";
 	 * @returns {Bounds}
 	 */
 	public convertFromWeb(): Bounds {
-		if (!this.webFormat) return this;
+		if (this.webFormat == false) return this;
 		return new Bounds(this.x1, this.y2, this.x2, this.y1);
 	}
 
@@ -386,7 +376,7 @@ import { Vector4 } from "./Vector4";
 	 * @returns {Bounds}
 	 */
 	 public ConvertFromWeb(): Bounds {
-		if (!this.webFormat) return this;
+		if (this.webFormat == false) return this;
 		this.webFormat = false;
 		return this.set(this.x1, this.y2, this.x2, this.y1);
 	}
@@ -396,7 +386,7 @@ import { Vector4 } from "./Vector4";
 	 * @returns {Bounds}
 	 */
 	public convertToWeb(): Bounds {
-		if (this.webFormat) return this;
+		if (this.webFormat == true) return this;
 		return new Bounds(this.x1, this.y2, this.x2, this.y1, true);
 	}
 
@@ -405,7 +395,7 @@ import { Vector4 } from "./Vector4";
 	 * @returns {Bounds}
 	 */
 	 public ConvertToWeb(): Bounds {
-		if (this.webFormat) return this;
+		if (this.webFormat == true) return this;
 		this.webFormat = true;
 		return this.set(this.x1, this.y2, this.x2, this.y1);
 	}
