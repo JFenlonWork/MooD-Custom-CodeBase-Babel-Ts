@@ -30,7 +30,7 @@ import { Timer } from "./Timer";
     }
 
     //** Store all references to Timers to allow searching*/
-    private _timers: MultiKeyReversibleMap<String | Number, Timer> = new MultiKeyReversibleMap();
+    private _timers: MultiKeyReversibleMap<String | Number, Timer> = new MultiKeyReversibleMap("string | number", Timer.toString());
     public get timers(): MultiKeyReversibleMap<String | Number, Timer> {
         if (this != TimerManager.Instance) return TimerManager.Instance.timers;
         return this._timers;
