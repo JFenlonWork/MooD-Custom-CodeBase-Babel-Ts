@@ -17,8 +17,17 @@ Class that handles multiple keys to value Map with reversable search
 
 ### Properties
 
+- [\_\_keyType\_\_](../wiki/MultiKeyReversibleMap#__keytype__)
 - [\_\_map\_\_](../wiki/MultiKeyReversibleMap#__map__)
 - [\_\_reverseMap\_\_](../wiki/MultiKeyReversibleMap#__reversemap__)
+- [\_\_valueType\_\_](../wiki/MultiKeyReversibleMap#__valuetype__)
+
+### Accessors
+
+- [keyType](../wiki/MultiKeyReversibleMap#keytype)
+- [reverseSize](../wiki/MultiKeyReversibleMap#reversesize)
+- [size](../wiki/MultiKeyReversibleMap#size)
+- [valueType](../wiki/MultiKeyReversibleMap#valuetype)
 
 ### Methods
 
@@ -26,6 +35,7 @@ Class that handles multiple keys to value Map with reversable search
 - [deleteKey](../wiki/MultiKeyReversibleMap#deletekey)
 - [deleteKeys](../wiki/MultiKeyReversibleMap#deletekeys)
 - [deleteValue](../wiki/MultiKeyReversibleMap#deletevalue)
+- [equals](../wiki/MultiKeyReversibleMap#equals)
 - [getKeys](../wiki/MultiKeyReversibleMap#getkeys)
 - [getKeysArray](../wiki/MultiKeyReversibleMap#getkeysarray)
 - [getValue](../wiki/MultiKeyReversibleMap#getvalue)
@@ -36,12 +46,14 @@ Class that handles multiple keys to value Map with reversable search
 - [remapValueFromKey](../wiki/MultiKeyReversibleMap#remapvaluefromkey)
 - [setKey](../wiki/MultiKeyReversibleMap#setkey)
 - [setKeys](../wiki/MultiKeyReversibleMap#setkeys)
+- [toString](../wiki/MultiKeyReversibleMap#tostring)
+- [toString](../wiki/MultiKeyReversibleMap#tostring)
 
 ## Constructors
 
 ### constructor
 
-• **new MultiKeyReversibleMap**<`Key`, `Value`\>(`keys?`, `value?`)
+• **new MultiKeyReversibleMap**<`Key`, `Value`\>(`keyType`, `valueType`, `collection?`)
 
 Create a map between multiple keys and a single value
 
@@ -54,16 +66,29 @@ Create a map between multiple keys and a single value
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `keys` | `Key` \| `Key`[] | `[]` | - |
-| `value?` | `Value` | `undefined` | The value to link these keys to |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `keyType` | `string` | - |
+| `valueType` | `string` | - |
+| `collection?` | [`Key`[], `Value`][] | A collection of key value pairs to create the map from |
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L18)
+[Utilities/MultiKeyReversibleMap.ts:39](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L39)
 
 ## Properties
+
+### \_\_keyType\_\_
+
+• `Private` **\_\_keyType\_\_**: `string` = `""`
+
+Store the object type of the Keys in this Multi-Key Reversible Map for toString comparison
+
+#### Defined in
+
+[Utilities/MultiKeyReversibleMap.ts:14](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L14)
+
+___
 
 ### \_\_map\_\_
 
@@ -71,7 +96,7 @@ Create a map between multiple keys and a single value
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L8)
+[Utilities/MultiKeyReversibleMap.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L8)
 
 ___
 
@@ -83,7 +108,79 @@ Store all inverse references to values to allow searching and Maps the values to
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L11)
+[Utilities/MultiKeyReversibleMap.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L11)
+
+___
+
+### \_\_valueType\_\_
+
+• `Private` **\_\_valueType\_\_**: `string` = `""`
+
+Return the object type of the Values in this Multi-Key Reversible Map for toString comparison
+
+#### Defined in
+
+[Utilities/MultiKeyReversibleMap.ts:20](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L20)
+
+## Accessors
+
+### keyType
+
+• `get` **keyType**(): `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[Utilities/MultiKeyReversibleMap.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L15)
+
+___
+
+### reverseSize
+
+• `get` **reverseSize**(): `number`
+
+Return the size of the reverse map of this Multi-Key Reversible Map
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[Utilities/MultiKeyReversibleMap.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L31)
+
+___
+
+### size
+
+• `get` **size**(): `number`
+
+Return the size of this Multi-Key Reversible Map
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[Utilities/MultiKeyReversibleMap.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L26)
+
+___
+
+### valueType
+
+• `get` **valueType**(): `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[Utilities/MultiKeyReversibleMap.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L21)
 
 ## Methods
 
@@ -99,7 +196,7 @@ Remove all keys and values
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:227](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L227)
+[Utilities/MultiKeyReversibleMap.ts:292](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L292)
 
 ___
 
@@ -122,7 +219,7 @@ Remove a key from this map
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:172](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L172)
+[Utilities/MultiKeyReversibleMap.ts:237](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L237)
 
 ___
 
@@ -145,7 +242,7 @@ Remove many keys from this map
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:203](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L203)
+[Utilities/MultiKeyReversibleMap.ts:268](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L268)
 
 ___
 
@@ -167,7 +264,31 @@ Remove all references to a value
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:215](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L215)
+[Utilities/MultiKeyReversibleMap.ts:280](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L280)
+
+___
+
+### equals
+
+▸ **equals**(`map`): `boolean`
+
+Returns if two Multi-Key Reversible Maps are equal
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `map` | [`MultiKeyReversibleMap`](../wiki/MultiKeyReversibleMap)<`Key`, `Value`\> | The other Multi-Key Reversible Map to compare to |
+
+#### Returns
+
+`boolean`
+
+Value - The value associated with the key
+
+#### Defined in
+
+[Utilities/MultiKeyReversibleMap.ts:69](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L69)
 
 ___
 
@@ -189,7 +310,7 @@ Return Map of Value to Keys
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:55](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L55)
+[Utilities/MultiKeyReversibleMap.ts:118](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L118)
 
 ___
 
@@ -211,7 +332,7 @@ Return all keys relating to a value in array format
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:64](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L64)
+[Utilities/MultiKeyReversibleMap.ts:127](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L127)
 
 ___
 
@@ -233,7 +354,7 @@ Return Value associated with a key
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:39](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L39)
+[Utilities/MultiKeyReversibleMap.ts:102](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L102)
 
 ___
 
@@ -255,7 +376,7 @@ Test if a value exists for a given key
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:74](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L74)
+[Utilities/MultiKeyReversibleMap.ts:137](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L137)
 
 ___
 
@@ -277,7 +398,7 @@ Test if a key exists for a given value
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:47](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L47)
+[Utilities/MultiKeyReversibleMap.ts:110](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L110)
 
 ___
 
@@ -300,7 +421,7 @@ Remap pre-existing key to a new value based on pre-existing Key->Value map
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:155](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L155)
+[Utilities/MultiKeyReversibleMap.ts:220](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L220)
 
 ___
 
@@ -323,7 +444,7 @@ Remap pre-existing keys to a new value
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:121](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L121)
+[Utilities/MultiKeyReversibleMap.ts:186](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L186)
 
 ___
 
@@ -346,7 +467,7 @@ Remap pre-existing keys to a new value based on pre-existing Key->Value map
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:141](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L141)
+[Utilities/MultiKeyReversibleMap.ts:206](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L206)
 
 ___
 
@@ -369,7 +490,7 @@ Create a map between a key and a single value
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:83](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L83)
+[Utilities/MultiKeyReversibleMap.ts:146](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L146)
 
 ___
 
@@ -392,4 +513,36 @@ Create a map between multiple keys and a single value
 
 #### Defined in
 
-[Utilities/MultiKeyReversibleMap.ts:107](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/MultiKeyReversibleMap.ts#L107)
+[Utilities/MultiKeyReversibleMap.ts:172](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L172)
+
+___
+
+### toString
+
+▸ **toString**(): `string`
+
+Returns the class type of this object
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[Utilities/MultiKeyReversibleMap.ts:87](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L87)
+
+___
+
+### toString
+
+▸ `Static` **toString**(): `string`
+
+Returns the type of this class
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[Utilities/MultiKeyReversibleMap.ts:94](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/MultiKeyReversibleMap.ts#L94)

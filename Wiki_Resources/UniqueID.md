@@ -19,6 +19,8 @@ Holds any properties and methods for generating Unique IDs.
 ### Methods
 
 - [generateUID](../wiki/UniqueID#generateuid)
+- [toString](../wiki/UniqueID#tostring)
+- [toString](../wiki/UniqueID#tostring)
 
 ## Constructors
 
@@ -34,7 +36,7 @@ Holds any properties and methods for generating Unique IDs.
 
 #### Defined in
 
-[Utilities/UniqueID.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/UniqueID.ts#L6)
+[Utilities/UniqueID.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/UniqueID.ts#L6)
 
 ## Accessors
 
@@ -48,7 +50,7 @@ Holds any properties and methods for generating Unique IDs.
 
 #### Defined in
 
-[Utilities/UniqueID.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/UniqueID.ts#L7)
+[Utilities/UniqueID.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/UniqueID.ts#L7)
 
 • `set` **uniqueID**(`value`): `void`
 
@@ -64,7 +66,7 @@ Holds any properties and methods for generating Unique IDs.
 
 #### Defined in
 
-[Utilities/UniqueID.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/UniqueID.ts#L11)
+[Utilities/UniqueID.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/UniqueID.ts#L11)
 
 ## Methods
 
@@ -80,4 +82,36 @@ Return and increment a value to fake uniqueness
 
 #### Defined in
 
-[Utilities/UniqueID.ts:19](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Utilities/UniqueID.ts#L19)
+[Utilities/UniqueID.ts:19](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/UniqueID.ts#L19)
+
+___
+
+### toString
+
+▸ **toString**(): `string`
+
+Returns the class type of this object
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[Utilities/UniqueID.ts:28](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/UniqueID.ts#L28)
+
+___
+
+### toString
+
+▸ `Static` **toString**(): `string`
+
+Returns the type of this class
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[Utilities/UniqueID.ts:35](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/UniqueID.ts#L35)

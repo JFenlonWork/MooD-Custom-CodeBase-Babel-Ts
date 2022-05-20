@@ -1,6 +1,7 @@
 # Class: Tooltip
 
 Class representing a Tooltip that can be added to pre-existing HTML.
+The constructor for Tooltips also adds the resulting tooltip to Tooltip Manager
 
 ## Table of contents
 
@@ -10,7 +11,7 @@ Class representing a Tooltip that can be added to pre-existing HTML.
 
 ### Properties
 
-- [\_TooltipTypeType](../wiki/Tooltip#_tooltiptypetype)
+- [\_TooltipTypeName](../wiki/Tooltip#_tooltiptypename)
 - [\_tooltipCSS](../wiki/Tooltip#_tooltipcss)
 - [\_tooltipID](../wiki/Tooltip#_tooltipid)
 - [\_tooltipObject](../wiki/Tooltip#_tooltipobject)
@@ -19,25 +20,30 @@ Class representing a Tooltip that can be added to pre-existing HTML.
 
 ### Accessors
 
-- [TooltipTypeType](../wiki/Tooltip#tooltiptypetype)
+- [TooltipTypeName](../wiki/Tooltip#tooltiptypename)
 - [tooltipCSS](../wiki/Tooltip#tooltipcss)
 - [tooltipID](../wiki/Tooltip#tooltipid)
 - [tooltipObject](../wiki/Tooltip#tooltipobject)
 - [tooltipParentCSS](../wiki/Tooltip#tooltipparentcss)
 - [tooltipText](../wiki/Tooltip#tooltiptext)
 
+### Methods
+
+- [toString](../wiki/Tooltip#tostring)
+- [toString](../wiki/Tooltip#tostring)
+
 ## Constructors
 
 ### constructor
 
-• **new Tooltip**(`tooltipText?`, `TooltipTypeType?`, `tooltipCSS?`, `tooltipParentCSS?`, `tooltipObject?`, ...`args`)
+• **new Tooltip**(`tooltipText?`, `TooltipTypeName?`, `tooltipCSS?`, `tooltipParentCSS?`, `tooltipObject?`, ...`args`)
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `tooltipText` | `string` | `""` |
-| `TooltipTypeType` | `string` | `"GenericTooltipSetup"` |
+| `TooltipTypeName` | `string` | `"GenericTooltipSetup"` |
 | `tooltipCSS` | `string` | `"GenericTooltip"` |
 | `tooltipParentCSS` | `string` | `"GenericTooltipParent"` |
 | `tooltipObject` | ``null`` \| `HTMLElement` | `null` |
@@ -45,17 +51,17 @@ Class representing a Tooltip that can be added to pre-existing HTML.
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:65](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L65)
+[Tooltips/Tooltip.ts:65](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L65)
 
 ## Properties
 
-### \_TooltipTypeType
+### \_TooltipTypeName
 
-• `Private` **\_TooltipTypeType**: `string`
+• `Private` **\_TooltipTypeName**: `string`
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:25](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L25)
+[Tooltips/Tooltip.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L26)
 
 ___
 
@@ -65,7 +71,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:35](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L35)
+[Tooltips/Tooltip.ts:36](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L36)
 
 ___
 
@@ -75,7 +81,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:9](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L9)
+[Tooltips/Tooltip.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L10)
 
 ___
 
@@ -85,7 +91,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L15)
+[Tooltips/Tooltip.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L16)
 
 ___
 
@@ -95,7 +101,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:45](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L45)
+[Tooltips/Tooltip.ts:46](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L46)
 
 ___
 
@@ -105,13 +111,13 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:55](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L55)
+[Tooltips/Tooltip.ts:56](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L56)
 
 ## Accessors
 
-### TooltipTypeType
+### TooltipTypeName
 
-• `get` **TooltipTypeType**(): `string`
+• `get` **TooltipTypeName**(): `string`
 
 #### Returns
 
@@ -119,15 +125,15 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L26)
+[Tooltips/Tooltip.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L27)
 
-• `set` **TooltipTypeType**(`TooltipTypeType`): `void`
+• `set` **TooltipTypeName**(`TooltipTypeName`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `TooltipTypeType` | `string` |
+| `TooltipTypeName` | `string` |
 
 #### Returns
 
@@ -135,7 +141,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:30](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L30)
+[Tooltips/Tooltip.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L31)
 
 ___
 
@@ -149,7 +155,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:36](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L36)
+[Tooltips/Tooltip.ts:37](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L37)
 
 • `set` **tooltipCSS**(`tooltipCSS`): `void`
 
@@ -165,7 +171,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:40](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L40)
+[Tooltips/Tooltip.ts:41](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L41)
 
 ___
 
@@ -179,7 +185,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L10)
+[Tooltips/Tooltip.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L11)
 
 ___
 
@@ -193,7 +199,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L16)
+[Tooltips/Tooltip.ts:17](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L17)
 
 • `set` **tooltipObject**(`tooltipObject`): `void`
 
@@ -209,7 +215,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:20](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L20)
+[Tooltips/Tooltip.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L21)
 
 ___
 
@@ -223,7 +229,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:46](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L46)
+[Tooltips/Tooltip.ts:47](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L47)
 
 • `set` **tooltipParentCSS**(`tooltipParentCSS`): `void`
 
@@ -239,7 +245,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L50)
+[Tooltips/Tooltip.ts:51](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L51)
 
 ___
 
@@ -253,7 +259,7 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:56](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L56)
+[Tooltips/Tooltip.ts:57](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L57)
 
 • `set` **tooltipText**(`tooltipText`): `void`
 
@@ -269,4 +275,36 @@ ___
 
 #### Defined in
 
-[Tooltips/Tooltip.ts:60](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/Tooltip.ts#L60)
+[Tooltips/Tooltip.ts:61](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L61)
+
+## Methods
+
+### toString
+
+▸ **toString**(): `string`
+
+Returns the class type of this object
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[Tooltips/Tooltip.ts:86](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L86)
+
+___
+
+### toString
+
+▸ `Static` **toString**(): `string`
+
+Returns the type of this class
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[Tooltips/Tooltip.ts:93](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/Tooltip.ts#L93)

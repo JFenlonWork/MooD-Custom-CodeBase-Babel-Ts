@@ -10,14 +10,14 @@ Class representing a any utility functions or variables that help Tooltips.
 
 ### Properties
 
-- [\_TooltipTypes](../wiki/TooltipManager#_tooltiptypes)
+- [\_tooltipTypes](../wiki/TooltipManager#_tooltiptypes)
 - [\_tooltips](../wiki/TooltipManager#_tooltips)
 - [\_uniqueID](../wiki/TooltipManager#_uniqueid)
 - [\_instance](../wiki/TooltipManager#_instance)
 
 ### Accessors
 
-- [TooltipTypes](../wiki/TooltipManager#tooltiptypes)
+- [tooltipTypes](../wiki/TooltipManager#tooltiptypes)
 - [tooltips](../wiki/TooltipManager#tooltips)
 - [uniqueID](../wiki/TooltipManager#uniqueid)
 - [Instance](../wiki/TooltipManager#instance)
@@ -41,17 +41,17 @@ Return this or singleton instance of TooltipManager
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L23)
+[Tooltips/TooltipManager.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L23)
 
 ## Properties
 
-### \_TooltipTypes
+### \_tooltipTypes
 
-• `Private` **\_TooltipTypes**: `Map`<`String`, [`TooltipType`](../wiki/TooltipType)\>
+• `Private` **\_tooltipTypes**: `Map`<`String`, [`TooltipType`](../wiki/TooltipType)\>
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:63](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L63)
+[Tooltips/TooltipManager.ts:63](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L63)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:56](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L56)
+[Tooltips/TooltipManager.ts:56](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L56)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:49](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L49)
+[Tooltips/TooltipManager.ts:49](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L49)
 
 ___
 
@@ -81,13 +81,13 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L15)
+[Tooltips/TooltipManager.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L15)
 
 ## Accessors
 
-### TooltipTypes
+### tooltipTypes
 
-• `get` **TooltipTypes**(): `Map`<`String`, [`TooltipType`](../wiki/TooltipType)\>
+• `get` **tooltipTypes**(): `Map`<`String`, [`TooltipType`](../wiki/TooltipType)\>
 
 #### Returns
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:64](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L64)
+[Tooltips/TooltipManager.ts:64](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L64)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:57](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L57)
+[Tooltips/TooltipManager.ts:57](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L57)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L50)
+[Tooltips/TooltipManager.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L50)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L16)
+[Tooltips/TooltipManager.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L16)
 
 ## Methods
 
@@ -159,7 +159,7 @@ Adds a Tooltip to the list of Tooltips
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:82](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L82)
+[Tooltips/TooltipManager.ts:82](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L82)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 ▸ `Static` **addTooltipType**(`tooltipType`): `boolean`
 
-Adds a TooltipType to the list of TooltipTypes
+Adds a TooltipType to the list of tooltipTypes
 
 #### Parameters
 
@@ -181,7 +181,7 @@ Adds a TooltipType to the list of TooltipTypes
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:112](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L112)
+[Tooltips/TooltipManager.ts:112](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L112)
 
 ___
 
@@ -203,7 +203,7 @@ Searches for and returns a Tooltip with a id parameter
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:73](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L73)
+[Tooltips/TooltipManager.ts:73](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L73)
 
 ___
 
@@ -225,7 +225,7 @@ Searches for and returns a Tooltip Type with a id parameter
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:103](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L103)
+[Tooltips/TooltipManager.ts:103](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L103)
 
 ___
 
@@ -247,7 +247,7 @@ Remove a Tooltip to the list of Tooltips
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:92](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L92)
+[Tooltips/TooltipManager.ts:92](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L92)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 ▸ `Static` **removeTooltipType**(`tooltipType`): `boolean`
 
-Remove a TooltipType from the list of TooltipTypes
+Remove a TooltipType from the list of tooltipTypes
 
 #### Parameters
 
@@ -269,4 +269,4 @@ Remove a TooltipType from the list of TooltipTypes
 
 #### Defined in
 
-[Tooltips/TooltipManager.ts:122](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/95b876a/Code/src/Tooltips/TooltipManager.ts#L122)
+[Tooltips/TooltipManager.ts:122](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Tooltips/TooltipManager.ts#L122)

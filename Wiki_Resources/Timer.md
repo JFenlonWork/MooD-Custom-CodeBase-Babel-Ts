@@ -67,7 +67,9 @@ Class representing a Timer that implements custom controls ontop of setTimeout t
 - [runLoop](../wiki/Timer#runloop)
 - [start](../wiki/Timer#start)
 - [stop](../wiki/Timer#stop)
+- [toString](../wiki/Timer#tostring)
 - [unpause](../wiki/Timer#unpause)
+- [toString](../wiki/Timer#tostring)
 
 ## Constructors
 
@@ -771,7 +773,7 @@ Handle the destruction of this timer
 
 #### Defined in
 
-Timers/Timer.ts:366
+Timers/Timer.ts:381
 
 ___
 
@@ -787,7 +789,7 @@ Test if this Timer is currently pause
 
 #### Defined in
 
-Timers/Timer.ts:292
+Timers/Timer.ts:307
 
 ___
 
@@ -803,7 +805,7 @@ Handle the looping/countdown calculation of this timer
 
 #### Defined in
 
-Timers/Timer.ts:299
+Timers/Timer.ts:314
 
 ___
 
@@ -819,7 +821,7 @@ Pause this Timer
 
 #### Defined in
 
-Timers/Timer.ts:265
+Timers/Timer.ts:280
 
 ___
 
@@ -835,7 +837,7 @@ Restart this Timer
 
 #### Defined in
 
-Timers/Timer.ts:257
+Timers/Timer.ts:272
 
 ___
 
@@ -851,7 +853,7 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:276
+Timers/Timer.ts:291
 
 ___
 
@@ -867,7 +869,7 @@ Handle the looping of this timer
 
 #### Defined in
 
-Timers/Timer.ts:348
+Timers/Timer.ts:363
 
 ___
 
@@ -883,7 +885,7 @@ Start this Timer
 
 #### Defined in
 
-Timers/Timer.ts:237
+Timers/Timer.ts:252
 
 ___
 
@@ -899,7 +901,23 @@ Stop this Timer
 
 #### Defined in
 
-Timers/Timer.ts:247
+Timers/Timer.ts:262
+
+___
+
+### toString
+
+▸ **toString**(): `string`
+
+Returns the class type of this object
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+Timers/Timer.ts:238
 
 ___
 
@@ -915,4 +933,20 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:284
+Timers/Timer.ts:299
+
+___
+
+### toString
+
+▸ `Static` **toString**(): `string`
+
+Returns the type of this class
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+Timers/Timer.ts:245
