@@ -2,6 +2,7 @@ import { TooltipManager } from "./TooltipManager";
 import { TooltipType } from "./TooltipType";
 
 /** Class representing a Tooltip that can be added to pre-existing HTML.
+ * The constructor for Tooltips also adds the resulting tooltip to Tooltip Manager
  */
  export class Tooltip {
     
@@ -22,13 +23,13 @@ import { TooltipType } from "./TooltipType";
     }
     
    	//** The Tooltip creation function type to run using this Tooltip*/ 
-    private _TooltipTypeType: string;
-    public get TooltipTypeType(): string {
-        return this._TooltipTypeType;
+    private _TooltipTypeName: string;
+    public get TooltipTypeName(): string {
+        return this._TooltipTypeName;
     }
 
-    public set TooltipTypeType(TooltipTypeType: string) {
-        this._TooltipTypeType = TooltipTypeType;
+    public set TooltipTypeName(TooltipTypeName: string) {
+        this._TooltipTypeName = TooltipTypeName;
     }
 
   	//** The CSS to apply to this Tooltip*/ 
@@ -61,15 +62,14 @@ import { TooltipType } from "./TooltipType";
         this._tooltipText = tooltipText;
     }
     
-
-    constructor(tooltipText: string = "", TooltipTypeType: string = "GenericTooltipSetup", tooltipCSS: string = "GenericTooltip", tooltipParentCSS: string = "GenericTooltipParent", tooltipObject: HTMLElement | null = null, ...args: any[]) {
+    constructor(tooltipText: string = "", TooltipTypeName: string = "GenericTooltipSetup", tooltipCSS: string = "GenericTooltip", tooltipParentCSS: string = "GenericTooltipParent", tooltipObject: HTMLElement | null = null, ...args: any[]) {
         this._tooltipText = tooltipText;
-        this._TooltipTypeType = TooltipTypeType;
+        this._TooltipTypeName = TooltipTypeName;
         this._tooltipCSS = tooltipCSS;
         this._tooltipParentCSS = tooltipParentCSS;
         this._tooltipObject = tooltipObject;
 
-        let TooltipType: TooltipType | undefined = TooltipManager.getTooltipType(TooltipTypeType);
+        let TooltipType: TooltipType | undefined = TooltipManager.getTooltipType(TooltipTypeName);
     
         if (TooltipType == null) return;
         this._tooltipID = TooltipManager.Instance.uniqueID.generateUID();
@@ -77,5 +77,20 @@ import { TooltipType } from "./TooltipType";
         TooltipType.creation.call(_this, ...args); 
         
         TooltipManager.addTooltip(this);
+    }
+
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+    public toString(): string {
+		return "Tooltip";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+    public static toString(): string {
+        return "Tooltip";
     }
  }
