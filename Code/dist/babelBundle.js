@@ -364,13 +364,27 @@ var TestExport;
         return this.x == o.x && this.y == o.y;
       }
       /**
-       * Returns if this Vector2 is all NaN
-       * @returns {boolean}
+       * Returns the class type of this object
+       * @returns {string}
+       */
+
+    }, {
+      key: "toString",
+      value: function toString() {
+        return "Vector2";
+      }
+      /** 
+       * Returns the type of this class
        */
 
     }, {
       key: "IsNaN",
-      value: function IsNaN() {
+      value:
+      /**
+       * Returns if this Vector2 is all NaN
+       * @returns {boolean}
+       */
+      function IsNaN() {
         return isNaN(this.x) && isNaN(this.y);
       }
       /**
@@ -665,6 +679,11 @@ var TestExport;
         return new Vector2(1, 1);
       }
     }, {
+      key: "toString",
+      value: function toString() {
+        return "Vector2";
+      }
+    }, {
       key: "isNaN",
       value: function (_isNaN) {
         function isNaN(_x) {
@@ -891,11 +910,8 @@ var TestExport;
       return _this;
     }
     /**
-     * Set this Vector3's x,y and z value to be the parameter's value and apply the values to this Vector3
-     * @param  {number} x - The x value to set
-     * @param  {number} y - The y value to set
-     * @param  {number} z - The z value to set
-     * @returns {Vector3}
+     * Returns the class type of this object
+     * @returns {string}
      */
 
 
@@ -913,8 +929,25 @@ var TestExport;
         this._z = value;
       }
     }, {
+      key: "toString",
+      value: function toString() {
+        return "Vector3";
+      }
+      /** 
+       * Returns the type of this class
+       */
+
+    }, {
       key: "set",
-      value: function set(x, y) {
+      value:
+      /**
+       * Set this Vector3's x,y and z value to be the parameter's value and apply the values to this Vector3
+       * @param  {number} x - The x value to set
+       * @param  {number} y - The y value to set
+       * @param  {number} z - The z value to set
+       * @returns {Vector3}
+       */
+      function set(x, y) {
         var z = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
         _get(_getPrototypeOf(Vector3.prototype), "set", this).call(this, x, y);
@@ -1233,6 +1266,11 @@ var TestExport;
         return Math.pow(this.x - _vector.x, 2) + Math.pow(this.y - _vector.y, 2) + Math.pow(this.z - _vector.z, 2);
       }
     }], [{
+      key: "toString",
+      value: function toString() {
+        return "Vector3";
+      }
+    }, {
       key: "NaN",
       value: function (_NaN) {
         function NaN() {
@@ -1492,12 +1530,8 @@ var TestExport;
       return _this;
     }
     /**
-     * Set this Vector4's x value to be the parameter's value and apply the values to this Vector4
-     * @param  {number} x - The x value to set
-     * @param  {number} y - The y value to set
-     * @param  {number} z - The z value to set
-     * @param  {number} w - The w value to set
-     * @returns {Vector4}
+     * Returns the class type of this object
+     * @returns {string}
      */
 
 
@@ -1515,8 +1549,26 @@ var TestExport;
         this._w = value;
       }
     }, {
+      key: "toString",
+      value: function toString() {
+        return "Vector4";
+      }
+      /** 
+       * Returns the type of this class
+       */
+
+    }, {
       key: "set",
-      value: function set(x, y) {
+      value:
+      /**
+       * Set this Vector4's x value to be the parameter's value and apply the values to this Vector4
+       * @param  {number} x - The x value to set
+       * @param  {number} y - The y value to set
+       * @param  {number} z - The z value to set
+       * @param  {number} w - The w value to set
+       * @returns {Vector4}
+       */
+      function set(x, y) {
         var z = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : NaN;
         var w = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : NaN;
         Vector4_get(Vector4_getPrototypeOf(Vector4.prototype), "set", this).call(this, x, y, z);
@@ -1802,6 +1854,11 @@ var TestExport;
         return this;
       }
     }], [{
+      key: "toString",
+      value: function toString() {
+        return "Vector4";
+      }
+    }, {
       key: "NaN",
       value: function (_NaN) {
         function NaN() {
@@ -2312,13 +2369,27 @@ var TestExport;
         return this.webFormat == o.webFormat && this.size.equals(o.size) && this.topLeft.equals(o.topLeft) && this.topRight.equals(o.topRight) && this.bottomRight.equals(o.bottomRight) && this.bottomLeft.equals(o.bottomLeft);
       }
       /**
-       * Returns if this Bounds is all NaN
-       * @returns {boolean}
+       * Returns the class type of this object
+       * @returns {string}
+       */
+
+    }, {
+      key: "toString",
+      value: function toString() {
+        return "Bounds";
+      }
+      /** 
+       * Returns the type of this class
        */
 
     }, {
       key: "IsNaN",
-      value: function IsNaN() {
+      value:
+      /**
+       * Returns if this Bounds is all NaN
+       * @returns {boolean}
+       */
+      function IsNaN() {
         return isNaN(this.x1) && isNaN(this.y1) && isNaN(this.x2) && isNaN(this.y2);
       }
       /**
@@ -2569,6 +2640,11 @@ var TestExport;
       key: "Zero",
       value: function Zero() {
         return new Bounds(0, 0, 0, 0);
+      }
+    }, {
+      key: "toString",
+      value: function toString() {
+        return "Bounds";
       }
     }, {
       key: "isNaN",
@@ -2914,13 +2990,27 @@ var TestExport;
         return this.x1 == o.x1 && this.y1 == o.y1 && this.x2 == o.x2 && this.y2 == o.y2;
       }
       /**
-       * Returns if this Line is all NaN
-       * @returns {boolean}
+       * Returns the class type of this object
+       * @returns {string}
+       */
+
+    }, {
+      key: "toString",
+      value: function toString() {
+        return "Line";
+      }
+      /** 
+       * Returns the type of this class
        */
 
     }, {
       key: "IsNaN",
-      value: function IsNaN() {
+      value:
+      /**
+       * Returns if this Line is all NaN
+       * @returns {boolean}
+       */
+      function IsNaN() {
         return isNaN(this.x1) && isNaN(this.y1) && isNaN(this.x2) && isNaN(this.y2);
       }
       /**
@@ -3007,6 +3097,11 @@ var TestExport;
       key: "Zero",
       value: function Zero() {
         return new Line(0, 0, 0, 0);
+      }
+    }, {
+      key: "toString",
+      value: function toString() {
+        return "Line";
       }
     }, {
       key: "isNaN",
@@ -3446,7 +3541,7 @@ var TestExport;
        * @param  {any} b - The value to compare to
       */
       function same(a, b) {
-        return Object.prototype.toString.call(a) == Object.prototype.toString.call(b);
+        return CompareTypes.type(a) == CompareTypes.type(b);
       }
       /**
        * Compare two parameters and return if they are not the same type
@@ -3459,11 +3554,139 @@ var TestExport;
       value: function different(a, b) {
         return !CompareTypes.same(a, b);
       }
+      /**
+       * Return the type of a parameter
+       * @param  {any} a - The value to get the type of
+       */
+
+    }, {
+      key: "type",
+      value: function type(a) {
+        return Object.prototype.toString.call(a).slice(8, -1);
+      }
     }]);
     return CompareTypes;
   }();
 
   ; // CONCATENATED MODULE: ./Code/src/Utilities/MultiKeyReversibleMap.ts
+
+  function _slicedToArray(arr, i) {
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+  }
+
+  function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  function _iterableToArrayLimit(arr, i) {
+    var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+    if (_i == null) return;
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+
+    var _s, _e;
+
+    try {
+      for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"] != null) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+  }
+
+  function _createForOfIteratorHelper(o, allowArrayLike) {
+    var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+
+    if (!it) {
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it) o = it;
+        var i = 0;
+
+        var F = function F() {};
+
+        return {
+          s: F,
+          n: function n() {
+            if (i >= o.length) return {
+              done: true
+            };
+            return {
+              done: false,
+              value: o[i++]
+            };
+          },
+          e: function e(_e2) {
+            throw _e2;
+          },
+          f: F
+        };
+      }
+
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+
+    var normalCompletion = true,
+        didErr = false,
+        err;
+    return {
+      s: function s() {
+        it = it.call(o);
+      },
+      n: function n() {
+        var step = it.next();
+        normalCompletion = step.done;
+        return step;
+      },
+      e: function e(_e3) {
+        didErr = true;
+        err = _e3;
+      },
+      f: function f() {
+        try {
+          if (!normalCompletion && it.return != null) it.return();
+        } finally {
+          if (didErr) throw err;
+        }
+      }
+    };
+  }
+
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  }
 
   function MultiKeyReversibleMap_classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -3509,49 +3732,146 @@ var TestExport;
 
 
   var _MultiKeyReversibleMap = /*#__PURE__*/function () {
-    //** Store all forward references to values to allow searching*/
-
-    /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
-
     /**
     * Create a map between multiple keys and a single value
-    * @param  {Key | Key[]} Keys - Any key/s to add on creation
-    * @param  {Value} value - The value to link these keys to
+    * @param  {[Key[], Value][]} collection - A collection of key value pairs to create the map from
     */
-    function MultiKeyReversibleMap() {
+    function MultiKeyReversibleMap(keyType, valueType, collection) {
       var _this = this;
 
-      var keys = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-      var value = arguments.length > 1 ? arguments[1] : undefined;
       MultiKeyReversibleMap_classCallCheck(this, MultiKeyReversibleMap);
       MultiKeyReversibleMap_defineProperty(this, "__map__", new Map());
       MultiKeyReversibleMap_defineProperty(this, "__reverseMap__", new Map());
-      if (keys == null || Array.isArray(keys) && keys.length == 0 || value == null) return;
-      var reverseMap = new Map();
+      MultiKeyReversibleMap_defineProperty(this, "__keyType__", "");
+      MultiKeyReversibleMap_defineProperty(this, "__valueType__", "");
+      this.__keyType__ = keyType;
+      this.__valueType__ = valueType;
+      if (collection == null || Array.isArray(collection) && collection.length == 0) return;
+      collection.forEach(function (element) {
+        var reverseMap = new Map();
+        var keys = element[0];
+        var value = element[1];
 
-      if (Array.isArray(keys)) {
-        keys.forEach(function (element) {
-          _this.__map__.set(element, value);
+        if (!Array.isArray(keys) || keys.length == 0) {
+          console.error("Trying to create a MultiKeyMap with an invalid key: ", keys);
+          return;
+        }
 
-          reverseMap.set(element);
+        if (value == null) {
+          console.error("Trying to create a MultiKeyMap with an invalid value: ", value);
+          return;
+        }
+
+        keys.forEach(function (key) {
+          _this.__map__.set(key, value);
+
+          reverseMap.set(key);
         });
-      } else {
-        this.__map__.set(keys, value);
 
-        reverseMap.set(keys);
-      }
-
-      this.__reverseMap__.set(value, reverseMap);
+        _this.__reverseMap__.set(value, reverseMap);
+      });
     }
     /**
-    * Return Value associated with a key
-    * @param  {Key} key - The key to return the value for
+     * Returns if two Multi-Key Reversible Maps are equal
+     * @param  {ReversibleMap<Key, Value>} map - The other Multi-Key Reversible Map to compare to
+     * @returns Value - The value associated with the key
     */
 
 
     MultiKeyReversibleMap_createClass(MultiKeyReversibleMap, [{
+      key: "keyType",
+      get: //** Store all forward references to values to allow searching*/
+
+      /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
+
+      /** Store the object type of the Keys in this Multi-Key Reversible Map for toString comparison */
+      function get() {
+        return this.__keyType__;
+      }
+      /** Return the object type of the Values in this Multi-Key Reversible Map for toString comparison */
+
+    }, {
+      key: "valueType",
+      get: function get() {
+        return this.__valueType__;
+      }
+      /** Return the size of this Multi-Key Reversible Map */
+
+    }, {
+      key: "size",
+      get: function get() {
+        return this.__map__.size;
+      }
+      /** Return the size of the reverse map of this Multi-Key Reversible Map */
+
+    }, {
+      key: "reverseSize",
+      get: function get() {
+        return this.__reverseMap__.size;
+      }
+    }, {
+      key: "equals",
+      value: function equals(map) {
+        if (this.size != map.size || this.reverseSize != map.reverseSize) return false;
+
+        var _iterator = _createForOfIteratorHelper(this.__map__.entries()),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var _step$value = _slicedToArray(_step.value, 2),
+                key = _step$value[0],
+                value = _step$value[1];
+
+            if (map.getValue(key) != value) return false;
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+
+        var _iterator2 = _createForOfIteratorHelper(this.__reverseMap__.entries()),
+            _step2;
+
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var _step2$value = _slicedToArray(_step2.value, 2),
+                _value = _step2$value[0],
+                _key = _step2$value[1];
+
+            if (map.getKeys(_value) != _key) return false;
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
+        }
+
+        return true;
+      }
+      /**
+       * Returns the class type of this object
+       * @returns {string}
+       */
+
+    }, {
+      key: "toString",
+      value: function toString() {
+        return "MultiKeyReversibleMap<" + this.keyType + ", " + this.valueType + ">";
+      }
+      /** 
+       * Returns the type of this class
+      */
+
+    }, {
       key: "getValue",
-      value: function getValue(key) {
+      value:
+      /**
+      * Return Value associated with a key
+      * @param  {Key} key - The key to return the value for
+      */
+      function getValue(key) {
         return this.__map__.get(key);
       }
       /**
@@ -3624,6 +3944,7 @@ var TestExport;
           return false;
         }
 
+        this.deleteKey(key);
         var keys = this.getKeys(value);
 
         if (keys == undefined) {
@@ -3814,7 +4135,7 @@ var TestExport;
       value: function deleteKeys(keys, value) {
         var _this5 = this;
 
-        if (keys == null || keys.length) {
+        if (keys == null || keys.length == 0) {
           console.error("Trying to delete a keys in a MultiKeyReversibleMap wtih an invalid keys: ", keys);
           return false;
         }
@@ -3857,6 +4178,11 @@ var TestExport;
         this.__map__.clear();
 
         this.__reverseMap__.clear();
+      }
+    }], [{
+      key: "toString",
+      value: function toString() {
+        return "MultiKeyReversibleMap";
       }
     }]);
     return MultiKeyReversibleMap;
@@ -3929,9 +4255,9 @@ var TestExport;
       this.callback = callback;
     }
     /**
-    * Handle setting up this event
-    * @param  {string} settings - The settings to apply to this JQuery.callbacks
-    */
+     * Returns the class type of this object
+     * @returns {string}
+     */
 
 
     Event_createClass(Event, [{
@@ -3959,8 +4285,22 @@ var TestExport;
         return this._subscribers;
       }
     }, {
+      key: "toString",
+      value: function toString() {
+        return "Event";
+      }
+      /** 
+       * Returns the type of this class
+       */
+
+    }, {
       key: "setupEvent",
-      value: function setupEvent(settings) {
+      value:
+      /**
+      * Handle setting up this event
+      * @param  {string} settings - The settings to apply to this JQuery.callbacks
+      */
+      function setupEvent(settings) {
         var _this = this;
 
         if (typeof settings != "string") {
@@ -4037,6 +4377,11 @@ var TestExport;
         this.subscribers.clear();
         return true;
       }
+    }], [{
+      key: "toString",
+      value: function toString() {
+        return "Event";
+      }
     }]);
     return Event;
   }();
@@ -4090,7 +4435,7 @@ var TestExport;
     function PubSub() {
       PubSub_classCallCheck(this, PubSub);
       PubSub_defineProperty(this, "_events", new Map());
-      PubSub_defineProperty(this, "_subscribers", new _MultiKeyReversibleMap());
+      PubSub_defineProperty(this, "_subscribers", new _MultiKeyReversibleMap(_Event.toString(), "function"));
     }
 
     PubSub_createClass(PubSub, [{
@@ -4105,16 +4450,30 @@ var TestExport;
         return this._subscribers;
       }
       /**
+       * Returns the class type of this object
+       * @returns {string}
+       */
+
+    }, {
+      key: "toString",
+      value: function toString() {
+        return "PubSub";
+      }
+      /** 
+       * Returns the type of this class
+       */
+
+    }, {
+      key: "setupEvent",
+      value:
+      /**
       * Handle modifiy/creating event with specific settings
        * @link https://api.jquery.com/jquery.callbacks/
       * @param  {string} event - The event to subscribe to
       * @param  {string} settings - The JQuery.Callbacks settings to apply to this event
       * @param  {any[]} args - Any extra arguments that will be sent to EventSetup event
       */
-
-    }, {
-      key: "setupEvent",
-      value: function setupEvent(event) {
+      function setupEvent(event) {
         var settings = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
 
         if (typeof event != "string" || event == "") {
@@ -4301,6 +4660,11 @@ var TestExport;
         this.publish.apply(this, ["AllEventsCleared"].concat(args));
         return true;
       }
+    }], [{
+      key: "toString",
+      value: function toString() {
+        return "PubSub";
+      }
     }]);
     return PubSub;
   }();
@@ -4379,6 +4743,25 @@ var TestExport;
         this.uniqueID++;
         return this.uniqueID;
       }
+      /**
+       * Returns the class type of this object
+       * @returns {string}
+       */
+
+    }, {
+      key: "toString",
+      value: function toString() {
+        return "UniqueID";
+      }
+      /** 
+       * Returns the type of this class
+       */
+
+    }], [{
+      key: "toString",
+      value: function toString() {
+        return "UniqueID";
+      }
     }]);
     return UniqueID;
   }();
@@ -4435,7 +4818,7 @@ var TestExport;
     function TimerManager() {
       TimerManager_classCallCheck(this, TimerManager);
       TimerManager_defineProperty(this, "_uniqueID", new _UniqueID());
-      TimerManager_defineProperty(this, "_timers", new _MultiKeyReversibleMap());
+      TimerManager_defineProperty(this, "_timers", new _MultiKeyReversibleMap("string | number", _Timer2.toString()));
       if (TimerManager._instance) return TimerManager._instance;
       TimerManager._instance = this;
     } //** Store an incrementing variable to ensure unique IDs*/
@@ -4672,8 +5055,9 @@ var TestExport;
       }
     }
     /**
-    * Start this Timer
-    */
+     * Returns the class type of this object
+     * @returns {string}
+     */
 
 
     Timer_createClass(Timer, [{
@@ -4908,8 +5292,21 @@ var TestExport;
         return this._events;
       }
     }, {
+      key: "toString",
+      value: function toString() {
+        return "Timer";
+      }
+      /** 
+       * Returns the type of this class
+       */
+
+    }, {
       key: "start",
-      value: function start() {
+      value:
+      /**
+      * Start this Timer
+      */
+      function start() {
         if (this.timingInterval == -1) {
           console.error("Trying to start a timer with an invalid timing interval: ", this.timingInterval);
           return;
@@ -5067,6 +5464,11 @@ var TestExport;
         this.events.clear();
 
         _TimerManager.removeTimer(this);
+      }
+    }], [{
+      key: "toString",
+      value: function toString() {
+        return "Timer";
       }
     }]);
     return Timer;
@@ -5282,7 +5684,11 @@ var TestExport;
       });
 
       return _this;
-    } //** Handles listening to responses from callbacks to see if this timer should stop*/
+    }
+    /**
+     * Returns the class type of this object
+     * @returns {string}
+     */
 
 
     RealtimeTimer_createClass(RealtimeTimer, [{
@@ -5306,8 +5712,18 @@ var TestExport;
         this._destroyOnStop = destroyOnStop;
       }
     }, {
+      key: "toString",
+      value: function toString() {
+        return "RealitimeTimer";
+      }
+      /** 
+       * Returns the type of this class
+       */
+
+    }, {
       key: "listenToResponse",
-      value: function listenToResponse() {
+      value: //** Handles listening to responses from callbacks to see if this timer should stop*/
+      function listenToResponse() {
         for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
           args[_key2] = arguments[_key2];
         }
@@ -5324,6 +5740,11 @@ var TestExport;
             this.stop();
           }
         }
+      }
+    }], [{
+      key: "toString",
+      value: function toString() {
+        return "RealtimeTimer";
       }
     }]);
     return RealtimeTimer;
@@ -5398,6 +5819,11 @@ var TestExport;
       this._threshold = threshold;
       this._interval = interval;
     }
+    /**
+     * Returns the class type of this object
+     * @returns {string}
+     */
+
 
     ScaledTime_createClass(ScaledTime, [{
       key: "threshold",
@@ -5425,6 +5851,20 @@ var TestExport;
 
         this._interval = interval;
       }
+    }, {
+      key: "toString",
+      value: function toString() {
+        return "ScaledTime";
+      }
+      /** 
+       * Returns the type of this class
+       */
+
+    }], [{
+      key: "toString",
+      value: function toString() {
+        return "ScaledTime";
+      }
     }]);
     return ScaledTime;
   }();
@@ -5441,11 +5881,11 @@ var TestExport;
     }, ScaledTimer_typeof(obj);
   }
 
-  function _createForOfIteratorHelper(o, allowArrayLike) {
+  function ScaledTimer_createForOfIteratorHelper(o, allowArrayLike) {
     var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
 
     if (!it) {
-      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (Array.isArray(o) || (it = ScaledTimer_unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
         if (it) o = it;
         var i = 0;
 
@@ -5498,16 +5938,16 @@ var TestExport;
     };
   }
 
-  function _unsupportedIterableToArray(o, minLen) {
+  function ScaledTimer_unsupportedIterableToArray(o, minLen) {
     if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    if (typeof o === "string") return ScaledTimer_arrayLikeToArray(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor) n = o.constructor.name;
     if (n === "Map" || n === "Set") return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return ScaledTimer_arrayLikeToArray(o, minLen);
   }
 
-  function _arrayLikeToArray(arr, len) {
+  function ScaledTimer_arrayLikeToArray(arr, len) {
     if (len == null || len > arr.length) len = arr.length;
 
     for (var i = 0, arr2 = new Array(len); i < len; i++) {
@@ -5721,9 +6161,10 @@ var TestExport;
 
       return _this2;
     }
-    /** Handles listening to responses from callbacks to see if this ScaledTimer
-     *   should change it's timing interval
-    */
+    /**
+     * Returns the class type of this object
+     * @returns {string}
+     */
 
 
     ScaledTimer_createClass(ScaledTimer, [{
@@ -5765,8 +6206,21 @@ var TestExport;
         }
       }
     }, {
+      key: "toString",
+      value: function toString() {
+        return "ScaledTimer";
+      }
+      /** 
+       * Returns the type of this class
+       */
+
+    }, {
       key: "listenToResponse",
-      value: function listenToResponse() {
+      value:
+      /** Handles listening to responses from callbacks to see if this ScaledTimer
+       *   should change it's timing interval
+      */
+      function listenToResponse() {
         for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
           args[_key2] = arguments[_key2];
         }
@@ -5802,7 +6256,7 @@ var TestExport;
         if (!Array.isArray(this.timeScalers) || this.timeScalers.length == 0) throw "Trying to find a new ScaledTime when none exist: " + this.toString();
         var ret = null;
 
-        var _iterator = _createForOfIteratorHelper(this.timeScalers),
+        var _iterator = ScaledTimer_createForOfIteratorHelper(this.timeScalers),
             _step;
 
         try {
@@ -5822,6 +6276,11 @@ var TestExport;
         if (ret == null) ret = this.timeScalers[this.timeScalers.length - 1];
         return ret;
       }
+    }], [{
+      key: "toString",
+      value: function toString() {
+        return "SCaledTimer";
+      }
     }]);
     return ScaledTimer;
   }(_Timer2);
@@ -5831,6 +6290,124 @@ var TestExport;
   ; // CONCATENATED MODULE: ./Definitions/Code/Modules/Events.ts
 
   ; // CONCATENATED MODULE: ./Code/src/Utilities/ReversibleMap.ts
+
+  function ReversibleMap_slicedToArray(arr, i) {
+    return ReversibleMap_arrayWithHoles(arr) || ReversibleMap_iterableToArrayLimit(arr, i) || ReversibleMap_unsupportedIterableToArray(arr, i) || ReversibleMap_nonIterableRest();
+  }
+
+  function ReversibleMap_nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  function ReversibleMap_iterableToArrayLimit(arr, i) {
+    var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+    if (_i == null) return;
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+
+    var _s, _e;
+
+    try {
+      for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"] != null) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  function ReversibleMap_arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+  }
+
+  function ReversibleMap_createForOfIteratorHelper(o, allowArrayLike) {
+    var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+
+    if (!it) {
+      if (Array.isArray(o) || (it = ReversibleMap_unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it) o = it;
+        var i = 0;
+
+        var F = function F() {};
+
+        return {
+          s: F,
+          n: function n() {
+            if (i >= o.length) return {
+              done: true
+            };
+            return {
+              done: false,
+              value: o[i++]
+            };
+          },
+          e: function e(_e2) {
+            throw _e2;
+          },
+          f: F
+        };
+      }
+
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+
+    var normalCompletion = true,
+        didErr = false,
+        err;
+    return {
+      s: function s() {
+        it = it.call(o);
+      },
+      n: function n() {
+        var step = it.next();
+        normalCompletion = step.done;
+        return step;
+      },
+      e: function e(_e3) {
+        didErr = true;
+        err = _e3;
+      },
+      f: function f() {
+        try {
+          if (!normalCompletion && it.return != null) it.return();
+        } finally {
+          if (didErr) throw err;
+        }
+      }
+    };
+  }
+
+  function ReversibleMap_unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return ReversibleMap_arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return ReversibleMap_arrayLikeToArray(o, minLen);
+  }
+
+  function ReversibleMap_arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  }
 
   function ReversibleMap_classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -5876,34 +6453,133 @@ var TestExport;
 
 
   var _ReversibleMap = /*#__PURE__*/function () {
-    //** Store all forward references to values to allow searching*/
-
-    /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
-
     /**
     * Create a reversible map between Keys and Values
-    * @param  {Key} Key - The key to add on creation
-    * @param  {Value} value - The value to link this key
+     * @param  {string} keyType - The type of the keys in the collection, used for toString comparison
+     * @param  {string} valueType - The type of the values in the collection, used for toString comparison
+    * @param  {[[Key, Value]]} collection - A collection of key value pairs to create the map from
     */
-    function ReversibleMap(key, value) {
+    function ReversibleMap(keyType, valueType, collection) {
+      var _this = this;
+
       ReversibleMap_classCallCheck(this, ReversibleMap);
       ReversibleMap_defineProperty(this, "__map__", new Map());
       ReversibleMap_defineProperty(this, "__reverseMap__", new Map());
-      if (key == null || value == null) return;
+      ReversibleMap_defineProperty(this, "__keyType__", "");
+      ReversibleMap_defineProperty(this, "__valueType__", "");
+      this.__keyType__ = keyType;
+      this.__valueType__ = valueType;
+      if (collection == null) return;
+      collection.forEach(function (element) {
+        if (!Array.isArray(element) || element.length != 2) return;
 
-      this.__map__.set(key, value);
+        _this.__map__.set(element[0], element[1]);
 
-      this.__reverseMap__.set(value, key);
+        _this.__reverseMap__.set(element[1], element[0]);
+      });
     }
     /**
-    * Return Value associated with a key
-    * @param  {Key} key - The key to return the value for
+     * Returns if two reversible maps are equal
+     * @param  {ReversibleMap<Key, Value>} map - The other ReversibleMap to compare to
+     * @returns Value - The value associated with the key
     */
 
 
     ReversibleMap_createClass(ReversibleMap, [{
+      key: "keyType",
+      get:
+      /** Store all forward references to values to allow searching*/
+
+      /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
+
+      /** Store the object type of the Keys in this Reversible Map for toString comparison */
+      function get() {
+        return this.__keyType__;
+      }
+      /** Return the object type of the Values in this Reversible Map for toString comparison */
+
+    }, {
+      key: "valueType",
+      get: function get() {
+        return this.__valueType__;
+      }
+      /** Return the size of this ReversibleMap */
+
+    }, {
+      key: "size",
+      get: function get() {
+        return this.__map__.size;
+      }
+      /** Return the size of the reverse map of this ReversibleMap */
+
+    }, {
+      key: "reverseSize",
+      get: function get() {
+        return this.__reverseMap__.size;
+      }
+    }, {
+      key: "equals",
+      value: function equals(map) {
+        if (this.size != map.size || this.reverseSize != map.reverseSize) return false;
+
+        var _iterator = ReversibleMap_createForOfIteratorHelper(this.__map__.entries()),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var _step$value = ReversibleMap_slicedToArray(_step.value, 2),
+                key = _step$value[0],
+                value = _step$value[1];
+
+            if (map.getValue(key) != value) return false;
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+
+        var _iterator2 = ReversibleMap_createForOfIteratorHelper(this.__reverseMap__.entries()),
+            _step2;
+
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var _step2$value = ReversibleMap_slicedToArray(_step2.value, 2),
+                _value = _step2$value[0],
+                _key2 = _step2$value[1];
+
+            if (map.getKey(_value) != _key2) return false;
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
+        }
+
+        return true;
+      }
+      /**
+       * Returns the class type of this object
+       * @returns {string}
+       */
+
+    }, {
+      key: "toString",
+      value: function toString() {
+        return "ReversibleMap<" + this.keyType + ", " + this.valueType + ">";
+      }
+      /** 
+       * Returns the type of this class
+      */
+
+    }, {
       key: "getValue",
-      value: function getValue(key) {
+      value:
+      /**
+      * Return Value associated with a key
+      * @param  {Key} key - The key to return the value for
+      */
+      function getValue(key) {
         return this.__map__.get(key);
       }
       /**
@@ -6021,6 +6697,11 @@ var TestExport;
         this.__map__.clear();
 
         this.__reverseMap__.clear();
+      }
+    }], [{
+      key: "toString",
+      value: function toString() {
+        return "ReversibleMap";
       }
     }]);
     return ReversibleMap;

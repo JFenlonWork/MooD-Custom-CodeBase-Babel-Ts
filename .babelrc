@@ -11,8 +11,8 @@
             "root": ["."],
             "alias": {
                 "@code": "./Code/src",
-                "@tests": "./spec/support/Modules",
-                "@helpers": "./spec/support/Helpers"
+                "@tests": "./Jasmine/Tests/Modules",
+                "@helpers": "./Jasmine/Tests/Helpers"
             }
         }]
     ]
