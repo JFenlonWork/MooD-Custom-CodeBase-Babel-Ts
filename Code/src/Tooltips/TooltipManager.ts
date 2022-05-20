@@ -26,7 +26,7 @@ interface GenericTooltip extends Tooltip {
 
         //This is needed to supply Tooltips with a generic setup
         // this should only run on the singleton
-        this.TooltipTypes.set("GenericTooltipSetup",
+        this.tooltipTypes.set("GenericTooltipSetup",
             new TooltipType(
                 function generate(this: GenericTooltip, ...args: any[]) {
                     this.tooltipObjectText = document.createElement("p");
@@ -53,17 +53,17 @@ interface GenericTooltip extends Tooltip {
     }
 
     //** Store all references to Tooltips to allow searching*/
-    private _tooltips: ReversibleMap<Number, Tooltip> = new ReversibleMap();
+    private _tooltips: ReversibleMap<Number, Tooltip> = new ReversibleMap("number", Tooltip.toString());
     public get tooltips(): ReversibleMap<Number, Tooltip> {
         if (this != TooltipManager.Instance) return TooltipManager.Instance.tooltips;
         return this._tooltips;
     }
 
     //** Store all references to Tooltips Creation Functions to allow searching*/
-    private _TooltipTypes: Map<String, TooltipType> = new Map();
-    public get TooltipTypes(): Map<String, TooltipType> {
-        if (this != TooltipManager.Instance) return TooltipManager.Instance.TooltipTypes;
-        return this._TooltipTypes;
+    private _tooltipTypes: Map<String, TooltipType> = new Map();
+    public get tooltipTypes(): Map<String, TooltipType> {
+        if (this != TooltipManager.Instance) return TooltipManager.Instance.tooltipTypes;
+        return this._tooltipTypes;
     }   
 
     /**
@@ -80,7 +80,7 @@ interface GenericTooltip extends Tooltip {
 	 * @param  {Tooltip} tooltip - The Tooltip to add
 	 */
     public static addTooltip(tooltip: Tooltip): boolean {
-        if (this.Instance.tooltips.getValue(tooltip.tooltipID) != undefined) { console.warn("Trying to add a Tooltip to TooltipManager when it already exists: ", tooltip); return false; }
+        if (this.Instance.tooltips.hasKey(tooltip.tooltipID)) { console.warn("Trying to add a Tooltip to TooltipManager when it already exists: ", tooltip); return false; }
         this.Instance.tooltips.setKey(tooltip.tooltipID, tooltip);
         return true;
     }
@@ -90,7 +90,7 @@ interface GenericTooltip extends Tooltip {
 	 * @param  {Tooltip} tooltip - The Tooltip to add
 	 */
     public static removeTooltip(tooltip: Tooltip): boolean {
-        if (this.Instance.tooltips.getValue(tooltip.tooltipID) == undefined) { console.warn("Trying to remove a Tooltip to TooltipManager when it doesn't exist: ", tooltip); return false; }
+        if (!this.Instance.tooltips.hasKey(tooltip.tooltipID)) { console.warn("Trying to remove a Tooltip from TooltipManager when it doesn't exist: ", tooltip); return false; }
         this.Instance.tooltips.deleteKey(tooltip.tooltipID);
         return true;
     }
@@ -101,27 +101,27 @@ interface GenericTooltip extends Tooltip {
 	 * @param  {string} name - The Tooltip Type name to return
 	 */
      public static getTooltipType(name: string): TooltipType | undefined {
-        if (typeof(name) != "number") { console.error("Trying to get a TooltipType with an invalid name: ", name); return; }
-        return this.Instance.TooltipTypes.get(name);
+        if (typeof(name) != "string") { console.error("Trying to get a TooltipType with an invalid name: ", name); return; }
+        return this.Instance.tooltipTypes.get(name);
     }
 
     /**
-	 * Adds a TooltipType to the list of TooltipTypes
+	 * Adds a TooltipType to the list of tooltipTypes
 	 * @param  {TooltipType} tooltipType - The TooltipType to add
 	 */
     public static addTooltipType(tooltipType: TooltipType): boolean {
-        if (this.Instance.TooltipTypes.get(tooltipType.creationName) != undefined) { console.warn("Trying to add a TooltipType to TooltipManager when it already exists: ", tooltipType); return false; }
-        this.Instance.TooltipTypes.set(tooltipType.creationName, tooltipType);
+        if (this.Instance.tooltipTypes.get(tooltipType.creationName) != undefined) { console.warn("Trying to add a TooltipType to TooltipManager when it already exists: ", tooltipType); return false; }
+        this.Instance.tooltipTypes.set(tooltipType.creationName, tooltipType);
         return true;
     }
 
     /**
-	 * Remove a TooltipType from the list of TooltipTypes
+	 * Remove a TooltipType from the list of tooltipTypes
 	 * @param  {TooltipType} tooltipType - The TooltipType to remove
 	 */
      public static removeTooltipType(tooltipType: TooltipType): boolean {
-        if (this.Instance.TooltipTypes.get(tooltipType.creationName) == undefined) { console.warn("Trying to remove a TooltipType to TooltipManager when it doesn't exist: ", tooltipType); return false; }
-        this.Instance.TooltipTypes.delete(tooltipType.creationName);
+        if (this.Instance.tooltipTypes.get(tooltipType.creationName) == undefined) { console.warn("Trying to remove a TooltipType to TooltipManager when it doesn't exist: ", tooltipType); return false; }
+        this.Instance.tooltipTypes.delete(tooltipType.creationName);
         return true;
     }
 
