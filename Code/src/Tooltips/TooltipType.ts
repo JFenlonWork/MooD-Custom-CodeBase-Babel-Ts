@@ -31,4 +31,19 @@ export class TooltipType {
         this._creationName = creationName;
     }
 
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+     public toString(): string {
+		return "TooltipType";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+    public static toString(): string {
+        return "TooltipType";
+    }
+
 } 
