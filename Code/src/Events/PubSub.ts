@@ -12,9 +12,24 @@ import { Event } from "./Event";
     }
 
     //** Handles storing subscribers to events that this PubSub has as JQuery.Callbacks do not expose this*/
-    protected _subscribers: MultiKeyReversibleMap<Event, Function> = new MultiKeyReversibleMap(); 
+    protected _subscribers: MultiKeyReversibleMap<Event, Function> = new MultiKeyReversibleMap(Event.toString(), "function"); 
     public get subscribers(): MultiKeyReversibleMap<Event, Function> {
         return this._subscribers;
+    }
+
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+    public toString(): string {
+		return "PubSub";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+    public static toString(): string {
+        return "PubSub";
     }
 
     /**

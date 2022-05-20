@@ -21,5 +21,18 @@
         return this.uniqueID;
     }
  
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+    public toString(): string {
+		return "UniqueID";
+	}
 
+    /** 
+     * Returns the type of this class
+     */
+    public static toString(): string {
+        return "UniqueID";
+    }
  }

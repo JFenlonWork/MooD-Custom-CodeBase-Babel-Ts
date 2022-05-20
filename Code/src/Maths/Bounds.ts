@@ -229,6 +229,21 @@ import { Vector4 } from "./Vector4";
 	}
 
 	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+	public toString(): string {
+		return "Bounds";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+	public static toString(): string {
+        return "Bounds";
+    }
+
+	/**
 	 * Returns if this Bounds is all NaN
 	 * @returns {boolean}
 	 */

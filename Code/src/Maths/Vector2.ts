@@ -91,6 +91,21 @@ export class Vector2 {
 	}
 
 	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+	public toString(): string {
+		return "Vector2";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+	public static toString(): string {
+        return "Vector2";
+    }
+
+	/**
 	 * Returns if this Vector2 is all NaN
 	 * @returns {boolean}
 	 */

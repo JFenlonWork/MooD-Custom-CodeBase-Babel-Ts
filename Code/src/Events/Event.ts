@@ -42,6 +42,20 @@ import { CompareTypes } from "../Utilities/CompareTypes";
         this.callback = callback;
     }
 
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+    public toString(): string {
+		return "Event";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+    public static toString(): string {
+        return "Event";
+    }
 
     /**
 	 * Handle setting up this event

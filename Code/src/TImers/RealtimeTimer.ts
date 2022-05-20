@@ -41,6 +41,21 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
         this.events.subscribe("response", (...args: any[]) => { return this.listenToResponse.call(this, ...args) });
     }
 
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+     public toString(): string {
+		return "RealitimeTimer";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+    public static toString(): string {
+        return "RealtimeTimer";
+    }
+
     //** Handles listening to responses from callbacks to see if this timer should stop*/
     private listenToResponse(...args: any[]) {
         if (args.length != 2 || typeof(args[1]) != "boolean") { console.warn("Trying to respond to RealtimeTimer with invalid parameters: ", args); return; }

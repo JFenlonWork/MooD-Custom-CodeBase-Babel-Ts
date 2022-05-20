@@ -231,6 +231,21 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
         }
     }
 
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+    public toString(): string {
+		return "Timer";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+    public static toString(): string {
+        return "Timer";
+    }
+
     /**
 	 * Start this Timer
 	 */

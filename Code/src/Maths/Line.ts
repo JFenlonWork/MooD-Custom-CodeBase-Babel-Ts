@@ -103,6 +103,21 @@ import { Vector4 } from "./Vector4";
 	}
 
 	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+	public toString(): string {
+		return "Line";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+	public static toString(): string {
+        return "Line";
+    }
+
+	/**
 	 * Returns if this Line is all NaN
 	 * @returns {boolean}
 	 */

@@ -35,4 +35,19 @@
         this._threshold = threshold;
         this._interval = interval;
     }
+
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+    public toString(): string {
+		return "ScaledTime";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+    public static toString(): string {
+        return "ScaledTime";
+    }
 }

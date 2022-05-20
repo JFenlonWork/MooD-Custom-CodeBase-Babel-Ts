@@ -59,6 +59,21 @@ export class ScaledTimer extends Timer {
         this.events.subscribe("response", (...args: any[]) => { return this.listenToResponse.call(_this, ...args) });
     }
 
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+    public toString(): string {
+		return "ScaledTimer";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+    public static toString(): string {
+        return "SCaledTimer";
+    }
+
 
     /** Handles listening to responses from callbacks to see if this ScaledTimer
      *   should change it's timing interval

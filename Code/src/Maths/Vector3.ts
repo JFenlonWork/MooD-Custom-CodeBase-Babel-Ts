@@ -26,6 +26,21 @@ export class Vector3 extends Vector2 {
 	}
 
 	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+	 public toString(): string {
+		return "Vector3";
+	}
+
+    /** 
+     * Returns the type of this class
+     */
+	public static toString(): string {
+        return "Vector3";
+    }
+
+	/**
 	 * Set this Vector3's x,y and z value to be the parameter's value and apply the values to this Vector3
 	 * @param  {number} x - The x value to set
 	 * @param  {number} y - The y value to set
