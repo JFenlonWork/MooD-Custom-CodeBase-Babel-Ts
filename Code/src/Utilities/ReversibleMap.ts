@@ -1,23 +1,91 @@
+import { CompareTypes } from "./CompareTypes";
+
 /** Class that handles key to value Map with reversible search 
  */
  export class ReversibleMap<Key, Value> {
      
-    //** Store all forward references to values to allow searching*/
+    /** Store all forward references to values to allow searching*/
     private __map__: Map<Key, Value> = new Map();
 
     /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
     private __reverseMap__: Map<Value, Key> = new Map();
 
+    /** Store the object type of the Keys in this Reversible Map for toString comparison */
+    private __keyType__: string = "";
+    public get keyType(): string {
+        return this.__keyType__;
+    }
+
+    /** Return the object type of the Values in this Reversible Map for toString comparison */
+    private __valueType__: string = "";
+    public get valueType(): string {
+        return this.__valueType__;
+    }
+
+    /** Return the size of this ReversibleMap */
+    public get size(): number {
+        return this.__map__.size;
+    }
+
+    /** Return the size of the reverse map of this ReversibleMap */
+    public get reverseSize(): number {
+        return this.__reverseMap__.size;
+    }
+
     /**
 	 * Create a reversible map between Keys and Values
-	 * @param  {Key} Key - The key to add on creation
-	 * @param  {Value} value - The value to link this key
+     * @param  {string} keyType - The type of the keys in the collection, used for toString comparison
+     * @param  {string} valueType - The type of the values in the collection, used for toString comparison
+	 * @param  {[[Key, Value]]} collection - A collection of key value pairs to create the map from
 	 */
-    constructor (key?: Key, value?: Value) {
-        if (key == null || value == null) return;
+    constructor (keyType: string, valueType: string, collection?: [Key, Value][]) {
+        this.__keyType__ = keyType;
+        this.__valueType__ = valueType;
 
-        this.__map__.set(key, value);
-        this.__reverseMap__.set(value, key);
+        if (collection == null) return;
+        
+        collection.forEach((element) => {
+
+            if (!Array.isArray(element) || element.length != 2) return;
+
+            this.__map__.set(element[0], element[1]);
+            this.__reverseMap__.set(element[1], element[0]);
+
+        });
+    }
+
+    /**
+     * Returns if two reversible maps are equal
+     * @param  {ReversibleMap<Key, Value>} map - The other ReversibleMap to compare to
+     * @returns Value - The value associated with the key
+    */
+    public equals(map: ReversibleMap<Key, Value>): boolean {
+        if (this.size != map.size || this.reverseSize != map.reverseSize) return false;
+
+        for (let [key, value] of this.__map__.entries()) {
+            if (map.getValue(key) != value) return false;
+        }
+
+        for (let [value, key] of this.__reverseMap__.entries()) {
+            if (map.getKey(value) != key) return false;
+        }
+
+        return true;
+    }
+
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+     public toString(): string {
+		return  "ReversibleMap<" + this.keyType + ", " + this.valueType + ">";
+	}
+
+    /** 
+     * Returns the type of this class
+    */
+    public static toString(): string {
+        return "ReversibleMap";
     }
 
     /**
