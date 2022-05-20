@@ -10,26 +10,89 @@ export class MultiKeyReversibleMap<Key, Value> {
     /** Store all inverse references to values to allow searching and Maps the values to void for O(1) checking*/
     private __reverseMap__: Map<Value, Map<Key, void>> = new Map();
 
+    /** Store the object type of the Keys in this Multi-Key Reversible Map for toString comparison */
+    private __keyType__: string = "";
+    public get keyType(): string {
+        return this.__keyType__;
+    }
+
+    /** Return the object type of the Values in this Multi-Key Reversible Map for toString comparison */
+    private __valueType__: string = "";
+    public get valueType(): string {
+        return this.__valueType__;
+    }
+
+    /** Return the size of this Multi-Key Reversible Map */
+    public get size(): number {
+        return this.__map__.size;
+    }
+
+    /** Return the size of the reverse map of this Multi-Key Reversible Map */
+    public get reverseSize(): number {
+        return this.__reverseMap__.size;
+    }
+
     /**
 	 * Create a map between multiple keys and a single value
-	 * @param  {Key | Key[]} Keys - Any key/s to add on creation
-	 * @param  {Value} value - The value to link these keys to
+	 * @param  {[Key[], Value][]} collection - A collection of key value pairs to create the map from
 	 */
-    constructor (keys: Key | Key[] = [], value?: Value) {
-        if (keys == null || (Array.isArray(keys) && keys.length == 0) || value == null) return;
-        let reverseMap: Map<Key, void> = new Map();
+    constructor (keyType: string, valueType: string, collection?: [Key[], Value][]) {
+        this.__keyType__ = keyType;
+        this.__valueType__ = valueType;
 
-        if (Array.isArray(keys)) {
-            keys.forEach(element => {
-                this.__map__.set(element, value);
-                reverseMap.set(element);
+        if (collection == null || (Array.isArray(collection) && collection.length == 0)) return;
+
+        collection.forEach(element => {
+
+            let reverseMap: Map<Key, void> = new Map();
+            let keys: Key[] = element[0];
+            let value = element[1];
+
+            if (!Array.isArray(keys) || keys.length == 0) { console.error("Trying to create a MultiKeyMap with an invalid key: ", keys); return; }
+            if (value == null) { console.error("Trying to create a MultiKeyMap with an invalid value: ", value); return; }
+
+            keys.forEach((key: Key) => {
+                this.__map__.set(key, value);
+                reverseMap.set(key);
             });
-        } else {
-            this.__map__.set(keys, value);
-            reverseMap.set(keys);
+
+            this.__reverseMap__.set(value, reverseMap);
+
+        });
+    }
+
+    /**
+     * Returns if two Multi-Key Reversible Maps are equal
+     * @param  {ReversibleMap<Key, Value>} map - The other Multi-Key Reversible Map to compare to
+     * @returns Value - The value associated with the key
+    */
+    public equals(map: MultiKeyReversibleMap<Key, Value>): boolean {
+        if (this.size != map.size || this.reverseSize != map.reverseSize) return false;
+
+        for (let [key, value] of this.__map__.entries()) {
+            if (map.getValue(key) != value) return false;
         }
 
-        this.__reverseMap__.set(value, reverseMap);
+        for (let [value, key] of this.__reverseMap__.entries()) {
+            if (map.getKeys(value) != key) return false;
+        }
+
+        return true;
+    }
+
+	/**
+	 * Returns the class type of this object
+	 * @returns {string}
+	 */
+    public toString(): string {
+		return  "MultiKeyReversibleMap<" + this.keyType + ", " + this.valueType + ">";
+	}
+
+    /** 
+     * Returns the type of this class
+    */
+    public static toString(): string {
+        return "MultiKeyReversibleMap";
     }
 
     /**
@@ -83,6 +146,8 @@ export class MultiKeyReversibleMap<Key, Value> {
     public setKey(key: Key, value: Value) {
         if (key == null) { console.error("Trying to set a MultiKeyMap's Key with an invalid key: ", key); return false; }
         if (value === undefined) { console.error("Trying to set a MultiKeyMap's Key with an invalid value: ", value); return false; }
+
+        this.deleteKey(key);
 
         let keys: Map<Key, void> | undefined = this.getKeys(value);
         if (keys == undefined) {
@@ -201,7 +266,7 @@ export class MultiKeyReversibleMap<Key, Value> {
 	 * @param  {Value} value - The value that these keys link to
 	 */
     public deleteKeys(keys: Key[], value?: Value): boolean {
-        if (keys == null || keys.length) { console.error("Trying to delete a keys in a MultiKeyReversibleMap wtih an invalid keys: ", keys); return false; }
+        if (keys == null || keys.length == 0) { console.error("Trying to delete a keys in a MultiKeyReversibleMap wtih an invalid keys: ", keys); return false; }
         keys.forEach(element => {
             this.deleteKey(element, value);
         });
