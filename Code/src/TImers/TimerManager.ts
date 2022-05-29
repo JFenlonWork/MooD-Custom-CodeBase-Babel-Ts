@@ -38,10 +38,11 @@ import { Timer } from "./Timer";
 
 
     /**
-	 * Return the current datetime
+	 * Return the current time in milliseconds
 	 */
     public static Time(): number {
-        return new Date().getTime();
+        //return new Date().getTime();
+        return performance.now();
     }
 
     /**
