@@ -68,7 +68,7 @@ __webpack_require__.d(Timers_namespaceObject, {
   "ScaledTimer": function() { return ScaledTimer; },
   "Timer": function() { return Timer; },
   "TimerManager": function() { return TimerManager; },
-  "TimerSkipOffsetType": function() { return TimerSkipOffsetType; }
+  "TimerOffsetType": function() { return TimerOffsetType; }
 });
 
 // NAMESPACE OBJECT: ./Definitions/Code/Modules/Events.ts
@@ -4045,7 +4045,7 @@ var TimerManager = /*#__PURE__*/function () {
       return this._timers;
     }
     /**
-    * Return the current datetime
+    * Return the current time in milliseconds
     */
 
   }], [{
@@ -4057,7 +4057,8 @@ var TimerManager = /*#__PURE__*/function () {
   }, {
     key: "Time",
     value: function Time() {
-      return new Date().getTime();
+      //return new Date().getTime();
+      return performance.now();
     }
     /**
     * Searches for and returns a timer with a name parameter
@@ -4125,16 +4126,16 @@ var TimerManager = /*#__PURE__*/function () {
 }();
 
 TimerManager_defineProperty(TimerManager, "_instance", void 0);
-;// CONCATENATED MODULE: ./Code/src/Timers/TimerSkipOffsetType.ts
+;// CONCATENATED MODULE: ./Code/src/Timers/TimerOffsetType.ts
 /** Enum representing a offset skip type of a timer.
  */
-var TimerSkipOffsetType;
+var TimerOffsetType;
 
-(function (TimerSkipOffsetType) {
-  TimerSkipOffsetType[TimerSkipOffsetType["NoSkip"] = 0] = "NoSkip";
-  TimerSkipOffsetType[TimerSkipOffsetType["SkipAnyIncludingInstantLoops"] = 1] = "SkipAnyIncludingInstantLoops";
-  TimerSkipOffsetType[TimerSkipOffsetType["SkipExcludingInstantLoops"] = 2] = "SkipExcludingInstantLoops";
-})(TimerSkipOffsetType || (TimerSkipOffsetType = {}));
+(function (TimerOffsetType) {
+  TimerOffsetType[TimerOffsetType["NoOffset"] = 0] = "NoOffset";
+  TimerOffsetType[TimerOffsetType["OffsetIgnoreSkipOffset"] = 1] = "OffsetIgnoreSkipOffset";
+  TimerOffsetType[TimerOffsetType["OffsetIncludeSkipOffset"] = 2] = "OffsetIncludeSkipOffset";
+})(TimerOffsetType || (TimerOffsetType = {}));
 ;// CONCATENATED MODULE: ./Code/src/Timers/Timer.ts
 function Timer_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -4152,22 +4153,21 @@ function Timer_defineProperty(obj, key, value) { if (key in obj) { Object.define
 
 var Timer = /*#__PURE__*/function () {
   /**
-  * Create a timer
-  * @param  {string} name - The name of the timer
-  * @param  {number} timerInterval - The time between each loop on this timer
-  * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
-  * @param  {number} timerRunTime - The total time for this timer to run 
-  * @param  {boolean} enableOffset - Determines if a timers loop should change based on browser time discrepancies
-  * @param  {TimerSkipOffsetType} skipOffset - Determines if a timers should skip offsets if they are too large
-  */
+   * Create a timer
+   * @param  {string} name - The name of the timer
+   * @param  {number} timerInterval - The time between each loop on this timer
+   * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
+   * @param  {number} timerRunTime - The total time for this timer to run 
+   * @param  {boolean} enableOffset - Determines if a timers loop should change based on browser time discrepancies
+   * @param  {TimerOffsetType} offsetType - Determines if a timer should apply an offset to loop timing and skip offsets if they are too large
+   */
   function Timer(name, timingInterval) {
-    var _this2 = this;
+    var _this = this;
 
     var callbacks = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
     var startOnCreation = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
     var timerRunTime = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : Number.MAX_SAFE_INTEGER;
-    var enableOffset = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
-    var skipOffset = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : TimerSkipOffsetType.NoSkip;
+    var offsetType = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : TimerOffsetType.NoOffset;
 
     Timer_classCallCheck(this, Timer);
 
@@ -4179,7 +4179,7 @@ var Timer = /*#__PURE__*/function () {
 
     Timer_defineProperty(this, "_timerID", -1);
 
-    Timer_defineProperty(this, "_startDate", -1);
+    Timer_defineProperty(this, "_startTime", -1);
 
     Timer_defineProperty(this, "_timingInterval", -1);
 
@@ -4195,13 +4195,9 @@ var Timer = /*#__PURE__*/function () {
 
     Timer_defineProperty(this, "_lastCompletion", -1);
 
-    Timer_defineProperty(this, "_enableOffset", false);
+    Timer_defineProperty(this, "_offsetType", TimerOffsetType.NoOffset);
 
     Timer_defineProperty(this, "_intervalOffset", -1);
-
-    Timer_defineProperty(this, "_skipOffset", TimerSkipOffsetType.NoSkip);
-
-    Timer_defineProperty(this, "_skipOffsetCalculation", false);
 
     Timer_defineProperty(this, "_events", new PubSub());
 
@@ -4210,7 +4206,7 @@ var Timer = /*#__PURE__*/function () {
       return;
     }
 
-    if (typeof timingInterval != "number" || timingInterval <= -1) {
+    if (typeof timingInterval != "number" || timingInterval < 0) {
       console.error("Trying to create a timer without a valid timing interval: ", timingInterval);
       return;
     }
@@ -4220,8 +4216,8 @@ var Timer = /*#__PURE__*/function () {
       return;
     }
 
-    if (typeof enableOffset != "boolean" || enableOffset == null) {
-      console.error("Trying to create a timer without a valid enable offset: ", enableOffset);
+    if (!(offsetType in TimerOffsetType)) {
+      console.error("Trying to create a timer without a valid offset type: ", offsetType);
       return;
     }
 
@@ -4229,13 +4225,12 @@ var Timer = /*#__PURE__*/function () {
     this.timerID = TimerManager.Instance.uniqueID.generateUID();
     this.timingInterval = timingInterval;
     this.ticksRemaining = timerRunTime;
-    this.enableOffset = enableOffset;
-    this.startDate = TimerManager.Time();
-    this.skipOffset = skipOffset;
+    this.offsetType = offsetType;
+    this.startTime = TimerManager.Time();
 
     if (Array.isArray(callbacks)) {
       callbacks.forEach(function (element) {
-        _this2.events.subscribe("loopCompletion", element);
+        _this.events.subscribe("loopCompletion", element);
       });
     } else {
       this.events.subscribe("loopCompletion", callbacks);
@@ -4312,9 +4307,9 @@ var Timer = /*#__PURE__*/function () {
     } //** The start time of this timer*/ 
 
   }, {
-    key: "startDate",
+    key: "startTime",
     get: function get() {
-      return this._startDate;
+      return this._startTime;
     },
     set: function set(date) {
       if (typeof date != "number") {
@@ -4322,7 +4317,7 @@ var Timer = /*#__PURE__*/function () {
         return;
       }
 
-      this._startDate = date;
+      this._startTime = date;
     } //** The time between loop completion*/ 
 
   }, {
@@ -4424,17 +4419,17 @@ var Timer = /*#__PURE__*/function () {
     } //** Determines if this timer should take into account timer discrepancies in time*/
 
   }, {
-    key: "enableOffset",
+    key: "offsetType",
     get: function get() {
-      return this._enableOffset;
+      return this._offsetType;
     },
-    set: function set(enabled) {
-      if (typeof enabled != "boolean") {
-        console.error("Trying to set a Timer's offset enabled with an invalid input: ", enabled);
+    set: function set(type) {
+      if (!(type in TimerOffsetType)) {
+        console.error("Trying to set a Timer's offset type with an invalid input: ", type);
         return;
       }
 
-      this._enableOffset = enabled;
+      this._offsetType = type;
     } //** Calculate the difference between loop time and actual time*/
 
   }, {
@@ -4449,34 +4444,6 @@ var Timer = /*#__PURE__*/function () {
       }
 
       this._intervalOffset = interval;
-    } //** Determines if this timer should apply offset to current loop time based on discrepancies*/
-
-  }, {
-    key: "skipOffset",
-    get: function get() {
-      return this._skipOffset;
-    },
-    set: function set(skipType) {
-      if (!(skipType in TimerSkipOffsetType)) {
-        console.error("Trying to set a Timer's offset skip type with an invalid input: ", skipType);
-        return;
-      }
-
-      this._skipOffset = skipType;
-    } //** Handles if the timer is currently skipping a loop*/
-
-  }, {
-    key: "skipOffsetCalculation",
-    get: function get() {
-      return this._skipOffsetCalculation;
-    },
-    set: function set(skipOffsetCalculation) {
-      if (typeof skipOffsetCalculation != "boolean") {
-        console.error("Trying to set a Timer's skip loop value with an invalid input: ", skipOffsetCalculation);
-        return;
-      }
-
-      this._skipOffsetCalculation = skipOffsetCalculation;
     } //** Handles any custom events required by this Timer*/
 
   }, {
@@ -4497,8 +4464,8 @@ var Timer = /*#__PURE__*/function () {
     key: "start",
     value:
     /**
-    * Start this Timer
-    */
+     * Start this Timer
+     */
     function start() {
       if (this.timingInterval == -1) {
         console.error("Trying to start a timer with an invalid timing interval: ", this.timingInterval);
@@ -4510,8 +4477,8 @@ var Timer = /*#__PURE__*/function () {
       this.loop();
     }
     /**
-    * Stop this Timer
-    */
+     * Stop this Timer
+     */
 
   }, {
     key: "stop",
@@ -4522,8 +4489,8 @@ var Timer = /*#__PURE__*/function () {
       this.timeout = NaN;
     }
     /**
-    * Restart this Timer
-    */
+     * Restart this Timer
+     */
 
   }, {
     key: "restart",
@@ -4532,8 +4499,8 @@ var Timer = /*#__PURE__*/function () {
       this.start();
     }
     /**
-    * Pause this Timer
-    */
+     * Pause this Timer
+     */
 
   }, {
     key: "pause",
@@ -4544,8 +4511,8 @@ var Timer = /*#__PURE__*/function () {
       }
     }
     /**
-    * Resume this Timer
-    */
+     * Resume this Timer
+     */
 
   }, {
     key: "resume",
@@ -4553,8 +4520,8 @@ var Timer = /*#__PURE__*/function () {
       if (this.isPaused()) this.start();
     }
     /**
-    * Resume this Timer
-    */
+     * Resume this Timer
+     */
 
   }, {
     key: "unpause",
@@ -4562,8 +4529,8 @@ var Timer = /*#__PURE__*/function () {
       this.resume();
     }
     /**
-    * Test if this Timer is currently pause
-    */
+     * Test if this Timer is currently pause
+     */
 
   }, {
     key: "isPaused",
@@ -4571,8 +4538,8 @@ var Timer = /*#__PURE__*/function () {
       return this.pausedAt != -1;
     }
     /**
-    * Handle the looping/countdown calculation of this timer
-    */
+     * Handle the looping/countdown calculation of this timer
+     */
 
   }, {
     key: "loop",
@@ -4590,48 +4557,40 @@ var Timer = /*#__PURE__*/function () {
       }
 
       var time = TimerManager.Time();
-      var timeSinceLastUpdate = time - this.lastTickDate;
       this.lastTickDate = time;
-      this.ticksElapsed += timeSinceLastUpdate;
-      this.ticksRemaining -= timeSinceLastUpdate;
+      this.ticksElapsed += time - this.lastTickDate;
+      this.ticksRemaining -= time - this.lastTickDate;
 
-      if (this.enableOffset && timeSinceLastUpdate != this.currentTimingInterval && this.skipOffsetCalculation == false) {
-        if (this.skipOffset != TimerSkipOffsetType.NoSkip) {
-          this.intervalOffset = this.currentTimingInterval - timeSinceLastUpdate;
+      if (this.offsetType != TimerOffsetType.NoOffset && this.currentTimingInterval == this.timingInterval) {
+        var roundedElapsed = Math.round((time - this.startTime) / this.timingInterval) * this.timingInterval;
+        var targetTime = this.startTime + roundedElapsed + this.timingInterval;
+        var delay = targetTime - TimerManager.Time();
 
-          if (this.intervalOffset < -this.currentTimingInterval) {
-            switch (this.skipOffset) {
-              case TimerSkipOffsetType.SkipAnyIncludingInstantLoops:
-                this.intervalOffset = -(this.currentTimingInterval & this.intervalOffset);
-                break;
+        if (this.offsetType == TimerOffsetType.OffsetIncludeSkipOffset) {
+          var lastUpdateRounded = Math.round((this.lastTickDate - this.startTime) / this.timingInterval) * this.timingInterval;
 
-              case TimerSkipOffsetType.SkipExcludingInstantLoops:
-                this.intervalOffset = -this.currentTimingInterval;
-                break;
-            }
+          for (var i = lastUpdateRounded; i < roundedElapsed; i++) {
+            this.events.publish("loopCompletion");
           }
-        } else {
-          this.intervalOffset = 0;
         }
-      } else {
-        this.intervalOffset = 0;
-        this.skipOffsetCalculation = false;
+
+        this.timeout = window.setTimeout(function () {
+          this.runLoop();
+        }.bind(this), delay);
+        return;
       }
 
-      var _this = this;
-
       this.timeout = window.setTimeout(function () {
-        return _this.runLoop();
-      }, this.currentTimingInterval + this.intervalOffset);
+        this.runLoop();
+      }.bind(this), this.currentTimingInterval);
     }
     /**
-    * Handle the looping of this timer
-    */
+     * Handle the looping of this timer
+     */
 
   }, {
     key: "runLoop",
     value: function runLoop() {
-      var timer = this;
       this.events.publish("loopCompletion");
       this.lastCompletion = TimerManager.Time();
 
@@ -4645,8 +4604,8 @@ var Timer = /*#__PURE__*/function () {
       }
     }
     /**
-    * Handle the destruction of this timer
-    */
+     * Handle the destruction of this timer
+     */
 
   }, {
     key: "destroy",
@@ -4724,7 +4683,7 @@ var RealtimeTimer = /*#__PURE__*/function (_Timer) {
 
     RealtimeTimer_classCallCheck(this, RealtimeTimer);
 
-    _this = _super.call(this, name, 10, [], startOnCreation, timerRunTime, true, TimerSkipOffsetType.NoSkip);
+    _this = _super.call(this, name, 10, [], startOnCreation, timerRunTime, TimerOffsetType.OffsetIgnoreSkipOffset);
 
     RealtimeTimer_defineProperty(RealtimeTimer_assertThisInitialized(_this), "_realtimeEvents", new PubSub());
 
@@ -4939,6 +4898,7 @@ function ScaledTimer_defineProperty(obj, key, value) { if (key in obj) { Object.
 
 
 
+
 /** A ScaledTimer that builds upon default Timer to change have
  *  variable interval times based on a pass/fail return value
  */
@@ -4958,44 +4918,42 @@ var ScaledTimer = /*#__PURE__*/function (_Timer) {
   * @param  {boolean} enableOffset - Determines if a timers loop should change based on browser time discrepancies
   */
   function ScaledTimer(name, timeScalers) {
-    var _thisSuper, _this2;
+    var _thisSuper, _this;
 
     var callbacks = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
     var startOnCreation = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
     var timerRunTime = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : Number.MAX_SAFE_INTEGER;
-    var enableOffset = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : true;
+    var offsetType = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : TimerOffsetType.NoOffset;
 
     ScaledTimer_classCallCheck(this, ScaledTimer);
 
-    _this2 = _super.call(this, name, timeScalers[0].interval, [], startOnCreation, timerRunTime, enableOffset);
+    _this = _super.call(this, name, timeScalers[0].interval, [], startOnCreation, timerRunTime, offsetType);
 
-    ScaledTimer_defineProperty(ScaledTimer_assertThisInitialized(_this2), "_scaledEvents", new PubSub());
+    ScaledTimer_defineProperty(ScaledTimer_assertThisInitialized(_this), "_scaledEvents", new PubSub());
 
-    ScaledTimer_defineProperty(ScaledTimer_assertThisInitialized(_this2), "_failCount", 0);
+    ScaledTimer_defineProperty(ScaledTimer_assertThisInitialized(_this), "_failCount", 0);
 
-    ScaledTimer_defineProperty(ScaledTimer_assertThisInitialized(_this2), "_timeScalers", []);
+    ScaledTimer_defineProperty(ScaledTimer_assertThisInitialized(_this), "_timeScalers", []);
 
-    ScaledTimer_get((_thisSuper = ScaledTimer_assertThisInitialized(_this2), ScaledTimer_getPrototypeOf(ScaledTimer.prototype)), "events", _thisSuper).subscribe("loopCompletion", function () {
-      _this2.events.publish("loopCompletion");
-    });
+    ScaledTimer_get((_thisSuper = ScaledTimer_assertThisInitialized(_this), ScaledTimer_getPrototypeOf(ScaledTimer.prototype)), "events", _thisSuper).subscribe("loopCompletion", function () {
+      this.events.publish("loopCompletion");
+    }.bind(ScaledTimer_assertThisInitialized(_this)));
 
-    _this2.events.subscribe("loopCompletion", callbacks);
+    _this.events.subscribe("loopCompletion", callbacks);
 
-    _this2.timeScalers = timeScalers;
+    _this.timeScalers = timeScalers;
 
-    var _this = ScaledTimer_assertThisInitialized(_this2);
-
-    _this2.events.subscribe("response", function () {
-      var _this2$listenToRespon;
+    _this.events.subscribe("response", function () {
+      var _this$listenToRespons;
 
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
 
-      return (_this2$listenToRespon = _this2.listenToResponse).call.apply(_this2$listenToRespon, [_this].concat(args));
-    });
+      return (_this$listenToRespons = this.listenToResponse).call.apply(_this$listenToRespons, [this].concat(args));
+    }.bind(ScaledTimer_assertThisInitialized(_this)));
 
-    return _this2;
+    return _this;
   }
   /**
    * Returns the class type of this object
@@ -5115,7 +5073,7 @@ var ScaledTimer = /*#__PURE__*/function (_Timer) {
   }], [{
     key: "toString",
     value: function toString() {
-      return "SCaledTimer";
+      return "ScaledTimer";
     }
   }]);
 

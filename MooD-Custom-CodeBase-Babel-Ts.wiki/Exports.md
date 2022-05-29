@@ -4,7 +4,7 @@
 
 ### Enumerations
 
-- [TimerSkipOffsetType](../wiki/TimerSkipOffsetType)
+- [TimerOffsetType](../wiki/TimerOffsetType)
 
 ### Classes
 
