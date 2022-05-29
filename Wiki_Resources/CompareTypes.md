@@ -41,7 +41,7 @@ Compare two parameters and return if they are not the same type
 
 #### Defined in
 
-[Utilities/CompareTypes.ts:19](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/CompareTypes.ts#L19)
+[Utilities/CompareTypes.ts:19](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/CompareTypes.ts#L19)
 
 ___
 
@@ -64,7 +64,7 @@ Compare two parameters and return if they are the same type
 
 #### Defined in
 
-[Utilities/CompareTypes.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/CompareTypes.ts#L10)
+[Utilities/CompareTypes.ts:10](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/CompareTypes.ts#L10)
 
 ___
 
@@ -86,4 +86,4 @@ Return the type of a parameter
 
 #### Defined in
 
-[Utilities/CompareTypes.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/CompareTypes.ts#L27)
+[Utilities/CompareTypes.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/CompareTypes.ts#L27)

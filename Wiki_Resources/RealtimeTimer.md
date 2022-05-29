@@ -19,17 +19,15 @@ Class representing a Realtime Timer that implements
 
 - [\_currentTimingInterval](../wiki/RealtimeTimer#_currenttiminginterval)
 - [\_destroyOnStop](../wiki/RealtimeTimer#_destroyonstop)
-- [\_enableOffset](../wiki/RealtimeTimer#_enableoffset)
 - [\_intervalOffset](../wiki/RealtimeTimer#_intervaloffset)
 - [\_lastCompletion](../wiki/RealtimeTimer#_lastcompletion)
 - [\_lastTickDate](../wiki/RealtimeTimer#_lasttickdate)
 - [\_name](../wiki/RealtimeTimer#_name)
+- [\_offsetType](../wiki/RealtimeTimer#_offsettype)
 - [\_pausedAt](../wiki/RealtimeTimer#_pausedat)
 - [\_realtimeEvents](../wiki/RealtimeTimer#_realtimeevents)
 - [\_running](../wiki/RealtimeTimer#_running)
-- [\_skipOffset](../wiki/RealtimeTimer#_skipoffset)
-- [\_skipOffsetCalculation](../wiki/RealtimeTimer#_skipoffsetcalculation)
-- [\_startDate](../wiki/RealtimeTimer#_startdate)
+- [\_startTime](../wiki/RealtimeTimer#_starttime)
 - [\_ticksElapsed](../wiki/RealtimeTimer#_tickselapsed)
 - [\_ticksRemaining](../wiki/RealtimeTimer#_ticksremaining)
 - [\_timeout](../wiki/RealtimeTimer#_timeout)
@@ -40,17 +38,15 @@ Class representing a Realtime Timer that implements
 
 - [currentTimingInterval](../wiki/RealtimeTimer#currenttiminginterval)
 - [destroyOnStop](../wiki/RealtimeTimer#destroyonstop)
-- [enableOffset](../wiki/RealtimeTimer#enableoffset)
 - [events](../wiki/RealtimeTimer#events)
 - [intervalOffset](../wiki/RealtimeTimer#intervaloffset)
 - [lastCompletion](../wiki/RealtimeTimer#lastcompletion)
 - [lastTickDate](../wiki/RealtimeTimer#lasttickdate)
 - [name](../wiki/RealtimeTimer#name)
+- [offsetType](../wiki/RealtimeTimer#offsettype)
 - [pausedAt](../wiki/RealtimeTimer#pausedat)
 - [running](../wiki/RealtimeTimer#running)
-- [skipOffset](../wiki/RealtimeTimer#skipoffset)
-- [skipOffsetCalculation](../wiki/RealtimeTimer#skipoffsetcalculation)
-- [startDate](../wiki/RealtimeTimer#startdate)
+- [startTime](../wiki/RealtimeTimer#starttime)
 - [ticksElapsed](../wiki/RealtimeTimer#tickselapsed)
 - [ticksRemaining](../wiki/RealtimeTimer#ticksremaining)
 - [timeout](../wiki/RealtimeTimer#timeout)
@@ -125,20 +121,6 @@ Timers/RealtimeTimer.ts:17
 
 ___
 
-### \_enableOffset
-
-• `Protected` **\_enableOffset**: `boolean` = `false`
-
-#### Inherited from
-
-[Timer](../wiki/Timer).[_enableOffset](../wiki/Timer#_enableoffset)
-
-#### Defined in
-
-Timers/Timer.ts:146
-
-___
-
 ### \_intervalOffset
 
 • `Protected` **\_intervalOffset**: `number` = `-1`
@@ -149,7 +131,7 @@ ___
 
 #### Defined in
 
-Timers/Timer.ts:157
+Timers/Timer.ts:155
 
 ___
 
@@ -195,6 +177,20 @@ Timers/Timer.ts:10
 
 ___
 
+### \_offsetType
+
+• `Protected` **\_offsetType**: [`TimerOffsetType`](../wiki/TimerOffsetType) = `TimerOffsetType.NoOffset`
+
+#### Inherited from
+
+[Timer](../wiki/Timer).[_offsetType](../wiki/Timer#_offsettype)
+
+#### Defined in
+
+Timers/Timer.ts:144
+
+___
+
 ### \_pausedAt
 
 • `Protected` **\_pausedAt**: `number` = `-1`
@@ -233,41 +229,13 @@ Timers/Timer.ts:21
 
 ___
 
-### \_skipOffset
+### \_startTime
 
-• `Protected` **\_skipOffset**: [`TimerSkipOffsetType`](../wiki/TimerSkipOffsetType) = `TimerSkipOffsetType.NoSkip`
-
-#### Inherited from
-
-[Timer](../wiki/Timer).[_skipOffset](../wiki/Timer#_skipoffset)
-
-#### Defined in
-
-Timers/Timer.ts:168
-
-___
-
-### \_skipOffsetCalculation
-
-• `Protected` **\_skipOffsetCalculation**: `boolean` = `false`
+• `Protected` **\_startTime**: `number` = `-1`
 
 #### Inherited from
 
-[Timer](../wiki/Timer).[_skipOffsetCalculation](../wiki/Timer#_skipoffsetcalculation)
-
-#### Defined in
-
-Timers/Timer.ts:179
-
-___
-
-### \_startDate
-
-• `Protected` **\_startDate**: `number` = `-1`
-
-#### Inherited from
-
-[Timer](../wiki/Timer).[_startDate](../wiki/Timer#_startdate)
+[Timer](../wiki/Timer).[_startTime](../wiki/Timer#_starttime)
 
 #### Defined in
 
@@ -413,44 +381,6 @@ Timers/RealtimeTimer.ts:22
 
 ___
 
-### enableOffset
-
-• `get` **enableOffset**(): `boolean`
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-Timer.enableOffset
-
-#### Defined in
-
-Timers/Timer.ts:147
-
-• `set` **enableOffset**(`enabled`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `enabled` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Timer.enableOffset
-
-#### Defined in
-
-Timers/Timer.ts:151
-
-___
-
 ### events
 
 • `get` **events**(): [`PubSub`](../wiki/PubSub)
@@ -483,7 +413,7 @@ Timer.intervalOffset
 
 #### Defined in
 
-Timers/Timer.ts:158
+Timers/Timer.ts:156
 
 • `set` **intervalOffset**(`interval`): `void`
 
@@ -503,7 +433,7 @@ Timer.intervalOffset
 
 #### Defined in
 
-Timers/Timer.ts:162
+Timers/Timer.ts:160
 
 ___
 
@@ -621,6 +551,44 @@ Timers/Timer.ts:15
 
 ___
 
+### offsetType
+
+• `get` **offsetType**(): [`TimerOffsetType`](../wiki/TimerOffsetType)
+
+#### Returns
+
+[`TimerOffsetType`](../wiki/TimerOffsetType)
+
+#### Inherited from
+
+Timer.offsetType
+
+#### Defined in
+
+Timers/Timer.ts:145
+
+• `set` **offsetType**(`type`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `type` | [`TimerOffsetType`](../wiki/TimerOffsetType) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Timer.offsetType
+
+#### Defined in
+
+Timers/Timer.ts:149
+
+___
+
 ### pausedAt
 
 • `get` **pausedAt**(): `number`
@@ -697,85 +665,9 @@ Timers/Timer.ts:26
 
 ___
 
-### skipOffset
+### startTime
 
-• `get` **skipOffset**(): [`TimerSkipOffsetType`](../wiki/TimerSkipOffsetType)
-
-#### Returns
-
-[`TimerSkipOffsetType`](../wiki/TimerSkipOffsetType)
-
-#### Inherited from
-
-Timer.skipOffset
-
-#### Defined in
-
-Timers/Timer.ts:169
-
-• `set` **skipOffset**(`skipType`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `skipType` | [`TimerSkipOffsetType`](../wiki/TimerSkipOffsetType) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Timer.skipOffset
-
-#### Defined in
-
-Timers/Timer.ts:173
-
-___
-
-### skipOffsetCalculation
-
-• `get` **skipOffsetCalculation**(): `boolean`
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-Timer.skipOffsetCalculation
-
-#### Defined in
-
-Timers/Timer.ts:180
-
-• `set` **skipOffsetCalculation**(`skipOffsetCalculation`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `skipOffsetCalculation` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Timer.skipOffsetCalculation
-
-#### Defined in
-
-Timers/Timer.ts:184
-
-___
-
-### startDate
-
-• `get` **startDate**(): `number`
+• `get` **startTime**(): `number`
 
 #### Returns
 
@@ -783,13 +675,13 @@ ___
 
 #### Inherited from
 
-Timer.startDate
+Timer.startTime
 
 #### Defined in
 
 Timers/Timer.ts:57
 
-• `set` **startDate**(`date`): `void`
+• `set` **startTime**(`date`): `void`
 
 #### Parameters
 
@@ -803,7 +695,7 @@ Timers/Timer.ts:57
 
 #### Inherited from
 
-Timer.startDate
+Timer.startTime
 
 #### Defined in
 
@@ -1017,7 +909,7 @@ Handle the destruction of this timer
 
 #### Defined in
 
-Timers/Timer.ts:381
+Timers/Timer.ts:345
 
 ___
 
@@ -1037,7 +929,7 @@ Test if this Timer is currently pause
 
 #### Defined in
 
-Timers/Timer.ts:307
+Timers/Timer.ts:279
 
 ___
 
@@ -1077,7 +969,7 @@ Handle the looping/countdown calculation of this timer
 
 #### Defined in
 
-Timers/Timer.ts:314
+Timers/Timer.ts:286
 
 ___
 
@@ -1097,7 +989,7 @@ Pause this Timer
 
 #### Defined in
 
-Timers/Timer.ts:280
+Timers/Timer.ts:255
 
 ___
 
@@ -1117,7 +1009,7 @@ Restart this Timer
 
 #### Defined in
 
-Timers/Timer.ts:272
+Timers/Timer.ts:247
 
 ___
 
@@ -1137,7 +1029,7 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:291
+Timers/Timer.ts:265
 
 ___
 
@@ -1157,7 +1049,7 @@ Handle the looping of this timer
 
 #### Defined in
 
-Timers/Timer.ts:363
+Timers/Timer.ts:328
 
 ___
 
@@ -1177,7 +1069,7 @@ Start this Timer
 
 #### Defined in
 
-Timers/Timer.ts:252
+Timers/Timer.ts:227
 
 ___
 
@@ -1197,7 +1089,7 @@ Stop this Timer
 
 #### Defined in
 
-Timers/Timer.ts:262
+Timers/Timer.ts:237
 
 ___
 
@@ -1237,7 +1129,7 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:299
+Timers/Timer.ts:272
 
 ___
 

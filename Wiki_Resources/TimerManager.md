@@ -119,7 +119,7 @@ Timers/TimerManager.ts:11
 
 ▸ `Static` **Time**(): `number`
 
-Return the current datetime
+Return the current time in milliseconds
 
 #### Returns
 
@@ -149,7 +149,7 @@ Adds a timer to a singleton map and update references
 
 #### Defined in
 
-Timers/TimerManager.ts:78
+Timers/TimerManager.ts:79
 
 ___
 
@@ -171,7 +171,7 @@ Searches for and returns a timer with a name parameter
 
 #### Defined in
 
-Timers/TimerManager.ts:51
+Timers/TimerManager.ts:52
 
 ___
 
@@ -193,7 +193,7 @@ Searches for and returns a timer with a id parameter
 
 #### Defined in
 
-Timers/TimerManager.ts:60
+Timers/TimerManager.ts:61
 
 ___
 
@@ -215,7 +215,7 @@ Remove a timer from a singleton map and update references
 
 #### Defined in
 
-Timers/TimerManager.ts:86
+Timers/TimerManager.ts:87
 
 ___
 
@@ -237,4 +237,4 @@ Searches for and returns if a timer already exists with a name
 
 #### Defined in
 
-Timers/TimerManager.ts:69
+Timers/TimerManager.ts:70

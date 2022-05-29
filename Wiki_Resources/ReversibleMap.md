@@ -68,7 +68,7 @@ Create a reversible map between Keys and Values
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:41](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L41)
+[Utilities/ReversibleMap.ts:41](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L41)
 
 ## Properties
 
@@ -80,7 +80,7 @@ Store the object type of the Keys in this Reversible Map for toString comparison
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:14](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L14)
+[Utilities/ReversibleMap.ts:14](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L14)
 
 ___
 
@@ -92,7 +92,7 @@ Store all forward references to values to allow searching
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L8)
+[Utilities/ReversibleMap.ts:8](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L8)
 
 ___
 
@@ -104,7 +104,7 @@ Store all inverse references to values to allow searching and Maps the values to
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L11)
+[Utilities/ReversibleMap.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L11)
 
 ___
 
@@ -116,7 +116,7 @@ Return the object type of the Values in this Reversible Map for toString compari
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:20](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L20)
+[Utilities/ReversibleMap.ts:20](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L20)
 
 ## Accessors
 
@@ -130,7 +130,7 @@ Return the object type of the Values in this Reversible Map for toString compari
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L15)
+[Utilities/ReversibleMap.ts:15](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L15)
 
 ___
 
@@ -146,7 +146,7 @@ Return the size of the reverse map of this ReversibleMap
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L31)
+[Utilities/ReversibleMap.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L31)
 
 ___
 
@@ -162,7 +162,7 @@ Return the size of this ReversibleMap
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L26)
+[Utilities/ReversibleMap.ts:26](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L26)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L21)
+[Utilities/ReversibleMap.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L21)
 
 ## Methods
 
@@ -192,7 +192,7 @@ Remove all keys and values
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:170](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L170)
+[Utilities/ReversibleMap.ts:170](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L170)
 
 ___
 
@@ -214,7 +214,7 @@ Remove a key from this map
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:143](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L143)
+[Utilities/ReversibleMap.ts:143](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L143)
 
 ___
 
@@ -236,7 +236,7 @@ Remove a Value from this map
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:157](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L157)
+[Utilities/ReversibleMap.ts:157](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L157)
 
 ___
 
@@ -260,7 +260,7 @@ Value - The value associated with the key
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:62](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L62)
+[Utilities/ReversibleMap.ts:62](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L62)
 
 ___
 
@@ -282,7 +282,7 @@ Return Key associated with a Value
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:103](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L103)
+[Utilities/ReversibleMap.ts:103](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L103)
 
 ___
 
@@ -304,7 +304,7 @@ Return Value associated with a key
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:95](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L95)
+[Utilities/ReversibleMap.ts:95](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L95)
 
 ___
 
@@ -326,7 +326,7 @@ Test if a Value exists for a given Key
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:111](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L111)
+[Utilities/ReversibleMap.ts:111](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L111)
 
 ___
 
@@ -348,7 +348,7 @@ Test if a Key exists for a given Value
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:119](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L119)
+[Utilities/ReversibleMap.ts:119](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L119)
 
 ___
 
@@ -371,7 +371,7 @@ Create a map between a Key and a Value
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:128](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L128)
+[Utilities/ReversibleMap.ts:128](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L128)
 
 ___
 
@@ -387,7 +387,7 @@ Returns the class type of this object
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:80](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L80)
+[Utilities/ReversibleMap.ts:80](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L80)
 
 ___
 
@@ -403,4 +403,4 @@ Returns the type of this class
 
 #### Defined in
 
-[Utilities/ReversibleMap.ts:87](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/64d10db/Code/src/Utilities/ReversibleMap.ts#L87)
+[Utilities/ReversibleMap.ts:87](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/ffa4621/Code/src/Utilities/ReversibleMap.ts#L87)
