@@ -30,4 +30,17 @@ describe("CompareTypes", () => {
     
     });
 
+    it("Should return the type of an object", () => {
+            
+        //  Arrange
+        let a = {};
+    
+        //  Act
+        let result = CompareTypes.type(a);
+    
+        //  Assert
+        expect(result).toBe("Object");
+    
+    });
+
 });
