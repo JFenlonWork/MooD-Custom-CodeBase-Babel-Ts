@@ -1,6 +1,7 @@
 import { PubSub } from "../Events/PubSub";
 import { ScaledTime } from "./ScaledTime";
 import { Timer } from "./Timer";
+import { TimerOffsetType } from "./TimerOffsetType";
 
 /** A ScaledTimer that builds upon default Timer to change have
  *  variable interval times based on a pass/fail return value
@@ -48,15 +49,14 @@ export class ScaledTimer extends Timer {
 	 * @param  {number} timerRunTime - The total time for this timer to run 
 	 * @param  {boolean} enableOffset - Determines if a timers loop should change based on browser time discrepancies
 	 */
-    constructor (name: string, timeScalers: Array<ScaledTime>, callbacks: Array<Function> = [], startOnCreation:boolean = true, timerRunTime:number = Number.MAX_SAFE_INTEGER, enableOffset: boolean = true) {
-        super(name, timeScalers[0].interval, [], startOnCreation, timerRunTime, enableOffset)
-        super.events.subscribe("loopCompletion", () => { this.events.publish("loopCompletion"); });
+    constructor (name: string, timeScalers: Array<ScaledTime>, callbacks: Array<Function> = [], startOnCreation:boolean = true, timerRunTime:number = Number.MAX_SAFE_INTEGER, offsetType: TimerOffsetType = TimerOffsetType.NoOffset) {
+        super(name, timeScalers[0].interval, [], startOnCreation, timerRunTime, offsetType)
+        super.events.subscribe("loopCompletion", function(this: ScaledTimer) { this.events.publish("loopCompletion"); }.bind(this));
         this.events.subscribe("loopCompletion", callbacks);
 
         this.timeScalers = timeScalers;
 
-        let _this = this;
-        this.events.subscribe("response", (...args: any[]) => { return this.listenToResponse.call(_this, ...args) });
+        this.events.subscribe("response", function(this: ScaledTimer, ...args: any[]) { return this.listenToResponse.call(this, ...args) }.bind(this));
     }
 
 	/**
@@ -71,7 +71,7 @@ export class ScaledTimer extends Timer {
      * Returns the type of this class
      */
     public static toString(): string {
-        return "SCaledTimer";
+        return "ScaledTimer";
     }
 
 

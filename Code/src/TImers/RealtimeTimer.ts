@@ -1,6 +1,6 @@
 import { PubSub } from "../Events/PubSub";
 import { Timer } from "./Timer";
-import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
+import { TimerOffsetType } from "./TimerOffsetType";
 
 /** Class representing a Realtime Timer that implements
  *  custom controls ontop of setTimeout to create a timer that activates as fast as possible.
@@ -33,7 +33,7 @@ import { TimerSkipOffsetType } from "./TimerSkipOffsetType";
 	 * @param  {boolean} destroyOnStop - Determines if a timers should destroy itself once it recieves a single stop command
 	 */
     constructor (name: string, callbacks: Array<Function> = [], startOnCreation:boolean = true, timerRunTime:number = Number.MAX_SAFE_INTEGER, destroyOnStop: boolean = true) {
-        super(name, 10, [], startOnCreation, timerRunTime, true, TimerSkipOffsetType.NoSkip);
+        super(name, 10, [], startOnCreation, timerRunTime, TimerOffsetType.OffsetIgnoreSkipOffset);
         this.destroyOnStop = destroyOnStop;
         super.events.subscribe("loopCompletion", () => { this.events.publish("loopCompletion"); });
         this.events.subscribe("loopCompletion", callbacks);
