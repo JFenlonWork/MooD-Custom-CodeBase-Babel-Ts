@@ -95,7 +95,7 @@ Create a RealtimeTimer
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:52](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L52)
+[Timers/ScaledTimer.ts:52](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L52)
 
 ## Properties
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L18)
+[Timers/ScaledTimer.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L18)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L12)
+[Timers/ScaledTimer.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L12)
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:29](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L29)
+[Timers/ScaledTimer.ts:29](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L29)
 
 ___
 
@@ -363,7 +363,7 @@ Timer.events
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:13](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L13)
+[Timers/ScaledTimer.ts:13](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L13)
 
 ___
 
@@ -377,7 +377,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:19](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L19)
+[Timers/ScaledTimer.ts:19](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L19)
 
 • `set` **failCount**(`failCount`): `void`
 
@@ -393,7 +393,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L23)
+[Timers/ScaledTimer.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L23)
 
 ___
 
@@ -749,7 +749,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:30](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L30)
+[Timers/ScaledTimer.ts:30](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L30)
 
 • `set` **timeScalers**(`timeScalers`): `void`
 
@@ -765,7 +765,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L34)
+[Timers/ScaledTimer.ts:34](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L34)
 
 ___
 
@@ -899,7 +899,7 @@ Handle the destruction of this timer
 
 #### Defined in
 
-Timers/Timer.ts:335
+Timers/Timer.ts:334
 
 ___
 
@@ -919,7 +919,7 @@ Test if this Timer is currently pause
 
 #### Defined in
 
-Timers/Timer.ts:269
+Timers/Timer.ts:268
 
 ___
 
@@ -942,7 +942,7 @@ Handles listening to responses from callbacks to see if this ScaledTimer
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:82](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L82)
+[Timers/ScaledTimer.ts:82](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L82)
 
 ___
 
@@ -962,7 +962,7 @@ Handle the looping/countdown calculation of this timer
 
 #### Defined in
 
-Timers/Timer.ts:276
+Timers/Timer.ts:275
 
 ___
 
@@ -982,7 +982,7 @@ Pause this Timer
 
 #### Defined in
 
-Timers/Timer.ts:245
+Timers/Timer.ts:244
 
 ___
 
@@ -1002,7 +1002,7 @@ Restart this Timer
 
 #### Defined in
 
-Timers/Timer.ts:237
+Timers/Timer.ts:236
 
 ___
 
@@ -1022,7 +1022,7 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:255
+Timers/Timer.ts:254
 
 ___
 
@@ -1042,7 +1042,7 @@ Handle the looping of this timer
 
 #### Defined in
 
-Timers/Timer.ts:318
+Timers/Timer.ts:317
 
 ___
 
@@ -1062,7 +1062,7 @@ Start this Timer
 
 #### Defined in
 
-Timers/Timer.ts:217
+Timers/Timer.ts:216
 
 ___
 
@@ -1082,7 +1082,7 @@ Stop this Timer
 
 #### Defined in
 
-Timers/Timer.ts:227
+Timers/Timer.ts:226
 
 ___
 
@@ -1102,7 +1102,7 @@ Returns the class type of this object
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:67](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L67)
+[Timers/ScaledTimer.ts:67](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L67)
 
 ___
 
@@ -1122,7 +1122,7 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:262
+Timers/Timer.ts:261
 
 ___
 
@@ -1138,7 +1138,7 @@ Handles finding the correct ScaledTime for the current fail rate
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:105](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L105)
+[Timers/ScaledTimer.ts:105](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L105)
 
 ___
 
@@ -1158,4 +1158,4 @@ Returns the type of this class
 
 #### Defined in
 
-[Timers/ScaledTimer.ts:74](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTimer.ts#L74)
+[Timers/ScaledTimer.ts:74](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTimer.ts#L74)

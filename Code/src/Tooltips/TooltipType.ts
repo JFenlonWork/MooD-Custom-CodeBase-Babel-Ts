@@ -19,7 +19,11 @@ export class TooltipType {
     public get creationName(): String {
         return this._creationName;
     }
-
+    /**
+     * @param  {Function} creation - The creation function to use for this TooltipType
+     * @param  {Function} deletion - The deletion function to use for this TooltipType
+     * @param  {string} creationName - The name of this TooltipType
+     */
     constructor (
         creation: Function = () => { console.error("No creation function was supplied to this TooltipType: ", this); },
         deletion: Function = () => { console.error("No deletion function was supplied to this TooltipType: ", this); },

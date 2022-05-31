@@ -86,7 +86,7 @@ Create a timer
 
 #### Defined in
 
-Timers/Timer.ts:170
+Timers/Timer.ts:169
 
 ## Properties
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-Timers/Timer.ts:156
+Timers/Timer.ts:155
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-Timers/Timer.ts:157
+Timers/Timer.ts:156
 
 ___
 
@@ -646,7 +646,7 @@ Handle the destruction of this timer
 
 #### Defined in
 
-Timers/Timer.ts:335
+Timers/Timer.ts:334
 
 ___
 
@@ -662,7 +662,7 @@ Test if this Timer is currently pause
 
 #### Defined in
 
-Timers/Timer.ts:269
+Timers/Timer.ts:268
 
 ___
 
@@ -678,7 +678,7 @@ Handle the looping/countdown calculation of this timer
 
 #### Defined in
 
-Timers/Timer.ts:276
+Timers/Timer.ts:275
 
 ___
 
@@ -694,7 +694,7 @@ Pause this Timer
 
 #### Defined in
 
-Timers/Timer.ts:245
+Timers/Timer.ts:244
 
 ___
 
@@ -710,7 +710,7 @@ Restart this Timer
 
 #### Defined in
 
-Timers/Timer.ts:237
+Timers/Timer.ts:236
 
 ___
 
@@ -726,7 +726,7 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:255
+Timers/Timer.ts:254
 
 ___
 
@@ -742,7 +742,7 @@ Handle the looping of this timer
 
 #### Defined in
 
-Timers/Timer.ts:318
+Timers/Timer.ts:317
 
 ___
 
@@ -758,7 +758,7 @@ Start this Timer
 
 #### Defined in
 
-Timers/Timer.ts:217
+Timers/Timer.ts:216
 
 ___
 
@@ -774,7 +774,7 @@ Stop this Timer
 
 #### Defined in
 
-Timers/Timer.ts:227
+Timers/Timer.ts:226
 
 ___
 
@@ -790,7 +790,7 @@ Returns the class type of this object
 
 #### Defined in
 
-Timers/Timer.ts:203
+Timers/Timer.ts:202
 
 ___
 
@@ -806,7 +806,7 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:262
+Timers/Timer.ts:261
 
 ___
 
@@ -822,4 +822,4 @@ Returns the type of this class
 
 #### Defined in
 
-Timers/Timer.ts:210
+Timers/Timer.ts:209

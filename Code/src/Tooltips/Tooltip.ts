@@ -62,6 +62,14 @@ import { TooltipType } from "./TooltipType";
         this._tooltipText = tooltipText;
     }
     
+    /** Create a tooltip
+     * @param  {string} tooltipText - The text to display within this Tooltip
+     * @param  {string} TooltipTypeName - The Tooltip creation function type to run using this Tooltip
+     * @param  {string} tooltipCSS - The CSS to apply to this Tooltip
+     * @param  {string} tooltipParentCSS - The CSS to apply to this Tooltip's parent
+     * @param  {HTMLElement | null} tooltipObject - The DOM object of this Tooltip
+     * @param  {any[]} ...args - The arguments to pass to the Tooltip creation function
+     */
     constructor(tooltipText: string = "", TooltipTypeName: string = "GenericTooltipSetup", tooltipCSS: string = "GenericTooltip", tooltipParentCSS: string = "GenericTooltipParent", tooltipObject: HTMLElement | null = null, ...args: any[]) {
         this._tooltipText = tooltipText;
         this._TooltipTypeName = TooltipTypeName;

@@ -40,7 +40,7 @@ Create a Scaled Time which stores data for ScaledTimers
 
 #### Defined in
 
-[Timers/ScaledTime.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTime.ts#L31)
+[Timers/ScaledTime.ts:31](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTime.ts#L31)
 
 ## Properties
 
@@ -50,7 +50,7 @@ Create a Scaled Time which stores data for ScaledTimers
 
 #### Defined in
 
-[Timers/ScaledTime.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTime.ts#L16)
+[Timers/ScaledTime.ts:16](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTime.ts#L16)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTime.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTime.ts#L6)
+[Timers/ScaledTime.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTime.ts#L6)
 
 ## Accessors
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTime.ts:17](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTime.ts#L17)
+[Timers/ScaledTime.ts:17](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTime.ts#L17)
 
 • `set` **interval**(`interval`): `void`
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTime.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTime.ts#L21)
+[Timers/ScaledTime.ts:21](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTime.ts#L21)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTime.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTime.ts#L7)
+[Timers/ScaledTime.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTime.ts#L7)
 
 • `set` **threshold**(`threshold`): `void`
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[Timers/ScaledTime.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTime.ts#L11)
+[Timers/ScaledTime.ts:11](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTime.ts#L11)
 
 ## Methods
 
@@ -136,7 +136,7 @@ Returns the class type of this object
 
 #### Defined in
 
-[Timers/ScaledTime.ts:43](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTime.ts#L43)
+[Timers/ScaledTime.ts:43](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTime.ts#L43)
 
 ___
 
@@ -152,4 +152,4 @@ Returns the type of this class
 
 #### Defined in
 
-[Timers/ScaledTime.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/ScaledTime.ts#L50)
+[Timers/ScaledTime.ts:50](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Timers/ScaledTime.ts#L50)

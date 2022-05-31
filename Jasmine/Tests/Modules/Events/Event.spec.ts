@@ -19,31 +19,9 @@ describe("Event", () => {
         expect(event.name).toBe("Test Event Constructor");
     });
 
-    it("Should be able to set the name of an event", () => {
-        //  Arrange
-        const event = new Event("Test Event Constructor");
-
-        //  Act
-        event.name = "Test Event Constructor";
-
-        //  Assert
-        expect(event.name).toBe("Test Event Constructor");
-    });
-
     it("Should be able to get the callback of an event", () => {
         //  Arrange
         const event = new Event("Test Event Constructor");
-
-        //  Assert
-        expect(event.callback).toBeDefined();
-    });
-
-    it("Should be able to set the callback of an event", () => {
-        //  Arrange
-        const event = new Event("Test Event Constructor");
-
-        //  Act
-        event.callback = jQuery.Callbacks("unique");
 
         //  Assert
         expect(event.callback).toBeDefined();

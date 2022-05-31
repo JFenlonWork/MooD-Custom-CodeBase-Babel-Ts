@@ -33,15 +33,15 @@ Class representing a TooltipType that is used to generate tailored Tooltip HTML/
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `creation` | `Function` | `undefined` |
-| `deletion` | `Function` | `undefined` |
-| `creationName` | `String` | `""` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `creation` | `Function` | `undefined` | The creation function to use for this TooltipType |
+| `deletion` | `Function` | `undefined` | The deletion function to use for this TooltipType |
+| `creationName` | `String` | `""` | The name of this TooltipType |
 
 #### Defined in
 
-[Tooltips/TooltipType.ts:23](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Tooltips/TooltipType.ts#L23)
+[Tooltips/TooltipType.ts:27](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Tooltips/TooltipType.ts#L27)
 
 ## Properties
 
@@ -51,7 +51,7 @@ Class representing a TooltipType that is used to generate tailored Tooltip HTML/
 
 #### Defined in
 
-[Tooltips/TooltipType.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Tooltips/TooltipType.ts#L6)
+[Tooltips/TooltipType.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Tooltips/TooltipType.ts#L6)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipType.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Tooltips/TooltipType.ts#L18)
+[Tooltips/TooltipType.ts:18](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Tooltips/TooltipType.ts#L18)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipType.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Tooltips/TooltipType.ts#L12)
+[Tooltips/TooltipType.ts:12](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Tooltips/TooltipType.ts#L12)
 
 ## Accessors
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipType.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Tooltips/TooltipType.ts#L7)
+[Tooltips/TooltipType.ts:7](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Tooltips/TooltipType.ts#L7)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipType.ts:19](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Tooltips/TooltipType.ts#L19)
+[Tooltips/TooltipType.ts:19](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Tooltips/TooltipType.ts#L19)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[Tooltips/TooltipType.ts:13](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Tooltips/TooltipType.ts#L13)
+[Tooltips/TooltipType.ts:13](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Tooltips/TooltipType.ts#L13)
 
 ## Methods
 
@@ -129,7 +129,7 @@ Returns the class type of this object
 
 #### Defined in
 
-[Tooltips/TooltipType.ts:38](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Tooltips/TooltipType.ts#L38)
+[Tooltips/TooltipType.ts:42](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Tooltips/TooltipType.ts#L42)
 
 ___
 
@@ -145,4 +145,4 @@ Returns the type of this class
 
 #### Defined in
 
-[Tooltips/TooltipType.ts:45](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Tooltips/TooltipType.ts#L45)
+[Tooltips/TooltipType.ts:49](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/e465d8d/Code/src/Tooltips/TooltipType.ts#L49)

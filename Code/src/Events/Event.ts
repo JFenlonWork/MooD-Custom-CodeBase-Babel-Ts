@@ -11,17 +11,17 @@ import { CompareTypes } from "../Utilities/CompareTypes";
         return this._name;
     }
 
-    public set name(name: string) {
+    private set name(name: string) {
         this._name = name;
     }
 
-    //** The name of this event*/
+    //** The settings of this event*/
     private _callback: JQuery.Callbacks = jQuery.Callbacks("unique");
     public get callback() : JQuery.Callbacks {
         return this._callback;
     }
 
-    public set callback(callback: JQuery.Callbacks) {
+    private set callback(callback: JQuery.Callbacks) {
         this._callback = callback;
     }
     

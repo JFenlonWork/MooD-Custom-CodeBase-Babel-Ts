@@ -3741,7 +3741,7 @@ var Event = /*#__PURE__*/function () {
     },
     set: function set(name) {
       this._name = name;
-    } //** The name of this event*/
+    } //** The settings of this event*/
 
   }, {
     key: "callback",
