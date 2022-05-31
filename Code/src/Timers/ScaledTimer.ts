@@ -15,23 +15,23 @@ export class ScaledTimer extends Timer {
     }
 
     //** Counter for how many times this ScaledTimer's callbacks have returned false*/
-    _failCount: number = 0;
+    private _failCount: number = 0;
     public get failCount(): number {
         return this._failCount;
     }
 
-    public set failCount(failCount: number) {
+    protected set failCount(failCount: number) {
         if (typeof(failCount) != "number") { console.warn("Trying to modify a ScaledTimer's failCount with an invalid input: ", failCount); return; }
         this._failCount = failCount;
     }
 
     //** Stores any data needed for determining the current ScaledTimer's timing interval*/
-    _timeScalers: Array<ScaledTime> = [];
-    public get timeScalers(): Array<ScaledTime> {
+    private _timeScalers: ScaledTime[] = [];
+    public get timeScalers(): ScaledTime[] {
         return this._timeScalers;
     }
 
-    private set timeScalers(timeScalers: Array<ScaledTime> | ScaledTime) {
+    private set timeScalers(timeScalers: ScaledTime[] | ScaledTime) {
         if (timeScalers == null) { console.warn("Trying to modify a ScaledTimer's timeScalers with an invalid input: ", timeScalers); return; }
         if (Array.isArray(timeScalers)) {
             this._timeScalers = timeScalers;
@@ -43,16 +43,17 @@ export class ScaledTimer extends Timer {
     /**
 	 * Create a RealtimeTimer
 	 * @param  {string} name - The name of the timer
-	 * @param  {Array<ScaledTime>} timeScalers - An array of ScaledTimes that control this ScaledTimer's timing interval
-	 * @param  {Array<Function>} callbacks - The callbacks listening to this timer
+	 * @param  {ScaledTime[]} timeScalers - An array of ScaledTimes that control this ScaledTimer's timing interval
+	 * @param  {Function | Function[] | undefined} callbacks - The callback/s listening to this timer
 	 * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
 	 * @param  {number} timerRunTime - The total time for this timer to run 
-	 * @param  {boolean} enableOffset - Determines if a timers loop should change based on browser time discrepancies
+     * @param  {TimerOffsetType} offsetType - Determines if a timer should apply an offset to loop timing to correct browser time discrepencies and skip offsets if they are too large
 	 */
-    constructor (name: string, timeScalers: Array<ScaledTime>, callbacks: Array<Function> = [], startOnCreation:boolean = true, timerRunTime:number = Number.MAX_SAFE_INTEGER, offsetType: TimerOffsetType = TimerOffsetType.NoOffset) {
+    constructor (name: string, timeScalers: ScaledTime[], callbacks: Function | Function[] | undefined = undefined, startOnCreation:boolean = true, timerRunTime:number = Number.MAX_SAFE_INTEGER, offsetType: TimerOffsetType = TimerOffsetType.NoOffset) {
         super(name, timeScalers[0].interval, [], startOnCreation, timerRunTime, offsetType)
         super.events.subscribe("loopCompletion", function(this: ScaledTimer) { this.events.publish("loopCompletion"); }.bind(this));
-        this.events.subscribe("loopCompletion", callbacks);
+
+        if (callbacks != null) this.events.subscribe("loopCompletion", callbacks);
 
         this.timeScalers = timeScalers;
 
