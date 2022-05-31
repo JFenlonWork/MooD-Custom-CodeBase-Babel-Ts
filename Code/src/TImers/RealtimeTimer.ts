@@ -27,18 +27,20 @@ import { TimerOffsetType } from "./TimerOffsetType";
     /**
 	 * Create a RealtimeTimer
 	 * @param  {string} name - The name of the timer
-	 * @param  {Array<Function>} callbacks - The callbacks listening to this timer
+	 * @param  {Function | Function[] | undefined} callbacks - The callback/s listening to this timer
 	 * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
 	 * @param  {number} timerRunTime - The total time for this timer to run 
 	 * @param  {boolean} destroyOnStop - Determines if a timers should destroy itself once it recieves a single stop command
 	 */
-    constructor (name: string, callbacks: Array<Function> = [], startOnCreation:boolean = true, timerRunTime:number = Number.MAX_SAFE_INTEGER, destroyOnStop: boolean = true) {
+    constructor (name: string, callbacks: Function | Function[] | undefined = undefined, startOnCreation:boolean = true, timerRunTime:number = Number.MAX_SAFE_INTEGER, destroyOnStop: boolean = true) {
         super(name, 10, [], startOnCreation, timerRunTime, TimerOffsetType.OffsetIgnoreSkipOffset);
-        this.destroyOnStop = destroyOnStop;
-        super.events.subscribe("loopCompletion", () => { this.events.publish("loopCompletion"); });
-        this.events.subscribe("loopCompletion", callbacks);
+        super.events.subscribe("loopCompletion", function(this: RealtimeTimer) { this.events.publish("loopCompletion"); }.bind(this));
+        
+        if (callbacks != null) this.events.subscribe("loopCompletion", callbacks);
 
-        this.events.subscribe("response", (...args: any[]) => { return this.listenToResponse.call(this, ...args) });
+        this.destroyOnStop = destroyOnStop;
+
+        this.events.subscribe("response", function(this: RealtimeTimer, ...args: any[]) { return this.listenToResponse.call(this, ...args) }.bind(this));
     }
 
 	/**
@@ -46,7 +48,7 @@ import { TimerOffsetType } from "./TimerOffsetType";
 	 * @returns {string}
 	 */
      public toString(): string {
-		return "RealitimeTimer";
+		return "RealtimeTimer";
 	}
 
     /** 
