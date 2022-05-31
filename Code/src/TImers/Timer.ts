@@ -12,7 +12,7 @@ export class Timer {
         return this._name;
     }
 
-    public set name(name: string) {
+    private set name(name: string) {
         if (typeof (name) != "string") { console.error("Trying to set a Timer's name with an invalid input: ", name); return; }
         this._name = name;
     }
@@ -150,7 +150,6 @@ export class Timer {
         if (!(type in TimerOffsetType)) { console.error("Trying to set a Timer's offset type with an invalid input: ", type); return; }
         this._offsetType = type;
     }
-
 
     //** Handles any custom events required by this Timer*/
     private _events: PubSub = new PubSub();

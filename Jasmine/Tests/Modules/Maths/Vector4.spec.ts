@@ -21,63 +21,6 @@ describe("Vector4", () => {
         expect(vector.w).toBe(w);
     });
 
-    it("Should be able to set the X value of a vector", () => {
-        //  arrange
-        var vector = new Vector4(x, y, z, w);
-
-        //  act
-        vector.x = x2;
-
-        //  assert
-        expect(vector.x).toBe(x2);
-    });
-
-    it("Should be able to get the X value of a vector", () => {
-        //  arrange
-        var vector = new Vector4(x, y, z, w);
-
-        //  assert
-        expect(vector.x).toBe(x);
-    });
-
-    it("Should be able to set the Y value of a vector", () => {
-        //  arrange
-        var vector = new Vector4(x, y, z, w);
-
-        //  act
-        vector.y = y2;
-
-        //  assert
-        expect(vector.y).toBe(y2);
-    });
-
-    it("Should be able to get the Y value of a vector", () => {
-        //  arrange
-        var vector = new Vector4(x, y, z, w);
-
-        //  assert
-        expect(vector.y).toBe(y);
-    });
-
-    it("Should be able to set the Z value of a vector", () => {
-        //  arrange
-        var vector = new Vector4(x, y, z, w);
-
-        //  act
-        vector.z = z2;
-
-        //  assert
-        expect(vector.z).toBe(z2);
-    });
-
-    it("Should be able to get the Z value of a vector", () => {
-        //  arrange
-        var vector = new Vector4(x, y, z, w);
-
-        //  assert
-        expect(vector.z).toBe(z);
-    });
-
     it("Should be able to set the W value of a vector", () => {
         //  arrange
         var vector = new Vector4(x, y, z, w);

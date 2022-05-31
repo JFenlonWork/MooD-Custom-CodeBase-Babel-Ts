@@ -54,19 +54,19 @@ describe("RealtimeTimer", () => {
         expect(RealtimeTimer.toString()).toBe("RealtimeTimer");
     });
 
-    it("Should test if a scaled timer updates it's time scalers", (done) => {
+    it("Should test if a RealtimeTimer listens to responses and destroy itself on stop", (done) => {
 
         let i = 0;
 
         //  Arrange
-        let timer = new RealtimeTimer("Test Realtime Timer Responses", function() {
+        let timer = new RealtimeTimer("Test Realtime Timer Responses", function () {
             if (i++ > 5) {
                 timer.events.publish("response", false);
-            } 
-            
+            }
+
             if (!timer.running) {
                 timer.stop();
-                expect(true).toBe(true);
+                expect(TimerManager.Instance.timers.getValue(timer._timerID)).toBeUndefined();
                 done();
             }
         }, true);
