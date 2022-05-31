@@ -1,6 +1,7 @@
 import { CompareTypes } from "./CompareTypes";
 
-/** Class that handles key to value Map with reversible search 
+/** Class that handles key to value Map with reversible search
+ * Lookup is O(1) for both forward and reverse lookup but requires extra memory
  */
  export class ReversibleMap<Key, Value> {
      
@@ -88,6 +89,20 @@ import { CompareTypes } from "./CompareTypes";
         return "ReversibleMap";
     }
 
+    /** 
+     * Returns an iterator for values
+    */
+    public values(): IterableIterator<Value> {
+        return this.__reverseMap__.keys();
+    }
+
+    /** 
+     * Returns an array of all values
+    */
+    public valuesAsArray(): Value[] {
+        return Array.from(this.__reverseMap__.keys());
+    }
+
     /**
 	 * Return Value associated with a key
 	 * @param  {Key} key - The key to return the value for
@@ -96,9 +111,23 @@ import { CompareTypes } from "./CompareTypes";
         return this.__map__.get(key);
     }
 
+    /** 
+     * Returns an iterator for keys
+    */
+    public keys(): IterableIterator<Key> {
+        return this.__map__.keys();
+    }   
+
+    /** 
+     * Returns an array of all values
+    */
+     public keysAsArray(): Key[] {
+        return Array.from(this.__map__.keys());
+    }
+
     /**
 	 * Return Key associated with a Value
-	 * @param  {Value} Value - The value to return keys Map for
+	 * @param  {Value} value - The value to return keys Map for
 	 */
     public getKey(value: Value): Key | undefined {
         return this.__reverseMap__.get(value);
@@ -106,7 +135,7 @@ import { CompareTypes } from "./CompareTypes";
 
     /**
 	 * Test if a Value exists for a given Key
-	 * @param  {Key} Key - The Key to check if a value exists
+	 * @param  {Key} key - The Key to check if a value exists
 	 */
     public hasKey(key: Key): boolean {
         return (this.getValue(key) != undefined);
@@ -122,7 +151,7 @@ import { CompareTypes } from "./CompareTypes";
 
     /**
 	 * Create a map between a Key and a Value
-	 * @param  {Key} Key - The Key to link to this Value
+	 * @param  {Key} key - The Key to link to this Value
 	 * @param  {Value} value - The Value to link to this Key
 	 */
     public setKey(key: Key, value: Value): boolean {
@@ -138,7 +167,7 @@ import { CompareTypes } from "./CompareTypes";
 
     /**
 	 * Remove a key from this map
-	 * @param  {Key} Key - The Key to remove from this value
+	 * @param  {Key} key - The Key to remove from this value
 	 */
     public deleteKey(key: Key): boolean {
         if (key == null) { console.error("Trying to delete a key in a ReversibleMap wtih an invalid key: ", key); return false; }

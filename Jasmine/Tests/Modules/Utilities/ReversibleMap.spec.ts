@@ -21,6 +21,22 @@ describe("Reversible Map", () => {
 
     });
 
+    it("Should return the values as an iterator", () => {
+        //  Arrange
+        let map = new ReversibleMap<number, boolean>("number", "boolean", [[mapKey, true]]);
+
+        //  Assert
+        expect(map.values()).toBeDefined();
+    });
+
+    it("Should return the values as an array", () => {
+        //  Arrange
+        let map = new ReversibleMap<number, boolean>("number", "boolean", [[mapKey, true]]);
+
+        //  Assert
+        expect(map.valuesAsArray()).toBeDefined();
+    });
+
     it("Should get a value from a key", () => {
 
         //  Arrange
@@ -29,6 +45,22 @@ describe("Reversible Map", () => {
         //  Assert
         expect(map.getValue(mapKey)).toBe("value");
 
+    });
+
+    it("Should return the keys", () => {
+        //  Arrange
+        let map = new ReversibleMap<number, boolean>("number", "boolean", [[mapKey, true]]);
+
+        //  Assert
+        expect(map.keys()).toBeDefined();
+    });
+
+    it("Should return the keys as an array", () => {
+        //  Arrange
+        let map = new ReversibleMap<number, boolean>("number", "boolean", [[mapKey, true]]);
+
+        //  Assert
+        expect(map.keysAsArray()).toBeDefined();
     });
 
     it("Should get a key from a value", () => {
