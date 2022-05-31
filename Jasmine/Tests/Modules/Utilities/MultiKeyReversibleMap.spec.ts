@@ -23,6 +23,31 @@ describe("Multi-Key Reversible Map", () => {
         expect(map.getKeysArray(true)).toEqual(mapKeys);
     });
 
+    it("Should return toString", () => {
+        //  Arrange
+        let map = new MultiKeyReversibleMap<number, boolean>("number", "boolean");
+
+        //  Assert
+        expect(map.toString()).toBe("MultiKeyReversibleMap<number, boolean>");
+        expect(MultiKeyReversibleMap.toString()).toBe("MultiKeyReversibleMap");
+    });
+
+    it("Should return the values as an iterator", () => {
+        //  Arrange
+        let map = new MultiKeyReversibleMap<number, boolean>("number", "boolean", [[mapKeys, true]]);
+
+        //  Assert
+        expect(map.values()).toBeDefined();
+    });
+
+    it("Should return the values as an array", () => {
+        //  Arrange
+        let map = new MultiKeyReversibleMap<number, boolean>("number", "boolean", [[mapKeys, true]]);
+
+        //  Assert
+        expect(map.valuesAsArray()).toBeDefined();
+    });
+
     it("Should be able to get a value from a key", () => {
         //  Arrange
         let map = new MultiKeyReversibleMap<number, boolean>("number", "boolean", [[mapKeys, true]]);
@@ -37,6 +62,22 @@ describe("Multi-Key Reversible Map", () => {
 
         //  Assert
         expect(map.hasValue(true)).toBe(true);
+    });
+
+    it("Should return the keys as an iterator", () => {
+        //  Arrange
+        let map = new MultiKeyReversibleMap<number, boolean>("number", "boolean", [[mapKeys, true]]);
+
+        //  Assert
+        expect(map.keys()).toBeDefined();
+    });
+
+    it("Should return the keys as an array", () => {
+        //  Arrange
+        let map = new MultiKeyReversibleMap<number, boolean>("number", "boolean", [[mapKeys, true]]);
+
+        //  Assert
+        expect(map.keysAsArray()).toBeDefined();
     });
 
     it("Should be able to get a keys map for a value", () => {
