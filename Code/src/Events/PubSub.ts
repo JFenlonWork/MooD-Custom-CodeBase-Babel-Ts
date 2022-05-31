@@ -63,8 +63,8 @@ import { Event } from "./Event";
 	 * @param  {Function | Functionp[]} callbacks - The callbacks to add to this event
 	 * @param  {any[]} args - Any extra arguments that will be sent to EventSubscribed event
 	 */
-    public subscribe(event: string, callbacks: Array<Function> | Function, ...args: any[]): boolean {
-        if (typeof(event) != "string" || event == "") { console.error("Trying to subscribe to a Timer's event with an invalid input: ", event); return false; }
+    public subscribe(event: string, callbacks: Function[] | Function, ...args: any[]): boolean {
+        if (typeof(event) != "string" || event == "") { console.error("Trying to subscribe to a PubSub's event with an invalid input: ", event); return false; }
 
         if (Array.isArray(callbacks)) 
         {
@@ -88,7 +88,7 @@ import { Event } from "./Event";
             return true;
         }
 
-        console.error("Trying to subscribe to a Timer's event using an invalid function: ", callbacks);
+        console.error("Trying to subscribe to a PubSub's event using an invalid function: ", callbacks);
         return false;
     }
 
@@ -99,7 +99,7 @@ import { Event } from "./Event";
 	 * @param  {any[]} args - Any extra arguments that will be sent to EventUnsubscribed event
 	 */
     public unsubscribe(event: string, callbacks: Array<Function> | Function, ...args: any[]): boolean {
-        if (typeof(event) != "string") { console.error("Trying to subscribe to a Timer's event with an invalid input: ", event); return false; }
+        if (typeof(event) != "string") { console.error("Trying to subscribe to a PubSub's event with an invalid input: ", event); return false; }
 
         if (Array.isArray(callbacks)) 
         {
@@ -118,7 +118,7 @@ import { Event } from "./Event";
             return true;
         }
 
-        console.error("Trying to subscribe to a Timer's event using an invalid function: ", callbacks);
+        console.error("Trying to unsubscribe to a PubSub's event using an invalid function: ", callbacks);
         return false;
     }
 
@@ -126,7 +126,7 @@ import { Event } from "./Event";
 	 * Handle publishing events
 	 */
     public publish(event: string, ...args: any[]): boolean {
-        if (typeof(event) != "string") { console.error("Trying to publish to a Timer's event with an invalid input: ", event); return false; }
+        if (typeof(event) != "string") { console.error("Trying to publish to a PubSub's event with an invalid input: ", event); return false; }
 
         let _event = this._events.get(event);
         if (_event == undefined) return false;
@@ -144,7 +144,7 @@ import { Event } from "./Event";
      * This will need improving to handle event unsubscribing when clearing
 	 */
      public clearEvent(event: string, ...args: any[]): boolean {
-        if (typeof(event) != "string") { console.error("Trying to clear to a Timer's event with an invalid input: ", event); return false; }
+        if (typeof(event) != "string") { console.error("Trying to clear to a PubSub's event with an invalid input: ", event); return false; }
 
         let _event = this._events.get(event);
         if (_event == undefined) return false;
