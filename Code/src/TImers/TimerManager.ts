@@ -20,8 +20,6 @@ import { Timer } from "./Timer";
         TimerManager._instance = this;
     }
 
-
-
     //** Store an incrementing variable to ensure unique IDs*/
     private _uniqueID: UniqueID = new UniqueID();
     public get uniqueID(): UniqueID {
@@ -35,7 +33,6 @@ import { Timer } from "./Timer";
         if (this != TimerManager.Instance) return TimerManager.Instance.timers;
         return this._timers;
     }
-
 
     /**
 	 * Return the current time in milliseconds
@@ -71,7 +68,6 @@ import { Timer } from "./Timer";
         return this.getTimer(name) == undefined
     }
 
-
     /**
 	 * Adds a timer to a singleton map and update references
 	 * @param  {Timer} timer - The Timer to add
@@ -87,5 +83,14 @@ import { Timer } from "./Timer";
     public static removeTimer(timer: Timer) {
         this.Instance.timers.deleteValue(timer);
     }
+
+    /**
+	 * Destrpy a timer from a singleton map and update references
+	 * @param  {Timer} timer - The Timer to remove
+	 */
+    public static destroyTimer(timer: Timer) {
+        this.Instance.timers.deleteValue(timer);
+        timer.destroy();
+    } 
 
  }

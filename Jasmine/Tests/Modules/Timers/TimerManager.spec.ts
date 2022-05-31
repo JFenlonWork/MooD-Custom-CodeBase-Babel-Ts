@@ -15,6 +15,13 @@ describe("TimerManager", () => {
         t?.destroy();
     });
 
+    afterAll(() => {
+        let timers: Timer[] = TimerManager.Instance.timers.valuesAsArray();
+        for (let i = 0; i < timers.length; i++) {
+            timers[i].destroy();
+        }
+    });
+
     it("Should return manager singleton or create one if undefined", () => {
         //  Assert
         expect(TimerManager.Instance).toBeDefined();
@@ -94,6 +101,20 @@ describe("TimerManager", () => {
 
         //  Assert
         expect(TimerManager.getTimer("test")).toBeUndefined();
+    });
+
+    it("Should destroy a timer from TimerManager's timers", () => {
+        //  Arrange
+        let t2: Timer = new Timer("test2", 0);
+
+        //  Assert
+        expect(TimerManager.getTimer("test2")).toBeDefined();
+
+        //  Act
+        TimerManager.destroyTimer(t2);
+
+        //  Assert
+        expect(TimerManager.getTimer("test2")).toBeUndefined();
     });
     
 });
