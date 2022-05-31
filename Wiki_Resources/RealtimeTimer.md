@@ -19,9 +19,8 @@ Class representing a Realtime Timer that implements
 
 - [\_currentTimingInterval](../wiki/RealtimeTimer#_currenttiminginterval)
 - [\_destroyOnStop](../wiki/RealtimeTimer#_destroyonstop)
-- [\_intervalOffset](../wiki/RealtimeTimer#_intervaloffset)
 - [\_lastCompletion](../wiki/RealtimeTimer#_lastcompletion)
-- [\_lastTickDate](../wiki/RealtimeTimer#_lasttickdate)
+- [\_lastTickTime](../wiki/RealtimeTimer#_lastticktime)
 - [\_name](../wiki/RealtimeTimer#_name)
 - [\_offsetType](../wiki/RealtimeTimer#_offsettype)
 - [\_pausedAt](../wiki/RealtimeTimer#_pausedat)
@@ -39,9 +38,8 @@ Class representing a Realtime Timer that implements
 - [currentTimingInterval](../wiki/RealtimeTimer#currenttiminginterval)
 - [destroyOnStop](../wiki/RealtimeTimer#destroyonstop)
 - [events](../wiki/RealtimeTimer#events)
-- [intervalOffset](../wiki/RealtimeTimer#intervaloffset)
 - [lastCompletion](../wiki/RealtimeTimer#lastcompletion)
-- [lastTickDate](../wiki/RealtimeTimer#lasttickdate)
+- [lastTickTime](../wiki/RealtimeTimer#lastticktime)
 - [name](../wiki/RealtimeTimer#name)
 - [offsetType](../wiki/RealtimeTimer#offsettype)
 - [pausedAt](../wiki/RealtimeTimer#pausedat)
@@ -62,7 +60,7 @@ Class representing a Realtime Timer that implements
 - [pause](../wiki/RealtimeTimer#pause)
 - [restart](../wiki/RealtimeTimer#restart)
 - [resume](../wiki/RealtimeTimer#resume)
-- [runLoop](../wiki/RealtimeTimer#runloop)
+- [scheduleLoop](../wiki/RealtimeTimer#scheduleloop)
 - [start](../wiki/RealtimeTimer#start)
 - [stop](../wiki/RealtimeTimer#stop)
 - [toString](../wiki/RealtimeTimer#tostring)
@@ -82,7 +80,7 @@ Create a RealtimeTimer
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `name` | `string` | `undefined` | The name of the timer |
-| `callbacks` | `Function`[] | `[]` | The callbacks listening to this timer |
+| `callbacks` | `undefined` \| `Function` \| `Function`[] | `undefined` | The callback/s listening to this timer |
 | `startOnCreation` | `boolean` | `true` | Determines if this timer should start running after creation |
 | `timerRunTime` | `number` | `Number.MAX_SAFE_INTEGER` | The total time for this timer to run |
 | `destroyOnStop` | `boolean` | `true` | Determines if a timers should destroy itself once it recieves a single stop command |
@@ -121,20 +119,6 @@ Timers/RealtimeTimer.ts:17
 
 ___
 
-### \_intervalOffset
-
-• `Protected` **\_intervalOffset**: `number` = `-1`
-
-#### Inherited from
-
-[Timer](../wiki/Timer).[_intervalOffset](../wiki/Timer#_intervaloffset)
-
-#### Defined in
-
-Timers/Timer.ts:155
-
-___
-
 ### \_lastCompletion
 
 • `Protected` **\_lastCompletion**: `number` = `-1`
@@ -149,13 +133,13 @@ Timers/Timer.ts:133
 
 ___
 
-### \_lastTickDate
+### \_lastTickTime
 
-• `Protected` **\_lastTickDate**: `number` = `-1`
+• `Protected` **\_lastTickTime**: `number` = `-1`
 
 #### Inherited from
 
-[Timer](../wiki/Timer).[_lastTickDate](../wiki/Timer#_lasttickdate)
+[Timer](../wiki/Timer).[_lastTickTime](../wiki/Timer#_lastticktime)
 
 #### Defined in
 
@@ -399,44 +383,6 @@ Timers/RealtimeTimer.ts:12
 
 ___
 
-### intervalOffset
-
-• `get` **intervalOffset**(): `number`
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-Timer.intervalOffset
-
-#### Defined in
-
-Timers/Timer.ts:156
-
-• `set` **intervalOffset**(`interval`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `interval` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Timer.intervalOffset
-
-#### Defined in
-
-Timers/Timer.ts:160
-
-___
-
 ### lastCompletion
 
 • `get` **lastCompletion**(): `number`
@@ -475,9 +421,9 @@ Timers/Timer.ts:138
 
 ___
 
-### lastTickDate
+### lastTickTime
 
-• `get` **lastTickDate**(): `number`
+• `get` **lastTickTime**(): `number`
 
 #### Returns
 
@@ -485,19 +431,19 @@ ___
 
 #### Inherited from
 
-Timer.lastTickDate
+Timer.lastTickTime
 
 #### Defined in
 
 Timers/Timer.ts:90
 
-• `set` **lastTickDate**(`date`): `void`
+• `set` **lastTickTime**(`time`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `date` | `number` |
+| `time` | `number` |
 
 #### Returns
 
@@ -505,7 +451,7 @@ Timers/Timer.ts:90
 
 #### Inherited from
 
-Timer.lastTickDate
+Timer.lastTickTime
 
 #### Defined in
 
@@ -909,7 +855,7 @@ Handle the destruction of this timer
 
 #### Defined in
 
-Timers/Timer.ts:345
+Timers/Timer.ts:335
 
 ___
 
@@ -929,7 +875,7 @@ Test if this Timer is currently pause
 
 #### Defined in
 
-Timers/Timer.ts:279
+Timers/Timer.ts:269
 
 ___
 
@@ -949,7 +895,7 @@ ___
 
 #### Defined in
 
-Timers/RealtimeTimer.ts:60
+Timers/RealtimeTimer.ts:62
 
 ___
 
@@ -969,7 +915,7 @@ Handle the looping/countdown calculation of this timer
 
 #### Defined in
 
-Timers/Timer.ts:286
+Timers/Timer.ts:276
 
 ___
 
@@ -989,7 +935,7 @@ Pause this Timer
 
 #### Defined in
 
-Timers/Timer.ts:255
+Timers/Timer.ts:245
 
 ___
 
@@ -1009,7 +955,7 @@ Restart this Timer
 
 #### Defined in
 
-Timers/Timer.ts:247
+Timers/Timer.ts:237
 
 ___
 
@@ -1029,13 +975,13 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:265
+Timers/Timer.ts:255
 
 ___
 
-### runLoop
+### scheduleLoop
 
-▸ `Protected` **runLoop**(): `void`
+▸ `Protected` **scheduleLoop**(): `void`
 
 Handle the looping of this timer
 
@@ -1045,11 +991,11 @@ Handle the looping of this timer
 
 #### Inherited from
 
-[Timer](../wiki/Timer).[runLoop](../wiki/Timer#runloop)
+[Timer](../wiki/Timer).[scheduleLoop](../wiki/Timer#scheduleloop)
 
 #### Defined in
 
-Timers/Timer.ts:328
+Timers/Timer.ts:318
 
 ___
 
@@ -1069,7 +1015,7 @@ Start this Timer
 
 #### Defined in
 
-Timers/Timer.ts:227
+Timers/Timer.ts:217
 
 ___
 
@@ -1089,7 +1035,7 @@ Stop this Timer
 
 #### Defined in
 
-Timers/Timer.ts:237
+Timers/Timer.ts:227
 
 ___
 
@@ -1109,7 +1055,7 @@ Returns the class type of this object
 
 #### Defined in
 
-Timers/RealtimeTimer.ts:48
+Timers/RealtimeTimer.ts:50
 
 ___
 
@@ -1129,7 +1075,7 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:272
+Timers/Timer.ts:262
 
 ___
 
@@ -1149,4 +1095,4 @@ Returns the type of this class
 
 #### Defined in
 
-Timers/RealtimeTimer.ts:55
+Timers/RealtimeTimer.ts:57

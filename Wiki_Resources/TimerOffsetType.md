@@ -18,7 +18,7 @@ Enum representing a offset skip type of a timer.
 
 #### Defined in
 
-Timers/TimerOffsetType.ts:4
+[Timers/TimerOffsetType.ts:4](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/TimerOffsetType.ts#L4)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-Timers/TimerOffsetType.ts:5
+[Timers/TimerOffsetType.ts:5](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/TimerOffsetType.ts#L5)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-Timers/TimerOffsetType.ts:6
+[Timers/TimerOffsetType.ts:6](https://github.com/JFenlonWork/MooD-Custom-CodeBase-Babel-Ts/blob/028c608/Code/src/Timers/TimerOffsetType.ts#L6)

@@ -2974,6 +2974,12 @@ var Collision = /*#__PURE__*/function () {
 
 
 ;// CONCATENATED MODULE: ./Code/src/Utilities/CompareTypes.ts
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function CompareTypes_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function CompareTypes_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3019,12 +3025,131 @@ var CompareTypes = /*#__PURE__*/function () {
     value: function type(a) {
       return Object.prototype.toString.call(a).slice(8, -1);
     }
+    /**
+     * Compare all values of an array with a parameter and return if they are the same type
+     * @param  {any} a - The value to compare to
+     * @param  {any[]} bArray - The values to compare
+    */
+
+  }, {
+    key: "arraySame",
+    value: function arraySame(a, bArray) {
+      var _iterator = _createForOfIteratorHelper(bArray),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var b = _step.value;
+          if (CompareTypes.different(a, b)) return false;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      return true;
+    }
+    /**
+     * Compare all values of an array with a parameter and return if they are a different same type
+     * @param  {any} a - The value to compare to
+     * @param  {any[]} bArray - The values to compare
+    */
+
+  }, {
+    key: "arrayDifferent",
+    value: function arrayDifferent(a, bArray) {
+      var _iterator2 = _createForOfIteratorHelper(bArray),
+          _step2;
+
+      try {
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var b = _step2.value;
+          if (CompareTypes.same(a, b)) return false;
+        }
+      } catch (err) {
+        _iterator2.e(err);
+      } finally {
+        _iterator2.f();
+      }
+
+      return true;
+    }
+    /**
+     * Return the unique types of values in an array
+     * @param  {any[]} a - The array to get the type of
+     */
+
+  }, {
+    key: "arrayType",
+    value: function arrayType(a) {
+      return Array.from(CompareTypes.arrayTypeSet(a));
+    }
+    /**
+     * Return the unique types of values in an array as a Set
+     * @param  {any[]} a - The array to get the type of
+     */
+
+  }, {
+    key: "arrayTypeSet",
+    value: function arrayTypeSet(a) {
+      return new Set(a.map(function (a) {
+        return CompareTypes.type(a);
+      }));
+    }
+    /**
+     * Compare all values of an array and return if they are the same types
+     * @param  {any[]} array - The array to compare
+    */
+
+  }, {
+    key: "arrayValuesSame",
+    value: function arrayValuesSame(array) {
+      return CompareTypes.arrayType(array).length <= 1;
+    }
+    /**
+     * Compare all values of an array and return if they are different types
+     * @param  {any[]} array - The array to compare
+    */
+
+  }, {
+    key: "arrayValuesDifferent",
+    value: function arrayValuesDifferent(array) {
+      return CompareTypes.arrayType(array).length > 1;
+    }
+    /**
+     * Compare all values of an array with the values of another and return if any are not the same type
+     * @param  {any[]} aArray - The array to compare
+     * @param  {any[]} bArray - The array to compare to
+    */
+
+  }, {
+    key: "arrayTypesCompare",
+    value: function arrayTypesCompare(aArray, bArray) {
+      var aTypes = CompareTypes.arrayTypeSet(aArray);
+
+      var _iterator3 = _createForOfIteratorHelper(bArray),
+          _step3;
+
+      try {
+        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+          var b = _step3.value;
+          if (!aTypes.has(CompareTypes.type(b))) return false;
+        }
+      } catch (err) {
+        _iterator3.e(err);
+      } finally {
+        _iterator3.f();
+      }
+
+      return true;
+    }
   }]);
 
   return CompareTypes;
 }();
 ;// CONCATENATED MODULE: ./Code/src/Utilities/MultiKeyReversibleMap.ts
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || MultiKeyReversibleMap_unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
@@ -3032,11 +3157,11 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function MultiKeyReversibleMap_createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = MultiKeyReversibleMap_unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function MultiKeyReversibleMap_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return MultiKeyReversibleMap_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return MultiKeyReversibleMap_arrayLikeToArray(o, minLen); }
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function MultiKeyReversibleMap_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function MultiKeyReversibleMap_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -3048,13 +3173,14 @@ function MultiKeyReversibleMap_defineProperty(obj, key, value) { if (key in obj)
 
 
 /** Class that handles multiple keys to value Map with reversable search 
+ * Lookup is O(1) for forward and O(2) for reverse lookup but requires extra memory
  */
 
 var MultiKeyReversibleMap = /*#__PURE__*/function () {
   /**
-  * Create a map between multiple keys and a single value
-  * @param  {[Key[], Value][]} collection - A collection of key value pairs to create the map from
-  */
+   * Create a map between multiple keys and a single value
+   * @param  {[Key[], Value][]} collection - A collection of key value pairs to create the map from
+   */
   function MultiKeyReversibleMap(keyType, valueType, collection) {
     var _this = this;
 
@@ -3138,7 +3264,7 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
     value: function equals(map) {
       if (this.size != map.size || this.reverseSize != map.reverseSize) return false;
 
-      var _iterator = _createForOfIteratorHelper(this.__map__.entries()),
+      var _iterator = MultiKeyReversibleMap_createForOfIteratorHelper(this.__map__.entries()),
           _step;
 
       try {
@@ -3155,7 +3281,7 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
         _iterator.f();
       }
 
-      var _iterator2 = _createForOfIteratorHelper(this.__reverseMap__.entries()),
+      var _iterator2 = MultiKeyReversibleMap_createForOfIteratorHelper(this.__reverseMap__.entries()),
           _step2;
 
       try {
@@ -3189,13 +3315,31 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
     */
 
   }, {
-    key: "getValue",
+    key: "values",
     value:
-    /**
-    * Return Value associated with a key
-    * @param  {Key} key - The key to return the value for
+    /** 
+     * Returns an iterator for values
     */
-    function getValue(key) {
+    function values() {
+      return this.__reverseMap__.keys();
+    }
+    /** 
+     * Returns an array of all values
+    */
+
+  }, {
+    key: "valuesAsArray",
+    value: function valuesAsArray() {
+      return Array.from(this.__reverseMap__.keys());
+    }
+    /**
+     * Return Value associated with a key
+     * @param  {Key} key - The key to return the value for
+     */
+
+  }, {
+    key: "getValue",
+    value: function getValue(key) {
       return this.__map__.get(key);
     }
     /**
@@ -3208,10 +3352,28 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
     value: function hasValue(value) {
       return this.getKeys(value) != undefined;
     }
-    /**
-    * Return Map of Value to Keys
-    * @param  {Value} Value - The value to return keys Map for
+    /** 
+     * Returns an iterator for keys
     */
+
+  }, {
+    key: "keys",
+    value: function keys() {
+      return this.__map__.keys();
+    }
+    /** 
+     * Returns an array of all keys
+    */
+
+  }, {
+    key: "keysAsArray",
+    value: function keysAsArray() {
+      return Array.from(this.__map__.keys());
+    }
+    /**
+     * Return Map of Value to Keys
+     * @param  {Value} Value - The value to return keys Map for
+     */
 
   }, {
     key: "getKeys",
@@ -3224,9 +3386,9 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return this.__reverseMap__.get(value);
     }
     /**
-    * Return all keys relating to a value in array format
-    * @param  {Value} Value - The value to return keys for
-    */
+     * Return all keys relating to a value in array format
+     * @param  {Value} value - The value to return keys for
+     */
 
   }, {
     key: "getKeysArray",
@@ -3240,9 +3402,9 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return keys != undefined ? Array.from(keys.keys()) : [];
     }
     /**
-    * Test if a value exists for a given key
-    * @param  {Key} Key - The key to check if a value exists
-    */
+     * Test if a value exists for a given key
+     * @param  {Key} K=key - The key to check if a value exists
+     */
 
   }, {
     key: "hasKey",
@@ -3250,10 +3412,10 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return this.getValue(key) != undefined;
     }
     /**
-    * Create a map between a key and a single value
-    * @param  {Key} Key - The key to add this value to
-    * @param  {Value} value - The value to link this key to
-    */
+     * Create a map between a key and a single value
+     * @param  {Key} key - The key to add this value to
+     * @param  {Value} value - The value to link this key to
+     */
 
   }, {
     key: "setKey",
@@ -3289,10 +3451,10 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return true;
     }
     /**
-    * Create a map between multiple keys and a single value
-    * @param  {Key | Key[]} Keys - Any keys to add this value to
-    * @param  {Value} value - The value to link these keys to
-    */
+     * Create a map between multiple keys and a single value
+     * @param  {Key | Key[]} keys - Any keys to add this value to
+     * @param  {Value} value - The value to link these keys to
+     */
 
   }, {
     key: "setKeys",
@@ -3315,10 +3477,10 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return true;
     }
     /**
-    * Remap pre-existing keys to a new value
-    * @param  {Value} value - The value to get the keys from
-    * @param  {Value} newValue - The new value to link the keys to
-    */
+     * Remap pre-existing keys to a new value
+     * @param  {Value} value - The value to get the keys from
+     * @param  {Value} newValue - The new value to link the keys to
+     */
 
   }, {
     key: "remapValue",
@@ -3349,10 +3511,10 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return keys;
     }
     /**
-    * Remap pre-existing keys to a new value based on pre-existing Key->Value map
-    * @param  {Key} key - The key to lookup to find the original value to get the keys from
-    * @param  {Value} newValue - The new value to link the keys to
-    */
+     * Remap pre-existing keys to a new value based on pre-existing Key->Value map
+     * @param  {Key} key - The key to lookup to find the original value to get the keys from
+     * @param  {Value} newValue - The new value to link the keys to
+     */
 
   }, {
     key: "remapValueFromKey",
@@ -3372,10 +3534,10 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return this.remapValue(oldValue, newValue);
     }
     /**
-    * Remap pre-existing key to a new value based on pre-existing Key->Value map
-    * @param  {Key} key - The key to remap
-    * @param  {Value} newValue - The new value to link the key to
-    */
+     * Remap pre-existing key to a new value based on pre-existing Key->Value map
+     * @param  {Key} key - The key to remap
+     * @param  {Value} newValue - The new value to link the key to
+     */
 
   }, {
     key: "remapKey",
@@ -3402,10 +3564,10 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return true;
     }
     /**
-    * Remove a key from this map
-    * @param  {Key} Key - The key to remove from this map
-    * @param  {Value} value - The value that this key links to
-    */
+     * Remove a key from this map
+     * @param  {Key} key - The key to remove from this map
+     * @param  {Value} value - The value that this key links to
+     */
 
   }, {
     key: "deleteKey",
@@ -3449,10 +3611,10 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return true;
     }
     /**
-    * Remove many keys from this map
-    * @param  {Key} Keys - The keys to remove from this value
-    * @param  {Value} value - The value that these keys link to
-    */
+     * Remove many keys from this map
+     * @param  {Key} keys - The keys to remove from this value
+     * @param  {Value} value - The value that these keys link to
+     */
 
   }, {
     key: "deleteKeys",
@@ -3470,9 +3632,9 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return true;
     }
     /**
-    * Remove all references to a value
-    * @param  {Value} value - The value to remove
-    */
+     * Remove all references to a value
+     * @param  {Value} value - The value to remove
+     */
 
   }, {
     key: "deleteValue",
@@ -3493,8 +3655,8 @@ var MultiKeyReversibleMap = /*#__PURE__*/function () {
       return true;
     }
     /**
-    * Remove all keys and values
-    */
+     * Remove all keys and values
+     */
 
   }, {
     key: "clear",
@@ -3788,7 +3950,7 @@ var PubSub = /*#__PURE__*/function () {
       }
 
       if (typeof event != "string" || event == "") {
-        console.error("Trying to subscribe to a Timer's event with an invalid input: ", event);
+        console.error("Trying to subscribe to a PubSub's event with an invalid input: ", event);
         return false;
       }
 
@@ -3814,7 +3976,7 @@ var PubSub = /*#__PURE__*/function () {
         return true;
       }
 
-      console.error("Trying to subscribe to a Timer's event using an invalid function: ", callbacks);
+      console.error("Trying to subscribe to a PubSub's event using an invalid function: ", callbacks);
       return false;
     }
     /**
@@ -3834,7 +3996,7 @@ var PubSub = /*#__PURE__*/function () {
       }
 
       if (typeof event != "string") {
-        console.error("Trying to subscribe to a Timer's event with an invalid input: ", event);
+        console.error("Trying to subscribe to a PubSub's event with an invalid input: ", event);
         return false;
       }
 
@@ -3854,7 +4016,7 @@ var PubSub = /*#__PURE__*/function () {
         return true;
       }
 
-      console.error("Trying to subscribe to a Timer's event using an invalid function: ", callbacks);
+      console.error("Trying to unsubscribe to a PubSub's event using an invalid function: ", callbacks);
       return false;
     }
     /**
@@ -3867,7 +4029,7 @@ var PubSub = /*#__PURE__*/function () {
       var _event$callback;
 
       if (typeof event != "string") {
-        console.error("Trying to publish to a Timer's event with an invalid input: ", event);
+        console.error("Trying to publish to a PubSub's event with an invalid input: ", event);
         return false;
       }
 
@@ -3894,7 +4056,7 @@ var PubSub = /*#__PURE__*/function () {
     key: "clearEvent",
     value: function clearEvent(event) {
       if (typeof event != "string") {
-        console.error("Trying to clear to a Timer's event with an invalid input: ", event);
+        console.error("Trying to clear to a PubSub's event with an invalid input: ", event);
         return false;
       }
 
@@ -4120,6 +4282,17 @@ var TimerManager = /*#__PURE__*/function () {
     value: function removeTimer(timer) {
       this.Instance.timers.deleteValue(timer);
     }
+    /**
+    * Destrpy a timer from a singleton map and update references
+    * @param  {Timer} timer - The Timer to remove
+    */
+
+  }, {
+    key: "destroyTimer",
+    value: function destroyTimer(timer) {
+      this.Instance.timers.deleteValue(timer);
+      timer.destroy();
+    }
   }]);
 
   return TimerManager;
@@ -4155,11 +4328,11 @@ var Timer = /*#__PURE__*/function () {
   /**
    * Create a timer
    * @param  {string} name - The name of the timer
-   * @param  {number} timerInterval - The time between each loop on this timer
+   * @param  {number} timingInterval - The time between each loop on this timer
+   * @param  {Function | Function[]} callbacks - The callback/s to be called on each loop completion
    * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
    * @param  {number} timerRunTime - The total time for this timer to run 
-   * @param  {boolean} enableOffset - Determines if a timers loop should change based on browser time discrepancies
-   * @param  {TimerOffsetType} offsetType - Determines if a timer should apply an offset to loop timing and skip offsets if they are too large
+   * @param  {TimerOffsetType} offsetType - Determines if a timer should apply an offset to loop timing to correct browser time discrepencies and skip offsets if they are too large
    */
   function Timer(name, timingInterval) {
     var _this = this;
@@ -4185,7 +4358,7 @@ var Timer = /*#__PURE__*/function () {
 
     Timer_defineProperty(this, "_currentTimingInterval", -1);
 
-    Timer_defineProperty(this, "_lastTickDate", -1);
+    Timer_defineProperty(this, "_lastTickTime", -1);
 
     Timer_defineProperty(this, "_ticksRemaining", -1);
 
@@ -4196,8 +4369,6 @@ var Timer = /*#__PURE__*/function () {
     Timer_defineProperty(this, "_lastCompletion", -1);
 
     Timer_defineProperty(this, "_offsetType", TimerOffsetType.NoOffset);
-
-    Timer_defineProperty(this, "_intervalOffset", -1);
 
     Timer_defineProperty(this, "_events", new PubSub());
 
@@ -4349,17 +4520,17 @@ var Timer = /*#__PURE__*/function () {
     } //** The last time this timer has completed a loop*/
 
   }, {
-    key: "lastTickDate",
+    key: "lastTickTime",
     get: function get() {
-      return this._lastTickDate;
+      return this._lastTickTime;
     },
-    set: function set(date) {
-      if (typeof date != "number") {
-        console.error("Trying to set a Timer's last tick date with an invalid input: ", date);
+    set: function set(time) {
+      if (typeof time != "number") {
+        console.error("Trying to set a Timer's last tick time with an invalid input: ", time);
         return;
       }
 
-      this._lastTickDate = date;
+      this._lastTickTime = time;
     } //** The miliseconds left of this timer*/
 
   }, {
@@ -4430,20 +4601,6 @@ var Timer = /*#__PURE__*/function () {
       }
 
       this._offsetType = type;
-    } //** Calculate the difference between loop time and actual time*/
-
-  }, {
-    key: "intervalOffset",
-    get: function get() {
-      return this._intervalOffset;
-    },
-    set: function set(interval) {
-      if (typeof interval != "number") {
-        console.error("Trying to set a Timer's offset value with an invalid input: ", interval);
-        return;
-      }
-
-      this._intervalOffset = interval;
     } //** Handles any custom events required by this Timer*/
 
   }, {
@@ -4473,7 +4630,7 @@ var Timer = /*#__PURE__*/function () {
       }
 
       this.running = true;
-      this.lastTickDate = TimerManager.Time();
+      this.lastTickTime = TimerManager.Time();
       this.loop();
     }
     /**
@@ -4557,9 +4714,9 @@ var Timer = /*#__PURE__*/function () {
       }
 
       var time = TimerManager.Time();
-      this.lastTickDate = time;
-      this.ticksElapsed += time - this.lastTickDate;
-      this.ticksRemaining -= time - this.lastTickDate;
+      this.lastTickTime = time;
+      this.ticksElapsed += time - this.lastTickTime;
+      this.ticksRemaining -= time - this.lastTickTime;
 
       if (this.offsetType != TimerOffsetType.NoOffset && this.currentTimingInterval == this.timingInterval) {
         var roundedElapsed = Math.round((time - this.startTime) / this.timingInterval) * this.timingInterval;
@@ -4567,7 +4724,7 @@ var Timer = /*#__PURE__*/function () {
         var delay = targetTime - TimerManager.Time();
 
         if (this.offsetType == TimerOffsetType.OffsetIncludeSkipOffset) {
-          var lastUpdateRounded = Math.round((this.lastTickDate - this.startTime) / this.timingInterval) * this.timingInterval;
+          var lastUpdateRounded = Math.round((this.lastTickTime - this.startTime) / this.timingInterval) * this.timingInterval;
 
           for (var i = lastUpdateRounded; i < roundedElapsed; i++) {
             this.events.publish("loopCompletion");
@@ -4575,13 +4732,13 @@ var Timer = /*#__PURE__*/function () {
         }
 
         this.timeout = window.setTimeout(function () {
-          this.runLoop();
+          requestAnimationFrame(this.scheduleLoop.bind(this));
         }.bind(this), delay);
         return;
       }
 
       this.timeout = window.setTimeout(function () {
-        this.runLoop();
+        this.scheduleLoop();
       }.bind(this), this.currentTimingInterval);
     }
     /**
@@ -4589,8 +4746,8 @@ var Timer = /*#__PURE__*/function () {
      */
 
   }, {
-    key: "runLoop",
-    value: function runLoop() {
+    key: "scheduleLoop",
+    value: function scheduleLoop() {
       this.events.publish("loopCompletion");
       this.lastCompletion = TimerManager.Time();
 
@@ -4668,7 +4825,7 @@ var RealtimeTimer = /*#__PURE__*/function (_Timer) {
   /**
   * Create a RealtimeTimer
   * @param  {string} name - The name of the timer
-  * @param  {Array<Function>} callbacks - The callbacks listening to this timer
+  * @param  {Function | Function[] | undefined} callbacks - The callback/s listening to this timer
   * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
   * @param  {number} timerRunTime - The total time for this timer to run 
   * @param  {boolean} destroyOnStop - Determines if a timers should destroy itself once it recieves a single stop command
@@ -4676,7 +4833,7 @@ var RealtimeTimer = /*#__PURE__*/function (_Timer) {
   function RealtimeTimer(name) {
     var _thisSuper, _this;
 
-    var callbacks = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+    var callbacks = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
     var startOnCreation = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
     var timerRunTime = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : Number.MAX_SAFE_INTEGER;
     var destroyOnStop = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
@@ -4689,13 +4846,12 @@ var RealtimeTimer = /*#__PURE__*/function (_Timer) {
 
     RealtimeTimer_defineProperty(RealtimeTimer_assertThisInitialized(_this), "_destroyOnStop", true);
 
-    _this.destroyOnStop = destroyOnStop;
-
     RealtimeTimer_get((_thisSuper = RealtimeTimer_assertThisInitialized(_this), RealtimeTimer_getPrototypeOf(RealtimeTimer.prototype)), "events", _thisSuper).subscribe("loopCompletion", function () {
-      _this.events.publish("loopCompletion");
-    });
+      this.events.publish("loopCompletion");
+    }.bind(RealtimeTimer_assertThisInitialized(_this)));
 
-    _this.events.subscribe("loopCompletion", callbacks);
+    if (callbacks != null) _this.events.subscribe("loopCompletion", callbacks);
+    _this.destroyOnStop = destroyOnStop;
 
     _this.events.subscribe("response", function () {
       var _this$listenToRespons;
@@ -4704,8 +4860,8 @@ var RealtimeTimer = /*#__PURE__*/function (_Timer) {
         args[_key] = arguments[_key];
       }
 
-      return (_this$listenToRespons = _this.listenToResponse).call.apply(_this$listenToRespons, [RealtimeTimer_assertThisInitialized(_this)].concat(args));
-    });
+      return (_this$listenToRespons = this.listenToResponse).call.apply(_this$listenToRespons, [this].concat(args));
+    }.bind(RealtimeTimer_assertThisInitialized(_this)));
 
     return _this;
   }
@@ -4738,7 +4894,7 @@ var RealtimeTimer = /*#__PURE__*/function (_Timer) {
   }, {
     key: "toString",
     value: function toString() {
-      return "RealitimeTimer";
+      return "RealtimeTimer";
     }
     /** 
      * Returns the type of this class
@@ -4911,16 +5067,16 @@ var ScaledTimer = /*#__PURE__*/function (_Timer) {
   /**
   * Create a RealtimeTimer
   * @param  {string} name - The name of the timer
-  * @param  {Array<ScaledTime>} timeScalers - An array of ScaledTimes that control this ScaledTimer's timing interval
-  * @param  {Array<Function>} callbacks - The callbacks listening to this timer
+  * @param  {ScaledTime[]} timeScalers - An array of ScaledTimes that control this ScaledTimer's timing interval
+  * @param  {Function | Function[] | undefined} callbacks - The callback/s listening to this timer
   * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
   * @param  {number} timerRunTime - The total time for this timer to run 
-  * @param  {boolean} enableOffset - Determines if a timers loop should change based on browser time discrepancies
+   * @param  {TimerOffsetType} offsetType - Determines if a timer should apply an offset to loop timing to correct browser time discrepencies and skip offsets if they are too large
   */
   function ScaledTimer(name, timeScalers) {
     var _thisSuper, _this;
 
-    var callbacks = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+    var callbacks = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
     var startOnCreation = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
     var timerRunTime = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : Number.MAX_SAFE_INTEGER;
     var offsetType = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : TimerOffsetType.NoOffset;
@@ -4939,8 +5095,7 @@ var ScaledTimer = /*#__PURE__*/function (_Timer) {
       this.events.publish("loopCompletion");
     }.bind(ScaledTimer_assertThisInitialized(_this)));
 
-    _this.events.subscribe("loopCompletion", callbacks);
-
+    if (callbacks != null) _this.events.subscribe("loopCompletion", callbacks);
     _this.timeScalers = timeScalers;
 
     _this.events.subscribe("response", function () {
@@ -5114,7 +5269,8 @@ function ReversibleMap_createClass(Constructor, protoProps, staticProps) { if (p
 
 function ReversibleMap_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/** Class that handles key to value Map with reversible search 
+/** Class that handles key to value Map with reversible search
+ * Lookup is O(1) for both forward and reverse lookup but requires extra memory
  */
 var ReversibleMap = /*#__PURE__*/function () {
   /**
@@ -5242,18 +5398,54 @@ var ReversibleMap = /*#__PURE__*/function () {
     */
 
   }, {
-    key: "getValue",
+    key: "values",
     value:
+    /** 
+     * Returns an iterator for values
+    */
+    function values() {
+      return this.__reverseMap__.keys();
+    }
+    /** 
+     * Returns an array of all values
+    */
+
+  }, {
+    key: "valuesAsArray",
+    value: function valuesAsArray() {
+      return Array.from(this.__reverseMap__.keys());
+    }
     /**
     * Return Value associated with a key
     * @param  {Key} key - The key to return the value for
     */
-    function getValue(key) {
+
+  }, {
+    key: "getValue",
+    value: function getValue(key) {
       return this.__map__.get(key);
+    }
+    /** 
+     * Returns an iterator for keys
+    */
+
+  }, {
+    key: "keys",
+    value: function keys() {
+      return this.__map__.keys();
+    }
+    /** 
+     * Returns an array of all values
+    */
+
+  }, {
+    key: "keysAsArray",
+    value: function keysAsArray() {
+      return Array.from(this.__map__.keys());
     }
     /**
     * Return Key associated with a Value
-    * @param  {Value} Value - The value to return keys Map for
+    * @param  {Value} value - The value to return keys Map for
     */
 
   }, {
@@ -5263,7 +5455,7 @@ var ReversibleMap = /*#__PURE__*/function () {
     }
     /**
     * Test if a Value exists for a given Key
-    * @param  {Key} Key - The Key to check if a value exists
+    * @param  {Key} key - The Key to check if a value exists
     */
 
   }, {
@@ -5283,7 +5475,7 @@ var ReversibleMap = /*#__PURE__*/function () {
     }
     /**
     * Create a map between a Key and a Value
-    * @param  {Key} Key - The Key to link to this Value
+    * @param  {Key} key - The Key to link to this Value
     * @param  {Value} value - The Value to link to this Key
     */
 
@@ -5312,7 +5504,7 @@ var ReversibleMap = /*#__PURE__*/function () {
     }
     /**
     * Remove a key from this map
-    * @param  {Key} Key - The Key to remove from this value
+    * @param  {Key} key - The Key to remove from this value
     */
 
   }, {

@@ -20,9 +20,8 @@ Class representing a Timer that implements custom controls ontop of setTimeout t
 
 - [\_currentTimingInterval](../wiki/Timer#_currenttiminginterval)
 - [\_events](../wiki/Timer#_events)
-- [\_intervalOffset](../wiki/Timer#_intervaloffset)
 - [\_lastCompletion](../wiki/Timer#_lastcompletion)
-- [\_lastTickDate](../wiki/Timer#_lasttickdate)
+- [\_lastTickTime](../wiki/Timer#_lastticktime)
 - [\_name](../wiki/Timer#_name)
 - [\_offsetType](../wiki/Timer#_offsettype)
 - [\_pausedAt](../wiki/Timer#_pausedat)
@@ -38,9 +37,8 @@ Class representing a Timer that implements custom controls ontop of setTimeout t
 
 - [currentTimingInterval](../wiki/Timer#currenttiminginterval)
 - [events](../wiki/Timer#events)
-- [intervalOffset](../wiki/Timer#intervaloffset)
 - [lastCompletion](../wiki/Timer#lastcompletion)
-- [lastTickDate](../wiki/Timer#lasttickdate)
+- [lastTickTime](../wiki/Timer#lastticktime)
 - [name](../wiki/Timer#name)
 - [offsetType](../wiki/Timer#offsettype)
 - [pausedAt](../wiki/Timer#pausedat)
@@ -60,7 +58,7 @@ Class representing a Timer that implements custom controls ontop of setTimeout t
 - [pause](../wiki/Timer#pause)
 - [restart](../wiki/Timer#restart)
 - [resume](../wiki/Timer#resume)
-- [runLoop](../wiki/Timer#runloop)
+- [scheduleLoop](../wiki/Timer#scheduleloop)
 - [start](../wiki/Timer#start)
 - [stop](../wiki/Timer#stop)
 - [toString](../wiki/Timer#tostring)
@@ -80,15 +78,15 @@ Create a timer
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `name` | `string` | `undefined` | The name of the timer |
-| `timingInterval` | `number` | `undefined` | - |
-| `callbacks` | `Function`[] | `[]` | - |
+| `timingInterval` | `number` | `undefined` | The time between each loop on this timer |
+| `callbacks` | `Function` \| `Function`[] | `[]` | The callback/s to be called on each loop completion |
 | `startOnCreation` | `boolean` | `true` | Determines if this timer should start running after creation |
 | `timerRunTime` | `number` | `Number.MAX_SAFE_INTEGER` | The total time for this timer to run |
-| `offsetType` | [`TimerOffsetType`](../wiki/TimerOffsetType) | `TimerOffsetType.NoOffset` | Determines if a timer should apply an offset to loop timing and skip offsets if they are too large |
+| `offsetType` | [`TimerOffsetType`](../wiki/TimerOffsetType) | `TimerOffsetType.NoOffset` | Determines if a timer should apply an offset to loop timing to correct browser time discrepencies and skip offsets if they are too large |
 
 #### Defined in
 
-Timers/Timer.ts:180
+Timers/Timer.ts:170
 
 ## Properties
 
@@ -108,17 +106,7 @@ ___
 
 #### Defined in
 
-Timers/Timer.ts:166
-
-___
-
-### \_intervalOffset
-
-• `Protected` **\_intervalOffset**: `number` = `-1`
-
-#### Defined in
-
-Timers/Timer.ts:155
+Timers/Timer.ts:156
 
 ___
 
@@ -132,9 +120,9 @@ Timers/Timer.ts:133
 
 ___
 
-### \_lastTickDate
+### \_lastTickTime
 
-• `Protected` **\_lastTickDate**: `number` = `-1`
+• `Protected` **\_lastTickTime**: `number` = `-1`
 
 #### Defined in
 
@@ -282,37 +270,7 @@ ___
 
 #### Defined in
 
-Timers/Timer.ts:167
-
-___
-
-### intervalOffset
-
-• `get` **intervalOffset**(): `number`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-Timers/Timer.ts:156
-
-• `set` **intervalOffset**(`interval`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `interval` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-Timers/Timer.ts:160
+Timers/Timer.ts:157
 
 ___
 
@@ -346,9 +304,9 @@ Timers/Timer.ts:138
 
 ___
 
-### lastTickDate
+### lastTickTime
 
-• `get` **lastTickDate**(): `number`
+• `get` **lastTickTime**(): `number`
 
 #### Returns
 
@@ -358,13 +316,13 @@ ___
 
 Timers/Timer.ts:90
 
-• `set` **lastTickDate**(`date`): `void`
+• `set` **lastTickTime**(`time`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `date` | `number` |
+| `time` | `number` |
 
 #### Returns
 
@@ -688,7 +646,7 @@ Handle the destruction of this timer
 
 #### Defined in
 
-Timers/Timer.ts:345
+Timers/Timer.ts:335
 
 ___
 
@@ -704,7 +662,7 @@ Test if this Timer is currently pause
 
 #### Defined in
 
-Timers/Timer.ts:279
+Timers/Timer.ts:269
 
 ___
 
@@ -720,7 +678,7 @@ Handle the looping/countdown calculation of this timer
 
 #### Defined in
 
-Timers/Timer.ts:286
+Timers/Timer.ts:276
 
 ___
 
@@ -736,7 +694,7 @@ Pause this Timer
 
 #### Defined in
 
-Timers/Timer.ts:255
+Timers/Timer.ts:245
 
 ___
 
@@ -752,7 +710,7 @@ Restart this Timer
 
 #### Defined in
 
-Timers/Timer.ts:247
+Timers/Timer.ts:237
 
 ___
 
@@ -768,13 +726,13 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:265
+Timers/Timer.ts:255
 
 ___
 
-### runLoop
+### scheduleLoop
 
-▸ `Protected` **runLoop**(): `void`
+▸ `Protected` **scheduleLoop**(): `void`
 
 Handle the looping of this timer
 
@@ -784,7 +742,7 @@ Handle the looping of this timer
 
 #### Defined in
 
-Timers/Timer.ts:328
+Timers/Timer.ts:318
 
 ___
 
@@ -800,7 +758,7 @@ Start this Timer
 
 #### Defined in
 
-Timers/Timer.ts:227
+Timers/Timer.ts:217
 
 ___
 
@@ -816,7 +774,7 @@ Stop this Timer
 
 #### Defined in
 
-Timers/Timer.ts:237
+Timers/Timer.ts:227
 
 ___
 
@@ -832,7 +790,7 @@ Returns the class type of this object
 
 #### Defined in
 
-Timers/Timer.ts:213
+Timers/Timer.ts:203
 
 ___
 
@@ -848,7 +806,7 @@ Resume this Timer
 
 #### Defined in
 
-Timers/Timer.ts:272
+Timers/Timer.ts:262
 
 ___
 
@@ -864,4 +822,4 @@ Returns the type of this class
 
 #### Defined in
 
-Timers/Timer.ts:220
+Timers/Timer.ts:210

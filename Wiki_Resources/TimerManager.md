@@ -24,6 +24,7 @@ Class representing any utility functions or variables that help Timers.
 
 - [Time](../wiki/TimerManager#time)
 - [addTimer](../wiki/TimerManager#addtimer)
+- [destroyTimer](../wiki/TimerManager#destroytimer)
 - [getTimer](../wiki/TimerManager#gettimer)
 - [getTimerFromID](../wiki/TimerManager#gettimerfromid)
 - [removeTimer](../wiki/TimerManager#removetimer)
@@ -49,7 +50,7 @@ Timers/TimerManager.ts:18
 
 #### Defined in
 
-Timers/TimerManager.ts:33
+Timers/TimerManager.ts:31
 
 ___
 
@@ -59,7 +60,7 @@ ___
 
 #### Defined in
 
-Timers/TimerManager.ts:26
+Timers/TimerManager.ts:24
 
 ___
 
@@ -83,7 +84,7 @@ Timers/TimerManager.ts:10
 
 #### Defined in
 
-Timers/TimerManager.ts:34
+Timers/TimerManager.ts:32
 
 ___
 
@@ -97,7 +98,7 @@ ___
 
 #### Defined in
 
-Timers/TimerManager.ts:27
+Timers/TimerManager.ts:25
 
 ___
 
@@ -127,7 +128,7 @@ Return the current time in milliseconds
 
 #### Defined in
 
-Timers/TimerManager.ts:43
+Timers/TimerManager.ts:40
 
 ___
 
@@ -149,7 +150,29 @@ Adds a timer to a singleton map and update references
 
 #### Defined in
 
-Timers/TimerManager.ts:79
+Timers/TimerManager.ts:75
+
+___
+
+### destroyTimer
+
+▸ `Static` **destroyTimer**(`timer`): `void`
+
+Destrpy a timer from a singleton map and update references
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `timer` | [`Timer`](../wiki/Timer) | The Timer to remove |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+Timers/TimerManager.ts:91
 
 ___
 
@@ -171,7 +194,7 @@ Searches for and returns a timer with a name parameter
 
 #### Defined in
 
-Timers/TimerManager.ts:52
+Timers/TimerManager.ts:49
 
 ___
 
@@ -193,7 +216,7 @@ Searches for and returns a timer with a id parameter
 
 #### Defined in
 
-Timers/TimerManager.ts:61
+Timers/TimerManager.ts:58
 
 ___
 
@@ -215,7 +238,7 @@ Remove a timer from a singleton map and update references
 
 #### Defined in
 
-Timers/TimerManager.ts:87
+Timers/TimerManager.ts:83
 
 ___
 
@@ -237,4 +260,4 @@ Searches for and returns if a timer already exists with a name
 
 #### Defined in
 
-Timers/TimerManager.ts:70
+Timers/TimerManager.ts:67
