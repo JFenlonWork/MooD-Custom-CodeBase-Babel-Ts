@@ -86,14 +86,14 @@ export class Timer {
     }
 
     //** The last time this timer has completed a loop*/
-    protected _lastTickDate: number = -1;
-    public get lastTickDate(): number {
-        return this._lastTickDate;
+    protected _lastTickTime: number = -1;
+    public get lastTickTime(): number {
+        return this._lastTickTime;
     }
 
-    private set lastTickDate(date: number) {
-        if (typeof (date) != "number") { console.error("Trying to set a Timer's last tick date with an invalid input: ", date); return; }
-        this._lastTickDate = date;
+    private set lastTickTime(time: number) {
+        if (typeof (time) != "number") { console.error("Trying to set a Timer's last tick time with an invalid input: ", time); return; }
+        this._lastTickTime = time;
     }
 
     //** The miliseconds left of this timer*/
@@ -151,16 +151,6 @@ export class Timer {
         this._offsetType = type;
     }
 
-    //** Calculate the difference between loop time and actual time*/
-    protected _intervalOffset: number = -1;
-    public get intervalOffset(): number {
-        return this._intervalOffset;
-    }
-
-    private set intervalOffset(interval: number) {
-        if (typeof (interval) != "number") { console.error("Trying to set a Timer's offset value with an invalid input: ", interval); return; }
-        this._intervalOffset = interval;
-    }
 
     //** Handles any custom events required by this Timer*/
     private _events: PubSub = new PubSub();
@@ -171,13 +161,13 @@ export class Timer {
     /**
      * Create a timer
      * @param  {string} name - The name of the timer
-     * @param  {number} timerInterval - The time between each loop on this timer
+     * @param  {number} timingInterval - The time between each loop on this timer
+     * @param  {Function | Function[]} callbacks - The callback/s to be called on each loop completion
      * @param  {boolean} startOnCreation - Determines if this timer should start running after creation
      * @param  {number} timerRunTime - The total time for this timer to run 
-     * @param  {boolean} enableOffset - Determines if a timers loop should change based on browser time discrepancies
-     * @param  {TimerOffsetType} offsetType - Determines if a timer should apply an offset to loop timing and skip offsets if they are too large
+     * @param  {TimerOffsetType} offsetType - Determines if a timer should apply an offset to loop timing to correct browser time discrepencies and skip offsets if they are too large
      */
-    constructor(name: string, timingInterval: number, callbacks: Function[] = [], startOnCreation: boolean = true, timerRunTime: number = Number.MAX_SAFE_INTEGER, offsetType: TimerOffsetType = TimerOffsetType.NoOffset) {
+    constructor(name: string, timingInterval: number, callbacks: Function | Function[] = [], startOnCreation: boolean = true, timerRunTime: number = Number.MAX_SAFE_INTEGER, offsetType: TimerOffsetType = TimerOffsetType.NoOffset) {
         if (typeof name != "string" || name == "") { console.error("Trying to create a timer without a valid name: ", name); return; }
         if (typeof timingInterval != "number" || timingInterval < 0) { console.error("Trying to create a timer without a valid timing interval: ", timingInterval); return; }
         if (typeof startOnCreation != "boolean" || startOnCreation == null) { console.error("Trying to create a timer without a valid start on creation: ", startOnCreation); return; }
@@ -227,7 +217,7 @@ export class Timer {
     public start() {
         if (this.timingInterval == -1) { console.error("Trying to start a timer with an invalid timing interval: ", this.timingInterval); return; }
         this.running = true;
-        this.lastTickDate = TimerManager.Time();
+        this.lastTickTime = TimerManager.Time();
         this.loop();
     }
 
@@ -294,9 +284,9 @@ export class Timer {
 
         const time = TimerManager.Time();
 
-        this.lastTickDate = time;
-        this.ticksElapsed += time - this.lastTickDate;
-        this.ticksRemaining -= time - this.lastTickDate;
+        this.lastTickTime = time;
+        this.ticksElapsed += time - this.lastTickTime;
+        this.ticksRemaining -= time - this.lastTickTime;
 
         if (this.offsetType != TimerOffsetType.NoOffset &&
             this.currentTimingInterval == this.timingInterval) {
@@ -307,25 +297,25 @@ export class Timer {
 
             if (this.offsetType == TimerOffsetType.OffsetIncludeSkipOffset) {
 
-                const lastUpdateRounded = Math.round((this.lastTickDate - this.startTime) / this.timingInterval) * this.timingInterval;
+                const lastUpdateRounded = Math.round((this.lastTickTime - this.startTime) / this.timingInterval) * this.timingInterval;
                 for (let i = lastUpdateRounded; i < roundedElapsed; i++) {
                     this.events.publish("loopCompletion");
                 }
 
             }
 
-            this.timeout = window.setTimeout(function (this: Timer) { this.runLoop(); }.bind(this), delay);
+            this.timeout = window.setTimeout(function (this: Timer) { requestAnimationFrame(this.scheduleLoop.bind(this)); }.bind(this), delay);
             return;
 
         }
 
-        this.timeout = window.setTimeout(function (this: Timer) { this.runLoop(); }.bind(this), this.currentTimingInterval);
+        this.timeout = window.setTimeout(function (this: Timer) { this.scheduleLoop(); }.bind(this), this.currentTimingInterval);
     }
 
     /**
      * Handle the looping of this timer
      */
-    protected runLoop() {
+    protected scheduleLoop() {
         this.events.publish("loopCompletion");
 
         this.lastCompletion = TimerManager.Time();
