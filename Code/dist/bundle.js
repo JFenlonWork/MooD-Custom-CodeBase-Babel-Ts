@@ -3127,19 +3127,34 @@ var CompareTypes = /*#__PURE__*/function () {
     key: "arrayTypesCompare",
     value: function arrayTypesCompare(aArray, bArray) {
       var aTypes = CompareTypes.arrayTypeSet(aArray);
+      var bTypes = CompareTypes.arrayTypeSet(bArray);
 
-      var _iterator3 = _createForOfIteratorHelper(bArray),
+      var _iterator3 = _createForOfIteratorHelper(aArray),
           _step3;
 
       try {
         for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-          var b = _step3.value;
-          if (!aTypes.has(CompareTypes.type(b))) return false;
+          var a = _step3.value;
+          if (!bTypes.has(CompareTypes.type(a))) return false;
         }
       } catch (err) {
         _iterator3.e(err);
       } finally {
         _iterator3.f();
+      }
+
+      var _iterator4 = _createForOfIteratorHelper(bArray),
+          _step4;
+
+      try {
+        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+          var b = _step4.value;
+          if (!aTypes.has(CompareTypes.type(b))) return false;
+        }
+      } catch (err) {
+        _iterator4.e(err);
+      } finally {
+        _iterator4.f();
       }
 
       return true;
